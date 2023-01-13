@@ -1,0 +1,49 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Questionnaire_Frontend
+build_property.RootNamespace = Questionnaire_Frontend
+build_property.ProjectDir = C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Software_Questionnaire_Frontend_temp\Questionnaire-Frontend\Questionnaire-Frontend\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Software_Questionnaire_Frontend_temp\Questionnaire-Frontend\Questionnaire-Frontend
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/anwerquestions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYW53ZXJxdWVzdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/anwerquestionsextended.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYW53ZXJxdWVzdGlvbnNleHRlbmRlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/mainwindow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFpbndpbmRvdy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/start.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/start_c_1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc3RhcnRfY18xLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/start_with_pages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc3RhcnRfd2l0aF9wYWdlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/updatesecuritycheck.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdXBkYXRlc2VjdXJpdHljaGVjay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
