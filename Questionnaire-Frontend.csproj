@@ -150,6 +150,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Shared\_Layout.cshtml" />
+    <None Include="Pages\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="wwwroot\data\document.js" />
     <None Include="wwwroot\data\styles.css" />
     <None Include="wwwroot\files\answerquestions\data.js" />
@@ -385,12 +387,6 @@
     <None Include="wwwroot\resources\scripts\player\axplayer.js" />
     <None Include="wwwroot\resources\scripts\player\init.js" />
     <None Include="wwwroot\resources\scripts\player\splitter.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Pages\anwerquestions.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>

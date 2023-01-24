@@ -1,11 +1,13 @@
 ﻿@page
-@model Questionnaire_Frontend.Pages.IndexModel
+@model IndexModel
 @{
+    ViewData["Title"] = "Home page";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Index</title>
+    <title>MainWindow</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet" />
@@ -44,11 +46,10 @@
     <script src="data/document.js"></script>
     <script src="files/mainwindow/data.js"></script>
     <script type="text/javascript">
-        $axure.utils.getTransparentGifPath = function () { return 'resources/images/transparent.gif'; };
-        $axure.utils.getOtherPath = function () { return 'resources/Other.html'; };
-        $axure.utils.getReloadPath = function () { return 'resources/reload.html'; };
+        $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+        $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+        $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
     </script>
-
 </head>
 <body>
     <div id="base" class="">
@@ -57,7 +58,7 @@
         <div id="u0" class="ax_default button">
             <div id="u0_div" class=""></div>
             <div id="u0_text" class="text ">
-                <p><span>Show Existing Data</span></p>
+                <a asp-page-handler="RedirectShowExistingData"Show Existing Data>Show Existing Data</a>
             </div>
         </div>
 
@@ -86,15 +87,14 @@
             </div>
         </div>
 
-        
         <!-- Unnamed (Image) -->
         <div id="u4" class="ax_default image">
-            <img id="u4_img" class="img " src="~/images/mainwindow/u4.png" />
-            
+            <img id="u4_img" class="img " src="images/mainwindow/u4.png" />
             <div id="u4_text" class="text " style="display:none; visibility: hidden">
                 <p></p>
             </div>
         </div>
+        
     </div>
     <script src="resources/scripts/axure/ios.js"></script>
 </body>

@@ -9,41 +9,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Questionnaire_Frontend
 build_property.RootNamespace = Questionnaire_Frontend
-build_property.ProjectDir = C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Software_Questionnaire_Frontend_temp\Questionnaire-Frontend\Questionnaire-Frontend\
+build_property.ProjectDir = C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\GitFrontend\Infotech\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Software_Questionnaire_Frontend_temp\Questionnaire-Frontend\Questionnaire-Frontend
+build_property.MSBuildProjectDirectory = C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\GitFrontend\Infotech
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/anwerquestions.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYW53ZXJxdWVzdGlvbnMuY3NodG1s
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/AnswerQuestions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5zd2VyUXVlc3Rpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/anwerquestionsextended.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYW53ZXJxdWVzdGlvbnNleHRlbmRlZC5jc2h0bWw=
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/Index.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/mainwindow.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFpbndpbmRvdy5jc2h0bWw=
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/start.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc3RhcnQuY3NodG1s
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/start_c_1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc3RhcnRfY18xLmNzaHRtbA==
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/UpdateSecurityCheck.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlU2VjdXJpdHlDaGVjay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/start_with_pages.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc3RhcnRfd2l0aF9wYWdlcy5jc2h0bWw=
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Software_Questionnaire_Frontend_temp/Questionnaire-Frontend/Questionnaire-Frontend/Pages/updatesecuritycheck.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdXBkYXRlc2VjdXJpdHljaGVjay5jc2h0bWw=
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/GitFrontend/Infotech/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-e2pvqd0u6f

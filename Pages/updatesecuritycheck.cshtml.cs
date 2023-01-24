@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Questionnaire_Frontend.Pages
+namespace temp.Pages
 {
-    public class updatesecuritycheckModel : PageModel
+    public class UpdateSecurityCheckModel : PageModel
     {
         public void OnGet()
         {

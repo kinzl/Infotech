@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Software_Questionnaire_Frontend_temp\\Questionnaire-Frontend\\Questionnaire-Frontend\\Questionnaire-Frontend.csproj",
+      "projectUniqueName": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\GitFrontend\\Infotech\\Questionnaire-Frontend.csproj",
       "projectName": "Questionnaire-Frontend",
-      "projectPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Software_Questionnaire_Frontend_temp\\Questionnaire-Frontend\\Questionnaire-Frontend\\Questionnaire-Frontend.csproj",
+      "projectPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\GitFrontend\\Infotech\\Questionnaire-Frontend.csproj",
       "packagesPath": "C:\\Users\\kinzl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Software_Questionnaire_Frontend_temp\\Questionnaire-Frontend\\Questionnaire-Frontend\\obj\\",
+      "outputPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\GitFrontend\\Infotech\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
