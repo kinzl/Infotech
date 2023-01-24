@@ -9,9 +9,14 @@ namespace temp.Pages
         {
         }
 
-        public void OnGetUpdateSecurityCheck()
+        public void OnGetRedirectToUpdateSecurityCheck()
         {
             Response.Redirect("UpdateSecurityCheck");
+        }
+
+        public void OnGetRedirectToAnwerQuestionsExtended()
+        {
+            Response.Redirect("AnswerQuestionsExtended");
         }
     }
 }
