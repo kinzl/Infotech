@@ -1,22 +1,26 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace temp.Pages
+namespace Questionnaire_Frontend.Pages;
+
+public class AnwerQuestionsModel : PageModel
 {
-    public class AnwerQuestionsModel : PageModel
+    private List<int> rbList = new List<int>()
     {
-        public void OnGet()
-        {
-        }
+        1, 2, 3, 4
+    };
 
-        public void OnGetRedirectToUpdateSecurityCheck()
-        {
-            Response.Redirect("UpdateSecurityCheck");
-        }
+    public void OnGet()
+    {
+    }
 
-        public void OnGetRedirectToAnwerQuestionsExtended()
-        {
-            Response.Redirect("AnswerQuestionsExtended");
-        }
+    public void OnGetRedirectToUpdateSecurityCheck()
+    {
+        Response.Redirect("UpdateSecurityCheck");
+    }
+
+    public void OnGetRedirectToAnswerQuestionsExtended()
+    {
+        Response.Redirect("AnswerQuestionsExtended");
     }
 }

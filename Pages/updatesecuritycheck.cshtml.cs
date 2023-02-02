@@ -1,12 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace temp.Pages
+namespace Questionnaire_Frontend.Pages;
+
+public class UpdateSecurityCheck : PageModel
 {
-    public class UpdateSecurityCheckModel : PageModel
+    public void OnGet()
     {
-        public void OnGet()
-        {
-        }
+        
     }
 }

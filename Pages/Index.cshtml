@@ -1,5 +1,5 @@
 ﻿@page
-@model IndexModel
+@model Questionnaire_Frontend.Pages.IndexModel;
 @{
     ViewData["Title"] = "Home page";
 }
@@ -7,12 +7,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <title>MainWindow</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet" />
-    <link href="data/styles.css" type="text/css" rel="stylesheet" />
-    <link href="files/mainwindow/styles.css" type="text/css" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/mainwindow/styles.css" type="text/css" rel="stylesheet"/>
     <script src="resources/scripts/jquery-3.2.1.min.js"></script>
     <script src="resources/scripts/axure/axQuery.js"></script>
     <script src="resources/scripts/axure/globals.js"></script>
@@ -52,50 +53,55 @@
     </script>
 </head>
 <body>
-    <div id="base" class="">
+<div id="base" class="">
+    
+    
+    @* <button id="u0"> *@
+    @*     <a asp-page-handler="RedirectShowExistingData" id="u0_div" >Show Existing Data</a> *@
+    @* </button> *@
 
-        <!-- Unnamed (Rectangle) -->
-        <div id="u0" class="ax_default button">
-            <div id="u0_div" class=""></div>
-            <div id="u0_text" class="text ">
-                <a asp-page-handler="RedirectShowExistingData"Show Existing Data>Show Existing Data</a>
-            </div>
+    <!-- Unnamed (Rectangle) -->
+    <div id="u0" class="ax_default button">
+        <div id="u0_div" class=""></div>
+        <div id="u0_text" class="text ">
+            <a asp-page-handler="RedirectShowExistingData"Show Existing Data>Show Existing Data</a>
         </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u1" class="ax_default button">
-            <div id="u1_div" class=""></div>
-            <div id="u1_text" class="text ">
-                <p><span>Create new Security Check</span></p>
-            </div>
-        </div>
-
-        <!-- Unnamed (List Box) -->
-        <div id="u2" class="ax_default list_box">
-            <div id="u2_div" class=""></div>
-            <select id="u2_input" size="2" class="u2_input">
-                <option class="u2_input_option" value="Company 1 | Date | Security Check Type | Zustand">Company 1 | Date | Security Check Type | Zustand</option>
-                <option class="u2_input_option" value="Company 2 | Date | Security Check Type | Zustand">Company 2 | Date | Security Check Type | Zustand</option>
-            </select>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u3" class="ax_default button ax_default_hidden" style="display:none; visibility: hidden">
-            <div id="u3_div" class=""></div>
-            <div id="u3_text" class="text ">
-                <p><span>Open Selected Security Check</span></p>
-            </div>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u4" class="ax_default image">
-            <img id="u4_img" class="img " src="images/mainwindow/u4.png" />
-            <div id="u4_text" class="text " style="display:none; visibility: hidden">
-                <p></p>
-            </div>
-        </div>
-        
     </div>
+
+    <!-- Unnamed (Rectangle) -->
+    <div id="u1" class="ax_default button">
+        <div id="u1_div" class=""></div>
+        <div id="u1_text" class="text ">
+            <p><span>Create new Security Check</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (List Box) -->
+    <div id="u2" class="ax_default list_box">
+        <div id="u2_div" class=""></div>
+        <select id="u2_input" size="2" class="u2_input">
+            <option class="u2_input_option" value="Company 1 | Date | Security Check Type | Zustand">Company 1 | Date | Security Check Type | Zustand</option>
+            <option class="u2_input_option" value="Company 2 | Date | Security Check Type | Zustand">Company 2 | Date | Security Check Type | Zustand</option>
+        </select>
+    </div>
+
+    <!-- Unnamed (Rectangle) -->
+    <div id="u3" class="ax_default button ax_default_hidden" style="visibility: hidden">
+        <div id="u3_div" class=""></div>
+        <div id="u3_text" class="text ">
+            <p><span>Open Selected Security Check</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (Image) -->
+    <div id="u4" class="ax_default image">
+        <img id="u4_img" class="img " src="images/mainwindow/u4.png"/>
+        <div id="u4_text" class="text " style="display:none; visibility: hidden">
+            <p></p>
+        </div>
+    </div>
+
+</div>
     <script src="resources/scripts/axure/ios.js"></script>
 </body>
 </html>
