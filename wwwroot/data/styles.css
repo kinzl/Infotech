@@ -82,6 +82,40 @@
 }
 .checkbox {
   text-align:left;
+  /*u22*/
+  border-width:0px;
+  position:absolute;
+  left:236px;
+  top:465px;
+  width:989px;
+  height:18px;
+  display:flex;
+  font-family:"Roboto", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+/*  u22 .text*/
+  position:absolute;
+  align-self:flex-start;
+  padding:0px 2px 0px 10px;
+  box-sizing:border-box;
+/* u22_text */
+  border-width:0px;
+  position:absolute;
+  left:18px;
+  top:0px;
+  width:959px;
+  word-wrap:break-word;
+  text-transform:none;
+/*  u22_input*/
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+  opacity:0;
+  
 }
 .radio_button {
   text-align:left;
@@ -105,9 +139,6 @@
 .box_1 {
 }
 .box_3 {
-}
-.checkbox1 {
-  text-align:left;
 }
 .icon {
 }

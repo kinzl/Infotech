@@ -13,11 +13,11 @@
   border-color:transparent;
   background-color:transparent;
 }
-#base {
-  position:relative;
-  /*display: block;*/
-  z-index:0;
-}
+/*#base {*/
+/*  position:relative;*/
+/*  !*display: block;*!*/
+/*  z-index:0;*/
+/*}*/
 #u0_div {
   border-width:0px;
   /*position:absolute;*/

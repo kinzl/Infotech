@@ -13,7 +13,7 @@
   background-color:transparent;
 }
 #base {
-  position:absolute;
+  position:relative;
   z-index:0;
 }
 #u5_input {
@@ -951,151 +951,55 @@
   text-transform:none;
   visibility:hidden;
 }
-#u22 label {
-  left:0px;
-  width:100%;
-}
-#u22_img {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:18px;
-  height:18px;
-}
-#u22 {
-  border-width:0px;
-  position:absolute;
-  left:236px;
-  top:465px;
-  width:989px;
-  height:18px;
-  display:flex;
-  font-family:"Roboto", sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:14px;
-}
-#u22 .text {
-  position:absolute;
-  align-self:flex-start;
-  padding:0px 2px 0px 10px;
-  box-sizing:border-box;
-}
-#u22_img.selected {
-}
-#u22.selected {
-}
-#u22_img.selected.error {
-}
-#u22.selected.error {
-}
-#u22_img.selected.hint {
-}
-#u22.selected.hint {
-}
-#u22_img.selected.error.hint {
-}
-#u22.selected.error.hint {
-}
-#u22_img.mouseOver.selected {
-}
-#u22.mouseOver.selected {
-}
-#u22_img.mouseOver.selected.error {
-}
-#u22.mouseOver.selected.error {
-}
-#u22_img.mouseOver.selected.hint {
-}
-#u22.mouseOver.selected.hint {
-}
-#u22_img.mouseOver.selected.error.hint {
-}
-#u22.mouseOver.selected.error.hint {
-}
-#u22_img.mouseDown.selected {
-}
-#u22.mouseDown.selected {
-}
-#u22_img.mouseDown.selected.error {
-}
-#u22.mouseDown.selected.error {
-}
-#u22_img.mouseDown.selected.hint {
-}
-#u22.mouseDown.selected.hint {
-}
-#u22_img.mouseDown.selected.error.hint {
-}
-#u22.mouseDown.selected.error.hint {
-}
-#u22_img.mouseOver.mouseDown.selected {
-}
-#u22.mouseOver.mouseDown.selected {
-}
-#u22_img.mouseOver.mouseDown.selected.error {
-}
-#u22.mouseOver.mouseDown.selected.error {
-}
-#u22_img.mouseOver.mouseDown.selected.hint {
-}
-#u22.mouseOver.mouseDown.selected.hint {
-}
-#u22_img.mouseOver.mouseDown.selected.error.hint {
-}
-#u22.mouseOver.mouseDown.selected.error.hint {
-}
-#u22_img.focused.selected {
-}
-#u22.focused.selected {
-}
-#u22_img.focused.selected.error {
-}
-#u22.focused.selected.error {
-}
-#u22_img.focused.selected.hint {
-}
-#u22.focused.selected.hint {
-}
-#u22_img.focused.selected.error.hint {
-}
-#u22.focused.selected.error.hint {
-}
-#u22_img.selected.disabled {
-}
-#u22.selected.disabled {
-}
-#u22_img.selected.hint.disabled {
-}
-#u22.selected.hint.disabled {
-}
-#u22_img.selected.error.disabled {
-}
-#u22.selected.error.disabled {
-}
-#u22_img.selected.error.hint.disabled {
-}
-#u22.selected.error.hint.disabled {
-}
-#u22_text {
-  border-width:0px;
-  position:absolute;
-  left:18px;
-  top:0px;
-  width:959px;
-  word-wrap:break-word;
-  text-transform:none;
-}
-#u22_input {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:0px;
-  height:0px;
-  opacity:0;
-}
+/*#u22 label {*/
+/*  left:0px;*/
+/*  width:100%;*/
+/*}*/
+/*#u22_img {*/
+/*  border-width:0px;*/
+/*  position:absolute;*/
+/*  left:0px;*/
+/*  top:0px;*/
+/*  width:18px;*/
+/*  height:18px;*/
+/*}*/
+/*#u22 {*/
+/*  border-width:0px;*/
+/*  position:absolute;*/
+/*  left:236px;*/
+/*  top:465px;*/
+/*  width:989px;*/
+/*  height:18px;*/
+/*  display:flex;*/
+/*  font-family:"Roboto", sans-serif;*/
+/*  font-weight:400;*/
+/*  font-style:normal;*/
+/*  font-size:14px;*/
+/*}*/
+/*#u22 .text {*/
+/*  position:absolute;*/
+/*  align-self:flex-start;*/
+/*  padding:0px 2px 0px 10px;*/
+/*  box-sizing:border-box;*/
+/*}*/
+/*#u22_text {*/
+/*  border-width:0px;*/
+/*  position:absolute;*/
+/*  left:18px;*/
+/*  top:0px;*/
+/*  width:959px;*/
+/*  word-wrap:break-word;*/
+/*  text-transform:none;*/
+/*}*/
+/*#u22_input {*/
+/*  border-width:0px;*/
+/*  position:absolute;*/
+/*  left:0px;*/
+/*  top:0px;*/
+/*  width:0px;*/
+/*  height:0px;*/
+/*  opacity:0;*/
+/*}*/
 #u23 {
   border-width:0px;
   position:absolute;
@@ -3187,6 +3091,43 @@
   text-transform:none;
 }
 #u54_input {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+  opacity:0;
+}
+
+.myRadBut{
+  text-align:left;
+  /*u22*/
+  border-width:0px;
+  position:absolute;
+  left:236px;
+  top:465px;
+  width:989px;
+  height:18px;
+  display:flex;
+  font-family:"Roboto", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  /*  u22 .text*/
+  position:absolute;
+  align-self:flex-start;
+  padding:0px 2px 0px 10px;
+  box-sizing:border-box;
+  /* u22_text */
+  border-width:0px;
+  position:absolute;
+  left:18px;
+  top:0px;
+  width:959px;
+  word-wrap:break-word;
+  text-transform:none;
+  /*  u22_input*/
   border-width:0px;
   position:absolute;
   left:0px;

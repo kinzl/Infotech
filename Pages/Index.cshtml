@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+
     <title>MainWindow</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -54,8 +54,8 @@
 </head>
 <body>
 <div id="base" class="">
-    
-    
+
+
     @* <button id="u0"> *@
     @*     <a asp-page-handler="RedirectShowExistingData" id="u0_div" >Show Existing Data</a> *@
     @* </button> *@
@@ -72,7 +72,7 @@
     <div id="u1" class="ax_default button">
         <div id="u1_div" class=""></div>
         <div id="u1_text" class="text ">
-            <p><span>Create new Security Check</span></p>
+            <a asp-page-handler="RedirectShowExistingData">Create new Security Check</a>
         </div>
     </div>
 
@@ -89,7 +89,9 @@
     <div id="u3" class="ax_default button ax_default_hidden" style="visibility: hidden">
         <div id="u3_div" class=""></div>
         <div id="u3_text" class="text ">
-            <p><span>Open Selected Security Check</span></p>
+            <p>
+                <span>Open Selected Security Check</span>
+            </p>
         </div>
     </div>
 
@@ -101,7 +103,22 @@
         </div>
     </div>
 
+    <form id="form1" runat="server">
+        <div>
+            
+            @* @foreach (var value in @Model.list) *@
+            @* { *@
+            @*     <label>@value</label> *@
+            @* } *@
+            
+        </div>
+        <div>
+            <asp:Button ID="BTNSubmit" runat="server" Text="Submit"
+                onclick="BTNSubmit_Click" />
+        </div>
+        </form>
+
 </div>
-    <script src="resources/scripts/axure/ios.js"></script>
+<script src="resources/scripts/axure/ios.js"></script>
 </body>
 </html>

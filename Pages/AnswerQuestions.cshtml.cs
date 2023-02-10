@@ -5,9 +5,9 @@ namespace Questionnaire_Frontend.Pages;
 
 public class AnwerQuestionsModel : PageModel
 {
-    private List<int> rbList = new List<int>()
+    private List<string> rbList = new()
     {
-        1, 2, 3, 4
+        "n.A.", "1", "2", "3"
     };
 
     public void OnGet()
