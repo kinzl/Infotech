@@ -1,4 +1,5 @@
-﻿@page
+﻿@* Strg + Shift + R reload browser data*@
+@page
 @model Questionnaire_Frontend.Pages.AnwerQuestionsModel;
 @{
 }
@@ -12,19 +13,20 @@
 <body>
 <div id="base">
     <!-- Unnamed (Text Area) -->
-    <div id="u5" class="ax_default text_area">
-        <div id="u5_div" class=""></div>
-        <textarea id="u5_input" class="u5_input"></textarea>
-    </div>
+    @* <div id="u5" class="ax_default text_area"> *@
+    @*     <div id="u5_div" class=""></div> *@
+    @*     <textarea id="u5_input" class="u5_input"></textarea> *@
+    @* </div> *@
+
+
+    @* <div id="myAreaGroup" class="form-group myTextAreaInput"> *@
+    @*     <textarea class="form-control myTextAreaInput" id="exampleFormControlTextarea1" rows="3"></textarea> *@
+    @* </div> *@
+
 
     <!-- Unnamed (Rectangle) -->
-    <div id="u6" class="ax_default label">
-        <div id="u6_div" class=""></div>
-        <div id="u6_text" class="text ">
-            <p>
-                <span>Question 1</span>
-            </p>
-        </div>
+    <div class="questionText ">
+        <span>Question 1</span>
     </div>
 
     <!-- Unnamed (Shape) -->
@@ -81,25 +83,17 @@
         </div>
     </div>
 
-    <!-- Unnamed (Rectangle) -->
-    <div id="u13" class="ax_default label">
-        <div id="u13_div" class=""></div>
-        <div id="u13_text" class="text ">
-            <p>
-                <span>Criticality</span>
-            </p>
-        </div>
-    </div>
+    
 
     <!-- Unnamed (Rectangle) -->
-    <div id="u14" class="ax_default label">
-        <div id="u14_div" class=""></div>
-        <div id="u14_text" class="text ">
-            <p>
-                <span>Criticality</span>
-            </p>
-        </div>
-    </div>
+    @* <div id="u14" class="ax_default label"> *@
+    @*     <div id="u14_div" class=""></div> *@
+    @*     <div id="u14_text" class="text "> *@
+    @*         <p> *@
+    @*             <span>Criticality</span> *@
+    @*         </p> *@
+    @*     </div> *@
+    @* </div> *@
 
     <!-- Save Button -->
     <div id="u15" class="ax_default button">
@@ -119,33 +113,31 @@
         </div>
     </div>
 
-
-    <!-- Radio Button Group (Styled) (Group) -->
-
-    @* <div id="radioButtonContainer1" class="radio_button_group"></div> *@
-    @* <div id="radioButtonContainer2" class="radio_button_group" style="margin-top: 500px;"></div> *@
-    @* <div id="radioButtonContainer3" class="radio_button_group" style="margin-top: 1000px;"></div> *@
-    @* <div id="radioButtonContainer4" class="radio_button_group" style="margin-top: 1500px;"></div> *@
-
     <script>
-    var numberOfGeneratedDiv = 8;
-    var numberOfRadioButtons = 5;
+    let numberOfGeneratedDiv = 8;
+    let numberOfRadioButtons = 5;
     
-    for(var j = 0; j < numberOfGeneratedDiv; j++) {
-              var div = document.createElement("div");
+    
+    for(let j = 0; j < numberOfGeneratedDiv; j++) {
+        //Div Tags
+              let div = document.createElement("div");
               div.id = "radioButtonContainer" + j;
               div.className = "radio_button_group";
-              var marginTopVal = (j*500);
+              
+              let marginTopVal = (j*500);
               div.style.marginTop = marginTopVal+"px";
-              // div.innerHTML = "This is div" + (j);
               document.body.appendChild(div);
-       }
-
-      
-      for(var j = 0; j < numberOfGeneratedDiv; j++) {
-        
-      for (var i = 0; i < numberOfRadioButtons; i++) {
-        var radioButton1 = document.createElement("input");
+              
+              //Criticality text area
+                      let criticality = document.createElement("label");
+                      criticality.id = "criticality" + j;
+                      criticality.className = "criticality";
+                      criticality.innerText = "AnyCriticalText";
+                      document.getElementById("radioButtonContainer"+j).appendChild(criticality);
+              
+  //Radio buttons
+      for (let i = 0; i < numberOfRadioButtons; i++) {
+        let radioButton1 = document.createElement("input");
         radioButton1.type = "radio";
         radioButton1.name = "radioGroup"+j;
         if (i === 0) {
@@ -156,7 +148,7 @@
         
         radioButton1.id = "radioButton" +(j+1) + (i + 1);
         
-        var label1 = document.createElement("label");
+        let label1 = document.createElement("label");
         label1.htmlFor = radioButton1.id;
         label1.innerHTML = radioButton1.value;
         
@@ -164,79 +156,33 @@
         document.getElementById("radioButtonContainer"+j).appendChild(label1);
         document.getElementById("radioButtonContainer"+j).appendChild(document.createElement("br"));
         
-        // var radioButton2 = document.createElement("input");
-        // radioButton2.type = "radio";
-        // radioButton2.name = "radioGroup2";
-        // radioButton2.value = "Radio Button 2 " + (i + 1);
-        // radioButton2.id = "radioButton2" + (i + 1);
-        //
-        // var label2 = document.createElement("label");
-        // label2.htmlFor = radioButton2.id;
-        // label2.innerHTML = radioButton2.value;
-        //
-        // document.getElementById("radioButtonContainer2").appendChild(radioButton2);
-        // document.getElementById("radioButtonContainer2").appendChild(label2);
-        // document.getElementById("radioButtonContainer2").appendChild(document.createElement("br"));
         }
+      
+      //Comment text area
+              let textArea = document.createElement("textarea");
+              textArea.id = "textArea" + j;
+              textArea.className = "textAreaInput";
+             document.getElementById("radioButtonContainer"+j).appendChild(textArea);
+             
       }
     </script>
 
-
-    @* myRadBut *@
-
-    @* <div class="form-check u22"> *@
-    @*     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"> *@
-    @*     <label class="form-check-label" for="flexRadioDefault1"> *@
-    @*         1 this is a looooooooooooooooooooooooooooooooooooooong text *@
-    @*     </label> *@
-    @* </div> *@
-    @* *@
-    @* <div id="u25" class="form-check checkbox"> *@
-    @*     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"> *@
-    @*     <label class="form-check-label" for="flexRadioDefault2"> *@
-    @*         2 *@
-    @*     </label> *@
-    @* </div> *@
-    @* *@
-    @* <div id="u28" class="form-check checkbox"> *@
-    @*     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3"> *@
-    @*     <label class="form-check-label" for="flexRadioDefault3"> *@
-    @*         3 *@
-    @*     </label> *@
-    @* </div> *@
-    @* *@
-    @* <div id="u31" class="form-check checkbox"> *@
-    @*     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault0"> *@
-    @*     <label class="form-check-label" for="flexRadioDefault0"> *@
-    @*         0 *@
-    @*     </label> *@
-    @* </div> *@
-    @* *@
-    @* <div id="u34" class="form-check checkbox"> *@
-    @*     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefaultN.A" checked> *@
-    @*     <label class="form-check-label" for="flexRadioDefaultN.A"> *@
-    @*         n.A. *@
-    @*     </label> *@
-    @* </div> *@
-</div>
-
-<!-- Unnamed (Text Area) -->
-<div id="u35" class="ax_default text_area">
-    <div id="u35_div" class=""></div>
-    <textarea id="u35_input" class="u35_input"></textarea>
-</div>
-
-<!-- Unnamed (Rectangle) -->
-<div id="u36" class="ax_default button">
-    <a asp-page-handler="RedirectToAnswerQuestionsExtended">
-        <div id="u36_div" class=""></div>
-        <div id="u36_text" class="text ">
-            <p>
-                <span>Next</span>
-            </p>
+    <!-- Unnamed (Rectangle) -->
+        <div class="ax_default label criticality">
+            <span>Criticality</span>
         </div>
-    </a>
-</div>
 
+    <!-- Unnamed (Rectangle) -->
+    <div id="u36" class="ax_default button">
+        <a asp-page-handler="RedirectToAnswerQuestionsExtended">
+            <div id="u36_div" class=""></div>
+            <div id="u36_text" class="text ">
+                <p>
+                    <span>Next</span>
+                </p>
+            </div>
+        </a>
+    </div>
+</div>
 </body>
 </html>
