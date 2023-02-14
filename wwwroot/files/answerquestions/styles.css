@@ -951,55 +951,55 @@
   text-transform:none;
   visibility:hidden;
 }
-/*#u22 label {*/
-/*  left:0px;*/
-/*  width:100%;*/
-/*}*/
-/*#u22_img {*/
-/*  border-width:0px;*/
-/*  position:absolute;*/
-/*  left:0px;*/
-/*  top:0px;*/
-/*  width:18px;*/
-/*  height:18px;*/
-/*}*/
-/*#u22 {*/
-/*  border-width:0px;*/
-/*  position:absolute;*/
-/*  left:236px;*/
-/*  top:465px;*/
-/*  width:989px;*/
-/*  height:18px;*/
-/*  display:flex;*/
-/*  font-family:"Roboto", sans-serif;*/
-/*  font-weight:400;*/
-/*  font-style:normal;*/
-/*  font-size:14px;*/
-/*}*/
-/*#u22 .text {*/
-/*  position:absolute;*/
-/*  align-self:flex-start;*/
-/*  padding:0px 2px 0px 10px;*/
-/*  box-sizing:border-box;*/
-/*}*/
-/*#u22_text {*/
-/*  border-width:0px;*/
-/*  position:absolute;*/
-/*  left:18px;*/
-/*  top:0px;*/
-/*  width:959px;*/
-/*  word-wrap:break-word;*/
-/*  text-transform:none;*/
-/*}*/
-/*#u22_input {*/
-/*  border-width:0px;*/
-/*  position:absolute;*/
-/*  left:0px;*/
-/*  top:0px;*/
-/*  width:0px;*/
-/*  height:0px;*/
-/*  opacity:0;*/
-/*}*/
+#u22 label {
+  left:0px;
+  width:100%;
+}
+#u22_img {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:18px;
+  height:18px;
+}
+#u22 {
+  border-width:0px;
+  position:absolute;
+  left:236px;
+  top:465px;
+  width:989px;
+  height:18px;
+  display:flex;
+  font-family:"Roboto", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+}
+#u22 .text {
+  position:absolute;
+  align-self:flex-start;
+  padding:0px 2px 0px 10px;
+  box-sizing:border-box;
+}
+#u22_text {
+  border-width:0px;
+  position:absolute;
+  left:18px;
+  top:0px;
+  width:959px;
+  word-wrap:break-word;
+  text-transform:none;
+}
+#u22_input {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+  opacity:0;
+}
 #u23 {
   border-width:0px;
   position:absolute;
@@ -3137,65 +3137,22 @@
   opacity:0;
 }
 
-.u22 {
-    position: absolute;
-    left: 0%;
-    top: 40em;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 14px;
+.u22{
+  position:absolute;
+  left:0%;
+  top: 40em;
+  font-family:"Roboto", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
 }
 
-.radio_button_group {
-    position: absolute;
-    top: 25em;
-    left: 30%;
+.radio_button_group{
+  position: absolute;
+  top: 25em;
+  left: 30%;
 }
 
-.textAreaInput{
-    position: absolute;
-    left: 30%;
-    top: 200px;
-    width: 1007px;
-    height: 152px;
-    display: flex;
-    font-size: 20px;
-    
-    padding: 2px 2px 2px 2px;
-    font-family: "Arial Standard", "Arial", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: normal;
-    color: #000000;
-    text-align: left;
-    text-transform: none;
-    background-color: transparent;
-    border-color: black;
-}
-
-.criticality{
-    border-width: 0px;
-    position: absolute;
-    left: -200px;
-    bottom: 160px;
-    width: 211px;
-    height: 42px;
-    display: flex;
-    font-size: 22px;
-    text-align: center;
-    border-color: black;
-}
-
-.questionText{
-    border-width: 0px;
-    position: absolute;
-    left: 200px;
-    bottom: 160px;
-    width: 211px;
-    height: 42px;
-    display: flex;
-    font-size: 22px;
-    text-align: center;
-    border-color: black;
+.radioButtonContainer{
+  
 }
