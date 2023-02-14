@@ -3,17 +3,15 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
 <!DOCTYPE html>
 <html>
 <head>
-
-    <title>MainWindow</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="files/mainwindow/styles.css" type="text/css" rel="stylesheet"/>
+    <title>Page 1</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet" />
+    <link href="data/styles.css" type="text/css" rel="stylesheet" />
+    <link href="files/loginscreen/styles.css" type="text/css" rel="stylesheet" />
     <script src="resources/scripts/jquery-3.2.1.min.js"></script>
     <script src="resources/scripts/axure/axQuery.js"></script>
     <script src="resources/scripts/axure/globals.js"></script>
@@ -45,80 +43,68 @@
     <script src="resources/scripts/axure/math.js"></script>
     <script src="resources/scripts/axure/jquery.nicescroll.min.js"></script>
     <script src="data/document.js"></script>
-    <script src="files/mainwindow/data.js"></script>
+    <script src="files/page_1/data.js"></script>
     <script type="text/javascript">
-        $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
-        $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
-        $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+        $axure.utils.getTransparentGifPath = function () { return 'resources/images/transparent.gif'; };
+        $axure.utils.getOtherPath = function () { return 'resources/Other.html'; };
+        $axure.utils.getReloadPath = function () { return 'resources/reload.html'; };
     </script>
 </head>
 <body>
-<div id="base" class="">
+    <div id="base" class="">
 
+        <!-- Login (Rectangle) -->
+        <div id="u0" class="ax_default button" data-label="Login">
+            <div id="u0_div" class=""></div>
+            <div id="u0_text" class="text ">
+               <a asp-page-handler="RedirectMainWindow">Login</a>
+            </div>
+        </div>
 
-    @* <button id="u0"> *@
-    @*     <a asp-page-handler="RedirectShowExistingData" id="u0_div" >Show Existing Data</a> *@
-    @* </button> *@
+        <!-- Unnamed (Text Field) -->
+        <div id="u1" class="ax_default text_field">
+            <div id="u1_div" class=""></div>
+            <input id="u1_input" type="email" value="" class="u1_input" />
+        </div>
 
-    <!-- Unnamed (Rectangle) -->
-    <div id="u0" class="ax_default button">
-        <div id="u0_div" class=""></div>
-        <div id="u0_text" class="text ">
-            <a asp-page-handler="RedirectShowExistingData"Show Existing Data>Show Existing Data</a>
+        <!-- Unnamed (Text Field) -->
+        <div id="u2" class="ax_default text_field">
+            <div id="u2_div" class=""></div>
+            <input id="u2_input" type="password" value="" class="u2_input" />
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u3" class="ax_default heading_3">
+            <div id="u3_div" class=""></div>
+            <div id="u3_text" class="text ">
+                <p><span>E-Mail:</span></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u4" class="ax_default heading_3">
+            <div id="u4_div" class=""></div>
+            <div id="u4_text" class="text ">
+                <p><span>Password:</span></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u5" class="ax_default heading_2">
+            <div id="u5_div" class=""></div>
+            <div id="u5_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (Rectangle) -->
+        <div id="u6" class="ax_default label">
+            <div id="u6_div" class=""></div>
+            <div id="u6_text" class="text " style="display:none; visibility: hidden">
+                <p></p>
+            </div>
         </div>
     </div>
-
-    <!-- Unnamed (Rectangle) -->
-    <div id="u1" class="ax_default button">
-        <div id="u1_div" class=""></div>
-        <div id="u1_text" class="text ">
-            <a asp-page-handler="RedirectShowExistingData">Create new Security Check</a>
-        </div>
-    </div>
-
-    <!-- Unnamed (List Box) -->
-    <div id="u2" class="ax_default list_box">
-        <div id="u2_div" class=""></div>
-        <select id="u2_input" size="2" class="u2_input">
-            <option class="u2_input_option" value="Company 1 | Date | Security Check Type | Zustand">Company 1 | Date | Security Check Type | Zustand</option>
-            <option class="u2_input_option" value="Company 2 | Date | Security Check Type | Zustand">Company 2 | Date | Security Check Type | Zustand</option>
-        </select>
-    </div>
-
-    <!-- Unnamed (Rectangle) -->
-    <div id="u3" class="ax_default button ax_default_hidden" style="visibility: hidden">
-        <div id="u3_div" class=""></div>
-        <div id="u3_text" class="text ">
-            <p>
-                <span>Open Selected Security Check</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Unnamed (Image) -->
-    <div id="u4" class="ax_default image">
-        <img id="u4_img" class="img " src="images/mainwindow/u4.png"/>
-        <div id="u4_text" class="text " style="display:none; visibility: hidden">
-            <p></p>
-        </div>
-    </div>
-
-    <form id="form1" runat="server">
-        <div>
-            
-            @* @foreach (var value in @Model.list) *@
-            @* { *@
-            @*     <label>@value</label> *@
-            @* } *@
-            
-        </div>
-        <div>
-            <asp:Button ID="BTNSubmit" runat="server" Text="Submit"
-                onclick="BTNSubmit_Click" />
-        </div>
-        </form>
-
-</div>
-<script src="resources/scripts/axure/ios.js"></script>
+    <script src="resources/scripts/axure/ios.js"></script>
 </body>
 </html>
