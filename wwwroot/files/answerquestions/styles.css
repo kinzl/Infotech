@@ -2345,6 +2345,107 @@
   left: 30%;
 }
 
-.radioButtonContainer{
+.textAreaGroup{
+  position:absolute;
+  left:20%;
+  top:200px;
+  width:1007px;
+  height:152px;
+  display:flex;
+  font-size:20px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-width:1px;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.criticality{
+  position:absolute;
+  left:0%;
+  bottom: 170px;
+  width:211px;
+  height:42px;
+  display:flex;
+  font-size:22px;
+  text-align:center;
   
+  background:inherit;
+  background-color:rgba(255, 255, 255, 0);
+  border:none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.question{
+  position:absolute;
+  left:15em;
+  bottom: 170px;
+  width:514px;
+  height:44px;
+  display:flex;
+  font-size:22px;
+  text-align:center;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 0);
+  border:none;
+  border-radius:0px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.categorie{
+  border-width:0px;
+  position:absolute;
+  left: 35em;
+  bottom: 170px;
+  width:234px;
+  height:42px;
+  display:flex;
+  font-size:22px;
+  text-align:center;
+  
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 0);
+  border:none;
+  border-radius:0px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.buttonNext{
+  position:absolute;
+  left:55em;
+  top:25em;
+  width:157px;
+  height:38px;
+  display:flex;
+  font-size:16px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-width:1px;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.myButtonNext{
+  bottom: 0;
+  position: absolute;
+  left: 55em;
 }

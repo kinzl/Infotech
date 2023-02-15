@@ -4,10 +4,10 @@
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>MainWindow</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -47,24 +47,19 @@
     <script src="data/document.js"></script>
     <script src="files/mainwindow/data.js"></script>
     <script type="text/javascript">
-        $axure.utils.getTransparentGifPath = function () { return 'resources/images/transparent.gif'; };
-        $axure.utils.getOtherPath = function () { return 'resources/Other.html'; };
-        $axure.utils.getReloadPath = function () { return 'resources/reload.html'; };
+        $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+        $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+        $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
     </script>
 </head>
 <body>
     <div id="base" class="">
 
-
-        @* <button id="u0"> *@
-        @*     <a asp-page-handler="RedirectShowExistingData" id="u0_div" >Show Existing Data</a> *@
-        @* </button> *@
-
         <!-- Unnamed (Rectangle) -->
         <div id="u0" class="ax_default button">
             <div id="u0_div" class=""></div>
             <div id="u0_text" class="text ">
-                <a asp-page-handler="RedirectShowExistingData" Show Existing Data>Show Existing Data</a>
+                <a asp-page-handler="RedirectShowExistingData">Show Existing Data</a>
             </div>
         </div>
 
@@ -72,7 +67,7 @@
         <div id="u1" class="ax_default button">
             <div id="u1_div" class=""></div>
             <div id="u1_text" class="text ">
-                <a asp-page-handler="RedirectShowExistingData">Create new Security Check</a>
+                <p><span>Create new Security Check</span></p>
             </div>
         </div>
 
@@ -86,12 +81,10 @@
         </div>
 
         <!-- Unnamed (Rectangle) -->
-        <div id="u3" class="ax_default button ax_default_hidden" style="visibility: hidden">
+        <div id="u3" class="ax_default button ax_default_hidden" style="display:none; visibility: hidden">
             <div id="u3_div" class=""></div>
             <div id="u3_text" class="text ">
-                <p>
-                    <span>Open Selected Security Check</span>
-                </p>
+                <p><span>Open Selected Security Check</span></p>
             </div>
         </div>
 
@@ -102,22 +95,7 @@
                 <p></p>
             </div>
         </div>
-
-        <form id="form1" runat="server">
-            <div>
-
-                @* @foreach (var value in @Model.list) *@
-                @* { *@
-                @*     <label>@value</label> *@
-                @* } *@
-
-            </div>
-            <div>
-                <asp:Button ID="BTNSubmit" runat="server" Text="Submit"
-                            onclick="BTNSubmit_Click" />
-            </div>
-        </form>
-
+        
     </div>
     <script src="resources/scripts/axure/ios.js"></script>
 </body>
