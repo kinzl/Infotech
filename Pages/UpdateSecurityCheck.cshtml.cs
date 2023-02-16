@@ -4,7 +4,7 @@ namespace Questionnaire_Frontend.Pages;
 
 public class UpdateSecurityCheck : PageModel
 {
-    private List<string> typSecurityCheck = new List<string>() { "Extended","Light" };
+    public List<string> list = new() { "Extended","Light", "Extended" };
     public void OnGet()
     {
         

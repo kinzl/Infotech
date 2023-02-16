@@ -22,34 +22,9 @@ public class MainWindow : PageModel
 
     }
 
-    // protected void Page_Load(object sender, EventArgs e)
-    // {
-    //
-    // }
-    // protected void BTNSubmit_Click(object sender, EventArgs e)
-    // {
-    //     FindControl(RDBTNTBL);
-    // }
-    // public void FindControl(Control controls)
-    // {
-    //     var radioButton = new RadioButton();
-    //     foreach(Control c in controls.Controls)
-    //     {
-    //         if (c.HasControls())
-    //         {
-    //             FindControl(c);
-    //         }
-    //         else if (c.GetType().ToString().Equals("System.Web.UI.WebControls.RadioButton"))
-    //         {
-    //             if ((c as RadioButton).Checked)
-    //             {
-    //                 Response.Wri
-    //                 Response.Write();
-    //                 Response.Write(c.ID);
-    //                 return;
-    //             }
-    //         }
-    //
-    //     }
-    // }
+    public void OnPostCreateNewSecurityCheck(string questionnaireName)
+    {
+        Response.Redirect("AnswerQuestions");
+        //db add new secu 
+    }
 }

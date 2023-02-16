@@ -6,7 +6,7 @@
 }
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>UpdateSecurityCheck</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -50,180 +50,198 @@
       $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
       $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
     </script>
-  </head>
-  <body>
-    <div id="base" class="">
+</head>
+<body>
+<div id="base" class="">
 
-      
-      @* <ul class="list-group mylistgroup"> *@
-      @*   <li class="list-group-item active">Cras justo odio</li> *@
-      @*   <li class="list-group-item">Dapibus ac facilisis in</li> *@
-      @*   <li class="list-group-item">Morbi leo risus</li> *@
-      @*   <li class="list-group-item">Porta ac consectetur ac</li> *@
-      @*   <li class="list-group-item">Vestibulum at eros</li> *@
-      @* </ul> *@
-      
-      
-      <!-- Unnamed (List Box) -->
-      <div id="u107" class="ax_default list_box">
-        <div id="u107_div" class=""></div>
-        <select id="u107_input" size="2" class="u107_input">
-          <option class="u107_input_option" value="Question1 | Categorie">Question1 | Categorie</option>
-          <option class="u107_input_option" value="Question2 | Categorie">Question2 | Categorie</option>
-        </select>
-      </div>
+    <select id="securityCheckListBox" size="@Model.list.Count" class="listGroup">
+        @for (int i = 0; i < @Model.list.Count; i++)
+        {
+            <option class="listGroupSelected">@Model.list[i]</option>
+        }
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u108" class="ax_default text_field">
+    </select>
+
+    <!-- Unnamed (List Box) -->
+    @* <div id="u107" class="ax_default list_box"> *@
+    @*   <div id="u107_div" class=""></div> *@
+    @*   <select id="u107_input" size="2" class="u107_input"> *@
+    @*     <option class="u107_input_option" value="Question1 | Categorie">Question1 | Categorie</option> *@
+    @*     <option class="u107_input_option" value="Question2 | Categorie">Question2 | Categorie</option> *@
+    @*   </select> *@
+    @* </div> *@
+
+    <!-- Unnamed (Text Field) -->
+    <div id="u108" class="ax_default text_field">
         <div id="u108_div" class=""></div>
         <input id="u108_input" type="text" value="" class="u108_input"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u109" class="ax_default button">
+    <!-- Unnamed (Rectangle) -->
+    <div id="u109" class="ax_default button">
         <div id="u109_div" class=""></div>
         <div id="u109_text" class="text ">
-          <p><span>Delete</span></p>
+            <p>
+                <span>Delete</span>
+            </p>
         </div>
-      </div>
+    </div>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u110" class="ax_default button">
+    <!-- Unnamed (Rectangle) -->
+    <div id="u110" class="ax_default button">
         <div id="u110_div" class=""></div>
         <div id="u110_text" class="text ">
-          <p><span>Update</span></p>
+            <p>
+                <span>Update</span>
+            </p>
         </div>
-      </div>
+    </div>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u111" class="ax_default button">
+    <!-- Unnamed (Rectangle) -->
+    <div id="u111" class="ax_default button">
         <div id="u111_div" class=""></div>
         <div id="u111_text" class="text ">
-          <p><span>Save All Changes</span></p>
+            <p>
+                <span>Save All Changes</span>
+            </p>
         </div>
-      </div>
+    </div>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u112" class="ax_default button">
+    <!-- Unnamed (Rectangle) -->
+    <div id="u112" class="ax_default button">
         <div id="u112_div" class=""></div>
         <div id="u112_text" class="text ">
-          <p><span>Add new Question</span></p>
+            <p>
+                <span>Add new Question</span>
+            </p>
         </div>
-      </div>
+    </div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u113" class="ax_default text_field">
+    <!-- Unnamed (Text Field) -->
+    <div id="u113" class="ax_default text_field">
         <div id="u113_div" class=""></div>
         <input id="u113_input" type="text" value="" class="u113_input"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Radio Button) -->
-      <div id="u114" class="ax_default label">
+    <!-- Unnamed (Radio Button) -->
+    <div id="u114" class="ax_default label">
         <label id="u114_input_label" for="u114_input" style="position: absolute; left: 0px;">
-          <img id="u114_img" class="img " src="images/updatesecuritycheck/u114.svg"/>
-          <div id="u114_text" class="text ">
-            <p><span>0</span></p>
-          </div>
+            <img id="u114_img" class="img " src="images/updatesecuritycheck/u114.svg"/>
+            <div id="u114_text" class="text ">
+                <p>
+                    <span>0</span>
+                </p>
+            </div>
         </label>
         <input id="u114_input" type="radio" value="radio" name="u114"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Radio Button) -->
-      <div id="u115" class="ax_default label">
+    <!-- Unnamed (Radio Button) -->
+    <div id="u115" class="ax_default label">
         <label id="u115_input_label" for="u115_input" style="position: absolute; left: 0px;">
-          <img id="u115_img" class="img " src="images/updatesecuritycheck/u115.svg"/>
-          <div id="u115_text" class="text ">
-            <p><span>1</span></p>
-          </div>
+            <img id="u115_img" class="img " src="images/updatesecuritycheck/u115.svg"/>
+            <div id="u115_text" class="text ">
+                <p>
+                    <span>1</span>
+                </p>
+            </div>
         </label>
         <input id="u115_input" type="radio" value="radio" name="u115"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Radio Button) -->
-      <div id="u116" class="ax_default label">
+    <!-- Unnamed (Radio Button) -->
+    <div id="u116" class="ax_default label">
         <label id="u116_input_label" for="u116_input" style="position: absolute; left: 0px;">
-          <img id="u116_img" class="img " src="images/updatesecuritycheck/u116.svg"/>
-          <div id="u116_text" class="text ">
-            <p><span>2</span></p>
-          </div>
+            <img id="u116_img" class="img " src="images/updatesecuritycheck/u116.svg"/>
+            <div id="u116_text" class="text ">
+                <p>
+                    <span>2</span>
+                </p>
+            </div>
         </label>
         <input id="u116_input" type="radio" value="radio" name="u116"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Radio Button) -->
-      <div id="u117" class="ax_default label">
+    <!-- Unnamed (Radio Button) -->
+    <div id="u117" class="ax_default label">
         <label id="u117_input_label" for="u117_input" style="position: absolute; left: 0px;">
-          <img id="u117_img" class="img " src="images/updatesecuritycheck/u117.svg"/>
-          <div id="u117_text" class="text ">
-            <p><span>3</span></p>
-          </div>
+            <img id="u117_img" class="img " src="images/updatesecuritycheck/u117.svg"/>
+            <div id="u117_text" class="text ">
+                <p>
+                    <span>3</span>
+                </p>
+            </div>
         </label>
         <input id="u117_input" type="radio" value="radio" name="u117"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u118" class="ax_default text_field">
+    <!-- Unnamed (Text Field) -->
+    <div id="u118" class="ax_default text_field">
         <div id="u118_div" class=""></div>
         <input id="u118_input" type="text" value="" class="u118_input"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u119" class="ax_default text_field">
+    <!-- Unnamed (Text Field) -->
+    <div id="u119" class="ax_default text_field">
         <div id="u119_div" class=""></div>
         <input id="u119_input" type="text" value="" class="u119_input"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u120" class="ax_default text_field">
+    <!-- Unnamed (Text Field) -->
+    <div id="u120" class="ax_default text_field">
         <div id="u120_div" class=""></div>
         <input id="u120_input" type="text" value="" class="u120_input"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u121" class="ax_default text_field">
+    <!-- Unnamed (Text Field) -->
+    <div id="u121" class="ax_default text_field">
         <div id="u121_div" class=""></div>
         <input id="u121_input" type="text" value="" class="u121_input"/>
-      </div>
+    </div>
 
-      <!-- chbox_SecurityCheck (Droplist) -->
-      <div id="u122" class="ax_default droplist" data-label="chbox_SecurityCheck">
+    <!-- chbox_SecurityCheck (Droplist) -->
+    <div id="u122" class="ax_default droplist" data-label="chbox_SecurityCheck">
         <div id="u122_div" class=""></div>
         <select id="u122_input" class="u122_input">
-          <option class="u122_input_option" value="Security Check | Extended">Security Check | Extended</option>
-          <option class="u122_input_option" value="Security Check | Light">Security Check | Light</option>
+            <option class="u122_input_option" value="Security Check | Extended">Security Check | Extended</option>
+            <option class="u122_input_option" value="Security Check | Light">Security Check | Light</option>
         </select>
-      </div>
+    </div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u123" class="ax_default text_field">
+    <!-- Unnamed (Text Field) -->
+    <div id="u123" class="ax_default text_field">
         <div id="u123_div" class=""></div>
         <input id="u123_input" type="text" value="" class="u123_input"/>
-      </div>
+    </div>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u124" class="ax_default button ax_default_hidden" style="display:none; visibility: hidden">
+    <!-- Unnamed (Rectangle) -->
+    <div id="u124" class="ax_default button ax_default_hidden" style="display:none; visibility: hidden">
         <div id="u124_div" class=""></div>
         <div id="u124_text" class="text ">
-          <p><span>Create New Security Check</span></p>
+            <p>
+                <span>Create New Security Check</span>
+            </p>
         </div>
-      </div>
+    </div>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u125" class="ax_default button">
+    <!-- Unnamed (Rectangle) -->
+    <div id="u125" class="ax_default button">
         <div id="u125_div" class=""></div>
         <div id="u125_text" class="text ">
-          <p><span>Back</span></p>
+            <p>
+                <span>Back</span>
+            </p>
         </div>
-      </div>
+    </div>
 
-      <!-- Unnamed (Image) -->
-      <div id="u126" class="ax_default image">
+    <!-- Unnamed (Image) -->
+    <div id="u126" class="ax_default image">
         <img id="u126_img" class="img " src="images/mainwindow/u4.png"/>
         <div id="u126_text" class="text " style="display:none; visibility: hidden">
-          <p></p>
+            <p></p>
         </div>
-      </div>
     </div>
-    <script src="resources/scripts/axure/ios.js"></script>
-  </body>
+</div>
+<script src="resources/scripts/axure/ios.js"></script>
+</body>
 </html>

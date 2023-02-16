@@ -16,13 +16,22 @@
   position:absolute;
   z-index:0;
 }
-.mylistgroup{
+.listGroup{
   position:absolute;
   left:267px;
   top:216px;
   width:906px;
   height:431px;
   display:flex;
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
   
   padding:2px 2px 2px 2px;
   font-family:"Arial Standard", "Arial", sans-serif;
@@ -33,14 +42,10 @@
   color:#000000;
   text-align:left;
   text-transform:none;
-  
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
+}
+
+.listGroupSelected{
+  font-size:18px;
 }
 #u107_input {
   position:absolute;
@@ -88,13 +93,13 @@
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;
-  border-width:1px;
   border-style:solid;
   border-color:rgba(121, 121, 121, 1);
   border-radius:0px;
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
+  font-size:18px;
 }
 #u107 {
   border-width:0px;
