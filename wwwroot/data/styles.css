@@ -10,12 +10,6 @@
   line-height:normal;
   text-transform:none;
 }
-.shape {
-}
-.image {
-}
-.button {
-}
 .heading_1 {
   font-family:"Arial Standard", "Arial", sans-serif;
   font-weight:bold;
@@ -97,15 +91,5 @@
 }
 .form_hint {
   color:#999999;
-}
-.form_disabled {
-}
-.flow_shape1 {
-}
-.box_1 {
-}
-.box_3 {
-}
-.icon {
 }
 textarea, select, input, button { outline: none; }
