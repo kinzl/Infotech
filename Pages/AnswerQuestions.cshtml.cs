@@ -23,4 +23,5 @@ public class AnwerQuestionsModel : PageModel
     {
         Response.Redirect("AnswerQuestionsExtended");
     }
+    
 }

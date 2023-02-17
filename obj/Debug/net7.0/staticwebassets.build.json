@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4Gy5kta82VjO+WbuuDdBVLg8Xl1pAqGLCWztCyzf0C8=",
+  "Hash": "HO4H6nExUeXLABHEMxg0PWa3uWhvXouzqIOvpSXEV2A=",
   "Source": "Questionnaire-Frontend",
   "BasePath": "_content/Questionnaire-Frontend",
   "Mode": "Default",
@@ -287,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\files\\updatesecuritycheck\\styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\wwwroot\\images\\answerquestions\\u7.svg",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "images/answerquestions/u7.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\answerquestions\\u7.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton0_u67_selected.svg",
