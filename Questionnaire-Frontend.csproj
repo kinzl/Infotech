@@ -304,4 +304,8 @@
     <PackageReference Include="NuGet.Packaging.Core" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Backend" />
+  </ItemGroup>
+
 </Project>
