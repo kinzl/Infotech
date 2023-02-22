@@ -1,4 +1,4 @@
-﻿window.onload = function() {
+﻿window.onload = function () {
 
     let numberOfGeneratedDiv = 1;
     let numberOfRadioButtons = 5;
@@ -10,7 +10,7 @@
         let div = document.createElement("div");
         div.id = "radioButtonContainer" + j;
         div.className = "radio_button_group";
-        let marginTopVal = (j * 500);
+        let marginTopVal = (j * 900);
         div.style.marginTop = marginTopVal + "px";
         document.body.appendChild(div);
 
@@ -47,13 +47,18 @@
                 radioButton1.value = (i - 1) + "  Any text";
             }
 
+
             radioButton1.id = "radioButton" + (j + 1) + (i + 1);
 
             let label1 = document.createElement("label");
             label1.htmlFor = radioButton1.id;
             label1.innerHTML = radioButton1.value;
 
-            document.getElementById("radioButtonContainer" + j).appendChild(radioButton1);
+            if (radioButton1.checked) {
+                label1.className = "selectedValue";
+            }
+
+            // document.getElementById("radioButtonContainer" + j).appendChild(radioButton1);
             document.getElementById("radioButtonContainer" + j).appendChild(label1);
             document.getElementById("radioButtonContainer" + j).appendChild(document.createElement("br"));
         }
@@ -65,17 +70,46 @@
         reason.placeholder = "Reason";
         document.getElementById("radioButtonContainer" + j).appendChild(reason);
 
+        //Risiko
+        let risk = document.createElement("textarea");
+        risk.id = "risk" + j;
+        risk.className = "textAreaRisk";
+        risk.placeholder = "Risk";
+        document.getElementById("radioButtonContainer" + j).appendChild(risk);
+
+        //Recommendation
+        let recommendation = document.createElement("textarea");
+        recommendation.id = "recommendation" + j;
+        recommendation.className = "textAreaRecommendation";
+        recommendation.placeholder = "Recommendation";
+        document.getElementById("radioButtonContainer" + j).appendChild(recommendation);
+
         lastDivTagValue = j;
     }
-//nextButton
-    let next = document.createElement("button");
-    next.id = "buttonNext";
-    next.className = "buttonNext";
-    next.textContent = "Next";
+    //Save Button
+    let save = document.createElement("button");
+    save.id = "buttonSave";
+    save.className = "buttonSave";
+    save.textContent = "Save";
 // button.onClick = "RedirectToAnswerQuestionsExtended";
-    document.getElementById("radioButtonContainer" + (lastDivTagValue)).appendChild(next);
-    next.onclick = function () {
-        location.href = "AnswerQuestionsExtended";
+    document.getElementById("radioButtonContainer" + (lastDivTagValue)).appendChild(save);
+    save.onclick = function () {
+        // location.href = "AnswerQuestionsExtended";
+        //ToDo: David save function
+
+    }
+    
+    //DownloadPdfReport Button
+    let download = document.createElement("button");
+    download.id = "buttonDownload";
+    download.className = "buttonDownloadPdfReport";
+    download.textContent = "Download Pdf Report";
+// button.onClick = "RedirectToAnswerQuestionsExtended";
+    document.getElementById("radioButtonContainer" + (lastDivTagValue)).appendChild(download);
+    download.onclick = function () {
+        // location.href = "AnswerQuestionsExtended";
+        //ToDo: David download function
+
     }
 }
 

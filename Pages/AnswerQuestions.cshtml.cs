@@ -5,10 +5,6 @@ namespace Questionnaire_Frontend.Pages;
 
 public class AnwerQuestionsModel : PageModel
 {
-    private List<string> rbList = new()
-    {
-        "n.A.", "1", "2", "3"
-    };
 
     public void OnGet()
     {

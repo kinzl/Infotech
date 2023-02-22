@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HO4H6nExUeXLABHEMxg0PWa3uWhvXouzqIOvpSXEV2A=",
+  "Hash": "iCiJwrr0hbdSwLcnyepEPSPJZV8tblmd1JRtyQ924aQ=",
   "Source": "Questionnaire-Frontend",
   "BasePath": "_content/Questionnaire-Frontend",
   "Mode": "Default",
@@ -1579,6 +1579,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\updatesecuritycheck\\u99.svg"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\wwwroot\\js\\AnswerQuestionsExtendedGenerated.js",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "js/AnswerQuestionsExtendedGenerated.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\AnswerQuestionsExtendedGenerated.js"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\wwwroot\\js\\AnswerQuestionsGeneratedTags.js",

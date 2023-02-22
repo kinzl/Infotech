@@ -365,6 +365,10 @@
       "PackagePath": "staticwebassets\\images\\updatesecuritycheck\\u99_selected.svg"
     },
     {
+      "Id": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\wwwroot\\js\\AnswerQuestionsExtendedGenerated.js",
+      "PackagePath": "staticwebassets\\js\\AnswerQuestionsExtendedGenerated.js"
+    },
+    {
       "Id": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\wwwroot\\js\\AnswerQuestionsGeneratedTags.js",
       "PackagePath": "staticwebassets\\js\\AnswerQuestionsGeneratedTags.js"
     },

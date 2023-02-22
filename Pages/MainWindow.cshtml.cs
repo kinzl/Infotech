@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Questionnaire_Frontend.Pages;
 
@@ -22,9 +23,10 @@ public class MainWindow : PageModel
 
     }
 
-    public void OnPostCreateNewSecurityCheck(string questionnaireName)
+    public IActionResult OnPostCreateNewSecurityCheck(string questionnaireName)
     {
-        Response.Redirect("AnswerQuestions");
+        // Response.Redirect("AnswerQuestions");
+        return new RedirectToPageResult("AnswerQuestions");
         //db add new secu 
     }
 }

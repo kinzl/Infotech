@@ -67,6 +67,7 @@
         <div id="u1" class="ax_default button">
             <div id="u1_div" class=""></div>
             <div id="u1_text" class="text ">
+                <form method="post" asp-page-handler="CreateNewSecurityCheck">
                 <a onclick="myFunction()">Create new Security Check</a>
                 <script>
                 function myFunction() {
@@ -75,15 +76,18 @@
                   if (questionnaireName == null || questionnaireName === "") {
                       
                   } else {
+                      // $.post();
                       $.post("MainWindow?handler=CreateNewSecurityCheck",JSON.stringify(questionnaireName),function(value) {
-                        window.location.href = "UpdateSecurityCheck";
-                        
+                        window.open("AnswerQuestions");
+                        console.log("open new window");
                       });
+
                     // text = "Hello " + name + "! How are you today?";
                   }
-                  document.getElementById("demo").innerHTML = text;
+                  // document.getElementById("demo").innerHTML = text;
                 }
                 </script>
+                </form>
             </div>
         </div>
 
