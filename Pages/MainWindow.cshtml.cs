@@ -29,4 +29,8 @@ public class MainWindow : PageModel
         return new RedirectToPageResult("AnswerQuestions");
         //db add new secu 
     }
+    public void OnGetRedirectToUpdateSecurityCheck()
+    {
+        Response.Redirect("UpdateSecurityCheck");
+    }
 }

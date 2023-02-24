@@ -10,10 +10,7 @@ public class AnwerQuestionsModel : PageModel
     {
     }
 
-    public void OnGetRedirectToUpdateSecurityCheck()
-    {
-        Response.Redirect("UpdateSecurityCheck");
-    }
+    
 
     public void OnGetRedirectToAnswerQuestionsExtended()
     {

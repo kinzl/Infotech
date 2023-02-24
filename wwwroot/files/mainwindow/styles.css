@@ -1,11 +1,11 @@
 ﻿body {
   margin:0px;
   background-image:none;
-  position:relative;
-  left:-0px;
+  position:static;
+  left:auto;
   width:1440px;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left:0;
+  margin-right:0;
   text-align:left;
 }
 .form_sketch {
@@ -13,13 +13,12 @@
   background-color:transparent;
 }
 #base {
-  position:relative;
+  position:absolute;
   z-index:0;
 }
 #u0_div {
   border-width:0px;
   position:absolute;
-  display: block;
   left:0px;
   top:0px;
   width:164px;
@@ -34,12 +33,12 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-size:10px;
+  font-size:20px;
 }
 #u0 {
   border-width:0px;
   position:absolute;
-  left:301px;
+  left:344px;
   top:107px;
   width:164px;
   height:48px;
@@ -80,7 +79,7 @@
 #u1 {
   border-width:0px;
   position:absolute;
-  left:490px;
+  left:533px;
   top:107px;
   width:183px;
   height:43px;
@@ -103,7 +102,7 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:839px;
+  width:924px;
   height:206px;
   padding:2px 2px 2px 2px;
   font-family:"Arial Standard", "Arial", sans-serif;
@@ -112,7 +111,7 @@
   font-size:20px;
   letter-spacing:normal;
   color:#000000;
-  vertical-align:center;
+  vertical-align:none;
   text-align:left;
   text-transform:none;
   background-color:transparent;
@@ -122,7 +121,7 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:839px;
+  width:924px;
   height:206px;
   padding:2px 2px 2px 2px;
   font-family:"Arial Standard", "Arial", sans-serif;
@@ -131,7 +130,7 @@
   font-size:20px;
   letter-spacing:normal;
   color:#000000;
-  vertical-align:center;
+  vertical-align:none;
   text-align:left;
   text-transform:none;
   background-color:transparent;
@@ -142,7 +141,7 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:839px;
+  width:924px;
   height:206px;
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
@@ -158,9 +157,9 @@
 #u2 {
   border-width:0px;
   position:absolute;
-  left:301px;
+  left:259px;
   top:233px;
-  width:839px;
+  width:924px;
   height:206px;
   display:flex;
 }
@@ -176,7 +175,7 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:839px;
+  width:924px;
   height:206px;
   background:inherit;
   background-color:rgba(240, 240, 240, 1);
@@ -216,7 +215,7 @@
 #u3 {
   border-width:0px;
   position:absolute;
-  left:697px;
+  left:740px;
   top:107px;
   width:164px;
   height:46px;
@@ -246,7 +245,7 @@
 #u4 {
   border-width:0px;
   position:absolute;
-  left:891px;
+  left:934px;
   top:37px;
   width:249px;
   height:187px;
@@ -260,6 +259,36 @@
   width:100%;
 }
 #u4_text {
+  border-width:0px;
+  word-wrap:break-word;
+  text-transform:none;
+  visibility:hidden;
+}
+#u5_img {
+  border-width:0px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:42px;
+  height:42px;
+}
+#u5 {
+  border-width:0px;
+  position:absolute;
+  left:259px;
+  top:113px;
+  width:42px;
+  height:42px;
+  display:flex;
+}
+#u5 .text {
+  position:absolute;
+  align-self:center;
+  padding:2px 2px 2px 2px;
+  box-sizing:border-box;
+  width:100%;
+}
+#u5_text {
   border-width:0px;
   word-wrap:break-word;
   text-transform:none;
