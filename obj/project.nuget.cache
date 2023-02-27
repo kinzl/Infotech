@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "waA6FLlsSLYb4Athr0qWKecI4cOG5ctFoP8cz7PTSYGyeR11NZ2RCly3SUkJRHo72h5iyLmsawwOWPYIJZV+xg==",
+  "dgSpecHash": "5xwqO//72X9dn+N85yKyevVt+TUt73AzFrZA1uGBtlnZkJ973E0Y0txqFP0oxEtw3NVJLneB7WAIeQ965v3Mgw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\QuestionnaireFrontend\\Infotech\\Questionnaire-Frontend.csproj",
+  "projectFilePath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\GitFrontend\\Infotech\\Questionnaire-Frontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kinzl\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\kinzl\\.nuget\\packages\\nuget.common\\6.4.0\\nuget.common.6.4.0.nupkg.sha512",

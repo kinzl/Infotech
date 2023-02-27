@@ -33,4 +33,9 @@ public class MainWindow : PageModel
     {
         Response.Redirect("UpdateSecurityCheck");
     }
+
+    public void OnGetRedirectChangePassword()
+    {
+        Response.Redirect("ChangePassword");
+    }
 }
