@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WKW2dgsm1dISGTlccVqdQtddpjm1+byw0KH5hZNwhkE=",
+  "Hash": "xNNMMTc/vZ5ycEt+d6lwzzLlD4kWEvYqq9xEBtmpdKg=",
   "Source": "Questionnaire-Frontend",
   "BasePath": "_content/Questionnaire-Frontend",
   "Mode": "Default",
@@ -340,23 +340,6 @@
       "OriginalItemSpec": "wwwroot\\images\\answerquestions\\u7.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton0_u67_selected.svg",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton0_u67_selected.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton0_u67_selected.svg"
-    },
-    {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton0_u67.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
@@ -374,12 +357,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton0_u67.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u105_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton0_u67_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton1_u105_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton0_u67_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -388,7 +371,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u105_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton0_u67_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u105.svg",
@@ -408,12 +391,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u105.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u108_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u105_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton1_u108_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton1_u105_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -422,7 +405,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u108_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u105_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u108.svg",
@@ -442,12 +425,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u108.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u70_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u108_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton1_u70_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton1_u108_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -456,7 +439,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u70_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u108_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u70.svg",
@@ -476,12 +459,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u70.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u78_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u70_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton1_u78_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton1_u70_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -490,7 +473,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u78_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u70_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u78.svg",
@@ -510,12 +493,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u78.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u88_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u78_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton1_u88_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton1_u78_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -524,7 +507,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u88_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u78_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u88.svg",
@@ -544,12 +527,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u88.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u91_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u88_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton1_u91_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton1_u88_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -558,7 +541,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u91_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u88_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u91.svg",
@@ -578,12 +561,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u91.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u95_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u91_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton1_u95_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton1_u91_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -592,7 +575,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u95_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u91_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u95.svg",
@@ -612,12 +595,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u95.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u73_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton1_u95_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton2_u73_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton1_u95_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -626,7 +609,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u73_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton1_u95_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u73.svg",
@@ -646,12 +629,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u73.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u81_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u73_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton2_u81_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton2_u73_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -660,7 +643,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u81_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u73_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u81.svg",
@@ -680,12 +663,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u81.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u98_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u81_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton2_u98_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton2_u81_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -694,7 +677,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u98_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u81_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u98.svg",
@@ -714,12 +697,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u98.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u102_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton2_u98_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton3_u102_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton2_u98_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -728,7 +711,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u102_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton2_u98_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u102.svg",
@@ -748,12 +731,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u102.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u77_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u102_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton3_u77_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton3_u102_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -762,7 +745,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u77_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u102_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u77.svg",
@@ -782,12 +765,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u77.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u85_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u77_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/radiobutton3_u85_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton3_u77_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -796,7 +779,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u85_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u77_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u85.svg",
@@ -816,12 +799,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u85.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u77_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\radiobutton3_u85_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/u77_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/radiobutton3_u85_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -830,7 +813,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u77_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\radiobutton3_u85_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u77.svg",
@@ -850,12 +833,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u77.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u80_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u77_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/u80_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/u77_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -864,7 +847,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u80_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u77_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u80.svg",
@@ -884,12 +867,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u80.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u81_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u80_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/u81_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/u80_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -898,7 +881,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u81_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u80_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u81.svg",
@@ -918,12 +901,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u81.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u83_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u81_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/u83_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/u81_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -932,7 +915,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u83_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u81_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u83.svg",
@@ -952,12 +935,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u83.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u84_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u83_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/u84_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/u83_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -966,7 +949,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u84_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u83_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u84.svg",
@@ -986,12 +969,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u84.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u87_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u84_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/u87_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/u84_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1000,7 +983,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u87_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u84_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u87.svg",
@@ -1020,12 +1003,12 @@
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u87.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u88_selected.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u87_selected.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/anwerquestionsextended/u88_selected.svg",
+      "RelativePath": "images/anwerquestionsextended/u87_selected.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1034,7 +1017,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u88_selected.svg"
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u87_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u88.svg",
@@ -1052,6 +1035,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u88.svg"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\anwerquestionsextended\\u88_selected.svg",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "images/anwerquestionsextended/u88_selected.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\anwerquestionsextended\\u88_selected.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\images\\mainwindow\\u4.png",
@@ -1205,6 +1205,142 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\AnswerQuestionsGeneratedTags.js"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
@@ -1615,142 +1751,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
-    },
-    {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
@@ -1972,12 +1972,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1986,15 +1986,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2003,15 +2003,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2020,7 +2020,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "lib/jquery/LICENSE.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
@@ -2108,12 +2125,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/jquery/dist/jquery.js",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2122,15 +2139,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/jquery/dist/jquery.min.js",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2139,15 +2156,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/jquery/dist/jquery.min.map",
+      "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2156,24 +2173,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "lib/jquery/LICENSE.txt",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\plugins\\debug\\debug.js",
@@ -2737,6 +2737,23 @@
       "OriginalItemSpec": "wwwroot\\resources\\chrome\\preview-rp.png"
     },
     {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\chrome\\safari.html",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "resources/chrome/safari.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\resources\\chrome\\safari.html"
+    },
+    {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\chrome\\safari_advanced.png",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
@@ -2769,23 +2786,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\resources\\chrome\\safari_restrictions.png"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\chrome\\safari.html",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "resources/chrome/safari.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resources\\chrome\\safari.html"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\chrome\\splitter.gif",
@@ -3332,23 +3332,6 @@
       "OriginalItemSpec": "wwwroot\\resources\\images\\axure9_logo.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\images\\caret_down_off.svg",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "resources/images/caret_down_off.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resources\\images\\caret_down_off.svg"
-    },
-    {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\images\\caret_down.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
@@ -3366,12 +3349,12 @@
       "OriginalItemSpec": "wwwroot\\resources\\images\\caret_down.svg"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\images\\close_x_minimize.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\images\\caret_down_off.svg",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "resources/images/close_x_minimize.svg",
+      "RelativePath": "resources/images/caret_down_off.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3380,7 +3363,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resources\\images\\close_x_minimize.svg"
+      "OriginalItemSpec": "wwwroot\\resources\\images\\caret_down_off.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\images\\close_x.svg",
@@ -3398,6 +3381,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\resources\\images\\close_x.svg"
+    },
+    {
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\images\\close_x_minimize.svg",
+      "SourceId": "Questionnaire-Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\",
+      "BasePath": "_content/Questionnaire-Frontend",
+      "RelativePath": "resources/images/close_x_minimize.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\resources\\images\\close_x_minimize.svg"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\wwwroot\\resources\\images\\divider.png",

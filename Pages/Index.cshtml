@@ -66,6 +66,31 @@
             </div>
         </a>
     </div>
+    
+    <button id="mybutton" onclick="myPostRequest()">mybutton</button>
+    
+    <script>
+    function a(){
+    $.ajax({
+      type: "GET",
+      url: "Index?handler=GetAllStudents",
+      success: function (result) {
+        console.log(result);
+      },
+    });
+    }
+    
+    function myPostRequest() {
+        $.ajax({
+              type: "POST",
+              url: "Index?handler=GetMyPostRequest",
+              
+              success: function (result) {
+                console.log(result);
+              },
+            });
+    }
+    </script>
 </div>
 <script src="resources/scripts/axure/ios.js"></script>
 </body>
