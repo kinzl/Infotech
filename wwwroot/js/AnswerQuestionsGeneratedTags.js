@@ -78,7 +78,3 @@
         location.href = "AnswerQuestionsExtended";
     }
 }
-
-function x() {
-    console.log("x");
-}

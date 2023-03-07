@@ -80,9 +80,12 @@ app.UseAuthorization();
 
 #endregion
 
-app.UseRouting();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
 
 app.MapRazorPages();
 
