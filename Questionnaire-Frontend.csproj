@@ -58,10 +58,6 @@
     <None Include="wwwroot\images\anwerquestionsextended\radiobutton3_u77_selected.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\radiobutton3_u85.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\radiobutton3_u85_selected.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u101.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u101_selected.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u104.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u104_selected.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u76.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u76_selected.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u77.svg" />
@@ -78,18 +74,10 @@
     <None Include="wwwroot\images\anwerquestionsextended\u83_selected.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u84.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u84_selected.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u85.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u85_selected.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u87.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u87_selected.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u88.svg" />
     <None Include="wwwroot\images\anwerquestionsextended\u88_selected.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u92.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u92_selected.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u95.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u95_selected.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u98.svg" />
-    <None Include="wwwroot\images\anwerquestionsextended\u98_selected.svg" />
     <None Include="wwwroot\images\mainwindow\u4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
