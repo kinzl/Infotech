@@ -8,9 +8,9 @@ public class MainWindow : PageModel
     private readonly ILogger<IndexModel> _logger;
     public List<int> list = new() { 1, 2, 3, 4, 5 };
 
-    public MainWindow(ILogger<IndexModel> logger)
+    public MainWindow()
     {
-        _logger = logger;
+        
     }
 
     public void OnGet()

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5CM9iVzNj5hwfrdrHUOc+xqfCepMrTzFZCsNGQWU/P1beXMgBlkLzZqPzhyajSz9/6Vlp2NPNQ08yb9KkL3E8g==",
+  "dgSpecHash": "4cAFvM0h3xGK4yfJzIo55aC+V7+p+FWZdHZQbb9wsqL5fqT4uvMwW8oReHBu/WvnWMQ9cesuVJJBxOoAafPlHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Frontend\\Infotech\\Questionnaire-Frontend.csproj",
+  "projectFilePath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\Questionnaire-Frontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kinzl\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\kinzl\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
