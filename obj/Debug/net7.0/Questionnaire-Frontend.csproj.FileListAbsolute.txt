@@ -449,3 +449,4 @@ C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\refint
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\Questionnaire-Frontend.pdb
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\Questionnaire-Frontend.genruntimeconfig.cache
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\ref\Questionnaire-Frontend.dll
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\http-client.env.json

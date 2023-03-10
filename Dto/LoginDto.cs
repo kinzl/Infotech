@@ -1,6 +1,6 @@
-﻿namespace Questionnaire_Frontend.Pages.Model;
+﻿namespace Questionnaire_Frontend.Dto;
 
-public class LoginModel
+public class LoginDto
 {
     public string Username { get; set; }
     public string Password { get; set; }

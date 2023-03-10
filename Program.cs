@@ -90,7 +90,7 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 // app.Map("/", () => Results.Redirect("/swagger"));
-app.MapTest();
+// app.MapTest();
 //app.MapTests();
 //app.MapDbTests();
 

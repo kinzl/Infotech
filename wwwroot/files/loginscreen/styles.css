@@ -560,7 +560,7 @@
   align-self: center;
 }
 
-.userName{
+.userNameInput{
   border-width:1px;
   position:absolute;
   left:554px;
@@ -581,7 +581,7 @@
   box-shadow:none;
 }
 
-.password{
+.passwordInput{
   border-width:1px;
   position:absolute;
   left:554px;
@@ -596,6 +596,50 @@
   box-sizing:border-box;
   border-style:solid;
   border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.userName{
+  position:absolute;
+  left:252px;
+  top:143px;
+  width:211px;
+  height:42px;
+  display:flex;
+  font-family:"Arial Fett", "Arial Standard", "Arial", sans-serif;
+  font-weight:700;
+  font-style:normal;
+  font-size:22px;
+  text-align:center;
+  
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 0);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.password{
+  position:absolute;
+  left:252px;
+  top:205px;
+  width:211px;
+  height:42px;
+  display:flex;
+  font-family:"Arial Fett", "Arial Standard", "Arial", sans-serif;
+  font-weight:700;
+  font-style:normal;
+  font-size:22px;
+  text-align:center;
+  
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 0);
+  border:none;
+  border-radius:0px;
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
