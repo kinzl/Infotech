@@ -30,12 +30,6 @@ public class IndexModel : PageModel
         ErrorText = errorText;
     }
 
-    public void OnGetRedirectMainWindow()
-    {
-        Console.WriteLine("Redirect");
-        Response.Redirect("MainWindow");
-    }
-
     public IActionResult OnPostLogin(LoginDto body)
     {
         if (body.Username == Username && body.Password == Password)
@@ -44,7 +38,8 @@ public class IndexModel : PageModel
         }
         else
         {
-            return new RedirectToPageResult("Index", new { ErrorText = "Fehler" });
+            // return new RedirectToPageResult("Index", new { ErrorText = "Fehler" });
+            return new RedirectToPageResult("MainWindow");
         }
     }
 }
