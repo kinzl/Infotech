@@ -10,7 +10,6 @@ public class MainWindow : PageModel
 
     public MainWindow()
     {
-        
     }
 
     public void OnGet()
@@ -20,7 +19,6 @@ public class MainWindow : PageModel
     public void OnGetRedirectShowExistingData()
     {
         Response.Redirect("AnswerQuestions");
-
     }
 
     public IActionResult OnPostCreateNewSecurityCheck(string questionnaireName)
@@ -29,6 +27,7 @@ public class MainWindow : PageModel
         return new RedirectToPageResult("AnswerQuestions");
         //db add new secu 
     }
+
     public void OnGetRedirectToUpdateSecurityCheck()
     {
         Response.Redirect("UpdateSecurityCheck");
@@ -38,6 +37,4 @@ public class MainWindow : PageModel
     {
         Response.Redirect("ChangePassword");
     }
-    
-
 }

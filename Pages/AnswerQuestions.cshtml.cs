@@ -6,6 +6,8 @@ namespace Questionnaire_Frontend.Pages;
 public class AnwerQuestionsModel : PageModel
 {
 
+    public List<string> SecurityCheckType = new() { "Security Check Light", "Security Check Extended" };
+    
     public void OnGet()
     {
     }
@@ -15,6 +17,11 @@ public class AnwerQuestionsModel : PageModel
     public void OnGetRedirectToAnswerQuestionsExtended()
     {
         Response.Redirect("AnswerQuestionsExtended");
+    }
+
+    public void OnPostCompanyName(string companyName)
+    {
+        Console.WriteLine(companyName);
     }
     
 }

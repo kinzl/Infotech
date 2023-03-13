@@ -10,23 +10,26 @@
     <link href="data/styles.css"/>
 </head>
 <body>
+
 <div id="base">
+    <div>
+        <form method="post" asp-page-handler="CompanyName"></form>
+        <input type="text" class="companyName" name="companyName" placeholder="Company name"/>
+        <input type="submit" class="testBtn" value="MyButton"/>
+    </div>
 
-    <!-- Unnamed (Text Field) -->
-    @* <div id="u9" class="ax_default text_field"> *@
-    @*     <div id="u9_div" class=""></div> *@
-    @*     <input id="u9_input" type="text" value="" class="u9_input"/> *@
-    @* </div> *@
-
-    <input type="text" class="companyName" placeholder="Company name"/>
-
-    <!-- Unnamed (Droplist) -->
-    <div id="u10" class="ax_default droplist">
-        <div id="u10_div" class=""></div>
-        <select id="u10_input" class="u10_input">
-            <option class="u10_input_option" value="Security Check Extended">Security Check Extended</option>
-            <option class="u10_input_option" value="Security Check Light">Security Check Light</option>
-        </select>
+    <div class="dropdown comboBox">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @Model.SecurityCheckType[0]
+        </button>
+        <ul class="dropdown-menu">
+            @for (int i = 0; i < @Model.SecurityCheckType.Count; i++)
+            {
+                <li>
+                    <a class="dropdown-item">@Model.SecurityCheckType[i]</a>
+                </li>
+            }
+        </ul>
     </div>
 
     <!-- Save Button -->
@@ -42,13 +45,12 @@
     <div id="u16" class="ax_default image">
         <img id="u16_img" class="img " src="images/mainwindow/u4.png"/>
         <div id="u16_text" class="text " style="display:none; visibility: hidden">
-            
         </div>
     </div>
 
     @* Generate Questions dynamically *@
     <script src="js/AnswerQuestionsGeneratedTags.js" asp-append-version="true"></script>
-   
+
 </div>
 
 </body>
