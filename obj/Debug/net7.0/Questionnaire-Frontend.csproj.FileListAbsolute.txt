@@ -341,13 +341,10 @@ C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Frontend\Infotech\bin\Debug\net7.0\r
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\appsettings.json
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\global.json
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\http-client.env.json
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.staticwebassets.runtime.json
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\wwwroot\images\mainwindow\u4.png
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.exe
-C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.deps.json
-C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.runtimeconfig.json
-C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.dll
-C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.pdb
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\RestClientGeneratorMiddlewareLib.dll
@@ -447,6 +444,10 @@ C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\Questi
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\Questionnaire-Frontend.dll
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\refint\Questionnaire-Frontend.dll
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\Questionnaire-Frontend.pdb
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\wwwroot\images\InfotechLogo.png
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.deps.json
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.runtimeconfig.json
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.dll
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\Questionnaire-Frontend.pdb
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\Questionnaire-Frontend.genruntimeconfig.cache
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\obj\Debug\net7.0\ref\Questionnaire-Frontend.dll
-C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\bin\Debug\net7.0\http-client.env.json

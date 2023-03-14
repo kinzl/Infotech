@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "W+r5SXtmPVynrGLZGQY9VwYu2ArEniJsvi/VUljb8sk=",
+  "Hash": "qoycPKcmyCLfba7zc1h+lQi68IBHDs447XkcJSLcLBI=",
   "Source": "Questionnaire-Frontend",
   "BasePath": "_content/Questionnaire-Frontend",
   "Mode": "Default",
@@ -306,21 +306,21 @@
       "OriginalItemSpec": "wwwroot\\files\\updatesecuritycheck\\styles.css"
     },
     {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\wwwroot\\images\\answerquestions\\u7.svg",
+      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\wwwroot\\images\\InfotechLogo.png",
       "SourceId": "Questionnaire-Frontend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\wwwroot\\",
       "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/answerquestions/u7.svg",
+      "RelativePath": "images/InfotechLogo.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
+      "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\answerquestions\\u7.svg"
+      "OriginalItemSpec": "wwwroot\\images\\InfotechLogo.png"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\wwwroot\\images\\mainwindow\\u4.png",
@@ -335,7 +335,7 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
+      "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\mainwindow\\u4.png"
     },

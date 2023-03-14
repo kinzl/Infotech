@@ -644,3 +644,13 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
+
+#infotechLogo{
+  border-width:0px;
+  position:absolute;
+  left:1065px;
+  top:37px;
+  width:249px;
+  height:187px;
+  display:flex;
+}

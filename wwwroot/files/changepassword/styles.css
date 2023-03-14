@@ -16,37 +16,6 @@
   position:absolute;
   z-index:0;
 }
-#u13_img {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:249px;
-  height:187px;
-}
-#u13 {
-  border-width:0px;
-  position:absolute;
-  left:1065px;
-  top:37px;
-  width:249px;
-  height:187px;
-  display:flex;
-}
-#u13 .text {
-  position:absolute;
-  align-self:center;
-  padding:2px 2px 2px 2px;
-  box-sizing:border-box;
-  width:100%;
-}
-#u13_text {
-  border-width:0px;
-  word-wrap:break-word;
-  text-transform:none;
-  visibility:hidden;
-}
-
 #oldPassword{
   border-width:1px;
   position:absolute;
@@ -66,7 +35,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #newPassword{
   border-width:1px;
   position:absolute;
@@ -86,7 +54,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #oldPasswordLabel{
   position:absolute;
   left:252px;
@@ -107,7 +74,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #newPasswordLabel{
   position:absolute;
   left:252px;
@@ -127,7 +93,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #newPasswordRepeat{
   border-width:1px;
   position:absolute;
@@ -138,7 +103,6 @@
   display:flex;
   font-size:18px;
   
-  
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;
@@ -148,7 +112,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #newPasswordRepeatLabel{
   position:absolute;
   left:205px;
@@ -162,14 +125,12 @@
   font-size:22px;
   text-align:center;
   
-
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #applyButton{
   border-width:1px;
   position:absolute;
@@ -182,7 +143,6 @@
   font-weight:700;
   font-style:normal;
   font-size:22px;
-  
 
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
@@ -194,7 +154,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #errorText{
   position:absolute;
   left:554px;
@@ -209,7 +168,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #backButton{
   border-width:1px;
   position:absolute;
@@ -232,4 +190,13 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
+}
+#infotechLogo{
+  border-width:0px;
+  position:absolute;
+  left:1065px;
+  top:37px;
+  width:249px;
+  height:187px;
+  display:flex;
 }

@@ -359,33 +359,3 @@
   word-wrap:break-word;
   text-transform:none;
 }
-#u69_img {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:301px;
-  height:226px;
-}
-#u69 {
-  border-width:0px;
-  position:absolute;
-  left:916px;
-  top:0px;
-  width:301px;
-  height:226px;
-  display:flex;
-}
-#u69 .text {
-  position:absolute;
-  align-self:center;
-  padding:2px 2px 2px 2px;
-  box-sizing:border-box;
-  width:100%;
-}
-#u69_text {
-  border-width:0px;
-  word-wrap:break-word;
-  text-transform:none;
-  visibility:hidden;
-}

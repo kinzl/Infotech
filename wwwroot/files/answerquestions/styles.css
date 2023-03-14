@@ -16,259 +16,6 @@
   position:relative;
   z-index:0;
 }
-#u7_img {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:42px;
-  height:42px;
-}
-#u7 {
-  border-width:0px;
-  position:absolute;
-  left:622px;
-  top:44px;
-  width:42px;
-  height:42px;
-  display:flex;
-}
-#u7 .text {
-  position:absolute;
-  align-self:center;
-  padding:2px 2px 2px 2px;
-  box-sizing:border-box;
-  width:100%;
-}
-#u7_text {
-  border-width:0px;
-  word-wrap:break-word;
-  text-transform:none;
-  visibility:hidden;
-}
-#u9_input.hint {
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:515px;
-  height:54px;
-  padding:2px 2px 2px 2px;
-  font-family:"Arial Standard", "Arial", sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:18px;
-  letter-spacing:normal;
-  color:#999999;
-  text-align:left;
-  text-transform:none;
-  background-color:transparent;
-  border-color:transparent;
-}
-#u9_input.disabled {
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:515px;
-  height:54px;
-  padding:2px 2px 2px 2px;
-  font-family:"Arial Standard", "Arial", sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:18px;
-  letter-spacing:normal;
-  color:#000000;
-  text-align:left;
-  text-transform:none;
-  background-color:transparent;
-  border-color:transparent;
-}
-#u9_input.hint.disabled {
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:515px;
-  height:54px;
-  padding:2px 2px 2px 2px;
-  font-family:"Arial Standard", "Arial", sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:18px;
-  letter-spacing:normal;
-  color:#999999;
-  text-align:left;
-  text-transform:none;
-  background-color:transparent;
-  border-color:transparent;
-}
-#u9_div {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:515px;
-  height:54px;
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-width:1px;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:0px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-  font-size:18px;
-}
-#u9 {
-  border-width:0px;
-  position:absolute;
-  left:206px;
-  top:130px;
-  width:515px;
-  height:54px;
-  display:flex;
-  font-size:18px;
-}
-#u9 .text {
-  position:absolute;
-  align-self:center;
-  padding:2px 2px 2px 2px;
-  box-sizing:border-box;
-  width:100%;
-}
-#u9_div.hint {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:515px;
-  height:54px;
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-width:1px;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:0px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-  font-size:18px;
-}
-#u9.hint {
-}
-#u9_div.disabled {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:515px;
-  height:54px;
-  background:inherit;
-  background-color:rgba(240, 240, 240, 1);
-  box-sizing:border-box;
-  border-width:1px;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:0px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-  font-size:18px;
-}
-#u9.disabled {
-}
-#u9_div.hint.disabled {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:515px;
-  height:54px;
-  background:inherit;
-  background-color:rgba(240, 240, 240, 1);
-  box-sizing:border-box;
-  border-width:1px;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:0px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-  font-size:18px;
-}
-#u15_div {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:157px;
-  height:38px;
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-width:1px;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-  font-size:16px;
-}
-#u15 {
-  border-width:0px;
-  position:absolute;
-  left:427px;
-  top:48px;
-  width:157px;
-  height:38px;
-  display:flex;
-  font-size:16px;
-}
-#u15 .text {
-  position:absolute;
-  align-self:center;
-  padding:2px 2px 2px 2px;
-  box-sizing:border-box;
-  width:100%;
-}
-#u15_text {
-  border-width:0px;
-  word-wrap:break-word;
-  text-transform:none;
-}
-#u16_img {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:301px;
-  height:226px;
-}
-#u16 {
-  border-width:0px;
-  position:absolute;
-  left:916px;
-  top:0px;
-  width:301px;
-  height:226px;
-  display:flex;
-}
-#u16 .text {
-  position:absolute;
-  align-self:center;
-  padding:2px 2px 2px 2px;
-  box-sizing:border-box;
-  width:100%;
-}
-#u16_text {
-  border-width:0px;
-  word-wrap:break-word;
-  text-transform:none;
-  visibility:hidden;
-}
-
 .radio_button_group{
   position: absolute;
   top: 25em;
@@ -517,4 +264,34 @@ input[type=radio]:checked + label{
   height:38px;
   display:flex;
   font-size:14px;
+}
+
+#saveButton{
+  border-width:1px;
+  position:absolute;
+  left:427px;
+  top:48px;
+  width:157px;
+  height:38px;
+  display:flex;
+  font-size:16px;
+  
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+#infotechLogo{
+  position:absolute;
+  left:916px;
+  width:301px;
+  height:226px;
+  display:flex;
 }
