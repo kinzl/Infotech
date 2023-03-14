@@ -17,21 +17,15 @@
         <input type="text" class="companyName" name="companyName" placeholder="Company name"/>
         <input type="submit" class="testBtn" value="MyButton"/>
     </div>
-
-    <div class="dropdown comboBox">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            @Model.SecurityCheckType[0]
-        </button>
-        <ul class="dropdown-menu">
-            @for (int i = 0; i < @Model.SecurityCheckType.Count; i++)
-            {
-                <li>
-                    <a class="dropdown-item">@Model.SecurityCheckType[i]</a>
-                </li>
-            }
-        </ul>
-    </div>
-
+    
+    <select class="dropdown comboBox" >
+        <option selected>@Model.SecurityCheckType[0]</option>
+        @for (int i = 1; i < @Model.SecurityCheckType.Count; i++)
+        {
+            <option>@Model.SecurityCheckType[i]</option>
+        }
+    </select>
+    
     <input id="saveButton" type="button" value="Save" asp-page-handler="Any"/>
 
     <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">

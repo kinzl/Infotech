@@ -148,9 +148,7 @@
     <Content Update="wwwroot\images\InfotechLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\images\mainwindow\u4.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Remove="wwwroot\images\mainwindow\u4.png" />
   </ItemGroup>
 
 </Project>

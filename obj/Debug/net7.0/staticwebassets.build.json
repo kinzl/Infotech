@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qoycPKcmyCLfba7zc1h+lQi68IBHDs447XkcJSLcLBI=",
+  "Hash": "ltS1uLrUWeLTRJii7J1LeJ9UuBt6NO8tKB8qk+QDkNs=",
   "Source": "Questionnaire-Frontend",
   "BasePath": "_content/Questionnaire-Frontend",
   "Mode": "Default",
@@ -321,23 +321,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\InfotechLogo.png"
-    },
-    {
-      "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\wwwroot\\images\\mainwindow\\u4.png",
-      "SourceId": "Questionnaire-Frontend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\wwwroot\\",
-      "BasePath": "_content/Questionnaire-Frontend",
-      "RelativePath": "images/mainwindow/u4.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mainwindow\\u4.png"
     },
     {
       "Identity": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\wwwroot\\images\\mainwindow\\u5.svg",
