@@ -9,61 +9,61 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Questionnaire_Frontend
 build_property.RootNamespace = Questionnaire_Frontend
-build_property.ProjectDir = C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProjektAndDatabase\Infotech\
+build_property.ProjectDir = C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProjektAndDatabase\Infotech
+build_property.MSBuildProjectDirectory = C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/AnswerQuestions.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/AnswerQuestions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5zd2VyUXVlc3Rpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/AnswerQuestionsExtended.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/AnswerQuestionsExtended.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5zd2VyUXVlc3Rpb25zRXh0ZW5kZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/ChangePassword.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/Error.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/Index.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/MainWindow.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/MainWindow.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbldpbmRvdy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/Privacy.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/start.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/start.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/UpdateSecurityCheck.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/UpdateSecurityCheck.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlU2VjdXJpdHlDaGVjay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/_ViewImports.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/_ViewStart.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kogle/Desktop/HTL\#/2022-2023/SYP/Projekt/SoftwareProjektAndDatabase/Infotech/Pages/Shared/_Layout.cshtml]
+[C:/Users/kinzl/OneDrive/HtlGrieskirchen/SYP/Git/Infotech/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-e2pvqd0u6f
