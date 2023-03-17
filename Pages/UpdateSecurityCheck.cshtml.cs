@@ -22,4 +22,9 @@ public class UpdateSecurityCheck : PageModel
     {
         QuestionsList.Add("Question xy");
     }
+
+    public void OnSelectionChanged(string item)
+    {
+        Console.WriteLine(item);
+    }
 }
