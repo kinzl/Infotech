@@ -23,5 +23,9 @@ public class AnwerQuestionsModel : PageModel
     {
         Console.WriteLine(companyName);
     }
-    
+
+    public void OnGetSave()
+    {
+        Response.Redirect("AnswerQuestionsExtended");
+    }
 }

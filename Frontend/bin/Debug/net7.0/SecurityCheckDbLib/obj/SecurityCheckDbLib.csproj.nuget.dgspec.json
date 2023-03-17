@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD:Frontend/bin/Debug/net7.0/SecurityCheckDbLib/obj/SecurityCheckDbLib.csproj.nuget.dgspec.json
     "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\ProjektWithDb\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj": {}
   },
   "projects": {
@@ -12,9 +13,26 @@
         "projectPath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\ProjektWithDb\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
         "packagesPath": "C:\\Users\\kogle\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\ProjektWithDb\\Infotech\\SecurityCheckDbLib\\obj\\",
+=======
+    "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\Questionnaire-Frontend.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\Questionnaire-Frontend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\Questionnaire-Frontend.csproj",
+        "projectName": "Questionnaire-Frontend",
+        "projectPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\Questionnaire-Frontend.csproj",
+        "packagesPath": "C:\\Users\\kinzl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\obj\\",
+>>>>>>> f514868ef0915136a0ac8228a77a141528d7308d:obj/Questionnaire-Frontend.csproj.nuget.dgspec.json
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\kogle\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kinzl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +40,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

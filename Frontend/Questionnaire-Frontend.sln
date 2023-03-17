@@ -5,8 +5,11 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Questionnaire-Frontend", "Questionnaire-Frontend.csproj", "{798B3EA6-9500-4B9F-9C06-D71955067018}"
 EndProject
+<<<<<<< HEAD:Frontend/Questionnaire-Frontend.sln
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityCheckDbLib", "..\SecurityCheckDbLib\SecurityCheckDbLib.csproj", "{C66741AA-8F4A-4C1F-847F-4CFE81F91C64}"
 EndProject
+=======
+>>>>>>> f514868ef0915136a0ac8228a77a141528d7308d:Questionnaire-Frontend.sln
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +20,13 @@ Global
 		{798B3EA6-9500-4B9F-9C06-D71955067018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{798B3EA6-9500-4B9F-9C06-D71955067018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{798B3EA6-9500-4B9F-9C06-D71955067018}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD:Frontend/Questionnaire-Frontend.sln
 		{C66741AA-8F4A-4C1F-847F-4CFE81F91C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C66741AA-8F4A-4C1F-847F-4CFE81F91C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C66741AA-8F4A-4C1F-847F-4CFE81F91C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C66741AA-8F4A-4C1F-847F-4CFE81F91C64}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+>>>>>>> f514868ef0915136a0ac8228a77a141528d7308d:Questionnaire-Frontend.sln
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

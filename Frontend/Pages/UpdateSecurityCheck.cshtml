@@ -19,18 +19,50 @@
 
     <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
 
-    <select id="securityCheckListBox" size="@Model.list.Count" class="listGroup">
-        @for (int i = 0; i < @Model.list.Count; i++)
+    <!-- Question list -->
+    <div>
+        <form method="post" asp-page-handler="AnyMethod">
+            <select id="questionListBox" size="@Model.QuestionsList.Count" onchange="this.form.su">
+                @for (int i = 0; i < @Model.QuestionsList.Count; i++)
+                {
+                    <option class="listGroupSelected">@Model.QuestionsList[i]</option>
+                }
+            </select>
+        </form>
+    </div>
+
+    <!-- Create new Security Check -->
+    <input id="newSecurityCheckTextBox" type="text" placeholder="Security Check name">
+    <input id="newSecurityCheckBtn" type="button" value="Create">
+
+    <!-- Security Check List -->
+    <select id="securityCheckList" class="dropdown">
+        <option selected>@Model.SecurityCheckList[0]</option>
+        @for (int i = 1; i < @Model.SecurityCheckList.Count; i++)
         {
-            <option class="listGroupSelected">@Model.list[i]</option>
+            <option>@Model.SecurityCheckList[i]</option>
         }
     </select>
 
-    <!-- Unnamed (Text Field) -->
-    <div id="u108" class="ax_default text_field">
-        <div id="u108_div" class=""></div>
-        <input id="u108_input" type="text" value="" class="u108_input"/>
-    </div>
+    <input id="questionTextBox" type="text" placeholder="question">
+
+    <!-- Criticality Combo Box -->
+    <select id="criticalityComboBox" class="dropdown ">
+        <option selected>@Model.Criticality[0]</option>
+        @for (int i = 1; i < @Model.Criticality.Count; i++)
+        {
+            <option>@Model.Criticality[i]</option>
+        }
+    </select>
+
+    <!-- Category Combo Box -->
+    <select id="categoryComboBox" class="dropdown ">
+        <option selected>@Model.Category[0]</option>
+        @for (int i = 1; i < @Model.Category.Count; i++)
+        {
+            <option>@Model.Category[i]</option>
+        }
+    </select>
 
     <!-- Unnamed (Rectangle) -->
     <div id="u109" class="ax_default button">
@@ -72,112 +104,30 @@
         </div>
     </div>
 
-    <!-- Unnamed (Text Field) -->
-    <div id="u113" class="ax_default text_field">
-        <div id="u113_div" class=""></div>
-        <input id="u113_input" type="text" value="" class="u113_input"/>
+
+    <!-- Add New Question Button -->
+    <div>
+        <form method="post" asp-page-handler="AddNewQuestion">
+            <input id="addNewQuestionBtn" type="submit" value="Add New Question">
+        </form>
     </div>
 
-    <!-- Unnamed (Radio Button) -->
-    <div id="u114" class="ax_default label">
-        <label id="u114_input_label" for="u114_input" style="position: absolute; left: 0px;">
-            <img id="u114_img" class="img " src="images/updatesecuritycheck/u114.svg"/>
-            <div id="u114_text" class="text ">
-                <p>
-                    <span>0</span>
-                </p>
-            </div>
-        </label>
-        <input id="u114_input" type="radio" value="radio" name="u114"/>
-    </div>
+    <!-- 0 -->
+    <label id="questionZeroLabel">0</label>
+    <input id="questionZeroTextBox" type="text">
 
-    <!-- Unnamed (Radio Button) -->
-    <div id="u115" class="ax_default label">
-        <label id="u115_input_label" for="u115_input" style="position: absolute; left: 0px;">
-            <img id="u115_img" class="img " src="images/updatesecuritycheck/u115.svg"/>
-            <div id="u115_text" class="text ">
-                <p>
-                    <span>1</span>
-                </p>
-            </div>
-        </label>
-        <input id="u115_input" type="radio" value="radio" name="u115"/>
-    </div>
+    <!-- 1 -->
+    <label id="questionOneLabel">1</label>
+    <input id="questionOneTextBox" type="text">
 
-    <!-- Unnamed (Radio Button) -->
-    <div id="u116" class="ax_default label">
-        <label id="u116_input_label" for="u116_input" style="position: absolute; left: 0px;">
-            <img id="u116_img" class="img " src="images/updatesecuritycheck/u116.svg"/>
-            <div id="u116_text" class="text ">
-                <p>
-                    <span>2</span>
-                </p>
-            </div>
-        </label>
-        <input id="u116_input" type="radio" value="radio" name="u116"/>
-    </div>
+    <!-- 2 -->
+    <label id="questionTwoLabel">2</label>
+    <input id="questionTwoTextBox" type="text">
 
-    <!-- Unnamed (Radio Button) -->
-    <div id="u117" class="ax_default label">
-        <label id="u117_input_label" for="u117_input" style="position: absolute; left: 0px;">
-            <img id="u117_img" class="img " src="images/updatesecuritycheck/u117.svg"/>
-            <div id="u117_text" class="text ">
-                <p>
-                    <span>3</span>
-                </p>
-            </div>
-        </label>
-        <input id="u117_input" type="radio" value="radio" name="u117"/>
-    </div>
+    <!-- 3 -->
+    <label id="questionThreeLabel">3</label>
+    <input id="questionThreeTextBox" type="text">
 
-    <!-- Unnamed (Text Field) -->
-    <div id="u118" class="ax_default text_field">
-        <div id="u118_div" class=""></div>
-        <input id="u118_input" type="text" value="" class="u118_input"/>
-    </div>
-
-    <!-- Unnamed (Text Field) -->
-    <div id="u119" class="ax_default text_field">
-        <div id="u119_div" class=""></div>
-        <input id="u119_input" type="text" value="" class="u119_input"/>
-    </div>
-
-    <!-- Unnamed (Text Field) -->
-    <div id="u120" class="ax_default text_field">
-        <div id="u120_div" class=""></div>
-        <input id="u120_input" type="text" value="" class="u120_input"/>
-    </div>
-
-    <!-- Unnamed (Text Field) -->
-    <div id="u121" class="ax_default text_field">
-        <div id="u121_div" class=""></div>
-        <input id="u121_input" type="text" value="" class="u121_input"/>
-    </div>
-
-    <!-- chbox_SecurityCheck (Droplist) -->
-    <div id="u122" class="ax_default droplist" data-label="chbox_SecurityCheck">
-        <div id="u122_div" class=""></div>
-        <select id="u122_input" class="u122_input">
-            <option class="u122_input_option" value="Security Check | Extended">Security Check | Extended</option>
-            <option class="u122_input_option" value="Security Check | Light">Security Check | Light</option>
-        </select>
-    </div>
-
-    <!-- Unnamed (Text Field) -->
-    <div id="u123" class="ax_default text_field">
-        <div id="u123_div" class=""></div>
-        <input id="u123_input" placeholder="Security Check name" type="text" value="" class="u123_input"/>
-    </div>
-
-    <!-- Unnamed (Rectangle) -->
-    <div id="u124" class="ax_default button ax_default_hidden" style="display:none; visibility: hidden">
-        <div id="u124_div" class=""></div>
-        <div id="u124_text" class="text ">
-            <p>
-                <span>Create New Security Check</span>
-            </p>
-        </div>
-    </div>
 
     <!-- Unnamed (Rectangle) -->
     <div id="u125" class="ax_default button">
@@ -191,7 +141,7 @@
         </a>
     </div>
 
-    
+
 </div>
 <script src="resources/scripts/axure/ios.js"></script>
 </body>
