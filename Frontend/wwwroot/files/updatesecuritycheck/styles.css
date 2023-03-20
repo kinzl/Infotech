@@ -1913,7 +1913,64 @@
   height:44px;
   display:flex;
   font-size:20px;
+  word-wrap:break-word;
 
+  text-align: center;
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+}
+
+#backBtn{
+  border-width:1px;
+  position:absolute;
+  left:650px;
+  top:71px;
+  width:139px;
+  height:44px;
+  display:flex;
+  font-size:20px;
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+}
+#saveAnswersBtn{
+  border-width:1px;
+  position:absolute;
+  left:999px;
+  top:1131px;
+  width:173px;
+  height:48px;
+  display:flex;
+  font-size:18px;
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#deleteBtn{
+  border-width:1px;
+  position:absolute;
+  left:520px;
+  top:1131px;
+  width:148px;
+  height:48px;
+  display:flex;
+  font-size:18px;
+  
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Questionnaire_Frontend.Dto;
+using SecurityCheckDbLib;
 
 namespace Questionnaire_Frontend.Pages;
 
@@ -17,10 +18,12 @@ public class IndexModel : PageModel
     public string InputPassword { get; set; }
 
     private readonly ILogger<IndexModel> _logger;
+    private SecurityCheckContext _db;
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public IndexModel(ILogger<IndexModel> logger, SecurityCheckContext db)
     {
         _logger = logger;
+        _db = db;
     }
 
 

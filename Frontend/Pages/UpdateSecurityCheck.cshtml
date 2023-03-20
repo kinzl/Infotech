@@ -5,7 +5,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>UpdateSecurityCheck</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -21,19 +21,30 @@
 
     <!-- Question list -->
     <div>
-        <form method="post" asp-page-handler="AnyMethod">
-            <select id="questionListBox" size="@Model.QuestionsList.Count" onchange="this.form.su">
+        <form method="post" asp-page-handler="QuestionList">
+            <select id="questionListBox" size="@Model.QuestionsList.Count" onchange="this.form.submit()" name="selectedItem">
                 @for (int i = 0; i < @Model.QuestionsList.Count; i++)
                 {
-                    <option class="listGroupSelected">@Model.QuestionsList[i]</option>
+                    @if (i == @Model.SelectedQuestionIndex)
+                    {
+                        <option class="listGroupSelected" selected="selected">@Model.QuestionsList[i]</option>
+                    }
+                    else
+                    {
+                        <option class="listGroupSelected">@Model.QuestionsList[i]</option>
+                    }
                 }
             </select>
         </form>
     </div>
 
     <!-- Create new Security Check -->
-    <input id="newSecurityCheckTextBox" type="text" placeholder="Security Check name">
-    <input id="newSecurityCheckBtn" type="button" value="Create">
+    <div>
+        <form method="post" asp-page-handler="NewSecurityCheck">
+            <input id="newSecurityCheckTextBox" type="text" placeholder="Security Check name" name="securityCheckName">
+            <button id="newSecurityCheckBtn" type="submit">Create</button>
+        </form>
+    </div>
 
     <!-- Security Check List -->
     <select id="securityCheckList" class="dropdown">
@@ -44,7 +55,6 @@
         }
     </select>
 
-    <input id="questionTextBox" type="text" placeholder="question">
 
     <!-- Criticality Combo Box -->
     <select id="criticalityComboBox" class="dropdown ">
@@ -65,14 +75,14 @@
     </select>
 
     <!-- Unnamed (Rectangle) -->
-    <div id="u109" class="ax_default button">
-        <div id="u109_div" class=""></div>
-        <div id="u109_text" class="text ">
-            <p>
-                <span>Delete</span>
-            </p>
-        </div>
-    </div>
+    @* <div id="u109" class="ax_default button"> *@
+    @*     <div id="u109_div" class=""></div> *@
+    @*     <div id="u109_text" class="text "> *@
+    @*         <p> *@
+    @*             <span>Delete</span> *@
+    @*         </p> *@
+    @*     </div> *@
+    @* </div> *@
 
     <!-- Unnamed (Rectangle) -->
     <div id="u110" class="ax_default button">
@@ -84,27 +94,6 @@
         </div>
     </div>
 
-    <!-- Unnamed (Rectangle) -->
-    <div id="u111" class="ax_default button">
-        <div id="u111_div" class=""></div>
-        <div id="u111_text" class="text ">
-            <p>
-                <span>Save All Changes</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Unnamed (Rectangle) -->
-    <div id="u112" class="ax_default button">
-        <div id="u112_div" class=""></div>
-        <div id="u112_text" class="text ">
-            <p>
-                <span>Add new Question</span>
-            </p>
-        </div>
-    </div>
-
-
     <!-- Add New Question Button -->
     <div>
         <form method="post" asp-page-handler="AddNewQuestion">
@@ -112,37 +101,42 @@
         </form>
     </div>
 
-    <!-- 0 -->
-    <label id="questionZeroLabel">0</label>
-    <input id="questionZeroTextBox" type="text">
 
-    <!-- 1 -->
-    <label id="questionOneLabel">1</label>
-    <input id="questionOneTextBox" type="text">
+    <div>
+        <form method="post">
+            <!-- Question text box -->
+            <input id="questionTextBox" type="text" placeholder="question" name="question" value="@Model.SelectedQuestion">
 
-    <!-- 2 -->
-    <label id="questionTwoLabel">2</label>
-    <input id="questionTwoTextBox" type="text">
+            <!-- 0 -->
+            <label id="questionZeroLabel">0</label>
+            <input id="questionZeroTextBox" type="text" name="answerZero">
 
-    <!-- 3 -->
-    <label id="questionThreeLabel">3</label>
-    <input id="questionThreeTextBox" type="text">
+            <!-- 1 -->
+            <label id="questionOneLabel">1</label>
+            <input id="questionOneTextBox" type="text" name="answerOne">
 
+            <!-- 2 -->
+            <label id="questionTwoLabel">2</label>
+            <input id="questionTwoTextBox" type="text" name="answerTwo">
 
-    <!-- Unnamed (Rectangle) -->
-    <div id="u125" class="ax_default button">
-        <a asp-page-handler="RedirectToMainWindow">
-            <div id="u125_div" class=""></div>
-            <div id="u125_text" class="text ">
-                <p>
-                    <span>Back</span>
-                </p>
-            </div>
-        </a>
+            <!-- 3 -->
+            <label id="questionThreeLabel">3</label>
+            <input id="questionThreeTextBox" type="text" name="answerThree">
+            
+            <!-- Save Answers -->
+            <input id="saveAnswersBtn" type="submit" value="Save Answers" asp-page-handler="ChangeAnswer"/>
+            <!-- Delete Answers -->
+            <input id="deleteBtn" type="submit" value="Delete Question" asp-page-handler="DeleteQuestion"/>
+        </form>
     </div>
 
+    <!-- Back Btn -->
+    <button id="backBtn" type="submit">
+        <a asp-page-handler="RedirectToMainWindow">
+            Back
+        </a>
+    </button>
 
 </div>
-<script src="resources/scripts/axure/ios.js"></script>
 </body>
 </html>
