@@ -13,124 +13,50 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/mainwindow/styles.css" type="text/css" rel="stylesheet"/>
-    <script src="resources/scripts/jquery-3.2.1.min.js"></script>
-    <script src="resources/scripts/axure/axQuery.js"></script>
-    <script src="resources/scripts/axure/globals.js"></script>
-    <script src="resources/scripts/axutils.js"></script>
-    <script src="resources/scripts/axure/annotation.js"></script>
-    <script src="resources/scripts/axure/axQuery.std.js"></script>
-    <script src="resources/scripts/axure/doc.js"></script>
-    <script src="resources/scripts/messagecenter.js"></script>
-    <script src="resources/scripts/axure/events.js"></script>
-    <script src="resources/scripts/axure/recording.js"></script>
-    <script src="resources/scripts/axure/action.js"></script>
-    <script src="resources/scripts/axure/expr.js"></script>
-    <script src="resources/scripts/axure/geometry.js"></script>
-    <script src="resources/scripts/axure/flyout.js"></script>
-    <script src="resources/scripts/axure/model.js"></script>
-    <script src="resources/scripts/axure/repeater.js"></script>
-    <script src="resources/scripts/axure/sto.js"></script>
-    <script src="resources/scripts/axure/utils.temp.js"></script>
-    <script src="resources/scripts/axure/variables.js"></script>
-    <script src="resources/scripts/axure/drag.js"></script>
-    <script src="resources/scripts/axure/move.js"></script>
-    <script src="resources/scripts/axure/visibility.js"></script>
-    <script src="resources/scripts/axure/style.js"></script>
-    <script src="resources/scripts/axure/adaptive.js"></script>
-    <script src="resources/scripts/axure/tree.js"></script>
-    <script src="resources/scripts/axure/init.temp.js"></script>
-    <script src="resources/scripts/axure/legacy.js"></script>
-    <script src="resources/scripts/axure/viewer.js"></script>
-    <script src="resources/scripts/axure/math.js"></script>
-    <script src="resources/scripts/axure/jquery.nicescroll.min.js"></script>
-    <script src="data/document.js"></script>
-    <script src="files/mainwindow/data.js"></script>
-    <script type="text/javascript">
-        $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
-        $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
-        $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
-    </script>
 </head>
 <body>
 <div id="base" class="">
 
     <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
 
-    <!-- Unnamed (Rectangle) -->
-    <div id="u0" class="ax_default button">
-        <div id="u0_div" class=""></div>
-        <div id="u0_text" class="text ">
-            <a>Show Existing Data</a>
-        </div>
+    <div>
+        <form method="post" asp-page-handler="RedirectShowExistingData">
+            <input id="createNewCheckBtn" type="submit" value="Create new"/>
+        </form>
     </div>
 
-    <!-- Unnamed (Rectangle) -->
-    <div id="u1" class="ax_default button">
-        <div id="u1_div" class=""></div>
-        <div id="u1_text" class="text ">
-            <a asp-page-handler="RedirectShowExistingData">Create new Security Check</a>
-        </div>
+    <div>
+        <form method="post" asp-page-handler="SecurityCheckList">
+            <select id="securityCheckList" size="@Model.SecurityChecks.Count" onchange="this.form.submit()" name="selectedItem">
+                @for (int i = 0; i < @Model.SecurityChecks.Count; i++)
+                {
+                    @if (i == @Model.SelectedSecurityCheckIndex)
+                    {
+                        <option class="listGroupSelected" selected="selected">@Model.SecurityChecks[i]</option>
+                    }
+                    else
+                    {
+                        <option class="listGroupSelected">@Model.SecurityChecks[i]</option>
+                    }
+                }
+            </select>
+            <input id="openSelectedBtn" type="submit" value="Open Selected" asp-page-handler="OpenSelectedCheck"/>
+        </form>
     </div>
-
-    @*                 <script> *@
-    @*                 function myFunction() { *@
-    @*                   let text; *@
-    @*                   let questionnaireName = prompt("Please enter the new Security Check name"); *@
-    @*                   if (questionnaireName == null || questionnaireName === "") { *@
-    @*                        *@
-    @*                   } else { *@
-    @*                       // $.post(); *@
-    @*                       $.post("MainWindow?handler=CreateNewSecurityCheck",JSON.stringify(questionnaireName),function(value) { *@
-    @*                         window.open("AnswerQuestions"); *@
-    @*                         console.log("open new window"); *@
-    @*                       }); *@
-    @* *@
-    @*                     // text = "Hello " + name + "! How are you today?"; *@
-    @*                   } *@
-    @*                   // document.getElementById("demo").innerHTML = text; *@
-    @*                 } *@
-    @*                 </script> *@
-
-
-    <!-- Unnamed (List Box) -->
-    <div id="u2" class="ax_default list_box">
-        <div id="u2_div" class=""></div>
-        <select id="u2_input" size="2" class="u2_input">
-            <option class="u2_input_option" value="Company 1 | Date | Security Check Type | Zustand">Company 1 | Date | Security Check Type | Zustand</option>
-            <option class="u2_input_option" value="Company 2 | Date | Security Check Type | Zustand">Company 2 | Date | Security Check Type | Zustand</option>
-        </select>
-    </div>
-
-
-    <!-- Unnamed (Rectangle) -->
-    <div id="u3" class="ax_default button ax_default_hidden" style="display:none; visibility: hidden">
-        <div id="u3_div" class=""></div>
-        <div id="u3_text" class="text ">
-            <a asp-page-handler="RedirectShowExistingData">Open Selected Security Check</a>
-        </div>
-    </div>
-
-
-    <!-- Unnamed (Shape) -->
-    <div id="u5" class="ax_default icon">
-        <a asp-page-handler="RedirectToUpdateSecurityCheck">
-            <img id="u5_img" class="img " src="images/mainwindow/u7.svg"/>
-            <div id="u5_text" class="text " style="display:none; visibility: hidden">
-                <p></p>
-            </div>
+    
+    <!-- Change Password -->
+    <div>
+        <a asp-page-handler="RedirectChangePassword">
+            <img id="settingsBtn" src="images/mainwindow/u6.svg" alt="settings"/> 
         </a>
     </div>
-
-    <!-- Unnamed (Shape) -->
-    <div id="u6" class="ax_default icon">
-        <a asp-page-handler="RedirectChangePassword">
-            <img id="u6_img" class="img " src="images/mainwindow/u6.svg"/>
-            <div id="u6_text" class="text " style="display:none; visibility: hidden">
-                <p></p>
-            </div>
+    
+    <!-- Update Security Check -->
+    <div>
+        <a asp-page-handler="RedirectToUpdateSecurityCheck">
+            <img id="pencilBtn" src="images/mainwindow/u7.svg" alt="update security check"/>
         </a>
     </div>
 </div>
-<script src="resources/scripts/axure/ios.js"></script>
 </body>
 </html>

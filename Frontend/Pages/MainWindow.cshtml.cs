@@ -6,7 +6,14 @@ namespace Questionnaire_Frontend.Pages;
 public class MainWindow : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    public List<int> list = new() { 1, 2, 3, 4, 5 };
+
+    public List<string> SecurityChecks = new()
+    {
+        "Company 1 | Date | Security Check Type | Progress",
+        "Company 2 | Date | Security Check Type | Progress"
+    };
+
+    public int SelectedSecurityCheckIndex = 0;
 
     public MainWindow()
     {
@@ -16,9 +23,10 @@ public class MainWindow : PageModel
     {
     }
 
-    public void OnGetRedirectShowExistingData()
+    public IActionResult OnPostRedirectShowExistingData()
     {
-        Response.Redirect("AnswerQuestions");
+        return new RedirectToPageResult("AnswerQuestions");
+        // Response.Redirect("AnswerQuestions");
     }
 
     public IActionResult OnPostCreateNewSecurityCheck(string questionnaireName)
@@ -33,8 +41,25 @@ public class MainWindow : PageModel
         Response.Redirect("UpdateSecurityCheck");
     }
 
-    public void OnGetRedirectChangePassword()
+    public IActionResult OnGetRedirectChangePassword()
     {
-        Response.Redirect("ChangePassword");
+        return new RedirectToPageResult("ChangePassword");
+    }
+
+    public void OnPostSecurityCheckList(string selectedItem)
+    {
+        for (int i = 0; i < SecurityChecks.Count; i++)
+        {
+            if (SecurityChecks[i] == selectedItem)
+            {
+                SelectedSecurityCheckIndex = i;
+                break;
+            }
+        }
+    }
+
+    public IActionResult OnPostOpenSelectedCheck()
+    {
+        return new RedirectToPageResult("AnswerQuestions");
     }
 }
