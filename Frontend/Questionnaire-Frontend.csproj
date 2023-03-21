@@ -23,9 +23,6 @@
     <None Include="wwwroot\images\mainwindow\u4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="wwwroot\images\updatesecuritycheck\u116.svg" />
-    <None Include="wwwroot\images\updatesecuritycheck\u117.svg" />
-    <None Include="wwwroot\images\updatesecuritycheck\u118.svg" />
     <None Include="wwwroot\resources\chrome\allow-access.png" />
     <None Include="wwwroot\resources\chrome\axure-chrome-extension.crx" />
     <None Include="wwwroot\resources\chrome\axure_logo.png" />
