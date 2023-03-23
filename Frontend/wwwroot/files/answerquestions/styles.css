@@ -1,4 +1,4 @@
-﻿body {
+﻿﻿body {
   margin:0px;
   background-image:none;
   position:static;
@@ -21,7 +21,6 @@
   top: 25em;
   left: 30%;
 }
-
 .textAreaGroup{
   position:absolute;
   left:20%;
@@ -41,7 +40,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .criticality{
   position:absolute;
   left:0%;
@@ -59,7 +57,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .question{
   position:absolute;
   left:15em;
@@ -78,7 +75,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .categorie{
   border-width:0px;
   position:absolute;
@@ -90,7 +86,6 @@
   font-size:22px;
   text-align:center;
 
-
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -99,7 +94,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .buttonNext{
   position:absolute;
   left:55em;
@@ -120,7 +114,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .testBtn{
   position:absolute;
   left:55em;
@@ -141,7 +134,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .textAreaRisk{
   position:absolute;
   left:20%;
@@ -161,7 +153,6 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .textAreaRecommendation{
   position:absolute;
   left:20%;
@@ -181,15 +172,12 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .selectedValue{
   background-color: green;
 }
-
 input[type=radio]:checked + label{
   background-color: green;
 }
-
 .buttonSave{
   position:absolute;
   left:55em;
@@ -210,7 +198,6 @@ input[type=radio]:checked + label{
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .buttonDownloadPdfReport{
   position:absolute;
   left:0em;
@@ -219,7 +206,7 @@ input[type=radio]:checked + label{
   height:38px;
   display:flex;
   font-size:16px;
-  
+
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;
@@ -229,11 +216,10 @@ input[type=radio]:checked + label{
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  
+
   word-wrap:break-word;
   text-transform:none;
 }
-
 .companyName{
   position:absolute;
   left:206px;
@@ -242,7 +228,7 @@ input[type=radio]:checked + label{
   height:54px;
   display:flex;
   font-size:18px;
- 
+
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;
@@ -254,7 +240,6 @@ input[type=radio]:checked + label{
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 .comboBox{
   border-width:1px;
   position:absolute;
@@ -265,7 +250,6 @@ input[type=radio]:checked + label{
   display:flex;
   font-size:14px;
 }
-
 #saveButton{
   border-width:1px;
   position:absolute;
@@ -275,7 +259,6 @@ input[type=radio]:checked + label{
   height:38px;
   display:flex;
   font-size:16px;
-  
 
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
@@ -287,7 +270,6 @@ input[type=radio]:checked + label{
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-
 #infotechLogo{
   position:absolute;
   left:916px;

@@ -1,57 +1,44 @@
 ﻿@page
-@model Questionnaire_Frontend.Pages.AnwerQuestionsExtendedModel
+@model Questionnaire_Frontend.Pages.AnswerQuestionsExtendedModel
 @{
 }
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>AnwerQuestionsExtended</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/anwerquestionsextended/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/answerquestions/styles.css" type="text/css" rel="stylesheet"/>
-    
-  </head>
-  <body>
-  <div id="base" class="">
-    
+
+</head>
+<body>
+<div id="base" class="">
+
     <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
 
     <script src="js/AnswerQuestionsExtendedGenerated.js" asp-append-version="true"></script>
 
-    <!-- Unnamed (Rectangle) -->
-    <div id="u55" class="ax_default button">
-      <div id="u55_div" class=""></div>
-      <div id="u55_text" class="text ">
-        <p><span>Download PDF-Report</span></p>
-      </div>
+    <!-- Download Pdf Report -->
+    <div>
+        <form method="post" asp-page-handler="DownloadSecurityCheck">
+            <button id="downloadBtn" type="submit">Download</button>
+        </form>
     </div>
 
-    <!-- Unnamed (Text Field) -->
-    <div id="u60" class="ax_default text_field">
-      <div id="u60_div" class=""></div>
-      <input id="u60_input" type="text" value="" class="u60_input"/>
+    <!-- Company Name -->
+    <label id="companyNameLbl" type="text">@Model.CompanyName</label>
+
+    <!-- Security Check Type label -->
+    <label id="securityCheckTypeLbl" type="text">@Model.SecurityCheckType</label>
+    
+    <!-- Save Btn -->
+    <div>
+        <form method="post" asp-page-handler="SaveSecurityCheck">
+            <button id="saveBtn" type="submit">Save</button>
+        </form>
     </div>
 
-    <!-- Unnamed (Droplist) -->
-    <div id="u61" class="ax_default droplist">
-      <div id="u61_div" class=""></div>
-      <select id="u61_input" class="u61_input">
-        <option class="u61_input_option" value="Security Check Extended">Security Check Extended</option>
-        <option class="u61_input_option" value="Security Check Light">Security Check Light</option>
-      </select>
-    </div>
-
-    <!-- Unnamed (Rectangle) -->
-    <div id="u68" class="ax_default button">
-      <div id="u68_div" class=""></div>
-      <div id="u68_text" class="text ">
-        <p><span>Save</span></p>
-      </div>
-    </div>
-
-  </div>
-  </body>
+</div>
+</body>
 </html>

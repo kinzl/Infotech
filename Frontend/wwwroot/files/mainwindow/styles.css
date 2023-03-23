@@ -17,7 +17,6 @@
   z-index:0;
 }
 #infotechLogo{
-  border-width:0px;
   position:absolute;
   left:900px;
   top:37px;
@@ -26,6 +25,7 @@
   display:flex;
 }
 #createNewCheckBtn{
+  border-width:1px;
   position:absolute;
   left:500px;
   top:107px;
@@ -88,7 +88,6 @@
   box-shadow:none;
 }
 #pencilBtn{
-  border-width:0px;
   position:absolute;
   left:400px;
   top:113px;
@@ -97,7 +96,6 @@
   display:flex;
 }
 #settingsBtn{
-  border-width:0px;
   position:absolute;
   left:280px;
   top:113px;

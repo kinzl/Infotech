@@ -29,18 +29,15 @@ public class MainWindow : PageModel
         // Response.Redirect("AnswerQuestions");
     }
 
-    public IActionResult OnPostCreateNewSecurityCheck(string questionnaireName)
+    public IActionResult OnPostOpenSelectedCheck()
     {
-        // Response.Redirect("AnswerQuestions");
         return new RedirectToPageResult("AnswerQuestions");
-        //db add new secu 
     }
-
     public void OnGetRedirectToUpdateSecurityCheck()
     {
         Response.Redirect("UpdateSecurityCheck");
     }
-
+    
     public IActionResult OnGetRedirectChangePassword()
     {
         return new RedirectToPageResult("ChangePassword");
@@ -58,8 +55,5 @@ public class MainWindow : PageModel
         }
     }
 
-    public IActionResult OnPostOpenSelectedCheck()
-    {
-        return new RedirectToPageResult("AnswerQuestions");
-    }
+    
 }

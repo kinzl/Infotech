@@ -10,8 +10,6 @@
     <title>UpdateSecurityCheck</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/updatesecuritycheck/styles.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
@@ -74,24 +72,12 @@
         }
     </select>
 
-    <!-- Unnamed (Rectangle) -->
-    @* <div id="u109" class="ax_default button"> *@
-    @*     <div id="u109_div" class=""></div> *@
-    @*     <div id="u109_text" class="text "> *@
-    @*         <p> *@
-    @*             <span>Delete</span> *@
-    @*         </p> *@
-    @*     </div> *@
-    @* </div> *@
 
-    <!-- Unnamed (Rectangle) -->
-    <div id="u110" class="ax_default button">
-        <div id="u110_div" class=""></div>
-        <div id="u110_text" class="text ">
-            <p>
-                <span>Update</span>
-            </p>
-        </div>
+    <!-- Update -->
+    <div>
+        <form method="post" asp-page-handler="UpdateQuestion">
+            <input id="updateBtn" type="submit" value="Update">
+        </form>
     </div>
 
     <!-- Add New Question Button -->
@@ -100,7 +86,6 @@
             <input id="addNewQuestionBtn" type="submit" value="Add New Question">
         </form>
     </div>
-
 
     <div>
         <form method="post">
@@ -122,7 +107,7 @@
             <!-- 3 -->
             <label id="questionThreeLabel">3</label>
             <input id="questionThreeTextBox" type="text" name="answerThree">
-            
+
             <!-- Save Answers -->
             <input id="saveAnswersBtn" type="submit" value="Save Answers" asp-page-handler="ChangeAnswer"/>
             <!-- Delete Answers -->

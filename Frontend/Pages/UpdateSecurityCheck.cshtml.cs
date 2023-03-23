@@ -62,4 +62,9 @@ public class UpdateSecurityCheck : PageModel
     {
         Console.WriteLine(question);
     }
+
+    public void OnPostQuestion()
+    {
+        
+    }
 }
