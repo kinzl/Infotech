@@ -13,115 +13,115 @@
     <link href="files/updatesecuritycheck/styles.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<div id="base" class="">
-
-    <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
-
-    <!-- Question list -->
+<div class="container">
     <div>
-        <form method="post" asp-page-handler="QuestionList">
-            <select id="questionListBox" size="@Model.QuestionsList.Count" onchange="this.form.submit()" name="selectedItem">
-                @for (int i = 0; i < @Model.QuestionsList.Count; i++)
-                {
-                    @if (i == @Model.SelectedQuestionIndex)
+        <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
+
+        <!-- Question list -->
+        <div>
+            <form method="post" asp-page-handler="QuestionList">
+                <select id="questionListBox" size="@Model.QuestionsList.Count" onchange="this.form.submit()" name="selectedItem">
+                    @for (int i = 0; i < @Model.QuestionsList.Count; i++)
                     {
-                        <option class="listGroupSelected" selected="selected">@Model.QuestionsList[i]</option>
+                        @if (i == @Model.SelectedQuestionIndex)
+                        {
+                            <option class="listGroupSelected" selected="selected">@Model.QuestionsList[i]</option>
+                        }
+                        else
+                        {
+                            <option class="listGroupSelected">@Model.QuestionsList[i]</option>
+                        }
                     }
-                    else
-                    {
-                        <option class="listGroupSelected">@Model.QuestionsList[i]</option>
-                    }
-                }
-            </select>
-        </form>
+                </select>
+            </form>
+        </div>
+
+        <!-- Create new Security Check -->
+        <div>
+            <form method="post" asp-page-handler="NewSecurityCheck">
+                <input id="newSecurityCheckTextBox" type="text" placeholder="Security Check name" name="securityCheckName">
+                <button id="newSecurityCheckBtn" type="submit">Create</button>
+            </form>
+        </div>
+
+        <!-- Security Check List -->
+        <select id="securityCheckList" class="dropdown">
+            <option selected>@Model.SecurityCheckList[0]</option>
+            @for (int i = 1; i < @Model.SecurityCheckList.Count; i++)
+            {
+                <option>@Model.SecurityCheckList[i]</option>
+            }
+        </select>
+
+
+        <!-- Criticality Combo Box -->
+        <select id="criticalityComboBox" class="dropdown ">
+            <option selected>@Model.Criticality[0]</option>
+            @for (int i = 1; i < @Model.Criticality.Count; i++)
+            {
+                <option>@Model.Criticality[i]</option>
+            }
+        </select>
+
+        <!-- Category Combo Box -->
+        <select id="categoryComboBox" class="dropdown ">
+            <option selected>@Model.Category[0]</option>
+            @for (int i = 1; i < @Model.Category.Count; i++)
+            {
+                <option>@Model.Category[i]</option>
+            }
+        </select>
+
+
+        <!-- Update -->
+        <div>
+            <form method="post" asp-page-handler="UpdateQuestion">
+                <input id="updateBtn" type="submit" value="Update">
+            </form>
+        </div>
+
+        <!-- Add New Question Button -->
+        <div>
+            <form method="post" asp-page-handler="AddNewQuestion">
+                <input id="addNewQuestionBtn" type="submit" value="Add New Question">
+            </form>
+        </div>
+
+        <div>
+            <form method="post">
+                <!-- Question text box -->
+                <input id="questionTextBox" type="text" placeholder="question" name="question" value="@Model.SelectedQuestion">
+
+                <!-- 0 -->
+                <label id="questionZeroLabel">0</label>
+                <input id="questionZeroTextBox" type="text" name="answerZero">
+
+                <!-- 1 -->
+                <label id="questionOneLabel">1</label>
+                <input id="questionOneTextBox" type="text" name="answerOne">
+
+                <!-- 2 -->
+                <label id="questionTwoLabel">2</label>
+                <input id="questionTwoTextBox" type="text" name="answerTwo">
+
+                <!-- 3 -->
+                <label id="questionThreeLabel">3</label>
+                <input id="questionThreeTextBox" type="text" name="answerThree">
+
+                <!-- Save Answers -->
+                <input id="saveAnswersBtn" type="submit" value="Save Answers" asp-page-handler="ChangeAnswer"/>
+                <!-- Delete Answers -->
+                <input id="deleteBtn" type="submit" value="Delete Question" asp-page-handler="DeleteQuestion"/>
+            </form>
+        </div>
+
+        <!-- Back Btn -->
+        <button id="backBtn" type="submit">
+            <a asp-page-handler="RedirectToMainWindow">
+                Back
+            </a>
+        </button>
     </div>
-
-    <!-- Create new Security Check -->
-    <div>
-        <form method="post" asp-page-handler="NewSecurityCheck">
-            <input id="newSecurityCheckTextBox" type="text" placeholder="Security Check name" name="securityCheckName">
-            <button id="newSecurityCheckBtn" type="submit">Create</button>
-        </form>
-    </div>
-
-    <!-- Security Check List -->
-    <select id="securityCheckList" class="dropdown">
-        <option selected>@Model.SecurityCheckList[0]</option>
-        @for (int i = 1; i < @Model.SecurityCheckList.Count; i++)
-        {
-            <option>@Model.SecurityCheckList[i]</option>
-        }
-    </select>
-
-
-    <!-- Criticality Combo Box -->
-    <select id="criticalityComboBox" class="dropdown ">
-        <option selected>@Model.Criticality[0]</option>
-        @for (int i = 1; i < @Model.Criticality.Count; i++)
-        {
-            <option>@Model.Criticality[i]</option>
-        }
-    </select>
-
-    <!-- Category Combo Box -->
-    <select id="categoryComboBox" class="dropdown ">
-        <option selected>@Model.Category[0]</option>
-        @for (int i = 1; i < @Model.Category.Count; i++)
-        {
-            <option>@Model.Category[i]</option>
-        }
-    </select>
-
-
-    <!-- Update -->
-    <div>
-        <form method="post" asp-page-handler="UpdateQuestion">
-            <input id="updateBtn" type="submit" value="Update">
-        </form>
-    </div>
-
-    <!-- Add New Question Button -->
-    <div>
-        <form method="post" asp-page-handler="AddNewQuestion">
-            <input id="addNewQuestionBtn" type="submit" value="Add New Question">
-        </form>
-    </div>
-
-    <div>
-        <form method="post">
-            <!-- Question text box -->
-            <input id="questionTextBox" type="text" placeholder="question" name="question" value="@Model.SelectedQuestion">
-
-            <!-- 0 -->
-            <label id="questionZeroLabel">0</label>
-            <input id="questionZeroTextBox" type="text" name="answerZero">
-
-            <!-- 1 -->
-            <label id="questionOneLabel">1</label>
-            <input id="questionOneTextBox" type="text" name="answerOne">
-
-            <!-- 2 -->
-            <label id="questionTwoLabel">2</label>
-            <input id="questionTwoTextBox" type="text" name="answerTwo">
-
-            <!-- 3 -->
-            <label id="questionThreeLabel">3</label>
-            <input id="questionThreeTextBox" type="text" name="answerThree">
-
-            <!-- Save Answers -->
-            <input id="saveAnswersBtn" type="submit" value="Save Answers" asp-page-handler="ChangeAnswer"/>
-            <!-- Delete Answers -->
-            <input id="deleteBtn" type="submit" value="Delete Question" asp-page-handler="DeleteQuestion"/>
-        </form>
-    </div>
-
-    <!-- Back Btn -->
-    <button id="backBtn" type="submit">
-        <a asp-page-handler="RedirectToMainWindow">
-            Back
-        </a>
-    </button>
-
 </div>
 </body>
 </html>

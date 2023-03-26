@@ -10,11 +10,12 @@ public class UpdateSecurityCheck : PageModel
     public List<string> SecurityCheckList = new() { "Security Check Light", "Security Check Extended" };
     public List<string> Criticality = new() { "Middle", "Hard" };
     public List<string> Category = new() { "Category 1", "Category 2" };
-    public string SelectedQuestion = "Question 1";
+    public string SelectedQuestion;
     public int SelectedQuestionIndex = 0;
 
     public void OnGet()
     {
+        SelectedQuestion = QuestionsList.First();
     }
 
     public void OnGetRedirectToMainWindow()
@@ -45,26 +46,32 @@ public class UpdateSecurityCheck : PageModel
         }
     }
 
-    public void OnPostChangeAnswer(string  question, string? answerZero, string? answerOne, string? answerTwo, string? answerThree)
+    public void OnPostChangeAnswer(string question, string? answerZero, string? answerOne, string? answerTwo,
+        string? answerThree)
     {
         // if (!answerZero.IsNullOrEmpty() && !answerOne.IsNullOrEmpty() && !answerTwo.IsNullOrEmpty() && !answerThree.IsNullOrEmpty())
         // {
-            Console.WriteLine($"question: {question}, \n" +
-                              $"0: {answerZero}, \n" +
-                              $"1: {answerOne}, \n" +
-                              $"2: {answerTwo}, \n" +
-                              $"3: {answerThree}");
+        //if question already exists return;
+        Console.WriteLine($"question: {question}, \n" +
+                          $"0: {answerZero}, \n" +
+                          $"1: {answerOne}, \n" +
+                          $"2: {answerTwo}, \n" +
+                          $"3: {answerThree}");
         // }
-        
     }
 
     public void OnPostDeleteQuestion(string? question)
     {
         Console.WriteLine(question);
-    }
-
-    public void OnPostQuestion()
-    {
-        
+        int index = 0;
+        for (int i = 0; i < QuestionsList.Count; i++)
+        {
+            if (QuestionsList[i] == question)
+            {
+                index = i;
+                QuestionsList.RemoveAt(index);
+                break;
+            }
+        }
     }
 }

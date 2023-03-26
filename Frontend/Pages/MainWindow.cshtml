@@ -14,47 +14,48 @@
     <link href="files/mainwindow/styles.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<div id="base" class="">
-
-    <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
-
+<div id="base">
     <div>
-        <form method="post" asp-page-handler="RedirectShowExistingData">
-            <input id="createNewCheckBtn" type="submit" value="Create new"/>
-        </form>
-    </div>
+        <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
 
-    <div>
-        <form method="post" asp-page-handler="SecurityCheckList">
-            <select id="securityCheckList" size="@Model.SecurityChecks.Count" onchange="this.form.submit()" name="selectedItem">
-                @for (int i = 0; i < @Model.SecurityChecks.Count; i++)
-                {
-                    @if (i == @Model.SelectedSecurityCheckIndex)
+        <div>
+            <form method="post" asp-page-handler="RedirectShowExistingData">
+                <input id="createNewCheckBtn" type="submit" value="Create new"/>
+            </form>
+        </div>
+
+        <div>
+            <form method="post" asp-page-handler="SecurityCheckList">
+                <select id="securityCheckList" size="@Model.SecurityChecks.Count" onchange="this.form.submit()" name="selectedItem">
+                    @for (int i = 0; i < @Model.SecurityChecks.Count; i++)
                     {
-                        <option class="listGroupSelected" selected="selected">@Model.SecurityChecks[i]</option>
+                        @if (i == @Model.SelectedSecurityCheckIndex)
+                        {
+                            <option class="listGroupSelected" selected="selected">@Model.SecurityChecks[i]</option>
+                        }
+                        else
+                        {
+                            <option class="listGroupSelected">@Model.SecurityChecks[i]</option>
+                        }
                     }
-                    else
-                    {
-                        <option class="listGroupSelected">@Model.SecurityChecks[i]</option>
-                    }
-                }
-            </select>
-            <input id="openSelectedBtn" type="submit" value="Open Selected" asp-page-handler="OpenSelectedCheck"/>
-        </form>
-    </div>
-    
-    <!-- Change Password -->
-    <div>
-        <a asp-page-handler="RedirectChangePassword">
-            <img id="settingsBtn" src="images/mainwindow/u6.svg" alt="settings"/> 
-        </a>
-    </div>
-    
-    <!-- Update Security Check -->
-    <div>
-        <a asp-page-handler="RedirectToUpdateSecurityCheck">
-            <img id="pencilBtn" src="images/mainwindow/u7.svg" alt="update security check"/>
-        </a>
+                </select>
+                <input id="openSelectedBtn" type="submit" value="Open Selected" asp-page-handler="OpenSelectedCheck"/>
+            </form>
+        </div>
+
+        <!-- Change Password -->
+        <div>
+            <a asp-page-handler="RedirectChangePassword">
+                <img id="settingsBtn" src="images/mainwindow/u6.svg" alt="settings"/>
+            </a>
+        </div>
+
+        <!-- Update Security Check -->
+        <div>
+            <a asp-page-handler="RedirectToUpdateSecurityCheck">
+                <img id="pencilBtn" src="images/mainwindow/u7.svg" alt="update security check"/>
+            </a>
+        </div>
     </div>
 </div>
 </body>

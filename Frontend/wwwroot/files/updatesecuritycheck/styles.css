@@ -2,7 +2,7 @@
   background-image:none;
   position:static;
   left:auto;
-  width:1440px;
+  width:100%;
   margin-left:0;
   margin-right:0;
   text-align:left;
@@ -20,7 +20,7 @@
 }
 #infotechLogo{
   position:absolute;
-  left:896px;
+  left:65%;
   top:10px;
   width:276px;
   height:207px;
@@ -30,7 +30,7 @@
 #securityCheckList{
   border-width:1px;
   position:absolute;
-  left:267px;
+  left:25%;
   top:74px;
   width:359px;
   height:38px;
@@ -50,7 +50,7 @@
 #criticalityComboBox{
   border-width:1px;
   position:absolute;
-  left:267px;
+  left:25%;
   top:684px;
   width:906px;
   height:52px;
@@ -70,7 +70,7 @@
 #categoryComboBox{
   border-width:1px;
   position:absolute;
-  left:267px;
+  left:25%;
   top:766px;
   width:906px;
   height:52px;
@@ -89,7 +89,7 @@
 
 #questionListBox{
   position:absolute;
-  left:267px;
+  left:25%;
   top:216px;
   width:906px;
   height:350px;
@@ -118,7 +118,7 @@
 #questionTextBox{
   border-width:1px;
   position:absolute;
-  left:267px;
+  left:25%;
   top:602px;
   width:906px;
   height:52px;
@@ -138,7 +138,7 @@
 #addNewQuestionBtn{
   border-width:1px;
   position:absolute;
-  left:267px;
+  left:25%;
   top:1131px;
   width:170px;
   height:48px;
@@ -157,7 +157,7 @@
 }
 #questionZeroLabel{
   position:absolute;
-  left:267px;
+  left:25%;
   top:860px;
   width:45px;
   height:21px;
@@ -166,7 +166,7 @@
 }
 #questionOneLabel{
   position:absolute;
-  left:267px;
+  left:25%;
   top:920px;
   width:34px;
   height:21px;
@@ -175,7 +175,7 @@
 }
 #questionTwoLabel{
   position:absolute;
-  left:267px;
+  left:25%;
   top:985px;
   width:34px;
   height:21px;
@@ -184,7 +184,7 @@
 }
 #questionThreeLabel{
   position:absolute;
-  left:267px;
+  left:25%;
   top:1049px;
   width:34px;
   height:21px;
@@ -195,7 +195,7 @@
 #questionZeroTextBox{
   border-width:1px;
   position:absolute;
-  left:328px;
+  left:30%;
   top:848px;
   width:844px;
   height:44px;
@@ -214,7 +214,7 @@
 #questionOneTextBox{
   border-width:1px;
   position:absolute;
-  left:328px;
+  left:30%;
   top:910px;
   width:844px;
   height:44px;
@@ -233,7 +233,7 @@
 #questionTwoTextBox{
   border-width:1px;
   position:absolute;
-  left:328px;
+  left:30%;
   top:975px;
   width:844px;
   height:44px;
@@ -252,7 +252,7 @@
 #questionThreeTextBox{
   border-width:1px;
   position:absolute;
-  left:328px;
+  left:30%;
   top:1038px;
   width:844px;
   height:44px;
@@ -271,7 +271,7 @@
 #newSecurityCheckTextBox{
   border-width:1px;
   position:absolute;
-  left:267px;
+  left:25%;
   top:142px;
   width:359px;
   height:44px;
@@ -290,7 +290,7 @@
 #newSecurityCheckBtn{
   border-width:1px;
   position:absolute;
-  left:650px;
+  left:50%;
   top:142px;
   width:139px;
   height:44px;
@@ -310,7 +310,7 @@
 #backBtn{
   border-width:1px;
   position:absolute;
-  left:650px;
+  left:50%;
   top:71px;
   width:139px;
   height:44px;
@@ -327,7 +327,7 @@
 #saveAnswersBtn{
   border-width:1px;
   position:absolute;
-  left:999px;
+  left:75%;
   top:1131px;
   width:173px;
   height:48px;
@@ -347,7 +347,7 @@
 #deleteBtn{
   border-width:1px;
   position:absolute;
-  left:520px;
+  left:45%;
   top:1131px;
   width:148px;
   height:48px;
@@ -367,7 +367,7 @@
 #updateBtn{
   border-width:1px;
   position:absolute;
-  left:751px;
+  left:60%;
   top:1131px;
   width:182px;
   height:48px;

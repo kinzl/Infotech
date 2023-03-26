@@ -3,7 +3,7 @@
   background-image:none;
   position:static;
   left:auto;
-  width:1440px;
+  width:100%;
   margin-left:0;
   margin-right:0;
   text-align:left;
@@ -13,13 +13,13 @@
   background-color:transparent;
 }
 #base {
-  position:absolute;
+  position:relative;
   z-index:0;
 }
 #oldPassword{
   border-width:1px;
   position:absolute;
-  left:554px;
+  left:45%;
   top:144px;
   width:369px;
   height:41px;
@@ -38,7 +38,7 @@
 #newPassword{
   border-width:1px;
   position:absolute;
-  left:554px;
+  left:45%;
   top:206px;
   width:369px;
   height:41px;
@@ -56,7 +56,7 @@
 }
 #oldPasswordLabel{
   position:absolute;
-  left:252px;
+  left:30%;
   top:143px;
   width:211px;
   height:42px;
@@ -76,7 +76,7 @@
 }
 #newPasswordLabel{
   position:absolute;
-  left:252px;
+  left:30%;
   top:205px;
   width:211px;
   height:42px;
@@ -96,7 +96,7 @@
 #newPasswordRepeat{
   border-width:1px;
   position:absolute;
-  left:554px;
+  left:45%;
   top:260px;
   width:369px;
   height:41px;
@@ -114,7 +114,7 @@
 }
 #newPasswordRepeatLabel{
   position:absolute;
-  left:205px;
+  left:25%;
   top:259px;
   width:258px;
   height:42px;
@@ -134,7 +134,7 @@
 #applyButton{
   border-width:1px;
   position:absolute;
-  left:783px;
+  left:60%;
   top:374px;
   width:140px;
   height:40px;
@@ -156,7 +156,7 @@
 }
 #errorText{
   position:absolute;
-  left:554px;
+  left:45%;
   top:328px;
   width:369px;
   height:33px;
@@ -171,7 +171,7 @@
 #backButton{
   border-width:1px;
   position:absolute;
-  left:554px;
+  left:40%;
   top:374px;
   width:140px;
   height:40px;
@@ -194,7 +194,7 @@
 #infotechLogo{
   border-width:0px;
   position:absolute;
-  left:1065px;
+  left:75%;
   top:37px;
   width:249px;
   height:187px;
