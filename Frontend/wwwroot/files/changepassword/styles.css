@@ -162,6 +162,8 @@
   height:33px;
   display:flex;
   
+  color: red;
+  font-size: 20px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   -moz-box-shadow:none;

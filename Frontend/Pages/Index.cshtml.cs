@@ -42,7 +42,7 @@ public class IndexModel : PageModel
         }
         else
         {
-            // return new RedirectToPageResult("Index", new { ErrorText = "Fehler" });
+            // return new RedirectToPageResult("Index", new { ErrorText = "Username or Password is wrong" });
             return new RedirectToPageResult("MainWindow");
         }
     }

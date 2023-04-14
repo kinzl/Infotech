@@ -1,17 +1,23 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Questionnaire_Frontend.Pages;
 
-public class AsnwerQuestionsModel : PageModel
+// [ApiController]
+// [Route("api/[controller]")]
+public class AnswerQuestions : PageModel
 {
     public List<string> SecurityCheckType = new() { "Security Check Light", "Security Check Extended" };
-    public List<string> Question = new() { "Question 1", "Question 2" };
+    public List<string> Question = new() { "Question 1", "Question 2","Question 3" };
 
     public void OnGet()
     {
     }
-
+    public JsonResult OnPostMyCSharpMethod(string input)
+    {
+        return new JsonResult("Hello, " + input + "!");
+    }
 
     public void OnGetRedirectToAnswerQuestionsExtended()
     {
@@ -27,4 +33,5 @@ public class AsnwerQuestionsModel : PageModel
     {
         Response.Redirect("AnswerQuestionsExtended");
     }
+
 }

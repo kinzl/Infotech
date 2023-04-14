@@ -1,4 +1,5 @@
 ﻿@page
+@using Questionnaire_Frontend.Pages
 @model Questionnaire_Frontend.Pages.UpdateSecurityCheck
 
 @{
@@ -20,17 +21,34 @@
         <!-- Question list -->
         <div>
             <form method="post" asp-page-handler="QuestionList">
-                <select id="questionListBox" size="@Model.QuestionsList.Count" onchange="this.form.submit()" name="selectedItem">
+
+                <select id="questionListBox" size="@Model.QuestionsList.Count" onchange="this.form.submit()" name="selectedQuestion">
                     @for (int i = 0; i < @Model.QuestionsList.Count; i++)
                     {
                         @if (i == @Model.SelectedQuestionIndex)
                         {
-                            <option class="listGroupSelected" selected="selected">@Model.QuestionsList[i]</option>
+                            <option class="listGroupSelected dropdown-item" selected="selected">@Model.QuestionsList[i]</option>
                         }
                         else
                         {
-                            <option class="listGroupSelected">@Model.QuestionsList[i]</option>
+                            <option class="listGroupSelected dropdown-item">@Model.QuestionsList[i]</option>
                         }
+                    }
+
+                </select>
+            </form>
+        </div>
+
+
+        <!-- Security Check Combo box -->
+        <div>
+            <form method="post" asp-page-handler="SecurityCheckChanged">
+
+                <select id="criticalityComboBox" class="dropdown" onchange="this.form.submit()" name="selectedItem">
+                    <option selected>@Model.SecurityCheckList.Last()</option>
+                    @for (int i = 0; i < @Model.SecurityCheckList.Count-1; i++)
+                    {
+                        <option>@Model.SecurityCheckList[i]</option>
                     }
                 </select>
             </form>
@@ -45,23 +63,16 @@
         </div>
 
         <!-- Security Check List -->
-        <select id="securityCheckList" class="dropdown">
-            <option selected>@Model.SecurityCheckList[0]</option>
-            @for (int i = 1; i < @Model.SecurityCheckList.Count; i++)
-            {
-                <option>@Model.SecurityCheckList[i]</option>
-            }
-        </select>
+        @* <div> *@
+        @*     <select id="securityCheckList" class="dropdown"> *@
+        @*         <option selected>@Model.SecurityCheckList[0]</option> *@
+        @*         @for (int i = 1; i < @Model.SecurityCheckList.Count; i++) *@
+        @*         { *@
+        @*             <option>@Model.SecurityCheckList[i]</option> *@
+        @*         } *@
+        @*     </select> *@
+        @*     </div> *@
 
-
-        <!-- Criticality Combo Box -->
-        <select id="criticalityComboBox" class="dropdown ">
-            <option selected>@Model.Criticality[0]</option>
-            @for (int i = 1; i < @Model.Criticality.Count; i++)
-            {
-                <option>@Model.Criticality[i]</option>
-            }
-        </select>
 
         <!-- Category Combo Box -->
         <select id="categoryComboBox" class="dropdown ">
@@ -90,7 +101,7 @@
         <div>
             <form method="post">
                 <!-- Question text box -->
-                <input id="questionTextBox" type="text" placeholder="question" name="question" value="@Model.SelectedQuestion">
+                <input id="questionTextBox" type="text" placeholder="question" name="question" value="@UpdateSecurityCheck.SelectedQuestion">
 
                 <!-- 0 -->
                 <label id="questionZeroLabel">0</label>

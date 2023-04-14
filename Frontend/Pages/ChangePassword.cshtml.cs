@@ -6,10 +6,10 @@ namespace Questionnaire_Frontend.Pages;
 
 public class ChangePassword : PageModel
 {
-    public string? ErrorText = "Test";
-    public void OnGet()
+    public string? ErrorText;
+    public void OnGet(string? errorText)
     {
-        
+        ErrorText = errorText;
     }
 
     public void OnGetRedirectMainWindow()
@@ -19,6 +19,6 @@ public class ChangePassword : PageModel
 
     public IActionResult OnPostChangePassword()
     {
-        return null;
+        return new RedirectToPageResult("ChangePassword", new{ErrorText = "Possible Error Message"});
     }
 }

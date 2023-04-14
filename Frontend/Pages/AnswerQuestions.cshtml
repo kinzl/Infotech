@@ -1,6 +1,7 @@
 ﻿@page
+@using System.Text.Json.Serialization
 @using System.Reflection.Metadata
-@model Questionnaire_Frontend.Pages.AsnwerQuestionsModel;
+@model Questionnaire_Frontend.Pages.AnswerQuestions;
 @{
 }
 <!DOCTYPE html>
@@ -14,18 +15,46 @@
 <body>
 
 <div id="base">
-    @{
-        var test = @Model.Question;
-    }
+
+    @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> *@
+    @* <script type="text/javascript"> *@
+    @* window.onload = callMyCSharpMethod(); *@
+    @*     function callMyCSharpMethod() { *@
+    @*         var input = "John"; // Input parameter for the C# method *@
+    @*         $.ajax({ *@
+    @*             type: "POST", *@
+    @*             url: "AnswerQuestions?handler=MyCSharpMethod", // URL of the Razor Page *@
+    @*             data: { "input": input }, // Input data as key-value pair *@
+    @*             success: function (response) { *@
+    @*                 // Success callback function *@
+    @*                 var result = response; // Extract the result from the response *@
+    @*                 alert(result); // Display the result in an alert *@
+    @*             }, *@
+    @*             error: function (xhr, textStatus, errorThrown) { *@
+    @*                 // Error callback function *@
+    @*                 alert("Error: " + errorThrown); *@
+    @*             } *@
+    @*         }); *@
+    @*     } *@
+    @* </script> *@
+    @* *@
+
     <script>
             window.onload = function() {
     
-                let numberOfGeneratedDiv = 1;
-                let numberOfRadioButtons = 5;
+                let questions = @Html.Raw(Json.Serialize(Model.Question));
     
+                
+                //console.log("****************************");
+                for(let i = 0; i < questions.length; i++) {
+    
+                    console.log(questions[i].toString());
+                }
+    
+                let numberOfGeneratedDiv = questions.length;
+                let numberOfRadioButtons = 5;
                 let lastDivTagValue = 0;
     
-
                 for (let j = 0; j < numberOfGeneratedDiv; j++) {
                     //DivContainer
                     let div = document.createElement("div");
@@ -46,7 +75,7 @@
                     let question = document.createElement("label");
                     question.id = "question" + j;
                     question.className = "question";
-                    question.textContent = "Question xy";
+                    question.textContent = questions[j];
                     document.getElementById("radioButtonContainer" + j).appendChild(question);
     
                     //Categorie
@@ -100,7 +129,7 @@
                 }
             }
     
-            </script>
+    </script>
 
     <div>
         <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
@@ -120,7 +149,6 @@
     </select>
 
     <input id="saveButton" type="button" value="Save" asp-page-handler="Any"/>
-
 
     @* Generate Questions dynamically *@
     @* <script src="js/AnswerQuestionsGeneratedTags.js" asp-append-version="true"></script> *@

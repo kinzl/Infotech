@@ -1,10 +1,22 @@
 ﻿window.onload = function() {
 
-    let numberOfGeneratedDiv = 1;
+    let numberOfGeneratedDiv = 3;
     let numberOfRadioButtons = 5;
 
     let lastDivTagValue = 0;
 
+    let items =[{id:1,name:'aaa'}];
+    
+    $.get('http://localhost:8080/persons')
+        .then(x=>{
+            items=x;
+            const div= $('#myDiv');
+            for(person of items){
+                var span=$("<span>").html(person.name).appendTo(div);
+                //jquery
+            }
+        })
+    
     for (let j = 0; j < numberOfGeneratedDiv; j++) {
         //DivContainer
         let div = document.createElement("div");

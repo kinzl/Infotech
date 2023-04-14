@@ -1,6 +1,6 @@
 ﻿window.onload = function () {
 
-    let numberOfGeneratedDiv = 1;
+    let numberOfGeneratedDiv = 3;
     let numberOfRadioButtons = 5;
 
     let lastDivTagValue = 0;
@@ -103,7 +103,7 @@
     let download = document.createElement("button");
     download.id = "buttonDownload";
     download.className = "buttonDownloadPdfReport";
-    download.textContent = "Download Pdf Report";
+    download.textContent = "Download";
 // button.onClick = "RedirectToAnswerQuestionsExtended";
     document.getElementById("radioButtonContainer" + (lastDivTagValue)).appendChild(download);
     download.onclick = function () {
