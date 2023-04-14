@@ -13,3 +13,17 @@ C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\ProjektWithDb\SecurityCheckDbL
 C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\ProjektWithDb\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.pdb
 C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\ProjektWithDb\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.genruntimeconfig.cache
 C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\ProjektWithDb\SecurityCheckDbLib\obj\Debug\net7.0\ref\SecurityCheckDbLib.dll
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDbLib.deps.json
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDbLib.runtimeconfig.json
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDbLib.dll
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDbLib.pdb
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.csproj.AssemblyReference.cache
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.AssemblyInfoInputs.cache
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.AssemblyInfo.cs
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.csproj.CoreCompileInputs.cache
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.dll
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\refint\SecurityCheckDbLib.dll
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.pdb
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.genruntimeconfig.cache
+C:\Users\kogle\Desktop\HTL#\2022-2023\SYP\Projekt\SoftwareProject\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\ref\SecurityCheckDbLib.dll

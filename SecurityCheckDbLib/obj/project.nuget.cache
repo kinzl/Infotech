@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VAkinEV+8FgJyy9KXC79LCoQBx798q2KtidEstz2SkS3lMEl44xK+EK81Pn37aFCKzorEVTQ0jClAlCgTdsQAQ==",
+  "dgSpecHash": "RXaJQGHdY2G2iZ4MrdnPd5msq2ByYsfBq2L8d2HW9+jo7J4h8r29V288VzfJXHZKOL1qouCzIitT1+qd01wIZw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\ProjektWithDb\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
+  "projectFilePath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\SoftwareProject\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kogle\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\kogle\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

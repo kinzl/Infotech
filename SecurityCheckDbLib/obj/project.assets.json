@@ -4079,11 +4079,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\ProjektWithDb\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
+      "projectUniqueName": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\SoftwareProject\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
       "projectName": "SecurityCheckDbLib",
-      "projectPath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\ProjektWithDb\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
+      "projectPath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\SoftwareProject\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
       "packagesPath": "C:\\Users\\kogle\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\ProjektWithDb\\Infotech\\SecurityCheckDbLib\\obj\\",
+      "outputPath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Projekt\\SoftwareProject\\Infotech\\SecurityCheckDbLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kogle\\AppData\\Roaming\\NuGet\\NuGet.Config",
