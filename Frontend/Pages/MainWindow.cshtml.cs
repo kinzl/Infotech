@@ -6,6 +6,7 @@ namespace Questionnaire_Frontend.Pages;
 public class MainWindow : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
+    
 
     public List<string> SecurityChecks = new()
     {

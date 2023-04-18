@@ -14,4 +14,6 @@ public partial class SurveyQuestion
     public virtual CustomerSurvey? CustomerSurvey { get; set; }
 
     public virtual Question? Question { get; set; }
+
+    public int Version { get; set; }
 }

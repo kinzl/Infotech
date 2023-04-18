@@ -39,18 +39,11 @@
             </form>
         </div>
 
-
         <!-- Security Check Combo box -->
         <div>
-            <form method="post" asp-page-handler="SecurityCheckChanged">
-
-                <select id="criticalityComboBox" class="dropdown" onchange="this.form.submit()" name="selectedItem">
-                    <option selected>@Model.SecurityCheckList.Last()</option>
-                    @for (int i = 0; i < @Model.SecurityCheckList.Count-1; i++)
-                    {
-                        <option>@Model.SecurityCheckList[i]</option>
-                    }
-                </select>
+            <form method="post" asp-page-handler="AddNewCategory">
+                <input type="text" id="addNewCriticality" name="newCategory" placeholder="New Category" value="@Model.CategoryList[@Model.SelectedCategoryIndex]">
+                <input type="submit" id="addNewCriticalityBtn" value="Create"/>
             </form>
         </div>
 
@@ -62,26 +55,23 @@
             </form>
         </div>
 
-        <!-- Security Check List -->
-        @* <div> *@
-        @*     <select id="securityCheckList" class="dropdown"> *@
-        @*         <option selected>@Model.SecurityCheckList[0]</option> *@
-        @*         @for (int i = 1; i < @Model.SecurityCheckList.Count; i++) *@
-        @*         { *@
-        @*             <option>@Model.SecurityCheckList[i]</option> *@
-        @*         } *@
-        @*     </select> *@
-        @*     </div> *@
-
-
         <!-- Category Combo Box -->
-        <select id="categoryComboBox" class="dropdown ">
-            <option selected>@Model.Category[0]</option>
-            @for (int i = 1; i < @Model.Category.Count; i++)
-            {
-                <option>@Model.Category[i]</option>
-            }
-        </select>
+        <form method="post" asp-page-handler="CategoryChanged">
+            <select id="categoryComboBox" class="dropdown" onchange="this.form.submit()" name="categoryItem">
+
+                @for (int i = 0; i < @Model.CategoryList.Count; i++)
+                {
+                    if (i == @Model.SelectedCategoryIndex)
+                    {
+                        <option selected>@Model.CategoryList[i]</option>
+                    }
+                    else
+                    {
+                        <option>@Model.CategoryList[i]</option>
+                    }
+                }
+            </select>
+        </form>
 
 
         <!-- Update -->

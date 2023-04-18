@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SecurityCheckDbLib;
 
 public partial class UserName
 {
-    public int UserId { get; set; }
+    [Key]
+    public int UserNameId { get; set; }
 
-    public string Username1 { get; set; } = null!;
+    public string Username { get; set; } = null!;
 
     public bool IsAdmin { get; set; }
 

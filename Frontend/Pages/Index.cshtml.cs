@@ -25,6 +25,30 @@ public class IndexModel : PageModel
         _logger = logger;
         _db = db;
 
+        //db.Database.EnsureDeleted();
+        //db.Database.EnsureCreated();
+        try
+        {
+            AddUserNames();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.StackTrace);
+        }
+        
+    }
+
+    private void AddUserNames()
+    {
+        UserName admin = new UserName
+        {
+            IsAdmin = false,
+            Username = "kinzl",
+            PasswordHash = "s45g5",
+            PasswordSalt = "df45"
+        };
+        _db.UserNames.Add(admin);
+        _db.SaveChanges();
     }
 
 
@@ -32,6 +56,8 @@ public class IndexModel : PageModel
     public void OnGet(string errorText)
     {
         ErrorText = errorText;
+        int count = _db.UserNames.Count();
+        ErrorText = count.ToString();
     }
 
     public IActionResult OnPostLogin(LoginDto body)

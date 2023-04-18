@@ -19,7 +19,7 @@ public class UpdateSecurityCheck : PageModel
         "Security Check Extended"
     };
 
-    public List<string> Category = new()
+    public List<string> CategoryList = new()
     {
         "1 Organisation",
         "2 Nutzungsrichtlinie",
@@ -36,11 +36,13 @@ public class UpdateSecurityCheck : PageModel
     public static string SelectedQuestion;
     public string SecurityCheckItemToShow;
     public int SelectedQuestionIndex = 0;
+    public int SelectedCategoryIndex;
 
     public void OnGet()
     {
         SelectedQuestion = QuestionsList.First();
         SecurityCheckItemToShow = SecurityCheckList[0];
+        SelectedCategoryIndex = 0;
     }
 
     public void OnGetRedirectToMainWindow()
@@ -75,6 +77,11 @@ public class UpdateSecurityCheck : PageModel
         }
     }
 
+    public void OnPostCategoryChanged(string categoryItem)
+    {
+        SelectedCategoryIndex = CategoryList.IndexOf(categoryItem);
+    }
+
     public void OnPostSecurityCheckChanged(string selectedItem)
     {
         var splitted = SelectedQuestion.Split("|");
@@ -88,6 +95,10 @@ public class UpdateSecurityCheck : PageModel
         }
     }
 
+    public void OnPostAddNewCategory(string newCategory)
+    {
+        CategoryList.Add(newCategory);
+    }
     public void OnPostChangeAnswer(string question, string? answerZero, string? answerOne, string? answerTwo,
         string? answerThree)
     {

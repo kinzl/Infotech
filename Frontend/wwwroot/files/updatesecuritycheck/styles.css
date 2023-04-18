@@ -46,13 +46,33 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
+#addNewCriticalityBtn{
+  border-width:1px;
+  position:absolute;
+  left:65%;
+  top:684px;
+  width:170px;
+  height:48px;
+  display:flex;
+  font-size:18px;
 
-#criticalityComboBox{
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+#addNewCriticality{
   border-width:1px;
   position:absolute;
   left:25%;
   top:684px;
-  width:906px;
+  width:700px;
   height:52px;
   display:flex;
   font-size:18px;

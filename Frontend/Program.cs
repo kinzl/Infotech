@@ -38,20 +38,22 @@ builder.Services
             .SetAction($"swagger/{swaggerVersion}/swagger.json")
         //.EnableLogging()
     );
-builder.Services.AddDbContext<SecurityCheckContext>(options => options.UseSqlServer());
+
 //builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 
 //builder.Services.AddLogging(x => x.AddCustomFormatter());
 
-string? connectionString = builder.Configuration.GetConnectionString("Northwind");
+string? connectionString = builder.Configuration.GetConnectionString("SecurityCheckDb");
 string location = System.Reflection.Assembly.GetEntryAssembly()!.Location;
 string dataDirectory = Path.GetDirectoryName(location)!;
+Console.WriteLine("Path: " + dataDirectory);
 connectionString = connectionString?.Replace("|DataDirectory|", dataDirectory + Path.DirectorySeparatorChar);
 Console.WriteLine($"******** ConnectionString: {connectionString}");
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.WriteLine($"******** Don't forget to comment out NorthwindContext.OnConfiguring !");
 Console.ResetColor();
 //builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<SecurityCheckContext>(options => options.UseSqlServer(connectionString));
 
 #endregion
 
