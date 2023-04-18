@@ -40,8 +40,11 @@ public partial class SecurityCheckContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //if (optionsBuilder.IsConfigured) return;
-        //string connectionString = @"Server=(LocalDB)\mssqllocaldb;attachdbfilename=C:\Users\kinzl\OneDrive\HtlGrieskirchen\4.Klasse\POS\Hoemwork17_DatabaseFirst\Demo\Demo\Persons4C.mdf;database=Persons4C;integrated security=True;MultipleActiveResultSets=True";
+
+        //kinzle
         string connectionString = "Server=(LocalDB)\\mssqllocaldb;attachdbfilename=C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\SecurityCheckDb.mdf;database=SecurityCheckDb;integrated security=True;MultipleActiveResultSets=True";
+        
+        
         Console.WriteLine("Connectionstring: " + connectionString);
         optionsBuilder.UseSqlServer(connectionString);
     }
