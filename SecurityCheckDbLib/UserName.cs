@@ -17,5 +17,5 @@ public partial class UserName
 
     public string PasswordHash { get; set; } = null!;
 
-    public virtual ICollection<UserQuestionnaire> UserQuestionnaires { get; } = new List<UserQuestionnaire>();
+    public virtual ICollection<SurveyQuestion> SurveyQuestion { get; } = new List<SurveyQuestion>();
 }

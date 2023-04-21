@@ -25,8 +25,6 @@ public partial class SecurityCheckContext : DbContext
 
     public virtual DbSet<CriticismType> CriticismTypes { get; set; }
 
-    public virtual DbSet<CustomerSurvey> CustomerSurveys { get; set; }
-
     public virtual DbSet<Question> Questions { get; set; }
 
     public virtual DbSet<Questionnaire> Questionnaires { get; set; }
@@ -34,8 +32,6 @@ public partial class SecurityCheckContext : DbContext
     public virtual DbSet<SurveyQuestion> SurveyQuestions { get; set; }
 
     public virtual DbSet<UserName> UserNames { get; set; }
-
-    public virtual DbSet<UserQuestionnaire> UserQuestionnaires { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

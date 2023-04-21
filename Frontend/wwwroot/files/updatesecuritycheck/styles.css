@@ -26,268 +26,6 @@
   height:207px;
   display:flex;
 }
-
-#securityCheckList{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:74px;
-  width:359px;
-  height:38px;
-  display:flex;
-  font-size:20px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#addNewCriticalityBtn{
-  border-width:1px;
-  position:absolute;
-  left:65%;
-  top:684px;
-  width:170px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-
-#addNewCriticality{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:684px;
-  width:700px;
-  height:52px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-
-#categoryComboBox{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:766px;
-  width:906px;
-  height:52px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-
-#questionListBox{
-  position:absolute;
-  left:25%;
-  top:216px;
-  width:906px;
-  height:350px;
-  display:flex;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-
-  padding:2px 2px 2px 2px;
-  font-family:"Arial Standard", "Arial", sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:18px;
-  letter-spacing:normal;
-  color:#000000;
-  text-align:left;
-  text-transform:none;
-}
-
-#questionTextBox{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:602px;
-  width:906px;
-  height:52px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-
-#addNewQuestionBtn{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:1131px;
-  width:170px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionZeroLabel{
-  position:absolute;
-  left:25%;
-  top:860px;
-  width:45px;
-  height:21px;
-  display:flex;
-  font-size:18px;
-}
-#questionOneLabel{
-  position:absolute;
-  left:25%;
-  top:920px;
-  width:34px;
-  height:21px;
-  display:flex;
-  font-size:18px;
-}
-#questionTwoLabel{
-  position:absolute;
-  left:25%;
-  top:985px;
-  width:34px;
-  height:21px;
-  display:flex;
-  font-size:18px;
-}
-#questionThreeLabel{
-  position:absolute;
-  left:25%;
-  top:1049px;
-  width:34px;
-  height:21px;
-  display:flex;
-  font-size:18px;
-}
-
-#questionZeroTextBox{
-  border-width:1px;
-  position:absolute;
-  left:30%;
-  top:848px;
-  width:844px;
-  height:44px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionOneTextBox{
-  border-width:1px;
-  position:absolute;
-  left:30%;
-  top:910px;
-  width:844px;
-  height:44px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionTwoTextBox{
-  border-width:1px;
-  position:absolute;
-  left:30%;
-  top:975px;
-  width:844px;
-  height:44px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionThreeTextBox{
-  border-width:1px;
-  position:absolute;
-  left:30%;
-  top:1038px;
-  width:844px;
-  height:44px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
 #newSecurityCheckTextBox{
   border-width:1px;
   position:absolute;
@@ -297,7 +35,7 @@
   height:44px;
   display:flex;
   font-size:20px;
-  
+
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;
@@ -336,7 +74,7 @@
   height:44px;
   display:flex;
   font-size:20px;
-  
+
   background:inherit;
   background-color:rgba(255, 255, 255, 1);
   box-sizing:border-box;
@@ -344,11 +82,377 @@
   border-color:rgba(121, 121, 121, 1);
   border-radius:5px;
 }
+#securityCheckList{
+  border-width:1px;
+  position:absolute;
+  left:25%;
+  top:74px;
+  width:359px;
+  height:38px;
+  display:flex;
+  font-size:20px;
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#addNewCriticalityBtn{
+  border-width:1px;
+  position:absolute;
+  left:55%;
+  top:1266px;
+  width:170px;
+  height:48px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#deleteCriticalityBtn{
+  border-width:1px;
+  position:absolute;
+  left:65%;
+  top:1266px;
+  width:170px;
+  height:48px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#addNewCriticality{
+  border-width:1px;
+  position:absolute;
+  left:25%;
+  top:1266px;
+  width:500px;
+  height:52px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+#categoryComboBox{
+  border-width:1px;
+  position:absolute;
+  left:25%;
+  top:1184px;
+  width:906px;
+  height:52px;
+  display:flex;
+  font-size:18px;
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#securityCheckQuestionPoolComboBox{
+  border-width:1px;
+  position:absolute;
+  left:25%;
+  top:620px;
+  width:406px;
+  height:52px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#addQuestionToSecurityCheckBtn{
+  border-width:1px;
+  position:absolute;
+  left:50%;
+  top:620px;
+  width:170px;
+  height:48px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#deleteQuestionFromSecurityCheckBtn{
+  border-width:1px;
+  position:absolute;
+  left:60%;
+  top:620px;
+  width:170px;
+  height:48px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#questionPoolListBox{
+  position:absolute;
+  left:25%;
+  top:216px;
+  width:906px;
+  height:350px;
+  display:flex;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+
+  padding:2px 2px 2px 2px;
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:18px;
+  letter-spacing:normal;
+  color:#000000;
+  text-align:left;
+  text-transform:none;
+}
+#securityCheckListBox{
+  position:absolute;
+  left:25%;
+  top:716px;
+  width:906px;
+  height:350px;
+  display:flex;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+
+  padding:2px 2px 2px 2px;
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:18px;
+  letter-spacing:normal;
+  color:#000000;
+  text-align:left;
+  text-transform:none;
+}
+
+#questionTextBox{
+  border-width:1px;
+  position:absolute;
+  left:25%;
+  top:1102px;
+  width:906px;
+  height:52px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+#addNewQuestionBtn{
+  border-width:1px;
+  position:absolute;
+  left:25%;
+  top:1631px;
+  width:170px;
+  height:48px;
+  display:flex;
+  font-size:18px;
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  border-radius:5px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#questionZeroLabel{
+  position:absolute;
+  left:25%;
+  top:1360px;
+  width:45px;
+  height:21px;
+  display:flex;
+  font-size:18px;
+}
+#questionOneLabel{
+  position:absolute;
+  left:25%;
+  top:1420px;
+  width:34px;
+  height:21px;
+  display:flex;
+  font-size:18px;
+}
+#questionTwoLabel{
+  position:absolute;
+  left:25%;
+  top:1485px;
+  width:34px;
+  height:21px;
+  display:flex;
+  font-size:18px;
+}
+#questionThreeLabel{
+  position:absolute;
+  left:25%;
+  top:1549px;
+  width:34px;
+  height:21px;
+  display:flex;
+  font-size:18px;
+}
+
+#questionZeroTextBox{
+  border-width:1px;
+  position:absolute;
+  left:30%;
+  top:1348px;
+  width:844px;
+  height:44px;
+  display:flex;
+  font-size:18px;
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#questionOneTextBox{
+  border-width:1px;
+  position:absolute;
+  left:30%;
+  top:1410px;
+  width:844px;
+  height:44px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#questionTwoTextBox{
+  border-width:1px;
+  position:absolute;
+  left:30%;
+  top:1475px;
+  width:844px;
+  height:44px;
+  display:flex;
+  font-size:18px;
+  
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#questionThreeTextBox{
+  border-width:1px;
+  position:absolute;
+  left:30%;
+  top:1538px;
+  width:844px;
+  height:44px;
+  display:flex;
+  font-size:18px;
+
+  background:inherit;
+  background-color:rgba(255, 255, 255, 1);
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:rgba(121, 121, 121, 1);
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
 #saveAnswersBtn{
   border-width:1px;
   position:absolute;
   left:75%;
-  top:1131px;
+  top:1631px;
   width:173px;
   height:48px;
   display:flex;
@@ -368,7 +472,7 @@
   border-width:1px;
   position:absolute;
   left:45%;
-  top:1131px;
+  top:1631px;
   width:148px;
   height:48px;
   display:flex;
@@ -388,7 +492,7 @@
   border-width:1px;
   position:absolute;
   left:60%;
-  top:1131px;
+  top:1631px;
   width:182px;
   height:48px;
   display:flex;

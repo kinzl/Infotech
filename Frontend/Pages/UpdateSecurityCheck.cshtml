@@ -20,30 +20,68 @@
 
         <!-- Question list -->
         <div>
-            <form method="post" asp-page-handler="QuestionList">
+            <form method="post" asp-page-handler="QuestionListPoolChanged">
 
-                <select id="questionListBox" size="@Model.QuestionsList.Count" onchange="this.form.submit()" name="selectedQuestion">
-                    @for (int i = 0; i < @Model.QuestionsList.Count; i++)
+                <select id="questionPoolListBox" size="@Model.QuestionsListPool.Count" onchange="this.form.submit()" name="selectedQuestion">
+                    @for (int i = 0; i < @Model.QuestionsListPool.Count; i++)
                     {
-                        @if (i == @Model.SelectedQuestionIndex)
+                        @if (i == @Model.SelectedQuestionPoolIndex)
                         {
-                            <option class="listGroupSelected dropdown-item" selected="selected">@Model.QuestionsList[i]</option>
+                            <option class="listGroupSelected dropdown-item" selected="selected">@Model.QuestionsListPool[i]</option>
                         }
                         else
                         {
-                            <option class="listGroupSelected dropdown-item">@Model.QuestionsList[i]</option>
+                            <option class="listGroupSelected dropdown-item">@Model.QuestionsListPool[i]</option>
                         }
                     }
 
                 </select>
+                <input id="addQuestionToSecurityCheckBtn" type="submit" value="Add" asp-page-handler="AddQuestionToSecurityCheck"/>
             </form>
         </div>
 
+
         <!-- Security Check Combo box -->
         <div>
-            <form method="post" asp-page-handler="AddNewCategory">
-                <input type="text" id="addNewCriticality" name="newCategory" placeholder="New Category" value="@Model.CategoryList[@Model.SelectedCategoryIndex]">
-                <input type="submit" id="addNewCriticalityBtn" value="Create"/>
+            <form method="post" asp-page-handler="SecurityCheckQuestionPoolChanged">
+                <select id="securityCheckQuestionPoolComboBox" class="dropdown" onchange="this.form.submit()" name="securityCheckItem">
+
+                    @for (int i = 0; i < @Model.SecurityCheckList.Count; i++)
+                    {
+                        Console.WriteLine(Model.SecurityCheckList[i]);
+                        if (i == @Model.SelectedSecurityCheckIndex)
+                        {
+                            <option selected="selected">@Model.SecurityCheckList[i]</option>
+                        }
+                        else
+                        {
+                            <option>@Model.SecurityCheckList[i]</option>
+                        }
+                    }
+                </select>
+                <input id="deleteQuestionFromSecurityCheckBtn" type="submit" value="Remove" asp-page-handler="DeleteQuestionFromSecurityCheck"/>
+            </form>
+        </div>
+
+
+        <!-- Questions for Selected Security Check -->
+        <div>
+            <form method="post" asp-page-handler="SecurityCheckQuestionListChanged">
+
+                <select id="securityCheckListBox" size="@Model.SecurityCheckQuestionListPool.Count" onchange="this.form.submit()" name="selectedQuestion">
+                    @for (int i = 0; i < @Model.SecurityCheckQuestionListPool.Count; i++)
+                    {
+                        @if (i == @Model.SelectedSecurityCheckQuestionPoolIndex)
+                        {
+                            <option class="listGroupSelected dropdown-item" selected="selected">@Model.SecurityCheckQuestionListPool[i]</option>
+                        }
+                        else
+                        {
+                            <option class="listGroupSelected dropdown-item">@Model.SecurityCheckQuestionListPool[i]</option>
+                        }
+                    }
+
+                </select>
             </form>
         </div>
 
@@ -61,9 +99,10 @@
 
                 @for (int i = 0; i < @Model.CategoryList.Count; i++)
                 {
+                    Console.WriteLine(Model.CategoryList[i]);
                     if (i == @Model.SelectedCategoryIndex)
                     {
-                        <option selected>@Model.CategoryList[i]</option>
+                        <option selected="selected">@Model.CategoryList[i]</option>
                     }
                     else
                     {
@@ -71,13 +110,15 @@
                     }
                 }
             </select>
+            <input type="submit" id="deleteCriticalityBtn" name="categoryItem" value="Delete" asp-page-handler="DeleteSelectedCategory"/>
         </form>
 
-
-        <!-- Update -->
+        <!-- Category -->
         <div>
-            <form method="post" asp-page-handler="UpdateQuestion">
-                <input id="updateBtn" type="submit" value="Update">
+            <form method="post">
+                <input type="text" id="addNewCriticality" name="newCategory" placeholder="New Category">
+                <input type="submit" id="addNewCriticalityBtn" value="Create" asp-page-handler="AddNewCategory"/>
+
             </form>
         </div>
 
@@ -91,7 +132,8 @@
         <div>
             <form method="post">
                 <!-- Question text box -->
-                <input id="questionTextBox" type="text" placeholder="question" name="question" value="@UpdateSecurityCheck.SelectedQuestion">
+                <input id="questionTextBox" type="text" placeholder="question" name="question" value="@Model.QuestionsListPool[Model.SelectedQuestionPoolIndex]">
+                <input id="updateBtn" type="submit" value="Update" asp-page-handler="UpdateQuestion">
 
                 <!-- 0 -->
                 <label id="questionZeroLabel">0</label>

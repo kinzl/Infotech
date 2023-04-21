@@ -35,7 +35,6 @@ public class IndexModel : PageModel
         {
             Console.WriteLine(ex.StackTrace);
         }
-        
     }
 
     private void AddUserNames()
@@ -56,8 +55,8 @@ public class IndexModel : PageModel
     public void OnGet(string errorText)
     {
         ErrorText = errorText;
-        int count = _db.UserNames.Count();
-        ErrorText = count.ToString();
+        // int count = _db.UserNames.Count();
+        // ErrorText = count.ToString();
     }
 
     public IActionResult OnPostLogin(LoginDto body)
@@ -69,6 +68,11 @@ public class IndexModel : PageModel
         else
         {
             // return new RedirectToPageResult("Index", new { ErrorText = "Username or Password is wrong" });
+            return new RedirectToPageResult("MainWindow");
+        }
+
+        if (_db.UserNames.Where(x => x.Username == body.Username && x.PasswordHash == body.Password).Count() == 1)
+        {
             return new RedirectToPageResult("MainWindow");
         }
     }

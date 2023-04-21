@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SecurityCheckDbLib;
 
 namespace Questionnaire_Frontend.Pages;
 
 public class MainWindow : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    
+    private SecurityCheckContext _db;
 
     public List<string> SecurityChecks = new()
     {
@@ -16,8 +17,10 @@ public class MainWindow : PageModel
 
     public int SelectedSecurityCheckIndex = 0;
 
-    public MainWindow()
+    public MainWindow(ILogger<IndexModel> logger, SecurityCheckContext db)
     {
+        _logger = logger;
+        _db = db;
     }
 
     public void OnGet()
@@ -27,7 +30,6 @@ public class MainWindow : PageModel
     public IActionResult OnPostRedirectShowExistingData()
     {
         return new RedirectToPageResult("AnswerQuestions");
-        // Response.Redirect("AnswerQuestions");
     }
 
     public IActionResult OnPostOpenSelectedCheck()

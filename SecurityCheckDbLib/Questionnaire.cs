@@ -9,7 +9,6 @@ public partial class Questionnaire
 
     public string QuestionnaireName { get; set; } = null!;
 
-    public virtual ICollection<CustomerSurvey> CustomerSurveys { get; } = new List<CustomerSurvey>();
+    public virtual ICollection<SurveyQuestion> SurveyQuestion { get; } = new List<SurveyQuestion>();
 
-    public virtual ICollection<UserQuestionnaire> UserQuestionnaires { get; } = new List<UserQuestionnaire>();
 }

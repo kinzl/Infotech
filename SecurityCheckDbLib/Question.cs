@@ -13,13 +13,13 @@ public partial class Question
 
     public string? QuestionText { get; set; }
 
-    public virtual ICollection<Answer> Answers { get; } = new List<Answer>();
+    public virtual ICollection<Answer> Answers { get; set; } = new List<Answer>();
 
     public virtual Category? Category { get; set; }
 
     public virtual Criticality? Criticality { get; set; }
 
-    public virtual ICollection<Criticism> Criticisms { get; } = new List<Criticism>();
+    public virtual ICollection<Criticism> Criticisms { get; set; } = new List<Criticism>();
 
-    public virtual ICollection<SurveyQuestion> SurveyQuestions { get; } = new List<SurveyQuestion>();
+    public virtual ICollection<SurveyQuestion> SurveyQuestions { get; set; } = new List<SurveyQuestion>();
 }

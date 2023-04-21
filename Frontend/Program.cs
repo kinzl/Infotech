@@ -52,9 +52,9 @@ Console.WriteLine($"******** ConnectionString: {connectionString}");
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.WriteLine($"******** Don't forget to comment out NorthwindContext.OnConfiguring !");
 Console.ResetColor();
-//builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<SecurityCheckContext>(options => options.UseSqlServer(connectionString));
 
+builder.Services.AddSession();
 #endregion
 
 var app = builder.Build();
@@ -97,6 +97,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseSession();
 app.MapRazorPages();
 
 // app.Map("/", () => Results.Redirect("/swagger"));

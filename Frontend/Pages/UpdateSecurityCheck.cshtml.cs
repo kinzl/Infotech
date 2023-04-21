@@ -1,130 +1,286 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.IdentityModel.Tokens;
+using SecurityCheckDbLib;
 
 namespace Questionnaire_Frontend.Pages;
 
 public class UpdateSecurityCheck : PageModel
 {
-    public List<string> QuestionsList = new()
+    public string? ErrorText;
+    private readonly ILogger<IndexModel> _logger;
+    private SecurityCheckContext _db;
+
+    public List<string> QuestionsListPool = new()
     {
-        "Security Check Light|Werden IT-Systeme überwacht / gibt es ein Monitoring-System, welches die Verfügbarkeit der notwendigen Ressourcen/Systeme überwacht?",
-        "Security Check Light|Werden Systeme laufend auch von extern geprüft (Shadowserver, Qualys, Monitoring extern erreichbarer Systeme usw.)?",
-        "Security Check Extended|Wird eine Kapazitätsplanung durchgeführt?"
+        // "Werden IT-Systeme überwacht / gibt es ein Monitoring-System, welches die Verfügbarkeit der notwendigen Ressourcen/Systeme überwacht?",
+        // "Werden Systeme laufend auch von extern geprüft (Shadowserver, Qualys, Monitoring extern erreichbarer Systeme usw.)?",
+        // "Wird eine Kapazitätsplanung durchgeführt?"
+    };
+
+    public List<string> SecurityCheckQuestionListPool = new()
+    {
+        // "Werden IT-Systeme überwacht / gibt es ein Monitoring-System, welches die Verfügbarkeit der notwendigen Ressourcen/Systeme überwacht?",
+        // "Werden Systeme laufend auch von extern geprüft (Shadowserver, Qualys, Monitoring extern erreichbarer Systeme usw.)?",
+        // "Wird eine Kapazitätsplanung durchgeführt?"
     };
 
     public List<string> SecurityCheckList = new()
     {
-        "Security Check Light",
-        "Security Check Extended"
+        // "Security Check Light",
+        // "Security Check Extended"
     };
 
     public List<string> CategoryList = new()
     {
-        "1 Organisation",
-        "2 Nutzungsrichtlinie",
-        "3 Geheimhaltung und Datenschutz",
-        "4 Asset- und Risikomanagement",
-        "5 Notfallmanagement",
-        "6 Awareness",
-        "7 Systembetrieb",
-        "8 Netzwerk und Kommunikation",
-        "9 Zutritts- und Zugriffsberechtigungen"
+        // "1 Organisation",
+        // "2 Nutzungsrichtlinie",
+        // "3 Geheimhaltung und Datenschutz",
+        // "4 Asset- und Risikomanagement",
+        // "5 Notfallmanagement",
+        // "6 Awareness",
+        // "7 Systembetrieb",
+        // "8 Netzwerk und Kommunikation",
+        // "9 Zutritts- und Zugriffsberechtigungen"
     };
 
-    public string SelectedSecurityCheck;
-    public static string SelectedQuestion;
-    public string SecurityCheckItemToShow;
-    public int SelectedQuestionIndex = 0;
+    public int SelectedQuestionPoolIndex;
+    public int SelectedSecurityCheckQuestionPoolIndex;
     public int SelectedCategoryIndex;
+    public int SelectedSecurityCheckIndex;
 
-    public void OnGet()
+    //int index = HttpContext.Session.GetString("ProductsSortType") ?? DefaultSortType;
+    //HttpContext.Session.SetString("OrdersSortType", OrdersSortType);
+
+    public UpdateSecurityCheck(ILogger<IndexModel> logger, SecurityCheckContext db)
     {
-        SelectedQuestion = QuestionsList.First();
-        SecurityCheckItemToShow = SecurityCheckList[0];
-        SelectedCategoryIndex = 0;
+        _logger = logger;
+        _db = db;
     }
 
-    public void OnGetRedirectToMainWindow()
+    public void OnGet(string errorText)
     {
-        Response.Redirect("MainWindow");
+        ErrorText = errorText;
+        Initialize();
     }
 
-    public void OnPostAddNewQuestion()
+    private void Initialize()
     {
-        QuestionsList.Add("Question xy");
+        //Initialize List
+        CategoryList = _db.Categories.Select(x => x.CategoryText).ToList();
+        SecurityCheckList = _db.Questionnaires.Select(x => x.QuestionnaireName).ToList();
+        QuestionsListPool = !_db.Questions.Select(x => x.QuestionText).ToList().IsNullOrEmpty()
+            ? _db.Questions.Select(x => x.QuestionText).ToList()!
+            : new List<string>() { "" };
+        SecurityCheckQuestionListPool = _db.SurveyQuestions.Select(x => x.Question.QuestionText).ToList();
+
+        //Initzialie Indexes
+        SelectedQuestionPoolIndex = int.Parse(HttpContext.Session.GetString("SelectedQuestionPoolIndex") ?? "0");
+        SelectedCategoryIndex = int.Parse(HttpContext.Session.GetString("SelectedCategoryIndex") ?? "0");
+        SelectedSecurityCheckIndex = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndex") ?? "0");
+        SelectedSecurityCheckQuestionPoolIndex =
+            int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckQuestionPoolIndex") ?? "0");
     }
 
-    public void OnPostNewSecurityCheck(string? securityCheckName)
+    public IActionResult OnGetRedirectToMainWindow()
     {
-        if (!securityCheckName.IsNullOrEmpty()) SecurityCheckList.Add(securityCheckName);
+        return new RedirectToPageResult("MainWindow");
     }
 
-    public void OnPostQuestionList(string selectedQuestion)
+    #region #################securityCheckType
+
+    public IActionResult OnPostNewSecurityCheck(string? securityCheckName)
     {
-        SelectedQuestion = selectedQuestion;
-        for (int i = 0; i < QuestionsList.Count; i++)
+        if (!securityCheckName.IsNullOrEmpty())
         {
-            if (QuestionsList[i] == selectedQuestion)
+            _db.Questionnaires.Add(new Questionnaire() { QuestionnaireName = securityCheckName });
+            _db.SaveChanges();
+        }
+
+        return new RedirectToPageResult("UpdateSecurityCheck");
+    }
+
+    public IActionResult OnPostSecurityCheckQuestionPoolChanged(string securityCheckItem)
+    {
+        Initialize();
+        SelectedSecurityCheckIndex = SecurityCheckList.IndexOf(securityCheckItem);
+        HttpContext.Session.SetString("SelectedSecurityCheckIndex", SelectedSecurityCheckIndex.ToString());
+
+        return new RedirectToPageResult("UpdateSecurityCheck");
+    }
+
+    #endregion
+
+    public IActionResult OnPostSecurityCheckQuestionListChanged(string selectedQuestion)
+    {
+        Initialize();
+        string a = IndexOfItemInList(SecurityCheckQuestionListPool, selectedQuestion);
+        HttpContext.Session.SetString("SelectedSecurityCheckQuestionPoolIndex", a);
+
+        return new RedirectToPageResult("UpdateSecurityCheck");
+    }
+
+    public IActionResult OnPostAddQuestionToSecurityCheck()
+    {
+        Initialize();
+        // Console.WriteLine("AddBtn");
+        Question question = _db.Questions.Where(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
+            .Single();
+
+        string category = CategoryList[SelectedCategoryIndex];
+
+        _db.SurveyQuestions.Add(new SurveyQuestion()
+        {
+            Question = question,
+            Questionnaire = _db.Questionnaires.Where(x => x.QuestionnaireName == SecurityCheckList[SelectedQuestionPoolIndex]).SingleOrDefault(),
+            
+        });
+        _db.SaveChanges();
+        return new RedirectToPageResult("UpdateSecurityCheck");
+    }
+
+    public IActionResult OnPostDeleteQuestionFromSecurityCheck()
+    {
+        Initialize();
+        Question question = _db.Questions.Where(x =>
+            x.QuestionText == SecurityCheckQuestionListPool[SelectedSecurityCheckQuestionPoolIndex]).Single();
+
+        var surveyObject = _db.SurveyQuestions.Where(x => x.Question == question).FirstOrDefault();
+        _db.SurveyQuestions.Remove(surveyObject);
+        _db.SaveChanges();
+        return new RedirectToPageResult("UpdateSecurityCheck");
+    }
+
+    public IActionResult OnPostQuestionListPoolChanged(string selectedQuestion)
+    {
+        Initialize();
+        for (int i = 0; i < QuestionsListPool.Count; i++)
+        {
+            if (QuestionsListPool[i] == selectedQuestion)
             {
-                SelectedQuestionIndex = i;
-                int index = SecurityCheckList.IndexOf(QuestionsList[i].Split("|")[0]);
-                var item = SecurityCheckList[index];
-                SecurityCheckList.RemoveAt(index);
-                SecurityCheckList.Add(item);
+                HttpContext.Session.SetString("SelectedQuestionPoolIndex", i.ToString());
                 break;
             }
         }
+
+        return new RedirectToPageResult("UpdateSecurityCheck");
     }
 
-    public void OnPostCategoryChanged(string categoryItem)
+    #region ############Criticality
+
+    public IActionResult OnPostCategoryChanged(string categoryItem)
     {
-        SelectedCategoryIndex = CategoryList.IndexOf(categoryItem);
+        Initialize();
+
+        HttpContext.Session.SetString("SelectedCategoryIndex", IndexOfItemInList(CategoryList, categoryItem));
+        return new RedirectToPageResult("UpdateSecurityCheck");
     }
 
-    public void OnPostSecurityCheckChanged(string selectedItem)
+    public IActionResult OnPostAddNewCategory(string newCategory)
     {
-        var splitted = SelectedQuestion.Split("|");
-        for (int i = 0; i < QuestionsList.Count; i++)
+        Initialize();
+        _db.Categories.Add(new Category() { CategoryText = newCategory });
+        _db.SaveChanges();
+        CategoryList = _db.Categories.Select(x => x.CategoryText).ToList();
+        return new RedirectToPageResult("UpdateSecurityCheck");
+    }
+
+    public IActionResult OnPostDeleteSelectedCategory(string categoryItem)
+    {
+        Initialize();
+        var item = _db.Categories.Where(x => x.CategoryText == categoryItem).SingleOrDefault();
+        _db.Categories.Remove(item);
+        _db.SaveChanges();
+        return new RedirectToPageResult("UpdateSecurityCheck");
+    }
+
+    #endregion
+
+    private string IndexOfItemInList(List<string> list, string searchString)
+    {
+        string index = "0";
+
+        for (int i = 0; i < list.Count; i++)
         {
-            if (QuestionsList[i] == SelectedQuestion)
+            if (list[i] == searchString)
             {
-                QuestionsList[i] = $"{selectedItem}|{splitted[1]}";
+                index = i.ToString();
                 break;
             }
         }
+
+        return index;
     }
 
-    public void OnPostAddNewCategory(string newCategory)
-    {
-        CategoryList.Add(newCategory);
-    }
+
     public void OnPostChangeAnswer(string question, string? answerZero, string? answerOne, string? answerTwo,
         string? answerThree)
     {
-        // if (!answerZero.IsNullOrEmpty() && !answerOne.IsNullOrEmpty() && !answerTwo.IsNullOrEmpty() && !answerThree.IsNullOrEmpty())
-        // {
-        //if question already exists return;
-        Console.WriteLine($"question: {question}, \n" +
-                          $"0: {answerZero}, \n" +
-                          $"1: {answerOne}, \n" +
-                          $"2: {answerTwo}, \n" +
-                          $"3: {answerThree}");
-        // }
+        if (!answerZero.IsNullOrEmpty() && !answerOne.IsNullOrEmpty() && !answerTwo.IsNullOrEmpty() &&
+            !answerThree.IsNullOrEmpty())
+        {
+            //if question already exists return;
+            Console.WriteLine($"question: {question}, \n" +
+                              $"0: {answerZero}, \n" +
+                              $"1: {answerOne}, \n" +
+                              $"2: {answerTwo}, \n" +
+                              $"3: {answerThree}");
+        }
     }
 
     public void OnPostDeleteQuestion(string? question)
     {
         Console.WriteLine(question);
         int index = 0;
-        for (int i = 0; i < QuestionsList.Count; i++)
+        for (int i = 0; i < QuestionsListPool.Count; i++)
         {
-            if (QuestionsList[i] == question)
+            if (QuestionsListPool[i] == question)
             {
                 index = i;
-                QuestionsList.RemoveAt(index);
+                QuestionsListPool.RemoveAt(index);
                 break;
             }
         }
+    }
+
+    public IActionResult OnPostAddNewQuestion()
+    {
+        Initialize();
+        _db.Questions.Add(new Question()
+        {
+            QuestionText = "New Question",
+            Category = _db.Categories.Where(x => x.CategoryText == CategoryList[SelectedCategoryIndex]).SingleOrDefault(),
+            Answers = new List<Answer>()
+        });
+        _db.SaveChanges();
+        return new RedirectToPageResult("UpdateSecurityCheck");
+    }
+
+    public IActionResult OnPostUpdateQuestion(string question,
+        string? answerZero,
+        string? answerOne,
+        string? answerTwo,
+        string? answerThree)
+    {
+        Initialize();
+        List<Answer> newAnsweres = new()
+        {
+            new Answer()
+            {
+                AnswerText = answerOne,
+                Question = _db.Questions.Where(x => x.QuestionText == question).FirstOrDefault()
+            }
+        };
+        var selectedQuestion = _db.Questions.Where(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
+            .FirstOrDefault();
+        selectedQuestion.QuestionText = question;
+        selectedQuestion.Answers = newAnsweres;
+        selectedQuestion.Category = _db.Categories.Where(x => x.CategoryText == CategoryList[SelectedCategoryIndex])
+            .SingleOrDefault();
+
+        _db.SaveChanges();
+
+        return new RedirectToPageResult("UpdateSecurityCheck");
     }
 }

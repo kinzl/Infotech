@@ -7,45 +7,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36285c73-752c-47bb-9a1f-701c5d3d28f1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Questionnaire-Frontend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Questionnaire-Frontend.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/questionnaire-frontend.metadata.v6.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/questionnaire-frontend.metadata.v6.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/questionnaire-frontend.projects.v6.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/questionnaire-frontend.projects.v6.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/FileContentIndex/17ed0c8f-c0de-4bbb-917b-d4ccfda098e4.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/FileContentIndex/624b80ab-6e7d-42ef-b686-839062b7585f.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/FileContentIndex/b7847fe9-a358-4a24-a279-b1e0edc7845f.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/AnswerQuestions.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/AnswerQuestions.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/AnswerQuestions.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/AnswerQuestions.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/AnswerQuestionsExtended.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/AnswerQuestionsExtended.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/ChangePassword.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/ChangePassword.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Index.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/MainWindow.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/MainWindow.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/UpdateSecurityCheck.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/UpdateSecurityCheck.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/UpdateSecurityCheck.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/UpdateSecurityCheck.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Questionnaire-Frontend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Questionnaire-Frontend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Questionnaire-Frontend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Questionnaire-Frontend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDb.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDb.mdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDbLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDbLib.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDbLib.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDbLib.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDb_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDb_log.ldf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Questionnaire-Frontend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Questionnaire-Frontend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Questionnaire-Frontend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Questionnaire-Frontend.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wwwroot/files/updatesecuritycheck/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/files/updatesecuritycheck/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/Answer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/Answer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/Category.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/Criticality.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/Criticality.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/Criticism.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/Criticism.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/CriticismType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/CriticismType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/CustomerSurvey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/CustomerSurvey.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/CustomerSurvey.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/Question.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/Question.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/Questionnaire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/Questionnaire.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDatabase.mdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDatabase_log.ldf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDbLib.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDbLib.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDb.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDb.mdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDb_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDb_log.ldf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SurveyQuestion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/SurveyQuestion.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/UserName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/UserName.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/UserQuestionnaire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/UserQuestionnaire.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/UserQuestionnaire.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDb.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDb.mdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDbLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDbLib.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDbLib.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDbLib.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDb_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDb_log.ldf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/SecurityCheckDbLib.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/ref/SecurityCheckDbLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/ref/SecurityCheckDbLib.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/refint/SecurityCheckDbLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/Debug/net7.0/refint/SecurityCheckDbLib.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/SecurityCheckDbLib.csproj.EntityFrameworkCore.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/SecurityCheckDbLib.csproj.EntityFrameworkCore.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/SecurityCheckDbLib.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/SecurityCheckDbLib.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/SecurityCheckDbLib.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/SecurityCheckDbLib.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/obj/project.nuget.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +62,15 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/19e9b8fe90184d73a903937362691ff93c880/7c/1de86cea/RazorPageBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/675175c5fd55465ababd1211ed17bea1708b0/33/c74d27f0/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8daa8e79bda41d48032858940f4722f70880/53/ba6821ff/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pages/AnswerQuestions.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pages/AnswerQuestions.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pages/Index.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SecurityCheckDbLib/Answer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SecurityCheckDbLib/Category.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SecurityCheckDbLib/Question.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,15 +81,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Questionnaire-Frontend: IIS Express">
     <configuration name="Questionnaire-Frontend: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Questionnaire-Frontend.csproj" />
@@ -142,6 +156,8 @@
       <workItem from="1681459899071" duration="3112000" />
       <workItem from="1681478959689" duration="3176000" />
       <workItem from="1681800169504" duration="335000" />
+      <workItem from="1681808917018" duration="4437000" />
+      <workItem from="1681895311344" duration="24499000" />
     </task>
     <task id="LOCAL-00001" summary="Main Window updated">
       <created>1679395345068</created>
