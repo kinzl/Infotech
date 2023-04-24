@@ -1,5 +1,4 @@
 ﻿@page
-@using Questionnaire_Frontend.Pages
 @model Questionnaire_Frontend.Pages.UpdateSecurityCheck
 
 @{
@@ -17,7 +16,8 @@
 <div class="container">
     <div>
         <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
-
+        <label id="errorText">@Model.ErrorText</label>
+        
         <!-- Question list -->
         <div>
             <form method="post" asp-page-handler="QuestionListPoolChanged">

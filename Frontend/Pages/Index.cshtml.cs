@@ -25,8 +25,8 @@ public class IndexModel : PageModel
         _logger = logger;
         _db = db;
 
-        //db.Database.EnsureDeleted();
-        //db.Database.EnsureCreated();
+        // db.Database.EnsureDeleted();
+        // db.Database.EnsureCreated();
         try
         {
             AddUserNames();

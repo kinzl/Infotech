@@ -14,7 +14,7 @@ public partial class SurveyQuestion
 
     public virtual Question? Question { get; set; }
 
-    public Questionnaire Questionnaire { get; set; }
-    public UserName UserName { get; set; }
+    public virtual Questionnaire? Questionnaire { get; set; }
+    public virtual UserName? UserName { get; set; }
     public int Version { get; set; }
 }

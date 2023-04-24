@@ -67,20 +67,24 @@ public class UpdateSecurityCheck : PageModel
 
     private void Initialize()
     {
+        //Initzialie Indexes
+        SelectedQuestionPoolIndex = int.Parse(HttpContext.Session.GetString("SelectedQuestionPoolIndex") ?? "0");
+        SelectedCategoryIndex = int.Parse(HttpContext.Session.GetString("SelectedCategoryIndex") ?? "0");
+        SelectedSecurityCheckQuestionPoolIndex = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckQuestionPoolIndex") ?? "0");
+        SelectedSecurityCheckIndex = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndex") ?? "0");
+
         //Initialize List
         CategoryList = _db.Categories.Select(x => x.CategoryText).ToList();
         SecurityCheckList = _db.Questionnaires.Select(x => x.QuestionnaireName).ToList();
         QuestionsListPool = !_db.Questions.Select(x => x.QuestionText).ToList().IsNullOrEmpty()
             ? _db.Questions.Select(x => x.QuestionText).ToList()!
             : new List<string>() { "" };
-        SecurityCheckQuestionListPool = _db.SurveyQuestions.Select(x => x.Question.QuestionText).ToList();
+        SecurityCheckQuestionListPool = _db.SurveyQuestions
+            .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckList[SelectedSecurityCheckIndex])
+            .Select(x => x.Question.QuestionText)
+            .ToList();
 
-        //Initzialie Indexes
-        SelectedQuestionPoolIndex = int.Parse(HttpContext.Session.GetString("SelectedQuestionPoolIndex") ?? "0");
-        SelectedCategoryIndex = int.Parse(HttpContext.Session.GetString("SelectedCategoryIndex") ?? "0");
-        SelectedSecurityCheckIndex = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndex") ?? "0");
-        SelectedSecurityCheckQuestionPoolIndex =
-            int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckQuestionPoolIndex") ?? "0");
+        
     }
 
     public IActionResult OnGetRedirectToMainWindow()
@@ -88,7 +92,7 @@ public class UpdateSecurityCheck : PageModel
         return new RedirectToPageResult("MainWindow");
     }
 
-    #region #################securityCheckType
+    #region SecurityCheckType
 
     public IActionResult OnPostNewSecurityCheck(string? securityCheckName)
     {
@@ -104,6 +108,12 @@ public class UpdateSecurityCheck : PageModel
     public IActionResult OnPostSecurityCheckQuestionPoolChanged(string securityCheckItem)
     {
         Initialize();
+
+        SecurityCheckQuestionListPool = _db.SurveyQuestions
+            .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckList[SelectedSecurityCheckIndex])
+            .Select(x => x.Question.QuestionText)
+            .ToList();
+        
         SelectedSecurityCheckIndex = SecurityCheckList.IndexOf(securityCheckItem);
         HttpContext.Session.SetString("SelectedSecurityCheckIndex", SelectedSecurityCheckIndex.ToString());
 
@@ -115,8 +125,7 @@ public class UpdateSecurityCheck : PageModel
     public IActionResult OnPostSecurityCheckQuestionListChanged(string selectedQuestion)
     {
         Initialize();
-        string a = IndexOfItemInList(SecurityCheckQuestionListPool, selectedQuestion);
-        HttpContext.Session.SetString("SelectedSecurityCheckQuestionPoolIndex", a);
+        HttpContext.Session.SetString("SelectedSecurityCheckQuestionPoolIndex", IndexOfItemInList(SecurityCheckQuestionListPool, selectedQuestion));
 
         return new RedirectToPageResult("UpdateSecurityCheck");
     }
@@ -124,17 +133,18 @@ public class UpdateSecurityCheck : PageModel
     public IActionResult OnPostAddQuestionToSecurityCheck()
     {
         Initialize();
-        // Console.WriteLine("AddBtn");
-        Question question = _db.Questions.Where(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
-            .Single();
+        Question question = _db.Questions
+            .Single(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex]);
 
-        string category = CategoryList[SelectedCategoryIndex];
+        string categoryString = CategoryList[SelectedCategoryIndex];
+        var category = _db.Categories.SingleOrDefault(x => x.CategoryText == categoryString);
+        question.Category = category;
+        var questionnaire = _db.Questionnaires.SingleOrDefault(x => x.QuestionnaireName == SecurityCheckList[SelectedSecurityCheckIndex]);
 
         _db.SurveyQuestions.Add(new SurveyQuestion()
         {
             Question = question,
-            Questionnaire = _db.Questionnaires.Where(x => x.QuestionnaireName == SecurityCheckList[SelectedQuestionPoolIndex]).SingleOrDefault(),
-            
+            Questionnaire = questionnaire,
         });
         _db.SaveChanges();
         return new RedirectToPageResult("UpdateSecurityCheck");
@@ -146,8 +156,9 @@ public class UpdateSecurityCheck : PageModel
         Question question = _db.Questions.Where(x =>
             x.QuestionText == SecurityCheckQuestionListPool[SelectedSecurityCheckQuestionPoolIndex]).Single();
 
-        var surveyObject = _db.SurveyQuestions.Where(x => x.Question == question).FirstOrDefault();
-        _db.SurveyQuestions.Remove(surveyObject);
+        var surveyObject = _db.SurveyQuestions.FirstOrDefault(x => x.Questionnaire != null && x.Question == question && x.Questionnaire.QuestionnaireName == SecurityCheckList[SelectedSecurityCheckIndex]);
+        
+        if(surveyObject != null)_db.SurveyQuestions.Remove(surveyObject);
         _db.SaveChanges();
         return new RedirectToPageResult("UpdateSecurityCheck");
     }
