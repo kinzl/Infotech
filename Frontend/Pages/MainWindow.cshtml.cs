@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SecurityCheckDbLib;
 
 namespace Questionnaire_Frontend.Pages;
@@ -11,8 +13,8 @@ public class MainWindow : PageModel
 
     public List<string> SecurityChecks = new()
     {
-        "Company 1 | Date | Security Check Type | Progress",
-        "Company 2 | Date | Security Check Type | Progress"
+        // "Company 1 | Date | Security Check Type | Progress",
+        // "Company 2 | Date | Security Check Type | Progress"
     };
 
     //int index = HttpContext.Session.GetString("ProductsSortType") ?? DefaultSortType;
@@ -35,7 +37,9 @@ public class MainWindow : PageModel
     private void Initialize()
     {
         SelectedSecurityCheckIndex = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndex") ?? "0");
-        SecurityChecks = _db.CustomerSurveys.Select(x => x.SurveyQuestion.ToDataString()).ToList();
+        SecurityChecks = _db.CustomerSurveys.Include(x => x.SurveyQuestion).Select(x => x.SurveyQuestion.ToDataString()).ToList().IsNullOrEmpty() 
+            ? _db.CustomerSurveys.Select(x => x.SurveyQuestion.ToDataString()).ToList()
+            : new List<string>();
     }
 
     public IActionResult OnPostRedirectShowExistingData()

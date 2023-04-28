@@ -6,7 +6,9 @@
     <projectFile profileName="https">Questionnaire-Frontend.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36285c73-752c-47bb-9a1f-701c5d3d28f1" name="Changes" comment="Updated Database" />
+    <list default="true" id="36285c73-752c-47bb-9a1f-701c5d3d28f1" name="Changes" comment="Updated Database">
+      <change beforePath="$PROJECT_DIR$/Pages/MainWindow.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/MainWindow.cshtml.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,6 +124,7 @@
       <workItem from="1682409505634" duration="6386000" />
       <workItem from="1682497833953" duration="5117000" />
       <workItem from="1682666848826" duration="1711000" />
+      <workItem from="1682670121914" duration="347000" />
     </task>
     <task id="LOCAL-00001" summary="Main Window updated">
       <created>1679395345068</created>
