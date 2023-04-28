@@ -15,6 +15,10 @@ public class MainWindow : PageModel
         "Company 2 | Date | Security Check Type | Progress"
     };
 
+    //int index = HttpContext.Session.GetString("ProductsSortType") ?? DefaultSortType;
+    //HttpContext.Session.SetString("OrdersSortType", OrdersSortType);
+
+
     public int SelectedSecurityCheckIndex = 0;
 
     public MainWindow(ILogger<IndexModel> logger, SecurityCheckContext db)
@@ -25,6 +29,13 @@ public class MainWindow : PageModel
 
     public void OnGet()
     {
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        SelectedSecurityCheckIndex = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndex") ?? "0");
+        SecurityChecks = _db.CustomerSurveys.Select(x => x.SurveyQuestion.ToDataString()).ToList();
     }
 
     public IActionResult OnPostRedirectShowExistingData()
@@ -34,19 +45,20 @@ public class MainWindow : PageModel
 
     public IActionResult OnPostOpenSelectedCheck()
     {
-        return new RedirectToPageResult("AnswerQuestions");
+        return new RedirectToPageResult("AnswerQuestionsExtended");
     }
+
     public void OnGetRedirectToUpdateSecurityCheck()
     {
         Response.Redirect("UpdateSecurityCheck");
     }
-    
+
     public IActionResult OnGetRedirectChangePassword()
     {
         return new RedirectToPageResult("ChangePassword");
     }
 
-    public void OnPostSecurityCheckList(string selectedItem)
+    public IActionResult OnPostSecurityCheckListChanged(string selectedItem)
     {
         for (int i = 0; i < SecurityChecks.Count; i++)
         {
@@ -56,7 +68,8 @@ public class MainWindow : PageModel
                 break;
             }
         }
-    }
 
-    
+        HttpContext.Session.SetString("SelectedSecurityCheckIndex", SelectedSecurityCheckIndex.ToString());
+        return new RedirectToPageResult("MainWindow");
+    }
 }

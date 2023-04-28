@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.IdentityModel.Tokens;
 using SecurityCheckDbLib;
 
 namespace Questionnaire_Frontend.Pages;
@@ -23,13 +24,18 @@ public class ChangePassword : PageModel
         ErrorText = errorText;
     }
 
-    public void OnGetRedirectMainWindow()
+    public IActionResult OnGetRedirectMainWindow()
     {
-        Response.Redirect("MainWindow");
+        return new RedirectToPageResult("MainWindow");
     }
 
-    public IActionResult OnPostChangePassword()
+    public IActionResult OnPostChangePassword(string? oldPassword, string? newPassword, string? newPasswordRepeated)
     {
-        return new RedirectToPageResult("ChangePassword", new{ErrorText = "Possible Error Message"});
+        if(oldPassword.IsNullOrEmpty() || oldPassword.IsNullOrEmpty() || newPasswordRepeated.IsNullOrEmpty())
+            return new RedirectToPageResult("ChangePassword", new{ErrorText = "Some fields were empty"});
+        
+        //ToDo: Convert password to salt and hash and compare them
+        
+        return new RedirectToPageResult("ChangePassword", new{ErrorText = "Error"});
     }
 }

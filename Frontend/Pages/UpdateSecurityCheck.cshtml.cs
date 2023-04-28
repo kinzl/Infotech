@@ -55,10 +55,7 @@ public class UpdateSecurityCheck : PageModel
     public string txtAnswerOne;
     public string txtAnswerTwo;
     public string txtAnswerThree;
-
-    //int index = HttpContext.Session.GetString("ProductsSortType") ?? DefaultSortType;
-    //HttpContext.Session.SetString("OrdersSortType", OrdersSortType);
-
+    
     public UpdateSecurityCheck(ILogger<IndexModel> logger, SecurityCheckContext db)
     {
         _logger = logger;

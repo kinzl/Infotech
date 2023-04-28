@@ -25,11 +25,11 @@ public class IndexModel : PageModel
         _logger = logger;
         _db = db;
 
-        db.Database.EnsureDeleted();
-        db.Database.EnsureCreated();
+        // db.Database.EnsureDeleted();
+        // db.Database.EnsureCreated();
         try
         {
-            AddUserNames();
+            // SeederExtension.Seed(db);
         }
         catch (Exception ex)
         {
@@ -37,26 +37,9 @@ public class IndexModel : PageModel
         }
     }
 
-    private void AddUserNames()
-    {
-        UserName admin = new UserName
-        {
-            IsAdmin = false,
-            Username = "kinzl",
-            PasswordHash = "s45g5",
-            PasswordSalt = "df45"
-        };
-        _db.UserNames.Add(admin);
-        _db.SaveChanges();
-    }
-
-
-    //Window loaded quasi
     public void OnGet(string errorText)
     {
         ErrorText = errorText;
-        // int count = _db.UserNames.Count();
-        // ErrorText = count.ToString();
     }
 
     public IActionResult OnPostLogin(LoginDto body)
@@ -71,6 +54,7 @@ public class IndexModel : PageModel
             return new RedirectToPageResult("MainWindow");
         }
 
+        //ToDo: Convert password to salt and hash and compare them
         if (_db.UserNames.Where(x => x.Username == body.Username && x.PasswordHash == body.Password).Count() == 1)
         {
             return new RedirectToPageResult("MainWindow");

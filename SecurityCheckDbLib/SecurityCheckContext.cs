@@ -15,6 +15,7 @@ public partial class SecurityCheckContext : DbContext
     {
     }
 
+    public DbSet<CustomerSurvey> CustomerSurveys { get; set; }
     public virtual DbSet<Answer> Answers { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
