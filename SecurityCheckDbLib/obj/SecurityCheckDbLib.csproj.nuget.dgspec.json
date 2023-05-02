@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj": {}
+    "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj": {
+    "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
+        "projectUniqueName": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
         "projectName": "SecurityCheckDbLib",
-        "projectPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
+        "projectPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
         "packagesPath": "C:\\Users\\kinzl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\obj\\",
+        "outputPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\SecurityCheckDbLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,6 +1,4 @@
 ﻿@page
-@using System.Text.Json.Serialization
-@using System.Reflection.Metadata
 @model Questionnaire_Frontend.Pages.AnswerQuestions;
 @{
 }
@@ -133,18 +131,28 @@
         <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
     </div>
     <div>
-        <form method="post" asp-page-handler="CompanyName"></form>
+        <form method="post" asp-page-handler="SubmitCompanyName"></form>
         <input type="text" class="companyName" name="companyName" placeholder="Company name"/>
-        <input type="submit" class="testBtn" value="MyButton"/>
+        <input type="submit" class="companyNameBtn" value="Submit"/>
     </div>
 
-    <select class="dropdown comboBox">
-        <option selected>@Model.SecurityCheckType[0]</option>
-        @for (int i = 1; i < @Model.SecurityCheckType.Count; i++)
-        {
-            <option>@Model.SecurityCheckType[i]</option>
-        }
-    </select>
+    <div>
+        <form method="post" asp-page-handler="SecurityCheckTypeChanged">
+            <select class="dropdown comboBox" name="securityCheck" onchange="this.form.submit()">
+                @for (int i = 0; i < @Model.SecurityCheckType.Count; i++)
+                {
+                    if (i == @Model.SelectedSecurityCheck)
+                    {
+                        <option selected>@Model.SecurityCheckType[i]</option>
+                    }
+                    else
+                    {
+                        <option>@Model.SecurityCheckType[i]</option>
+                    }
+                }
+            </select>
+        </form>
+    </div>
 
     <input id="saveButton" type="button" value="Save" asp-page-handler="Any"/>
 

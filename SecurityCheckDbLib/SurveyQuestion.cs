@@ -12,7 +12,6 @@ public partial class SurveyQuestion
     public int? CustomerSurveyId { get; set; }
     public int Version { get; set; }
     public DateTime LastVisitedDate { get; set; }
-    public string? CompanyName { get; set; }
 
     public virtual Question? Question { get; set; }
 
@@ -22,7 +21,7 @@ public partial class SurveyQuestion
 
     public string ToDataString()
     {
-        return $"{CompanyName} | {UserName?.Username} | {Questionnaire?.QuestionnaireName} | {LastVisitedDate.ToString("yy-MM-dd")}";
+        return $" | {UserName?.Username} | {Questionnaire?.QuestionnaireName} | {LastVisitedDate.ToString("yy-MM-dd")}";
     }
 
 }

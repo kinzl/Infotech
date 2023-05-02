@@ -228,3 +228,5 @@ C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Project\Infotech\Frontend\obj\Debug\
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Project\Infotech\Frontend\obj\Debug\net7.0\ref\Questionnaire-Frontend.dll
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Project\Infotech\Frontend\bin\Debug\net7.0\SecurityCheckDb.mdf
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Project\Infotech\Frontend\bin\Debug\net7.0\SecurityCheckDb_log.ldf
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\Frontend\bin\Debug\net7.0\SecurityCheckDb.mdf
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\Frontend\bin\Debug\net7.0\SecurityCheckDb_log.ldf

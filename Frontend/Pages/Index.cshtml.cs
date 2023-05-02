@@ -25,11 +25,11 @@ public class IndexModel : PageModel
         _logger = logger;
         _db = db;
 
-        // db.Database.EnsureDeleted();
-        // db.Database.EnsureCreated();
+        //db.Database.EnsureDeleted();
+        //db.Database.EnsureCreated();
         try
         {
-            // SeederExtension.Seed(db);
+            //SeederExtension.Seed(db);
         }
         catch (Exception ex)
         {

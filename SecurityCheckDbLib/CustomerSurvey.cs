@@ -9,5 +9,6 @@ public class CustomerSurvey
 {
     public int CustomerSurveyId { get; set; }
     public SurveyQuestion SurveyQuestion { get; set; }
+    public string? CompanyName { get; set; }
 }
 

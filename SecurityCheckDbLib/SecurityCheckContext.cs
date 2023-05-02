@@ -39,7 +39,7 @@ public partial class SecurityCheckContext : DbContext
         //if (optionsBuilder.IsConfigured) return;
 
         //kinzle
-        string connectionString = "Server=(LocalDB)\\mssqllocaldb;attachdbfilename=C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\SecurityCheckDb.mdf;database=SecurityCheckDb;integrated security=True;MultipleActiveResultSets=True";
+        string connectionString = "Server=(LocalDB)\\mssqllocaldb;attachdbfilename=C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\SecurityCheckDbLib\\SecurityCheckDb.mdf;database=SecurityCheckDb;integrated security=True;MultipleActiveResultSets=True";
         
         
         Console.WriteLine("Connectionstring: " + connectionString);

@@ -42,8 +42,14 @@ public class MainWindow : PageModel
             : new List<string>();
     }
 
-    public IActionResult OnPostRedirectShowExistingData()
+    public IActionResult OnPostNewSecurityCheck()
     {
+        // _db.CustomerSurveys.Add(new CustomerSurvey() { SurveyQuestion = new SurveyQuestion()
+        // {
+        //      Question = _db.Questions.ToList(),
+        //     
+        // }});
+        // _db.SaveChanges();
         return new RedirectToPageResult("AnswerQuestions");
     }
 
@@ -52,9 +58,9 @@ public class MainWindow : PageModel
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 
-    public void OnGetRedirectToUpdateSecurityCheck()
+    public IActionResult OnGetRedirectToUpdateSecurityCheck()
     {
-        Response.Redirect("UpdateSecurityCheck");
+        return new RedirectToPageResult("UpdateSecurityCheck");
     }
 
     public IActionResult OnGetRedirectChangePassword()
