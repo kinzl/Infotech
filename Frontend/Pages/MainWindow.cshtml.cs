@@ -21,7 +21,8 @@ public class MainWindow : PageModel
     //HttpContext.Session.SetString("OrdersSortType", OrdersSortType);
 
 
-    public int SelectedSecurityCheckIndex = 0;
+    public int SelectedSecurityCheckIndex;
+    public string ErrorText;
 
     public MainWindow(ILogger<IndexModel> logger, SecurityCheckContext db)
     {
@@ -29,30 +30,57 @@ public class MainWindow : PageModel
         _db = db;
     }
 
-    public void OnGet()
+    public void OnGet(string errorText)
     {
+        ErrorText = errorText;
         Initialize();
     }
 
     private void Initialize()
     {
         SelectedSecurityCheckIndex = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndex") ?? "0");
-        SecurityChecks = _db.CustomerSurveys.Include(x => x.SurveyQuestion).Select(x => x.SurveyQuestion.ToDataString()).ToList().IsNullOrEmpty() 
-            ? _db.CustomerSurveys.Select(x => x.SurveyQuestion.ToDataString()).ToList()
-            : new List<string>();
+        SecurityChecks = _db.CustomerSurveys
+            .Include(x => x.SurveyQuestion)
+            .ThenInclude(x => x.Questionnaire)
+            .Select(x => x.SurveyQuestion)
+            .ToList()
+            .IsNullOrEmpty()
+            ? new List<string>()
+            : _db.CustomerSurveys.Select(x => x.ToDataString()).ToList();
     }
 
     public IActionResult OnPostNewSecurityCheck()
     {
-        // _db.CustomerSurveys.Add(new CustomerSurvey() { SurveyQuestion = new SurveyQuestion()
-        // {
-        //      Question = _db.Questions.ToList(),
-        //     
-        // }});
-        // _db.SaveChanges();
+        var questionnaire = _db.Questionnaires.Select(x => x.QuestionnaireName).FirstOrDefault();
+        var survey = _db.SurveyQuestions
+            .Where(x => x.Questionnaire.QuestionnaireName == questionnaire)
+            .Select(x => x)
+            .FirstOrDefault();
+        if (questionnaire == null || survey == null)
+            return new RedirectToPageResult("MainWindow", new { ErrorText = "No Security Check found" });
+
+        survey.CreatedDate = DateTime.Now;
+        _db.CustomerSurveys.Add(new CustomerSurvey()
+        {
+            SurveyQuestion = survey,
+        });
+        _db.SaveChanges();
         return new RedirectToPageResult("AnswerQuestions");
     }
 
+    public IActionResult OnPostSecurityCheckListChanged(string selectedItem)
+    {
+        Initialize();
+        for (int i = 0; i < SecurityChecks.Count; i++)
+        {
+            if (SecurityChecks[i].Contains(selectedItem))
+            {
+                HttpContext.Session.SetString("SelectedSecurityCheckIndex", i.ToString());
+                break;
+            }
+        }
+        return new RedirectToPageResult("MainWindow");
+    }
     public IActionResult OnPostOpenSelectedCheck()
     {
         return new RedirectToPageResult("AnswerQuestionsExtended");
@@ -66,20 +94,5 @@ public class MainWindow : PageModel
     public IActionResult OnGetRedirectChangePassword()
     {
         return new RedirectToPageResult("ChangePassword");
-    }
-
-    public IActionResult OnPostSecurityCheckListChanged(string selectedItem)
-    {
-        for (int i = 0; i < SecurityChecks.Count; i++)
-        {
-            if (SecurityChecks[i] == selectedItem)
-            {
-                SelectedSecurityCheckIndex = i;
-                break;
-            }
-        }
-
-        HttpContext.Session.SetString("SelectedSecurityCheckIndex", SelectedSecurityCheckIndex.ToString());
-        return new RedirectToPageResult("MainWindow");
     }
 }

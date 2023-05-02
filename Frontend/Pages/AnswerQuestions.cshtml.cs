@@ -14,10 +14,21 @@ public class AnswerQuestions : PageModel
     private SecurityCheckContext _db;
 
 
-    public List<string> SecurityCheckType = new() { "Security Check Light", "Security Check Extended" };
-    public List<string> Question = new() { "Question 1", "Question 2", "Question 3" };
+    public List<string> SecurityCheckType = new()
+    {
+        // "Security Check Light",
+        // "Security Check Extended"
+    };
+
+    public List<string> Question = new()
+    {
+        // "Question 1",
+        // "Question 2", 
+        // "Question 3"
+    };
 
     public int SelectedSecurityCheck;
+    public string CompanyName = "";
 
     public AnswerQuestions(ILogger<IndexModel> logger, SecurityCheckContext db)
     {
@@ -33,28 +44,17 @@ public class AnswerQuestions : PageModel
     private void Initialize()
     {
         SecurityCheckType = _db.Questionnaires.Select(x => x.QuestionnaireName).ToList();
-        SelectedSecurityCheck = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheck" ?? "0"));
-        
-        // var thisSurvey = _db.CustomerSurveys
-        //     .Include(x => x.SurveyQuestion)
-        //     .Where(x => x.SurveyQuestion.Questionnaire != null && x.SurveyQuestion.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
-        //     .Select(x => x.SurveyQuestion)
-        //     .LastOrDefault();
-        
+        SelectedSecurityCheck = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheck") ?? "0");
+        CompanyName = HttpContext.Session.GetString("CompanyName") ?? "";
+
         Question = _db.SurveyQuestions
             .Include(x => x.Question)
             .Include(x => x.Questionnaire)
             .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
             .Select(x => x.Question.QuestionText)
             .ToList();
-
     }
 
-    public JsonResult OnPostMyCSharpMethod(string input)
-    {
-        return new JsonResult("Hello, " + input + "!");
-    }
-    
     public IActionResult OnPostSecurityCheckTypeChanged(string securityCheck)
     {
         Initialize();
@@ -62,10 +62,26 @@ public class AnswerQuestions : PageModel
         {
             if (SecurityCheckType[i] == securityCheck)
             {
+                SelectedSecurityCheck = i;
                 HttpContext.Session.SetString("SelectedSecurityCheck", i.ToString());
                 break;
             }
         }
+
+        var thisSurvey = _db.CustomerSurveys
+            .Include(x => x.SurveyQuestion)
+            .ThenInclude(x => x.Questionnaire)
+            .Select(x => x)
+            .OrderBy(x => x.CustomerSurveyId)
+            .Last();
+        var survey = _db.SurveyQuestions
+            .Include(x => x.Questionnaire)
+            .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
+            .Select(x => x)
+            .FirstOrDefault();
+
+        thisSurvey.SurveyQuestion = survey;
+        _db.SaveChanges();
         return new RedirectToPageResult("AnswerQuestions");
     }
 
@@ -74,9 +90,16 @@ public class AnswerQuestions : PageModel
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 
-    public void OnPostCompanyName(string companyName)
+    public IActionResult OnPostSubmitCompanyName(string companyName)
     {
-        Console.WriteLine(companyName);
+        var thisSurvey = _db.CustomerSurveys
+            .Select(x => x)
+            .OrderBy(x => x.CustomerSurveyId)
+            .LastOrDefault();
+        thisSurvey.CompanyName = companyName;
+        _db.SaveChanges();
+        HttpContext.Session.SetString("CompanyName", companyName);
+        return new RedirectToPageResult("AnswerQuestions");
     }
 
     public void OnGetSave()

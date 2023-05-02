@@ -131,9 +131,10 @@
         <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
     </div>
     <div>
-        <form method="post" asp-page-handler="SubmitCompanyName"></form>
-        <input type="text" class="companyName" name="companyName" placeholder="Company name"/>
+        <form method="post" asp-page-handler="SubmitCompanyName">
+        <input type="text" class="companyName" name="companyName" placeholder="Company name" value="@Model.CompanyName"/>
         <input type="submit" class="companyNameBtn" value="Submit"/>
+        </form>
     </div>
 
     <div>
@@ -155,11 +156,6 @@
     </div>
 
     <input id="saveButton" type="button" value="Save" asp-page-handler="Any"/>
-
-    @* Generate Questions dynamically *@
-    @* <script src="js/AnswerQuestionsGeneratedTags.js" asp-append-version="true"></script> *@
-
-
 </div>
 
 </body>
