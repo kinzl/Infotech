@@ -4074,24 +4074,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kinzl\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\kogle\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
+      "projectUniqueName": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\NeuesteVersion\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
       "projectName": "SecurityCheckDbLib",
-      "projectPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
-      "packagesPath": "C:\\Users\\kinzl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Project\\Infotech\\SecurityCheckDbLib\\obj\\",
+      "projectPath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\NeuesteVersion\\Infotech\\SecurityCheckDbLib\\SecurityCheckDbLib.csproj",
+      "packagesPath": "C:\\Users\\kogle\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\NeuesteVersion\\Infotech\\SecurityCheckDbLib\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\kinzl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\kogle\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4099,7 +4094,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4163,7 +4157,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
