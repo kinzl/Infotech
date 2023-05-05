@@ -62,10 +62,12 @@ public class UpdateSecurityCheck : PageModel
         _db = db;
     }
 
-    public void OnGet(string errorText)
+    public IActionResult OnGet(string errorText)
     {
+        if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
         ErrorText = errorText;
         Initialize();
+        return null;
     }
 
     private void Initialize()

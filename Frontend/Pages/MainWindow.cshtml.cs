@@ -30,10 +30,16 @@ public class MainWindow : PageModel
         _db = db;
     }
 
-    public void OnGet(string errorText)
+    public IActionResult OnGet(string errorText)
     {
+        if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
+        //Username = HttpContext.User.Identities.Select(x => x.Name).ToList() //.First
+
+        Console.WriteLine("User " + HttpContext.User.Identities.ToList().First().Name + " Signed in");
+        
         ErrorText = errorText;
         Initialize();
+        return null;
     }
 
     private void Initialize()

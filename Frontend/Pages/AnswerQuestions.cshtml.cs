@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Questionnaire_Frontend.Dto;
 using SecurityCheckDbLib;
 
 namespace Questionnaire_Frontend.Pages;
@@ -27,6 +28,23 @@ public class AnswerQuestions : PageModel
         // "Question 3"
     };
 
+    public List<AnswerDto> TestQuestionDto = new ()
+    { 
+        new AnswerDto()
+        {
+            AnswerOne = new DetailAnswerDto()
+            {
+                Answer = "answer one",
+                Selected = false
+            },
+            AnswerTwo = new DetailAnswerDto()
+            {
+                Answer = "answer two",
+                Selected = false
+            }
+        }
+    };
+
     public int SelectedSecurityCheck;
     public string CompanyName = "";
 
@@ -36,9 +54,11 @@ public class AnswerQuestions : PageModel
         _db = db;
     }
 
-    public void OnGet()
+    public IActionResult OnGet()
     {
+        if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
         Initialize();
+        return null;
     }
 
     private void Initialize()

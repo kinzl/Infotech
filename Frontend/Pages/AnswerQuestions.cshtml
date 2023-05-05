@@ -40,6 +40,12 @@
     
                 let questions = @Html.Raw(Json.Serialize(Model.Question));
     
+                let test = @Html.Raw(Json.Serialize(Model.TestQuestionDto));
+                
+                for (let item of test) 
+                {
+                    console.log(item);
+                }
                 
                 //console.log("****************************");
                 for(let i = 0; i < questions.length; i++) {

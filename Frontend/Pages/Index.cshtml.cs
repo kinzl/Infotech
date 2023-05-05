@@ -1,6 +1,9 @@
 ﻿using System.Data;
 using System.Reflection.Emit;
+using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -45,7 +48,7 @@ public class IndexModel : PageModel
         ErrorText = errorText;
     }
 
-    public IActionResult OnPostLogin(LoginDto body)
+    public async Task<IActionResult> OnPostLogin(LoginDto body)
     {
         /*if (body.Username == Username && body.Password == Password)
         {
@@ -57,10 +60,10 @@ public class IndexModel : PageModel
             return new RedirectToPageResult("MainWindow");
         }*/
         
-        string uName = "";
+        string uName;
         try
         {
-            uName = _db.UserNames.Where(x => x.Username == body.Username).Select(x => x.Username).First();
+            uName = _db.UserNames.Where(x => x.Username == body.Username).Select(x => x.Username).Single();
         }
         catch (Exception ex)
         {
@@ -88,11 +91,20 @@ public class IndexModel : PageModel
             byte[] bytes = Encoding.ASCII.GetBytes(pwsalt);
             if (pe.VerifyPassword(body.Password.ToString(), pwhash, bytes))
             {
+                var claims = new List<Claim>()
+                {
+                    new(ClaimTypes.Name, uName)
+                };
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties = new AuthenticationProperties()
+                {
+                    IsPersistent = false
+                };
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity), authProperties);
+                
                 return new RedirectToPageResult("MainWindow");
-            }
-            else
-            {
-                return new RedirectToPageResult("Index", new { ErrorText = "Password or Username is wrong"});
             }
         }
 

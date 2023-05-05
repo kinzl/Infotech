@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SecurityCheckDbLib;
 
@@ -17,8 +18,10 @@ public class AnswerQuestionsExtendedModel : PageModel
     public string? CompanyName { get; set; } = "AnyCompany";
     public string? SecurityCheckType { get; set; } = "Security Check Light";
 
-    public void OnGet()
+    public IActionResult OnGet()
     {
+        if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
+        return null;
     }
 
     public void OnPostDownloadSecurityCheck()

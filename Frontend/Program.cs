@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using GrueneisR.RestClientGenerator;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,7 @@ builder.Services.AddRazorPages();
 
 #region -------------------------------------------- ConfigureServices
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 builder.Services
     .AddEndpointsApiExplorer()
     .AddAuthorization()
@@ -54,7 +56,11 @@ Console.WriteLine($"******** Don't forget to comment out NorthwindContext.OnConf
 Console.ResetColor();
 builder.Services.AddDbContext<SecurityCheckContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddSession();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(10);
+});
 #endregion
 
 var app = builder.Build();

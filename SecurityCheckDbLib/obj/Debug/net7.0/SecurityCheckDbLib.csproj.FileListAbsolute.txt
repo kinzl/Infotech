@@ -43,8 +43,6 @@ C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Project\Infotech\SecurityCheckDbLib\
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Project\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\ref\SecurityCheckDbLib.dll
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Project\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDb.mdf
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Project\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDb_log.ldf
-C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDb.mdf
-C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDb_log.ldf
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDbLib.deps.json
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDbLib.runtimeconfig.json
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDbLib.dll
@@ -59,3 +57,5 @@ C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\obj\
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.pdb
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\SecurityCheckDbLib.genruntimeconfig.cache
 C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\obj\Debug\net7.0\ref\SecurityCheckDbLib.dll
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDb.mdf
+C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\SecurityCheckDbLib\bin\Debug\net7.0\SecurityCheckDb_log.ldf

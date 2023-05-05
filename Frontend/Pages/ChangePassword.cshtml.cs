@@ -10,7 +10,7 @@ public class ChangePassword : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
     private SecurityCheckContext _db;
-    
+    private string Username;
     public string? ErrorText;
 
     public ChangePassword(ILogger<IndexModel> logger, SecurityCheckContext db)
@@ -19,9 +19,13 @@ public class ChangePassword : PageModel
         _db = db;
     }
 
-    public void OnGet(string? errorText)
+    public IActionResult OnGet(string? errorText)
     {
+        if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
+        Username = HttpContext.User.Identities.ToList().First().Name;
+        Console.WriteLine("Change Password Username: " + Username);
         ErrorText = errorText;
+        return null;
     }
 
     public IActionResult OnGetRedirectMainWindow()
