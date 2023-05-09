@@ -1,14 +1,5 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Questionnaire_Frontend.Dto;
-using SecurityCheckDbLib;
-
 namespace Questionnaire_Frontend.Pages;
 
-// [ApiController]
-// [Route("api/[controller]")]
 public class AnswerQuestions : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
@@ -28,19 +19,74 @@ public class AnswerQuestions : PageModel
         // "Question 3"
     };
 
-    public List<AnswerDto> TestQuestionDto = new ()
-    { 
-        new AnswerDto()
+    public List<QuestionDto> AllQuestionsAndAnswers = new()
+    {
+        new QuestionDto()
         {
-            AnswerOne = new DetailAnswerDto()
+            Question = "Frage nummero one",
+            Category = "01 Kategorie 1",
+            Criticality = "Kritisch",
+            Answer = new AnswerDto()
             {
-                Answer = "answer one",
-                Selected = false
-            },
-            AnswerTwo = new DetailAnswerDto()
+                NotAnswered = new DetailAnswerDto()
+                {
+                    Answertext = "n.A.",
+                    Selected = true
+                },
+                AnswerZero = new DetailAnswerDto()
+                {
+                    Answertext = "Antwort nummer 0",
+                    Selected = false
+                },
+                AnswerOne = new DetailAnswerDto()
+                {
+                    Answertext = "Antwort nummer 1",
+                    Selected = false
+                },
+                AnswerTwo = new DetailAnswerDto()
+                {
+                    Answertext = "Antwort nummer 2",
+                    Selected = false
+                },
+                AnswerThree = new DetailAnswerDto()
+                {
+                    Answertext = "Antwort nummer 3",
+                    Selected = false
+                },
+            }
+        },
+        new QuestionDto()
+        {
+            Question = "Frage nummero dos",
+            Category = "02 Kategorie 2",
+            Criticality = "Kritisch",
+            Answer = new AnswerDto()
             {
-                Answer = "answer two",
-                Selected = false
+                NotAnswered = new DetailAnswerDto()
+                {
+                    Answertext = "n.A.",
+                    Selected = true
+                },
+                AnswerZero = new DetailAnswerDto()
+                {
+                    Answertext = "Antwort nummer 0",
+                    Selected = false
+                },
+                AnswerOne = new DetailAnswerDto()
+                {
+                    Answertext = "Antwort nummer 1",
+                    Selected = false
+                },
+                AnswerTwo = new DetailAnswerDto()
+                {
+                    Answertext = "Antwort nummer 2",
+                    Selected = false
+                },
+                AnswerThree = new DetailAnswerDto()
+                {
+                    Answertext = "Antwort nummer 3",
+                    Selected = false
+                },
             }
         }
     };
@@ -53,6 +99,8 @@ public class AnswerQuestions : PageModel
         _logger = logger;
         _db = db;
     }
+
+    public List<string> Criticality { get; set; }
 
     public IActionResult OnGet()
     {
@@ -67,11 +115,54 @@ public class AnswerQuestions : PageModel
         SelectedSecurityCheck = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheck") ?? "0");
         CompanyName = HttpContext.Session.GetString("CompanyName") ?? "";
 
-        Question = _db.SurveyQuestions
+        AllQuestionsAndAnswers = _db.SurveyQuestions
             .Include(x => x.Question)
             .Include(x => x.Questionnaire)
+            .Include(x => x.Question.Category)
+            .Include(x => x.Question.Answers)
             .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
-            .Select(x => x.Question.QuestionText)
+            .Select(x => new QuestionDto()
+            {
+                Category = x.Question.Category.CategoryText,
+                Question = x.Question.QuestionText,
+                Answer = new AnswerDto()
+                {
+                    AnswerZero = new DetailAnswerDto()
+                    {
+                        Answertext = x.Question.Answers.Where(x => x.Points == 0).Select(x => x.AnswerText).Single(),
+                        Selected = x.Question.Answers.Where(x => x.Points == 0).Select(x => x.IsChecked).Single(),
+                        Points = 0
+                    },
+                    AnswerOne = new DetailAnswerDto()
+                    {
+                        Answertext = x.Question.Answers.Where(x => x.Points == 1).Select(x => x.AnswerText).Single(),
+                        Selected = x.Question.Answers.Where(x => x.Points == 1).Select(x => x.IsChecked).Single(),
+                        Points = 1
+                    },
+                    AnswerTwo = new DetailAnswerDto()
+                    {
+                        Answertext = x.Question.Answers.Where(x => x.Points == 2).Select(x => x.AnswerText).Single(),
+                        Selected = x.Question.Answers.Where(x => x.Points == 2).Select(x => x.IsChecked).Single(),
+                        Points = 2
+                    },
+                    AnswerThree = new DetailAnswerDto()
+                    {
+                        Answertext = x.Question.Answers.Where(x => x.Points == 3).Select(x => x.AnswerText).Single(),
+                        Selected = x.Question.Answers.Where(x => x.Points == 3).Select(x => x.IsChecked).Single(),
+                        Points = 3
+                    },
+                    NotAnswered = new DetailAnswerDto()
+                    {
+                        Answertext = x.Question.Answers.Where(x => x.Points == -1).Select(x => x.AnswerText).Single(),
+                        Selected = x.Question.Answers.Where(x => x.Points == -1).Select(x => x.IsChecked).Single(),
+                        Points = -1
+                    }
+                }
+            })
+            .ToList();
+
+        Criticality = _db.Criticalities
+            .Select(x => x.CriticalityText)
             .ToList();
     }
 

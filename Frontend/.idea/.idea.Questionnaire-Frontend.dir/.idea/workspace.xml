@@ -6,7 +6,41 @@
     <projectFile profileName="https">Questionnaire-Frontend.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36285c73-752c-47bb-9a1f-701c5d3d28f1" name="Changes" comment="Added Cookies" />
+    <list default="true" id="36285c73-752c-47bb-9a1f-701c5d3d28f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Controller/AnswerQuestionsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GlobalClass.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Questionnaire-Frontend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Questionnaire-Frontend.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/questionnaire-frontend.metadata.v6.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/questionnaire-frontend.metadata.v6.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/questionnaire-frontend.projects.v6.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/questionnaire-frontend.projects.v6.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Questionnaire-Frontend/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dto/AnswerQuestionDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dto/QuestionDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dto/DetailAnswerDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dto/DetailAnswerDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Folder.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Folder.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/AnswerQuestions.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/AnswerQuestions.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/AnswerQuestions.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/AnswerQuestions.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Index.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeederExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SeederExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_requests.http" beforeDir="false" afterPath="$PROJECT_DIR$/_requests.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Questionnaire-Frontend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Questionnaire-Frontend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Questionnaire-Frontend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Questionnaire-Frontend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDb.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDb.mdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDb_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/SecurityCheckDb_log.ldf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Questionnaire-Frontend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/project.razor.vs.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/project.razor.vs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Questionnaire-Frontend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Questionnaire-Frontend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Questionnaire-Frontend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Questionnaire-Frontend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDb.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDb.mdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDb_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/SecurityCheckDb_log.ldf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDb.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDb.mdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDb_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityCheckDbLib/bin/Debug/net7.0/SecurityCheckDb_log.ldf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,11 +55,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/546b8d5c148d76f77a80bc9719923b2d55a87444866a799a3f18edf743fb18c/RelationalQueryableMethodTranslatingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7671c9caf0af7a7ee9228152406a55d98ebacde4d9f59113b05bd9c53674/PageHandlerExecutedContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b3b6985aad11c5d633d75b545f5f5f4fc7e50918ad1cb9f6b615682f5bfb76d/SingleQueryingEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8fec26bb77c062d98949aab3abb9c8e837f15322858ff1cc4b0cef9322b86ca/TagHelperExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9868fb9c70eb7fba6abb7a26638875ed86149dfebd1caa73b26be62f74ab57e/Check.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aacc74311ca994f12b71cddb22241be9d6654c65e94f5985c5488dee396916f/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b3aa2346430108df9d859f259f71b6518dca3863169544688c83fe1855fe032/PageActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b78e268da13bdc561582b4be1412f866fab9dcf7bad2a4cdaa9cecf3a39c9d2/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dac3a3e3f8d94c928256dd28a8bb973ce5ffda8aef0fa63df145d8cecd035/RazorPageBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pages/AnswerQuestions.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pages/AnswerQuestions.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pages/Index.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -127,7 +163,8 @@
       <workItem from="1682666848826" duration="1711000" />
       <workItem from="1682670121914" duration="347000" />
       <workItem from="1683020159106" duration="14738000" />
-      <workItem from="1683106145899" duration="9303000" />
+      <workItem from="1683106145899" duration="15693000" />
+      <workItem from="1683492352497" duration="20248000" />
     </task>
     <task id="LOCAL-00001" summary="Main Window updated">
       <created>1679395345068</created>
@@ -220,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683281785705</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added Cookies">
+      <created>1683281826797</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683281826797</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,5 +309,24 @@
     <MESSAGE value="merged with mattikoglu" />
     <MESSAGE value="Added Cookies" />
     <option name="LAST_COMMIT_MESSAGE" value="Added Cookies" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controller/AnswerQuestionsController.cs</url>
+          <line>15</line>
+          <properties documentPath="C:\Users\kinzl\OneDrive\HtlGrieskirchen\SYP\Git\Infotech\Frontend\Controller\AnswerQuestionsController.cs" initialLine="22" containingFunctionPresentation="method 'DeserializeJsonString'">
+            <startOffsets>
+              <option value="441" />
+            </startOffsets>
+            <endOffsets>
+              <option value="555" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

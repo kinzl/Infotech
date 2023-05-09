@@ -1,5 +1,3 @@
-using SecurityCheckDbLib;
-
 namespace Questionnaire_Frontend.Pages;
 
 public static class SeederExtension
@@ -47,6 +45,21 @@ public static class SeederExtension
         };
         //pw = ich
         db.UserNames.Add(ich);
+        Criticality cr1 = new Criticality()
+        {
+            CriticalityText = "Hoch",
+        };
+        db.Criticalities.Add(cr1);
+        Criticality cr2 = new Criticality()
+        {
+            CriticalityText = "Mittel",
+        };
+        db.Criticalities.Add(cr2);
+        Criticality cr3 = new Criticality()
+        {
+            CriticalityText = "Niedrig",
+        };
+        db.Criticalities.Add(cr3);
         db.SaveChanges();
     }
 }

@@ -1,16 +1,4 @@
-﻿using System.Data;
-using System.Reflection.Emit;
-using System.Security.Claims;
-using System.Text;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Questionnaire_Frontend.Dto;
-using SecurityCheckDbLib;
-
-namespace Questionnaire_Frontend.Pages;
+﻿namespace Questionnaire_Frontend.Pages;
 
 public class IndexModel : PageModel
 {
@@ -30,12 +18,12 @@ public class IndexModel : PageModel
         _db = db;
 
 
-        //db.Database.EnsureDeleted();
-        //db.Database.EnsureCreated();
+        // db.Database.EnsureDeleted();
+        // db.Database.EnsureCreated();
 
         try
         {
-            //SeederExtension.Seed(db);
+            // SeederExtension.Seed(db);
         }
         catch (Exception ex)
         {
@@ -59,6 +47,9 @@ public class IndexModel : PageModel
             // return new RedirectToPageResult("Index", new { ErrorText = "Username or Password is wrong" });
             return new RedirectToPageResult("MainWindow");
         }*/
+        
+        return new RedirectToPageResult("MainWindow");
+        
         
         string uName;
         try

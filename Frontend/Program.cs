@@ -21,7 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 #region -------------------------------------------- ConfigureServices
-
+builder.Services.AddControllers();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 builder.Services
     .AddEndpointsApiExplorer()
@@ -105,7 +105,6 @@ app.UseAuthorization();
 
 app.UseSession();
 app.MapRazorPages();
-
-// app.Map("/", () => Results.Redirect("/swagger"));
+app.MapControllers();
 
 app.Run();
