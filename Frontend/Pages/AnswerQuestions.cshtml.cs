@@ -6,90 +6,11 @@ public class AnswerQuestions : PageModel
     private SecurityCheckContext _db;
 
 
-    public List<string> SecurityCheckType = new()
-    {
-        // "Security Check Light",
-        // "Security Check Extended"
-    };
+    public List<string> SecurityCheckType = new();
 
-    public List<string> Question = new()
-    {
-        // "Question 1",
-        // "Question 2", 
-        // "Question 3"
-    };
+    public List<string> Question = new();
 
-    public List<QuestionDto> AllQuestionsAndAnswers = new()
-    {
-        new QuestionDto()
-        {
-            Question = "Frage nummero one",
-            Category = "01 Kategorie 1",
-            Criticality = "Kritisch",
-            Answer = new AnswerDto()
-            {
-                NotAnswered = new DetailAnswerDto()
-                {
-                    Answertext = "n.A.",
-                    Selected = true
-                },
-                AnswerZero = new DetailAnswerDto()
-                {
-                    Answertext = "Antwort nummer 0",
-                    Selected = false
-                },
-                AnswerOne = new DetailAnswerDto()
-                {
-                    Answertext = "Antwort nummer 1",
-                    Selected = false
-                },
-                AnswerTwo = new DetailAnswerDto()
-                {
-                    Answertext = "Antwort nummer 2",
-                    Selected = false
-                },
-                AnswerThree = new DetailAnswerDto()
-                {
-                    Answertext = "Antwort nummer 3",
-                    Selected = false
-                },
-            }
-        },
-        new QuestionDto()
-        {
-            Question = "Frage nummero dos",
-            Category = "02 Kategorie 2",
-            Criticality = "Kritisch",
-            Answer = new AnswerDto()
-            {
-                NotAnswered = new DetailAnswerDto()
-                {
-                    Answertext = "n.A.",
-                    Selected = true
-                },
-                AnswerZero = new DetailAnswerDto()
-                {
-                    Answertext = "Antwort nummer 0",
-                    Selected = false
-                },
-                AnswerOne = new DetailAnswerDto()
-                {
-                    Answertext = "Antwort nummer 1",
-                    Selected = false
-                },
-                AnswerTwo = new DetailAnswerDto()
-                {
-                    Answertext = "Antwort nummer 2",
-                    Selected = false
-                },
-                AnswerThree = new DetailAnswerDto()
-                {
-                    Answertext = "Antwort nummer 3",
-                    Selected = false
-                },
-            }
-        }
-    };
+    public List<QuestionDto> AllQuestionsAndAnswers = new();
 
     public int SelectedSecurityCheck;
     public string CompanyName = "";
@@ -105,7 +26,15 @@ public class AnswerQuestions : PageModel
     public IActionResult OnGet()
     {
         if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
-        Initialize();
+        try
+        {
+            Initialize();
+        }
+        catch (Exception ex)
+        {
+            return new RedirectToPageResult("MainWindow", new { ErrorText = "No Check found" });
+        }
+
         return null;
     }
 
@@ -115,16 +44,23 @@ public class AnswerQuestions : PageModel
         SelectedSecurityCheck = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheck") ?? "0");
         CompanyName = HttpContext.Session.GetString("CompanyName") ?? "";
 
+
+        var lastCustomerSurvey = _db.CustomerSurveys.Select(x => x).OrderBy(x => x.CustomerSurveyId).Last();
         AllQuestionsAndAnswers = _db.SurveyQuestions
             .Include(x => x.Question)
             .Include(x => x.Questionnaire)
             .Include(x => x.Question.Category)
             .Include(x => x.Question.Answers)
             .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
+            .Where(x => x.CustomerSurveyId == lastCustomerSurvey.CustomerSurveyId)
             .Select(x => new QuestionDto()
             {
                 Category = x.Question.Category.CategoryText,
                 Question = x.Question.QuestionText,
+                Questionnaire = x.Questionnaire.QuestionnaireName,
+                Reason = "",
+                Recommendation = "",
+                Risk = "",
                 Answer = new AnswerDto()
                 {
                     AnswerZero = new DetailAnswerDto()
@@ -179,20 +115,49 @@ public class AnswerQuestions : PageModel
             }
         }
 
-        var thisSurvey = _db.CustomerSurveys
-            .Include(x => x.SurveyQuestion)
-            .ThenInclude(x => x.Questionnaire)
-            .Select(x => x)
-            .OrderBy(x => x.CustomerSurveyId)
-            .Last();
-        var survey = _db.SurveyQuestions
-            .Include(x => x.Questionnaire)
-            .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
-            .Select(x => x)
-            .FirstOrDefault();
+        var lastCustomerSurvey = _db.CustomerSurveys.Select(x => x).OrderBy(x => x.CustomerSurveyId).Last();
 
-        thisSurvey.SurveyQuestion = survey;
+        var oldSurvey = _db.SurveyQuestions
+            .Include(x => x.Questionnaire)
+            .Include(x => x.Question)
+            .Include(x => x.Question.Answers)
+            .Include(x => x.Question.Category)
+            .Include(x => x.CustomerSurvey)
+            .Where(x => x.CustomerSurveyId == lastCustomerSurvey.CustomerSurveyId)
+            .Select(x => x)
+            .ToList();
+
+        var newQuestionnaire = _db.Questionnaires
+            .Where(x => x.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck]).First();
+
+        var newQuestions = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
+            .Include(x => x.Question)
+            .Include(x => x.Question.Answers)
+            .Include(x => x.Question.Category)
+            .Where(x => x.CustomerSurveyId == null)
+            .Where(x => x.Questionnaire.QuestionnaireId != null)
+            .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
+            .Select(x => x.Question)
+            .ToList();
+
+        foreach (var item in oldSurvey)
+        {
+            _db.SurveyQuestions.Remove(item);
+        }
+
+        foreach (var item in newQuestions)
+        {
+            _db.SurveyQuestions.Add(new SurveyQuestion()
+            {
+                Questionnaire = newQuestionnaire,
+                Question = item,
+                CustomerSurveyId = lastCustomerSurvey.CustomerSurveyId,
+                
+            });
+        }
         _db.SaveChanges();
+
         return new RedirectToPageResult("AnswerQuestions");
     }
 

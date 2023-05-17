@@ -6,39 +6,182 @@
 <html>
 <head>
     <title>AnwerQuestionsExtended</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="files/anwerquestionsextended/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="files/answerquestions/styles.css" type="text/css" rel="stylesheet"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href="files/anwerquestionsextended/styles.css" type="text/css" rel="stylesheet" />
+    <link href="files/answerquestions/styles.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>
-<div id="base" class="">
+    <div id="base" class="">
+        @* <script src="js/AnswerQuestionsExtendedGenerated.js" asp-append-version="true"></script> *@
 
-    <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
+        <script>
+            window.onload = function () {
+                const baseUrl = "https://localhost:7000";
 
-    <script src="js/AnswerQuestionsExtendedGenerated.js" asp-append-version="true"></script>
+                let numOfQuestions = 0;
+                let allquestionsandanswers = @Html.Raw(JsonSerializer.Serialize(Model.AllQuestionsAndAnswers));
 
-    <!-- Download Pdf Report -->
-    <div>
-        <form method="post" asp-page-handler="DownloadSecurityCheck">
-            <button id="downloadBtn" type="submit">Download</button>
-        </form>
+                for (let i = 0; i < allquestionsandanswers.length; i++) {
+                    numOfQuestions++;
+                    console.log(allquestionsandanswers[i]);
+                }
+
+                let lastDivTagValue = 0;
+
+                for (let j = 0; j < numOfQuestions; j++) {
+                    //DivContainer
+                    let div = document.createElement("div");
+                    div.id = "radioButtonContainer" + j;
+                    div.className = "radio_button_group";
+                    let marginTopVal = (j * 900);
+                    div.style.marginTop = marginTopVal + "px";
+                    document.body.appendChild(div);
+
+                    //Criticality
+                    const criticality = document.createElement("label");
+                    criticality.className = "criticality";
+                    criticality.id = "criticality" + j;
+                    criticality.textContent = allquestionsandanswers[j].Criticality;
+                    document.getElementById("radioButtonContainer" + j).appendChild(criticality);
+
+                    //Question
+                    let question = document.createElement("label");
+                    question.id = "question" + j;
+                    question.className = "question";
+                    question.textContent = allquestionsandanswers[j].Question;
+                    document.getElementById("radioButtonContainer" + j).appendChild(question);
+
+                    //Categorie
+                    let categorie = document.createElement("label");
+                    categorie.id = "categorie" + j;
+                    categorie.className = "categorie";
+                    categorie.textContent = allquestionsandanswers[j].Category;
+                    document.getElementById("radioButtonContainer" + j).appendChild(categorie);
+
+                    //Radio Buttons
+                    for (let i = 0; i < Object.keys(allquestionsandanswers[j].Answer).length; i++) {
+                        let radioButton1 = document.createElement("input");
+                        radioButton1.type = "radio";
+                        radioButton1.name = "radioGroup" + j;
+
+                        if (i === 0) {
+                            radioButton1.value = allquestionsandanswers[j].Answer.NotAnswered.Answertext;
+                            radioButton1.checked = allquestionsandanswers[j].Answer.NotAnswered.Selected;
+                        } else if (i === 1) {
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerZero.Answertext;
+                            radioButton1.checked = allquestionsandanswers[j].Answer.AnswerZero.Selected;
+                        } else if (i === 2) {
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerOne.Answertext;
+                            radioButton1.checked = allquestionsandanswers[j].Answer.AnswerOne.Selected;
+                        } else if (i === 3) {
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerTwo.Answertext;
+                            radioButton1.checked = allquestionsandanswers[j].Answer.AnswerTwo.Selected;
+                        }
+                        else if (i === 4) {
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerThree.Answertext;
+                            radioButton1.checked = allquestionsandanswers[j].Answer.AnswerThree.Selected;
+                        }
+
+                        radioButton1.id = "radioButton" + (j + 1) + (i + 1);
+
+                        let label1 = document.createElement("label");
+                        label1.htmlFor = radioButton1.id;
+                        label1.innerHTML = radioButton1.value;
+                        if (radioButton1.checked === true){
+                        label1.className = "selectedValue";
+                        }
+                        
+                        // document.getElementById("radioButtonContainer" + j).appendChild(radioButton1);
+                        document.getElementById("radioButtonContainer" + j).appendChild(label1);
+                        document.getElementById("radioButtonContainer" + j).appendChild(document.createElement("br"));
+                    }
+
+                    //Reason
+                    let reason = document.createElement("textarea");
+                    reason.id = "reason" + j;
+                    reason.className = "textAreaGroup";
+                    reason.placeholder = "Reason";
+                    reason.onkeyup = function (event) {
+                        allquestionsandanswers[j].Reason = document.getElementById('reason' + j).value;
+                    };
+                    document.getElementById("radioButtonContainer" + j).appendChild(reason);
+
+
+                    //Risiko
+                    let risk = document.createElement("textarea");
+                    risk.id = "risk" + j;
+                    risk.className = "textAreaRisk";
+                    risk.placeholder = "Risk";
+                    risk.onkeyup = function (event) {
+                        allquestionsandanswers[j].Risk = document.getElementById('risk' + j).value;
+                    };
+                    document.getElementById("radioButtonContainer" + j).appendChild(risk);
+
+                    //Recommendation
+                    let recommendation = document.createElement("textarea");
+                    recommendation.id = "recommendation" + j;
+                    recommendation.className = "textAreaRecommendation";
+                    recommendation.placeholder = "Recommendation";
+                    reason.onkeyup = function (event) {
+                        allquestionsandanswers[j].Recommendation = document.getElementById('recommendation' + j).value;
+                    };
+                    document.getElementById("radioButtonContainer" + j).appendChild(recommendation);
+
+                    lastDivTagValue = j;
+                }
+                //Save Button
+                let save = document.createElement("button");
+                save.id = "buttonSave";
+                save.className = "buttonSave";
+                save.textContent = "Save";
+                document.getElementById("radioButtonContainer" + (lastDivTagValue)).appendChild(save);
+                save.onclick = function () {
+                    // location.href = "AnswerQuestionsExtended";
+                    //ToDo: David save function
+
+                }
+
+                //DownloadPdfReport Button
+                let download = document.createElement("button");
+                download.id = "buttonDownload";
+                download.className = "buttonDownloadPdfReport";
+                download.textContent = "Download";
+                // button.onClick = "RedirectToAnswerQuestionsExtended";
+                document.getElementById("radioButtonContainer" + (lastDivTagValue)).appendChild(download);
+                download.onclick = function () {
+                    // location.href = "AnswerQuestionsExtended";
+                    //ToDo: David download function
+
+                }
+
+            }
+
+        </script>
+
+        <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
+
+        <!-- Download Pdf Report -->
+        <div>
+            <form method="post" asp-page-handler="DownloadSecurityCheck">
+                <button id="downloadBtn" type="submit">Download</button>
+            </form>
+        </div>
+
+        <!-- Company Name -->
+        <label id="companyNameLbl" type="text">@Model.CompanyName</label>
+
+        <!-- Security Check Type label -->
+        <label id="securityCheckTypeLbl" type="text">@Model.SecurityCheckType</label>
+
+        <!-- MainWindow Btn -->
+        <div>
+            <form method="post" asp-page-handler="RedirectMainWindow">
+                <button id="saveBtn" type="submit">Main Window</button>
+            </form>
+        </div>
+
     </div>
-
-    <!-- Company Name -->
-    <label id="companyNameLbl" type="text">@Model.CompanyName</label>
-
-    <!-- Security Check Type label -->
-    <label id="securityCheckTypeLbl" type="text">@Model.SecurityCheckType</label>
-    
-    <!-- Save Btn -->
-    <div>
-        <form method="post" asp-page-handler="SaveSecurityCheck">
-            <button id="saveBtn" type="submit">Save</button>
-        </form>
-    </div>
-
-</div>
 </body>
 </html>

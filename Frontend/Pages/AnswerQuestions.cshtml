@@ -1,5 +1,4 @@
 ﻿@page
-@using System.Text.Encodings.Web
 @using System.Text.Json
 @model Questionnaire_Frontend.Pages.AnswerQuestions;
 @{
@@ -13,30 +12,6 @@
 <body>
 
     <div id="base">
-
-        @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> *@
-        @* <script type="text/javascript"> *@
-        @* window.onload = callMyCSharpMethod(); *@
-        @*     function callMyCSharpMethod() { *@
-        @*         var input = "John"; // Input parameter for the C# method *@
-        @*         $.ajax({ *@
-        @*             type: "POST", *@
-        @*             url: "AnswerQuestions?handler=MyCSharpMethod", // URL of the Razor Page *@
-        @*             data: { "input": input }, // Input data as key-value pair *@
-        @*             success: function (response) { *@
-        @*                 // Success callback function *@
-        @*                 var result = response; // Extract the result from the response *@
-        @*                 alert(result); // Display the result in an alert *@
-        @*             }, *@
-        @*             error: function (xhr, textStatus, errorThrown) { *@
-        @*                 // Error callback function *@
-        @*                 alert("Error: " + errorThrown); *@
-        @*             } *@
-        @*         }); *@
-        @*     } *@
-        @* </script> *@
-        @* *@
-
         <script>
             window.onload = function () {
                 const baseUrl = "https://localhost:7000";
@@ -45,11 +20,8 @@
                 let allquestionsandanswers = @Html.Raw(JsonSerializer.Serialize(Model.AllQuestionsAndAnswers));
                 let allcriticalities = @Html.Raw(JsonSerializer.Serialize(Model.Criticality));
                
-                // let allquestionsandanswers = @Html.Raw(Json.Serialize(Model.AllQuestionsAndAnswers));
-
                 for (let i = 0; i < allquestionsandanswers.length; i++) {
                     numOfQuestions++;
-                    console.log(allquestionsandanswers[i].Question);
                 }
 
                 let lastDivTagValue = 0;
@@ -174,14 +146,14 @@
                 let next = document.createElement("button");
                 next.id = "buttonNext";
                 next.className = "buttonNext";
-                next.textContent = "Next";
+                next.textContent = "Save";
                 document.getElementById("radioButtonContainer" + (lastDivTagValue)).appendChild(next);
                 next.onclick = function () {
                     const url = baseUrl + "/AnswerQuestions/DeserializeJsonString/" + JSON.stringify(allquestionsandanswers);
 
                     $.get(url, (data) => console.log(data));
 
-                    location.href = "AnswerQuestionsExtended";
+                    location.href = "MainWindow";
                 }
             }
 

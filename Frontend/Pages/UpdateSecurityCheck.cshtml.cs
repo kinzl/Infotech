@@ -70,7 +70,7 @@ public class UpdateSecurityCheck : PageModel
         return null;
     }
 
-    private void Initialize()
+    private IActionResult Initialize()
     {
         //Initzialie Indexes
         SelectedQuestionPoolIndex = int.Parse(HttpContext.Session.GetString("SelectedQuestionPoolIndex") ?? "0");
@@ -82,29 +82,49 @@ public class UpdateSecurityCheck : PageModel
         //Initialize List
         CategoryList = _db.Categories.Select(x => x.CategoryText).ToList();
         SecurityCheckList = _db.Questionnaires.Select(x => x.QuestionnaireName).ToList();
-        QuestionsListPool = !_db.Questions.Select(x => x.QuestionText).ToList().IsNullOrEmpty()
-            ? _db.Questions.Select(x => x.QuestionText).ToList()!
+        QuestionsListPool = !_db.SurveyQuestions.Where(x => x.CustomerSurveyId == null).Where(x => x.Questionnaire.QuestionnaireId == null).Select(x => x).ToList().IsNullOrEmpty()
+            ? _db.SurveyQuestions.Where(x => x.CustomerSurveyId == null).Where(x => x.Questionnaire.QuestionnaireId == null).Select(x => x.Question.QuestionText).ToList()!
             : new List<string>() { "" };
 
-        SecurityCheckQuestionListPool = !_db.SurveyQuestions.Select(x => x.Question).ToList().IsNullOrEmpty()
-            ? _db.SurveyQuestions
+        SecurityCheckQuestionListPool = _db.SurveyQuestions
+            .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckList[SelectedSecurityCheckIndex])
+            .Where(x => x.CustomerSurveyId == null)
+            .Select(x => x.Question.QuestionText)
+            .ToList()
+            .IsNullOrEmpty()
+            ? new List<string>()
+            : _db.SurveyQuestions
                 .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckList[SelectedSecurityCheckIndex])
+                .Where(x => x.CustomerSurveyId == null)
                 .Select(x => x.Question.QuestionText)
-                .ToList()!
-            : new List<string>();
-
-        var question =
-            _db.Questions
-                .Include(x => x.Answers)
-                .Include(x => x.Category)
-                .SingleOrDefault(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex]);
-        if (question != null)
+                .ToList()!;
+        try
         {
-            txtAnswerZero = question.Answers.SingleOrDefault(x => x.Points == 0)!.AnswerText ?? "";
-            txtAnswerOne = question.Answers.SingleOrDefault(x => x.Points == 1)!.AnswerText ?? "";
-            txtAnswerTwo = question.Answers.SingleOrDefault(x => x.Points == 2)!.AnswerText ?? "";
-            txtAnswerThree = question.Answers.SingleOrDefault(x => x.Points == 3)!.AnswerText ?? "";
+            var question = _db.SurveyQuestions
+                .Include(x => x.CustomerSurvey)
+                .Include(x => x.Question)
+                .Include(x => x.Question.Answers)
+                .Where(x => x.CustomerSurveyId == null)
+                .Where(x => x.Questionnaire.QuestionnaireId == null)
+                .Where(x => x.Question.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
+                .Select(x => x.Question)
+                .SingleOrDefault();
+        
+        
+         if (question != null)
+         {
+             txtAnswerZero = question.Answers.SingleOrDefault(x => x.Points == 0)!.AnswerText ?? "";
+             txtAnswerOne = question.Answers.SingleOrDefault(x => x.Points == 1)!.AnswerText ?? "";
+             txtAnswerTwo = question.Answers.SingleOrDefault(x => x.Points == 2)!.AnswerText ?? "";
+             txtAnswerThree = question.Answers.SingleOrDefault(x => x.Points == 3)!.AnswerText ?? "";
+         }
         }
+        catch (Exception e)
+        {
+            return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "New Question already exists" });
+        }
+        return null;
+        // ToDo: What if question is null
     }
 
     public IActionResult OnGetRedirectToMainWindow()
@@ -155,9 +175,16 @@ public class UpdateSecurityCheck : PageModel
         Initialize();
         try
         {
-            Question question = _db.Questions
-                .Single(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex]);
-
+            var question = _db.SurveyQuestions
+                .Include(x => x.CustomerSurvey)
+                .Include(x => x.Question)
+                .Include(x => x.Question.Answers)
+                .Where(x => x.CustomerSurveyId == null)
+                .Where(x => x.Questionnaire.QuestionnaireId == null)
+                .Where(x => x.Question.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
+                .Select(x => x.Question)
+                .Single();
+            
             string categoryString = CategoryList[SelectedCategoryIndex];
             var category = _db.Categories.SingleOrDefault(x => x.CategoryText == categoryString);
             question.Category = category;
@@ -278,11 +305,25 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostDeleteQuestion(string? question)
     {
+        //ToDo: Question cant be removed when seco check is created
         Initialize();
         try
         {
-            var removeQuestion = _db.Questions.SingleOrDefault(x => x.QuestionText == question);
-            _db.Questions.Remove(removeQuestion);
+            var removeQuestion = _db.SurveyQuestions
+                .Include(x => x.Question)
+                .Include(x => x.Question.Answers)
+                .Where(x => x.Questionnaire.QuestionnaireId == null)
+                .Where(x => x.CustomerSurveyId == null)
+                .Select(x => x)
+                .Single();
+            foreach (var item in removeQuestion.Question.Answers)
+            {
+                _db.Answers.Remove(item);
+                _db.SaveChanges();
+            }
+            _db.Questions.Remove(removeQuestion.Question);
+            _db.SaveChanges();
+            _db.SurveyQuestions.Remove(removeQuestion);
             _db.SaveChanges();
             return new RedirectToPageResult("UpdateSecurityCheck");
 
@@ -296,6 +337,9 @@ public class UpdateSecurityCheck : PageModel
     public IActionResult OnPostAddNewQuestion()
     {
         Initialize();
+        if (_db.Questions.Where(x => x.QuestionText == "New Question").Select(x => x).ToList().Count > 0) 
+            return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Question already exists" });
+
         try
         {
             List<Answer> newAnsweres = new()
@@ -331,13 +375,20 @@ public class UpdateSecurityCheck : PageModel
                     IsChecked = false,
                 },
             };
-            _db.Questions.Add(new Question()
+            var newQuestion = new Question()
             {
                 QuestionText = "New Question",
-                Category = _db.Categories
-                    .SingleOrDefault(x => x.CategoryText == CategoryList[SelectedCategoryIndex]),
-                Answers = newAnsweres
+                Answers = newAnsweres,
+                Category = _db.Categories.SingleOrDefault(
+                    x => x.CategoryText == CategoryList[SelectedCategoryIndex]),
+            };
+            _db.Questions.Add(newQuestion);
+            _db.SaveChanges();
+            _db.SurveyQuestions.Add(new SurveyQuestion()
+            {
+                Question = newQuestion
             });
+            
             _db.SaveChanges();
             return new RedirectToPageResult("UpdateSecurityCheck");
         }
@@ -359,6 +410,8 @@ public class UpdateSecurityCheck : PageModel
             answerThree.IsNullOrEmpty())
             return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Any Answer might be empty" });
 
+        if (_db.Questions.Where(x => x.QuestionText == question).Select(x => x).ToList().Count > 0)
+            return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Question already exists" });
 
         List<Answer> newAnsweres = new()
         {
@@ -394,12 +447,20 @@ public class UpdateSecurityCheck : PageModel
             },
         };
 
+        var selectedQuestion = _db.SurveyQuestions
+            .Include(x => x.Question)
+            .Include(x => x.Question.Answers)
+            .Where(x => x.CustomerSurveyId == null)
+            .Where(x => x.Questionnaire.QuestionnaireId == null)
+            .Where(x => x.Question.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
+            .SingleOrDefault();
 
-        var selectedQuestion = _db.Questions.Where(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
-            .FirstOrDefault();
-        selectedQuestion.QuestionText = question;
-        selectedQuestion.Answers = newAnsweres;
-        selectedQuestion.Category = _db.Categories.Where(x => x.CategoryText == CategoryList[SelectedCategoryIndex])
+        // var selectedQuestion = _db.Questions
+        //     .Where(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
+        //     .FirstOrDefault();
+        selectedQuestion.Question.QuestionText = question;
+        selectedQuestion.Question.Answers = newAnsweres;
+        selectedQuestion.Question.Category = _db.Categories.Where(x => x.CategoryText == CategoryList[SelectedCategoryIndex])
             .SingleOrDefault();
 
         _db.SaveChanges();

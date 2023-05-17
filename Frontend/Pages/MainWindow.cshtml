@@ -19,18 +19,16 @@
     <div>
         <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
 
-        <div>
+        <div class="buttons">
             <form method="post" asp-page-handler="NewSecurityCheck">
                 <input id="createNewCheckBtn" type="submit" value="New Check"/>
             </form>
-        </div>
 
-        <div>
             <form method="post" asp-page-handler="SecurityCheckListChanged">
                 <select id="securityCheckList" size="@Model.SecurityChecks.Count" onchange="this.form.submit()" name="selectedItem">
                     @for (int i = 0; i < @Model.SecurityChecks.Count; i++)
                     {
-                        @if (i == @Model.SelectedSecurityCheckIndex)
+                        @if (i == @Model.SelectedSecurityCheckIndexMainWindow)
                         {
                             <option class="listGroupSelected" selected="selected">@Model.SecurityChecks[i]</option>
                         }
@@ -45,14 +43,14 @@
         </div>
 
         <!-- Change Password -->
-        <div>
+        <div class="icon">
             <a asp-page-handler="RedirectChangePassword">
                 <img id="settingsBtn" src="images/mainwindow/u6.svg" alt="settings"/>
             </a>
         </div>
 
         <!-- Update Security Check -->
-        <div>
+        <div class="icon">
             <a asp-page-handler="RedirectToUpdateSecurityCheck">
                 <img id="pencilBtn" src="images/mainwindow/u7.svg" alt="update security check"/>
             </a>

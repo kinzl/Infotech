@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace Questionnaire_Frontend.Pages;
 
 public static class SeederExtension
@@ -60,6 +62,31 @@ public static class SeederExtension
             CriticalityText = "Niedrig",
         };
         db.Criticalities.Add(cr3);
+        CriticismType ct1 = new CriticismType()
+        {
+            CriticismTypeText = "Reason"
+        };
+        db.CriticismTypes.Add(ct1);
+        CriticismType ct2 = new CriticismType()
+        {
+            CriticismTypeText = "Recommendation"
+        };
+        db.CriticismTypes.Add(ct2);
+        CriticismType ct3 = new CriticismType()
+        {
+            CriticismTypeText = "Risk"
+        };
+        db.CriticismTypes.Add(ct3);
+        Questionnaire q1 = new Questionnaire()
+        {
+            QuestionnaireName = "Security Check Light",
+        };
+        db.Questionnaires.Add(q1);
+        Category c1 = new Category()
+        {
+            CategoryText = "99 Test"
+        };
+        db.Categories.Add(c1);
         db.SaveChanges();
     }
 }

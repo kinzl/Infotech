@@ -10,4 +10,6 @@ public class QuestionDto
     public string Reason { get; set; }
     public string Risk { get; set; }
     public string Recommendation { get; set; }
+    public string Questionnaire { get; set; }
+    public string CompanyName { get; set; }
 }

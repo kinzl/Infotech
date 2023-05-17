@@ -18,12 +18,13 @@ public class IndexModel : PageModel
         _db = db;
 
 
-        // db.Database.EnsureDeleted();
-        // db.Database.EnsureCreated();
+        
 
         try
         {
-            // SeederExtension.Seed(db);
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
+            SeederExtension.Seed(db);
         }
         catch (Exception ex)
         {

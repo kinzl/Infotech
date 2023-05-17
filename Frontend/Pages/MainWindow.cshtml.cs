@@ -11,17 +11,9 @@ public class MainWindow : PageModel
     private readonly ILogger<IndexModel> _logger;
     private SecurityCheckContext _db;
 
-    public List<string> SecurityChecks = new()
-    {
-        // "Company 1 | Date | Security Check Type | Progress",
-        // "Company 2 | Date | Security Check Type | Progress"
-    };
+    public List<string> SecurityChecks = new();
 
-    //int index = HttpContext.Session.GetString("ProductsSortType") ?? DefaultSortType;
-    //HttpContext.Session.SetString("OrdersSortType", OrdersSortType);
-
-
-    public int SelectedSecurityCheckIndex;
+    public int SelectedSecurityCheckIndexMainWindow;
     public string ErrorText;
 
     public MainWindow(ILogger<IndexModel> logger, SecurityCheckContext db)
@@ -36,7 +28,7 @@ public class MainWindow : PageModel
         //Username = HttpContext.User.Identities.Select(x => x.Name).ToList() //.First
 
         Console.WriteLine("User " + HttpContext.User.Identities.ToList().First().Name + " Signed in");
-        
+
         ErrorText = errorText;
         Initialize();
         return null;
@@ -44,7 +36,7 @@ public class MainWindow : PageModel
 
     private void Initialize()
     {
-        SelectedSecurityCheckIndex = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndex") ?? "0");
+        SelectedSecurityCheckIndexMainWindow = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0");
         SecurityChecks = _db.CustomerSurveys
             .Include(x => x.SurveyQuestion)
             .ThenInclude(x => x.Questionnaire)
@@ -59,17 +51,73 @@ public class MainWindow : PageModel
     {
         var questionnaire = _db.Questionnaires.Select(x => x.QuestionnaireName).FirstOrDefault();
         var survey = _db.SurveyQuestions
+            .Include(x => x.Question)
+            .Include(x => x.Questionnaire)
+            .Include(x => x.Question.Answers)
+            .Include(x => x.Question.Category)
             .Where(x => x.Questionnaire.QuestionnaireName == questionnaire)
+            .Where(x => x.CustomerSurvey.CustomerSurveyId == null)
             .Select(x => x)
-            .FirstOrDefault();
+            .ToList();
         if (questionnaire == null || survey == null)
             return new RedirectToPageResult("MainWindow", new { ErrorText = "No Security Check found" });
 
-        survey.CreatedDate = DateTime.Now;
-        _db.CustomerSurveys.Add(new CustomerSurvey()
+        var questions = survey.Select(x => x.Question).ToList();
+
+        var customerSurvey = new CustomerSurvey()
         {
-            SurveyQuestion = survey,
-        });
+            CreatedDate = DateTime.Now,
+        };
+        for (int i = 0; i < survey.Count; i++)
+        {
+            var answers = questions[i].Answers.ToList();
+            survey[i].SurveyQuestionId = 0;
+            survey[i].CustomerSurvey = customerSurvey;
+            var newQuestion = new Question()
+            {
+                QuestionId = 0,
+                QuestionText = questions[i].QuestionText,
+                Category = questions[i].Category,
+                Answers = new List<Answer>() {
+                new()
+                {
+                        AnswerText = answers[0].AnswerText,
+                        IsChecked = answers[0].IsChecked,
+                        Points = answers[0].Points,
+
+                },
+                new()
+                {
+                    AnswerText = answers[1].AnswerText,
+                    IsChecked = answers[1].IsChecked,
+                    Points = answers[1].Points,
+                },
+                new()
+                {
+                    AnswerText = answers[2].AnswerText,
+                    IsChecked = answers[2].IsChecked,
+                    Points = answers[2].Points,
+                },
+                new()
+                {
+                    AnswerText = answers[3].AnswerText,
+                    IsChecked = answers[3].IsChecked,
+                    Points = answers[3].Points,
+                },
+                new()
+                {
+                    AnswerText = answers[4].AnswerText,
+                    IsChecked = answers[4].IsChecked,
+                    Points = answers[4].Points,
+                }
+                }
+            };
+            _db.Questions.Add(newQuestion);
+
+            survey[i].Question = newQuestion;
+
+            _db.SurveyQuestions.Add(survey[i]);
+        }
         _db.SaveChanges();
         return new RedirectToPageResult("AnswerQuestions");
     }
@@ -81,7 +129,7 @@ public class MainWindow : PageModel
         {
             if (SecurityChecks[i].Contains(selectedItem))
             {
-                HttpContext.Session.SetString("SelectedSecurityCheckIndex", i.ToString());
+                HttpContext.Session.SetString("SelectedSecurityCheckIndexMainWindow", i.ToString());
                 break;
             }
         }
@@ -89,6 +137,8 @@ public class MainWindow : PageModel
     }
     public IActionResult OnPostOpenSelectedCheck()
     {
+        Initialize();
+        
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 
