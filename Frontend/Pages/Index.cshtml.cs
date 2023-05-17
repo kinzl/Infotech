@@ -49,7 +49,7 @@ public class IndexModel : PageModel
             return new RedirectToPageResult("MainWindow");
         }*/
         
-        return new RedirectToPageResult("MainWindow");
+        // return new RedirectToPageResult("MainWindow");
         
         
         string uName;

@@ -23,7 +23,15 @@ public class AnswerQuestionsExtendedModel : PageModel
     public IActionResult OnGet()
     {
         if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
-        Initialize();
+        try
+        {
+            Initialize();
+        }
+        catch (Exception e)
+        {
+            return new RedirectToPageResult("MainWindow", new { ErrorText = "No Check found" });
+        }
+
         return null;
     }
 

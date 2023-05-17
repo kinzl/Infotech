@@ -122,6 +122,11 @@ public class MainWindow : PageModel
         return new RedirectToPageResult("AnswerQuestions");
     }
 
+    public async Task<IActionResult> OnPostLogout()
+    {
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return new RedirectToPageResult("Index");
+    }
     public IActionResult OnPostSecurityCheckListChanged(string selectedItem)
     {
         Initialize();
@@ -137,8 +142,6 @@ public class MainWindow : PageModel
     }
     public IActionResult OnPostOpenSelectedCheck()
     {
-        Initialize();
-        
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 

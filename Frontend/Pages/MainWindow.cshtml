@@ -18,6 +18,12 @@
     <label id="errorTextLbl">@Model.ErrorText</label>
     <div>
         <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
+        
+        <div class="buttons">
+            <form method="post" asp-page-handler="Logout">
+                <input id="logoutBtn" type="submit" value="Logout"/>
+            </form>
+        </div>
 
         <div class="buttons">
             <form method="post" asp-page-handler="NewSecurityCheck">
