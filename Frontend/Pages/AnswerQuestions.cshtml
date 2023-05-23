@@ -75,6 +75,7 @@
                         radioButton1.name = "radioGroup" + j;
                         radioButton1.onchange = function (event) {
                             const newSelection = event.target.value;
+                            
                             // console.log("Section: " + j + " " + newSelection);
                                                         
                             allquestionsandanswers[j].Answer.NotAnswered.Selected = false;
@@ -84,36 +85,36 @@
                             allquestionsandanswers[j].Answer.AnswerThree.Selected = false;
 
                             
-                            if (allquestionsandanswers[j].Answer.NotAnswered.Answertext === newSelection) {
+                            if (allquestionsandanswers[j].Answer.NotAnswered.Points + " " + allquestionsandanswers[j].Answer.NotAnswered.Answertext === newSelection) {
                                 allquestionsandanswers[j].Answer.NotAnswered.Selected = true;
-                            } else if (allquestionsandanswers[j].Answer.AnswerZero.Answertext === newSelection) {
+                            } else if (allquestionsandanswers[j].Answer.AnswerZero.Points + " " + allquestionsandanswers[j].Answer.AnswerZero.Answertext === newSelection) {
                                 allquestionsandanswers[j].Answer.AnswerZero.Selected = true;
                             }
-                            else if (allquestionsandanswers[j].Answer.AnswerOne.Answertext === newSelection) {
+                            else if (allquestionsandanswers[j].Answer.AnswerOne.Points + " " + allquestionsandanswers[j].Answer.AnswerOne.Answertext === newSelection) {
                                 allquestionsandanswers[j].Answer.AnswerOne.Selected = true;
                             }
-                            else if (allquestionsandanswers[j].Answer.AnswerTwo.Answertext === newSelection) {
+                            else if (allquestionsandanswers[j].Answer.AnswerTwo.Points + " " +allquestionsandanswers[j].Answer.AnswerTwo.Answertext === newSelection) {
                                 allquestionsandanswers[j].Answer.AnswerTwo.Selected = true;
                             }
-                            else if (allquestionsandanswers[j].Answer.AnswerThree.Answertext === newSelection) {
+                            else if (allquestionsandanswers[j].Answer.AnswerThree.Points + " " + allquestionsandanswers[j].Answer.AnswerThree.Answertext === newSelection) {
                                 allquestionsandanswers[j].Answer.AnswerThree.Selected = true;
                             }
                         };
                         if (i === 0) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.NotAnswered.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.NotAnswered.Points + " " + allquestionsandanswers[j].Answer.NotAnswered.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.NotAnswered.Selected;
                         } else if (i === 1) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerZero.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerZero.Points + " " + allquestionsandanswers[j].Answer.AnswerZero.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.AnswerZero.Selected;
                         } else if (i === 2) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerOne.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerOne.Points + " " + allquestionsandanswers[j].Answer.AnswerOne.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.AnswerOne.Selected;
                         } else if (i === 3) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerTwo.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerTwo.Points + " " + allquestionsandanswers[j].Answer.AnswerTwo.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.AnswerTwo.Selected;
                         }
                         else if (i === 4) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerThree.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerThree.Points + " " + allquestionsandanswers[j].Answer.AnswerThree.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.AnswerThree.Selected;
                         }
 

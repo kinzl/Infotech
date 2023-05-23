@@ -1,3 +1,4 @@
+using CreatePDFReport;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SecurityCheckDbLib;
@@ -38,11 +39,13 @@ public class AnswerQuestionsExtendedModel : PageModel
     private void Initialize()
     {
         // SelectedSecurityCheckIndex + 1 = primaryKey
-        int index = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheckIndex") ?? "0") + 1;
+        int index = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0") + 1;
+        var reasonType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Reason").Single();
         AllQuestionsAndAnswers = _db.SurveyQuestions
             .Include(x => x.CustomerSurvey)
             .Include(x => x.Question)
             .Include(x => x.Questionnaire)
+            .Include(x => x.Question.Criticality)
             .Include(x => x.Question.Answers)
             .Include(x => x.Question.Category)
             .Where(x => x.CustomerSurveyId == index)
@@ -52,6 +55,7 @@ public class AnswerQuestionsExtendedModel : PageModel
                 Category = x.Question.Category.CategoryText,
                 Question = x.Question.QuestionText,
                 Criticality = x.Question.Criticality.CriticalityText,
+                Reason = x.Question.Criticisms.Where(x => x.CriticismType == reasonType).Select(x => x.CriticismText).Single(),
                 Answer = new AnswerDto()
                 {
                     AnswerZero = new DetailAnswerDto()
@@ -88,6 +92,7 @@ public class AnswerQuestionsExtendedModel : PageModel
             })
             .ToList();
         CompanyName = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
             .Where(x => x.CustomerSurveyId == index)
             .Select(x => x.CustomerSurvey.CompanyName)
             .First() ?? "";
@@ -98,9 +103,11 @@ public class AnswerQuestionsExtendedModel : PageModel
             .First();
     }
 
-    public void OnPostDownloadSecurityCheck()
+    public IActionResult OnPostDownloadSecurityCheck()
     {
-        Console.WriteLine("Download");
+        PDFReport pdf = new PDFReport();
+        pdf.CreatePDF();
+        return new RedirectToPageResult("MainWindow");
     }
 
     public IActionResult OnPostRedirectMainWindow()

@@ -19,6 +19,7 @@ public class AnswerQuestionsController
         var survey = _db.SurveyQuestions
             .Include(x => x.Questionnaire)
             .Include(x => x.Question)
+            .Include(x => x.Question.Criticality)
             .Include(x => x.Question.Answers)
             .Include(x => x.Question.Category)
             .Where(x => x.Questionnaire.QuestionnaireName == dataList.Select(y => y.Questionnaire).First())
@@ -39,7 +40,8 @@ public class AnswerQuestionsController
             survey[i].Question.Answers.Select(x => x).ToList()[3].IsChecked = dataList[i].Answer.AnswerTwo.Selected;
             survey[i].Question.Answers.Select(x => x).ToList()[4].IsChecked = dataList[i].Answer.AnswerThree.Selected;
 
-
+            var criticality = _db.Criticalities.Where(x => x.CriticalityText == dataList[i].Criticality).Single();
+            survey[i].Question.Criticality = criticality;
             survey[i].Question.Category.CategoryText = dataList[i].Category;
             survey[i].Question.Criticisms.Add(new Criticism()
             {

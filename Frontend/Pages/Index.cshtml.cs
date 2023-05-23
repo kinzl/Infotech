@@ -16,15 +16,11 @@ public class IndexModel : PageModel
     {
         _logger = logger;
         _db = db;
-
-
-        
-
         try
         {
-            db.Database.EnsureDeleted();
-            db.Database.EnsureCreated();
-            SeederExtension.Seed(db);
+            //db.Database.EnsureDeleted();
+            //db.Database.EnsureCreated();
+            //SeederExtension.Seed(db);
         }
         catch (Exception ex)
         {
@@ -39,17 +35,8 @@ public class IndexModel : PageModel
 
     public async Task<IActionResult> OnPostLogin(LoginDto body)
     {
-        /*if (body.Username == Username && body.Password == Password)
-        {
-            return new RedirectToPageResult("MainWindow");
-        }
-        else
-        {
-            // return new RedirectToPageResult("Index", new { ErrorText = "Username or Password is wrong" });
-            return new RedirectToPageResult("MainWindow");
-        }*/
-        
-        // return new RedirectToPageResult("MainWindow");
+        //Comment this line out if you are not in the test system
+        return new RedirectToPageResult("MainWindow");
         
         
         string uName;

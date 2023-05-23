@@ -67,20 +67,20 @@
                         radioButton1.name = "radioGroup" + j;
 
                         if (i === 0) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.NotAnswered.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.NotAnswered.Points + " " + allquestionsandanswers[j].Answer.NotAnswered.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.NotAnswered.Selected;
                         } else if (i === 1) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerZero.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerZero.Points + " " + allquestionsandanswers[j].Answer.AnswerZero.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.AnswerZero.Selected;
                         } else if (i === 2) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerOne.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerOne.Points + " " + allquestionsandanswers[j].Answer.AnswerOne.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.AnswerOne.Selected;
                         } else if (i === 3) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerTwo.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerTwo.Points + " " + allquestionsandanswers[j].Answer.AnswerTwo.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.AnswerTwo.Selected;
                         }
                         else if (i === 4) {
-                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerThree.Answertext;
+                            radioButton1.value = allquestionsandanswers[j].Answer.AnswerThree.Points + " " + allquestionsandanswers[j].Answer.AnswerThree.Answertext;
                             radioButton1.checked = allquestionsandanswers[j].Answer.AnswerThree.Selected;
                         }
 
@@ -103,6 +103,7 @@
                     reason.id = "reason" + j;
                     reason.className = "textAreaGroup";
                     reason.placeholder = "Reason";
+                    reason.textContent = allquestionsandanswers[j].Reason;
                     reason.onkeyup = function (event) {
                         allquestionsandanswers[j].Reason = document.getElementById('reason' + j).value;
                     };
