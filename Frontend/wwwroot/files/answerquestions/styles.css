@@ -1,299 +1,151 @@
-﻿﻿body {
-    margin:0px;
-    background-image:none;
-    position:static;
-    left:auto;
-    width:1440px;
-    margin-left:0;
-    margin-right:0;
-    text-align:left;
+﻿/* General styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-.form_sketch {
-    border-color:transparent;
-    background-color:transparent;
-}
+
 #base {
-    position:relative;
-    z-index:0;
+    padding: 20px;
 }
-.radio_button_group{
-    position: absolute;
-    top: 25em;
-    left: 30%;
-}
-.textAreaGroup{
-    position:absolute;
-    left:20%;
-    top:200px;
-    width:1007px;
-    height:152px;
-    display:flex;
-    font-size:20px;
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-}
-.criticality{
-    position:absolute;
-    left:0%;
-    bottom: 170px;
-    width:211px;
-    height:42px;
-    display:flex;
-    font-size:22px;
-    text-align:center;
+/* Header */
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 0);
-    border:none;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
+#infotechLogo {
+    max-width: 200px;
+    margin-bottom: 20px;
 }
-.companyNameBtn{
-    position:absolute;
-    border-width: 1px;
-    left:750px;
-    top:130px;
-    width:115px;
-    height:54px;
-    display:flex;
-    font-size:18px;
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-}
-.question{
-    position:absolute;
-    left:15em;
-    bottom: 170px;
-    width:514px;
-    height:44px;
-    display:flex;
-    font-size:22px;
-    text-align:center;
+/* Radio button group container */
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 0);
-    border:none;
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
+.radio_button_group {
+    margin-top: 20px;
 }
-.categorie{
-    border-width:0px;
-    position:absolute;
-    left: 35em;
-    bottom: 170px;
-    width:234px;
-    height:42px;
-    display:flex;
-    font-size:22px;
-    text-align:center;
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 0);
-    border:none;
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-}
-.buttonNext{
-    position:absolute;
-    left:55em;
-    top:25em;
-    width:157px;
-    height:38px;
-    display:flex;
-    font-size:16px;
+/* Criticality label */
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
+.criticality {
+    font-weight: bold;
+    font-size: 18px;
 }
-.testBtn{
-    position:absolute;
-    left:55em;
-    bottom: 10px;
-    width:157px;
-    height:38px;
-    display:flex;
-    font-size:16px;
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-}
-.textAreaRisk{
-    position:absolute;
-    left:20%;
-    top:400px;
-    width:1007px;
-    height:152px;
-    display:flex;
-    font-size:20px;
+/* Question label */
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
+.question {
+    font-size: 16px;
+    margin-top: 10px;
 }
-.textAreaRecommendation{
-    position:absolute;
-    left:20%;
-    top:600px;
-    width:1007px;
-    height:152px;
-    display:flex;
-    font-size:20px;
 
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
+/* Category label */
+
+.categorie {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #888888;
 }
-.selectedValue{
+
+/* Radio buttons */
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Selected value label */
+
+.selectedValue {
+    font-weight: bold;
     background-color: green;
 }
+
+/* Textarea inputs */
+
+.textAreaGroup {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+.textAreaRisk {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+.textAreaRecommendation {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+/* Save and Download buttons */
+
+.buttonSave,
+.buttonDownloadPdfReport {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonSave:hover,
+.buttonDownloadPdfReport:hover {
+    background-color: #45a049;
+}
+
+/* Download button for PDF report */
+
+#downloadBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#downloadBtn:hover {
+    background-color: #286090;
+}
+
+/* Company name label */
+
+#companyNameLbl {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Security check type label */
+
+#securityCheckTypeLbl {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #888888;
+}
+
+/* Main Window button */
+
+#saveBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#saveBtn:hover {
+    background-color: #286090;
+}
+
 input[type=radio]:checked + label{
     background-color: green;
-}
-.buttonSave{
-    position:absolute;
-    left:55em;
-    top:50em;
-    width:157px;
-    height:38px;
-    display:flex;
-    font-size:16px;
-
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-}
-.buttonDownloadPdfReport{
-    position:absolute;
-    left:0em;
-    top:50em;
-    width:157px;
-    height:38px;
-    display:flex;
-    font-size:16px;
-
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-
-    word-wrap:break-word;
-    text-transform:none;
-}
-.companyName{
-    position:absolute;
-    left:206px;
-    top:130px;
-    width:515px;
-    height:54px;
-    display:flex;
-    font-size:18px;
-
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-}
-.comboBox{
-    border-width:1px;
-    position:absolute;
-    left:206px;
-    top:48px;
-    width:183px;
-    height:38px;
-    display:flex;
-    font-size:14px;
-}
-#saveButton{
-    border-width:1px;
-    position:absolute;
-    left:427px;
-    top:48px;
-    width:157px;
-    height:38px;
-    display:flex;
-    font-size:16px;
-
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-}
-#infotechLogo{
-    position:absolute;
-    left:916px;
-    width:301px;
-    height:226px;
-    display:flex;
 }

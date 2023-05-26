@@ -2,6 +2,7 @@ namespace Questionnaire_Frontend.Dto;
 
 public class QuestionDto
 {
+    public int CustomerSurveyId { get; set; }
     public string Question { get; set; }
     public string Category { get; set; }
     public AnswerDto Answer { get; set; }

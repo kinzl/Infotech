@@ -60,7 +60,7 @@ public class MainWindow : PageModel
             .Select(x => x)
             .ToList();
         if (questionnaire == null || survey == null)
-            return new RedirectToPageResult("MainWindow", new { ErrorText = "No Security Check found" });
+            return new RedirectToPageResult("MainWindow", new { ErrorText = "The first Security Check might have no questions or there is no security check" });
 
         var questions = survey.Select(x => x.Question).ToList();
 

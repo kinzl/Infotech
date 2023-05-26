@@ -1,510 +1,156 @@
-﻿body {
-  background-image:none;
-  position:static;
-  left:auto;
-  width:100%;
-  margin-left:0;
-  margin-right:0;
-  text-align:left;
-}
-.form_sketch {
-  border-color:transparent;
-  background-color:transparent;
-}
-#base {
-  position:absolute;
-  z-index:0;
-}
-.listGroupSelected{
-  font-size:18px;
-}
-#infotechLogo{
-  position:absolute;
-  left:65%;
-  top:10px;
-  width:276px;
-  height:207px;
-  display:flex;
-}
-#newSecurityCheckTextBox{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:142px;
-  width:359px;
-  height:44px;
-  display:flex;
-  font-size:20px;
+﻿/* styles.css */
 
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#newSecurityCheckBtn{
-  border-width:1px;
-  position:absolute;
-  left:50%;
-  top:142px;
-  width:139px;
-  height:44px;
-  display:flex;
-  font-size:20px;
-  word-wrap:break-word;
-
-  text-align: center;
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-#backBtn{
-  border-width:1px;
-  position:absolute;
-  left:50%;
-  top:71px;
-  width:139px;
-  height:44px;
-  display:flex;
-  font-size:20px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-}
-#errorText{
-  position:absolute;
-  left:25%;
-  top:74px;
-  width:auto;
-  height:auto;
-  display:flex;
-  font-size:20px;
-  color: red;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#addNewCriticalityBtn{
-  border-width:1px;
-  position:absolute;
-  left:55%;
-  top:1266px;
-  width:170px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#deleteCriticalityBtn{
-  border-width:1px;
-  position:absolute;
-  left:65%;
-  top:1266px;
-  width:170px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#addNewCriticality{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:1266px;
-  width:500px;
-  height:52px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
+#infotechLogo {
+    max-width: 100%;
 }
 
-#categoryComboBox{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:1184px;
-  width:906px;
-  height:52px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#securityCheckQuestionPoolComboBox{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:620px;
-  width:406px;
-  height:52px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#addQuestionToSecurityCheckBtn{
-  border-width:1px;
-  position:absolute;
-  left:50%;
-  top:620px;
-  width:170px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#deleteQuestionFromSecurityCheckBtn{
-  border-width:1px;
-  position:absolute;
-  left:60%;
-  top:620px;
-  width:170px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionPoolListBox{
-  position:absolute;
-  left:25%;
-  top:216px;
-  width:906px;
-  height:350px;
-  display:flex;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-
-  padding:2px 2px 2px 2px;
-  font-family:"Arial Standard", "Arial", sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:18px;
-  letter-spacing:normal;
-  color:#000000;
-  text-align:left;
-  text-transform:none;
-}
-#securityCheckListBox{
-  position:absolute;
-  left:25%;
-  top:716px;
-  width:906px;
-  height:350px;
-  display:flex;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-
-  padding:2px 2px 2px 2px;
-  font-family:"Arial Standard", "Arial", sans-serif;
-  font-weight:400;
-  font-style:normal;
-  font-size:18px;
-  letter-spacing:normal;
-  color:#000000;
-  text-align:left;
-  text-transform:none;
+#errorText {
+    font-weight: bold;
+    color: red;
 }
 
-#questionTextBox{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:1102px;
-  width:906px;
-  height:52px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
+.dropdownSmall {
+    margin-top: 10px;
+    width: 200px;
+    height: 25px;
 }
 
-#addNewQuestionBtn{
-  border-width:1px;
-  position:absolute;
-  left:25%;
-  top:1631px;
-  width:170px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionZeroLabel{
-  position:absolute;
-  left:25%;
-  top:1360px;
-  width:45px;
-  height:21px;
-  display:flex;
-  font-size:18px;
-}
-#questionOneLabel{
-  position:absolute;
-  left:25%;
-  top:1420px;
-  width:34px;
-  height:21px;
-  display:flex;
-  font-size:18px;
-}
-#questionTwoLabel{
-  position:absolute;
-  left:25%;
-  top:1485px;
-  width:34px;
-  height:21px;
-  display:flex;
-  font-size:18px;
-}
-#questionThreeLabel{
-  position:absolute;
-  left:25%;
-  top:1549px;
-  width:34px;
-  height:21px;
-  display:flex;
-  font-size:18px;
+.dropdownBig {
+    margin-top: 10px;
+    width: 600px;
+    height: 200px;
 }
 
-#questionZeroTextBox{
-  border-width:1px;
-  position:absolute;
-  left:30%;
-  top:1348px;
-  width:844px;
-  height:44px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionOneTextBox{
-  border-width:1px;
-  position:absolute;
-  left:30%;
-  top:1410px;
-  width:844px;
-  height:44px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionTwoTextBox{
-  border-width:1px;
-  position:absolute;
-  left:30%;
-  top:1475px;
-  width:844px;
-  height:44px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#questionThreeTextBox{
-  border-width:1px;
-  position:absolute;
-  left:30%;
-  top:1538px;
-  width:844px;
-  height:44px;
-  display:flex;
-  font-size:18px;
-
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
+.listGroupSelected {
+    font-weight: bold;
 }
 
-#saveAnswersBtn{
-  border-width:1px;
-  position:absolute;
-  left:75%;
-  top:1631px;
-  width:173px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
+#newSecurityCheckTextBox {
+    margin-right: 10px;
+    padding: 5px;
 }
-#deleteBtn{
-  border-width:1px;
-  position:absolute;
-  left:45%;
-  top:1631px;
-  width:148px;
-  height:48px;
-  display:flex;
-  font-size:18px;
-  
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#updateBtn{
-  border-width:1px;
-  position:absolute;
-  left:60%;
-  top:1631px;
-  width:182px;
-  height:48px;
-  display:flex;
-  font-size:18px;
 
-  background:inherit;
-  background-color:rgba(255, 255, 255, 1);
-  box-sizing:border-box;
-  border-style:solid;
-  border-color:rgba(121, 121, 121, 1);
-  border-radius:5px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
+#newSecurityCheckBtn {
+    padding: 5px 10px;
 }
+
+#categoryComboBox {
+    margin-top: 10px;
+    width: 200px;
+}
+
+#deleteCriticalityBtn {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+#addNewCriticality {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#addNewCriticalityBtn {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+#addNewQuestionBtn {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+#questionTextBox {
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+#updateBtn {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+.label {
+    display: inline-block;
+    margin-top: 10px;
+    width: 20px;
+}
+
+.answerInput {
+    margin-top: 10px;
+    padding: 5px;
+    width: calc(100% - 30px);
+}
+
+#deleteBtn {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+#backBtn {
+    margin-top: 20px;
+    padding: 5px 10px;
+}
+
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    box-sizing: border-box;
+}
+
+.bottom-buttons form {
+    margin: 0 5px;
+    text-align: center;
+}
+
+/* Additional Styling */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 100px; /* Added to push content up */
+}
+
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input[type="submit"] {
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+    button:hover,
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }

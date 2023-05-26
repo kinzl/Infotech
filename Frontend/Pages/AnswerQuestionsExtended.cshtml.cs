@@ -30,9 +30,8 @@ public class AnswerQuestionsExtendedModel : PageModel
         }
         catch (Exception e)
         {
-            return new RedirectToPageResult("MainWindow", new { ErrorText = "No Check found" });
+            return new RedirectToPageResult("MainWindow", new { ErrorText = "The first Security Check might have no questions or there is no security check" });
         }
-
         return null;
     }
 
@@ -41,6 +40,13 @@ public class AnswerQuestionsExtendedModel : PageModel
         // SelectedSecurityCheckIndex + 1 = primaryKey
         int index = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0") + 1;
         var reasonType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Reason").Single();
+        var recommendationType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Recommendation").Single();
+        var riskType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Risk").Single();
+        var risk = _db.SurveyQuestions.Include(x => x.CustomerSurvey).Include(x => x.Question).Include(x => x.Question.Criticisms)
+            .Where(x => x.CustomerSurveyId == index)
+            .Select(x => x.Question.Criticisms.Where(x => x.CriticismType == riskType))
+            .ToList();
+
         AllQuestionsAndAnswers = _db.SurveyQuestions
             .Include(x => x.CustomerSurvey)
             .Include(x => x.Question)
@@ -55,7 +61,11 @@ public class AnswerQuestionsExtendedModel : PageModel
                 Category = x.Question.Category.CategoryText,
                 Question = x.Question.QuestionText,
                 Criticality = x.Question.Criticality.CriticalityText,
+                Questionnaire = x.Questionnaire.QuestionnaireName,
+                CustomerSurveyId = index,
+                Recommendation = x.Question.Criticisms.Where(x => x.CriticismType == recommendationType).Select(x => x.CriticismText).Single(),
                 Reason = x.Question.Criticisms.Where(x => x.CriticismType == reasonType).Select(x => x.CriticismText).Single(),
+                Risk = x.Question.Criticisms.Where(x => x.CriticismType == riskType).Select(x => x.CriticismText).Single(),
                 Answer = new AnswerDto()
                 {
                     AnswerZero = new DetailAnswerDto()

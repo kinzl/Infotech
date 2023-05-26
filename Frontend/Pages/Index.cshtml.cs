@@ -37,8 +37,8 @@ public class IndexModel : PageModel
     {
         //Comment this line out if you are not in the test system
         return new RedirectToPageResult("MainWindow");
-        
-        
+
+
         string uName;
         try
         {

@@ -14,145 +14,152 @@
 </head>
 <body>
 <div class="container">
+    <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
+    <label id="errorText">@Model.ErrorText</label>
+
+    <!-- Create new Security Check -->
     <div>
-        <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
-        <label id="errorText">@Model.ErrorText</label>
-        
-        <!-- Question list -->
-        <div>
-            <form method="post" asp-page-handler="QuestionListPoolChanged">
-
-                <select id="questionPoolListBox" size="@Model.QuestionsListPool.Count" onchange="this.form.submit()" name="selectedQuestion">
-                    @for (int i = 0; i < @Model.QuestionsListPool.Count; i++)
-                    {
-                        @if (i == @Model.SelectedQuestionPoolIndex)
-                        {
-                            <option class="listGroupSelected dropdown-item" selected="selected">@Model.QuestionsListPool[i]</option>
-                        }
-                        else
-                        {
-                            <option class="listGroupSelected dropdown-item">@Model.QuestionsListPool[i]</option>
-                        }
-                    }
-
-                </select>
-                <input id="addQuestionToSecurityCheckBtn" type="submit" value="Add" asp-page-handler="AddQuestionToSecurityCheck"/>
-            </form>
-        </div>
+        <form method="post" asp-page-handler="NewSecurityCheck">
+            <input id="newSecurityCheckTextBox" type="text" placeholder="Security Check name" name="securityCheckName">
+            <button id="newSecurityCheckBtn" type="submit">Create</button>
+        </form>
+    </div>
 
 
-        <!-- Security Check Combo box -->
-        <div>
-            <form method="post" asp-page-handler="SecurityCheckQuestionPoolChanged">
-                <select id="securityCheckQuestionPoolComboBox" class="dropdown" onchange="this.form.submit()" name="securityCheckItem">
+    <!-- Security Check Combo box -->
+    <div>
+        <form method="post" asp-page-handler="SecurityCheckQuestionPoolChanged">
+            <select id="securityCheckQuestionPoolComboBox" class="dropdownSmall" onchange="this.form.submit()" name="securityCheckItem">
 
-                    @for (int i = 0; i < @Model.SecurityCheckList.Count; i++)
-                    {
-                        Console.WriteLine(Model.SecurityCheckList[i]);
-                        if (i == @Model.SelectedSecurityCheckIndex)
-                        {
-                            <option selected="selected">@Model.SecurityCheckList[i]</option>
-                        }
-                        else
-                        {
-                            <option>@Model.SecurityCheckList[i]</option>
-                        }
-                    }
-                </select>
-                <input id="deleteQuestionFromSecurityCheckBtn" type="submit" value="Remove" asp-page-handler="DeleteQuestionFromSecurityCheck"/>
-            </form>
-        </div>
-
-
-        <!-- Questions for Selected Security Check -->
-        <div>
-            <form method="post" asp-page-handler="SecurityCheckQuestionListChanged">
-
-                <select id="securityCheckListBox" size="@Model.SecurityCheckQuestionListPool.Count" onchange="this.form.submit()" name="selectedQuestion">
-                    @for (int i = 0; i < @Model.SecurityCheckQuestionListPool.Count; i++)
-                    {
-                        @if (i == @Model.SelectedSecurityCheckQuestionPoolIndex)
-                        {
-                            <option class="listGroupSelected dropdown-item" selected="selected">@Model.SecurityCheckQuestionListPool[i]</option>
-                        }
-                        else
-                        {
-                            <option class="listGroupSelected dropdown-item">@Model.SecurityCheckQuestionListPool[i]</option>
-                        }
-                    }
-
-                </select>
-            </form>
-        </div>
-
-        <!-- Create new Security Check -->
-        <div>
-            <form method="post" asp-page-handler="NewSecurityCheck">
-                <input id="newSecurityCheckTextBox" type="text" placeholder="Security Check name" name="securityCheckName">
-                <button id="newSecurityCheckBtn" type="submit">Create</button>
-            </form>
-        </div>
-
-        <!-- Category Combo Box -->
-        <form method="post" asp-page-handler="CategoryChanged">
-            <select id="categoryComboBox" class="dropdown" onchange="this.form.submit()" name="categoryItem">
-
-                @for (int i = 0; i < @Model.CategoryList.Count; i++)
+                @for (int i = 0; i < @Model.SecurityCheckList.Count; i++)
                 {
-                    Console.WriteLine(Model.CategoryList[i]);
-                    if (i == @Model.SelectedCategoryIndex)
+                    Console.WriteLine(Model.SecurityCheckList[i]);
+                    if (i == @Model.SelectedSecurityCheckIndex)
                     {
-                        <option selected="selected">@Model.CategoryList[i]</option>
+                        <option selected="selected">@Model.SecurityCheckList[i]</option>
                     }
                     else
                     {
-                        <option>@Model.CategoryList[i]</option>
+                        <option>@Model.SecurityCheckList[i]</option>
                     }
                 }
             </select>
-            <input type="submit" id="deleteCriticalityBtn" name="categoryItem" value="Delete" asp-page-handler="DeleteSelectedCategory"/>
+
         </form>
+    </div>
 
-        <!-- Category -->
-        <div>
-            <form method="post">
-                <input type="text" id="addNewCriticality" name="newCategory" placeholder="New Category">
-                <input type="submit" id="addNewCriticalityBtn" value="Create" asp-page-handler="AddNewCategory"/>
 
-            </form>
-        </div>
+    <!-- Question list -->
+    <div>
+        <form method="post" asp-page-handler="QuestionListPoolChanged">
 
-        <!-- Add New Question Button -->
-        <div>
-            <form method="post" asp-page-handler="AddNewQuestion">
-                <input id="addNewQuestionBtn" type="submit" value="Add New Question">
-            </form>
-        </div>
+            <select id="questionPoolListBox" class="dropdownBig" size="@Model.QuestionsListPool.Count" onchange="this.form.submit()" name="selectedQuestion">
+                @for (int i = 0; i < @Model.QuestionsListPool.Count; i++)
+                {
+                    @if (i == @Model.SelectedQuestionPoolIndex)
+                    {
+                        <option class="listGroupSelected dropdown-item" selected="selected">@Model.QuestionsListPool[i]</option>
+                    }
+                    else
+                    {
+                        <option class="listGroupSelected dropdown-item">@Model.QuestionsListPool[i]</option>
+                    }
+                }
 
+            </select>
+            <input id="addQuestionToSecurityCheckBtn" type="submit" value="Add" asp-page-handler="AddQuestionToSecurityCheck"/>
+            <input id="deleteQuestionFromSecurityCheckBtn" type="submit" value="Remove" asp-page-handler="DeleteQuestionFromSecurityCheck"/>
+        </form>
+    </div>
+
+
+    <!-- Questions for Selected Security Check -->
+    <div>
+        <form method="post" asp-page-handler="SecurityCheckQuestionListChanged">
+
+            <select id="securityCheckListBox" class="dropdownBig" size="@Model.SecurityCheckQuestionListPool.Count" onchange="this.form.submit()" name="selectedQuestion">
+                @for (int i = 0; i < @Model.SecurityCheckQuestionListPool.Count; i++)
+                {
+                    @if (i == @Model.SelectedSecurityCheckQuestionPoolIndex)
+                    {
+                        <option class="listGroupSelected dropdown-item" selected="selected">@Model.SecurityCheckQuestionListPool[i]</option>
+                    }
+                    else
+                    {
+                        <option class="listGroupSelected dropdown-item">@Model.SecurityCheckQuestionListPool[i]</option>
+                    }
+                }
+
+            </select>
+        </form>
+    </div>
+
+    <!-- Category Combo Box -->
+    <form method="post" asp-page-handler="CategoryChanged">
+        <select id="categoryComboBox" class="dropdownSmall" onchange="this.form.submit()" name="categoryItem">
+
+            @for (int i = 0; i < @Model.CategoryList.Count; i++)
+            {
+                Console.WriteLine(Model.CategoryList[i]);
+                if (i == @Model.SelectedCategoryIndex)
+                {
+                    <option selected="selected">@Model.CategoryList[i]</option>
+                }
+                else
+                {
+                    <option>@Model.CategoryList[i]</option>
+                }
+            }
+        </select>
+        <input type="submit" id="deleteCriticalityBtn" name="categoryItem" value="Delete" asp-page-handler="DeleteSelectedCategory"/>
+    </form>
+
+    <!-- Category -->
+    <div>
+        <form method="post">
+            <input type="text" id="addNewCriticality" name="newCategory" placeholder="New Category">
+            <input type="submit" id="addNewCriticalityBtn" value="Create" asp-page-handler="AddNewCategory"/>
+
+        </form>
+    </div>
+
+    <!-- Add New Question Button -->
+    <div>
         <div>
             <form method="post">
                 <!-- Question text box -->
-                <input id="questionTextBox" type="text" placeholder="question" name="question" value="@Model.QuestionsListPool[Model.SelectedQuestionPoolIndex]">
-                <input id="updateBtn" type="submit" value="Update" asp-page-handler="UpdateQuestion">
+                <div >
+                    <input id="questionTextBox" type="text" placeholder="question" name="question" value="@Model.QuestionsListPool[Model.SelectedQuestionPoolIndex]">
+                    <div class="bottom-buttons">
+                        <input id="updateBtn" type="submit" value="Update" asp-page-handler="UpdateQuestion">
+                        <input id="addNewQuestionBtn" type="submit" value="Add New Question" asp-page-handler="AddNewQuestion">
+                        <input id="deleteBtn" type="submit" value="Delete Question" asp-page-handler="DeleteQuestion"/>
+                    </div>
+                </div>
+
 
                 <!-- 0 -->
-                <label id="questionZeroLabel">0</label>
-                <input id="questionZeroTextBox" type="text" name="answerZero" value="@Model.txtAnswerZero">
-
+                <div>
+                    <label id="questionZeroLabel">0</label>
+                    <input id="questionZeroTextBox" type="text" name="answerZero" value="@Model.txtAnswerZero">
+                </div>
                 <!-- 1 -->
-                <label id="questionOneLabel">1</label>
-                <input id="questionOneTextBox" type="text" name="answerOne" value="@Model.txtAnswerOne">
-
+                <div>
+                    <label id="questionOneLabel">1</label>
+                    <input id="questionOneTextBox" type="text" name="answerOne" value="@Model.txtAnswerOne">
+                </div>
                 <!-- 2 -->
-                <label id="questionTwoLabel">2</label>
-                <input id="questionTwoTextBox" type="text" name="answerTwo" value="@Model.txtAnswerTwo">
-
+                <div>
+                    <label id="questionTwoLabel">2</label>
+                    <input id="questionTwoTextBox" type="text" name="answerTwo" value="@Model.txtAnswerTwo">
+                </div>
                 <!-- 3 -->
-                <label id="questionThreeLabel">3</label>
-                <input id="questionThreeTextBox" type="text" name="answerThree" value="@Model.txtAnswerThree">
+                <div>
+                    <label id="questionThreeLabel">3</label>
+                    <input id="questionThreeTextBox" type="text" name="answerThree" value="@Model.txtAnswerThree">
+                </div>
 
-                <!-- Delete Answers -->
-                <input id="deleteBtn" type="submit" value="Delete Question" asp-page-handler="DeleteQuestion"/>
+
             </form>
         </div>
 

@@ -31,7 +31,7 @@
                     let div = document.createElement("div");
                     div.id = "radioButtonContainer" + j;
                     div.className = "radio_button_group";
-                    let marginTopVal = (j * 500);
+                    let marginTopVal = j;
                     div.style.marginTop = marginTopVal + "px";
                     document.body.appendChild(div);
 
@@ -54,6 +54,7 @@
                     }
                     document.getElementById("radioButtonContainer" + j).appendChild(comboBox);
 
+                    document.getElementById("radioButtonContainer" + j).append(document.createElement("p"));
                     //Question
                     let question = document.createElement("label");
                     question.id = "question" + j;
@@ -61,6 +62,7 @@
                     question.textContent = allquestionsandanswers[j].Question;
                     document.getElementById("radioButtonContainer" + j).appendChild(question);
 
+                    document.getElementById("radioButtonContainer" + j).append(document.createElement("p"));
                     //Categorie
                     let categorie = document.createElement("label");
                     categorie.id = "categorie" + j;
@@ -68,6 +70,7 @@
                     categorie.textContent = allquestionsandanswers[j].Category;
                     document.getElementById("radioButtonContainer" + j).appendChild(categorie);
 
+                    document.getElementById("radioButtonContainer" + j).append(document.createElement("p"));
                     //Radio Buttons
                     for (let i = 0; i < Object.keys(allquestionsandanswers[j].Answer).length; i++) {
                         let radioButton1 = document.createElement("input");
@@ -151,9 +154,7 @@
                 document.getElementById("radioButtonContainer" + (lastDivTagValue)).appendChild(next);
                 next.onclick = function () {
                     const url = baseUrl + "/AnswerQuestions/DeserializeJsonString/" + JSON.stringify(allquestionsandanswers);
-
-                    $.get(url, (data) => console.log(data));
-
+                    $.post(url, (data) => console.log(data));
                     location.href = "MainWindow";
                 }
             }

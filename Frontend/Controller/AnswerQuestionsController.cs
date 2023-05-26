@@ -9,14 +9,14 @@ public class AnswerQuestionsController
         _db = db;
     }
 
-    [HttpGet("{jsonString}")]
+    [HttpPost("{jsonString}")]
     public List<QuestionDto> DeserializeJsonString(string jsonString)
     {
-        Console.WriteLine("Received JSON: \n" + jsonString);
         List<QuestionDto> dataList = JsonSerializer.Deserialize<List<QuestionDto>>(jsonString) ?? new List<QuestionDto>();
 
         var lastCustomerSurvey = _db.CustomerSurveys.Select(x => x).OrderBy(x => x.CustomerSurveyId).Last();
         var survey = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
             .Include(x => x.Questionnaire)
             .Include(x => x.Question)
             .Include(x => x.Question.Criticality)
@@ -59,6 +59,44 @@ public class AnswerQuestionsController
                 CriticismText = dataList[i].Recommendation,
             });
 
+        }
+        _db.SaveChanges();
+
+        return dataList;
+    }
+
+    [HttpPost("{jsonString}")]
+    public List<QuestionDto> UpdateCriticism(string jsonString)
+    {
+        List<QuestionDto> dataList = JsonSerializer.Deserialize<List<QuestionDto>>(jsonString) ?? new List<QuestionDto>();
+
+         var survey = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
+            .Include(x => x.Questionnaire)
+            .Include(x => x.Question)
+            .Include(x => x.Question.Criticality)
+            .Include(x => x.Question.Answers)
+            .Include(x => x.Question.Category)
+            .Include(x => x.Question.Criticisms)
+            .Where(x => x.Questionnaire.QuestionnaireName == dataList.Select(y => y.Questionnaire).First())
+            .Where(x => x.CustomerSurveyId == dataList.Select(x => x.CustomerSurveyId).First())
+            .Select(x => x)
+            .ToList();
+
+        CriticismType criticismTypeRisk = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Risk").Select(x => x).Single();
+        CriticismType criticismTypeRecommendation = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Recommendation").Select(x => x).Single();
+        CriticismType criticismTypeReason = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Reason").Select(x => x).Single();
+
+        for (int i = 0; i < survey.Count; i++)
+        {
+            var reason = survey[i].Question.Criticisms.Where(x => x.CriticismType == criticismTypeReason).Single();
+            reason.CriticismText = dataList[i].Reason;
+
+            var risk = survey[i].Question.Criticisms.Where(x => x.CriticismType == criticismTypeRisk).Single();
+            risk.CriticismText = dataList[i].Risk;
+
+            var recommendation = survey[i].Question.Criticisms.Where(x => x.CriticismType == criticismTypeRecommendation).Single();
+            recommendation.CriticismText = dataList[i].Recommendation;
         }
         _db.SaveChanges();
 

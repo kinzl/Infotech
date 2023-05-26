@@ -2,5 +2,7 @@
 
 
 ################################################## AnswerQuestions
-GET {{baseUrl}}/AnswerQuestions/DeserializeJsonString/abc
+POST {{baseUrl}}/AnswerQuestions/DeserializeJsonString/abc
+#####
+POST {{baseUrl}}/AnswerQuestions/UpdateCriticism/abc
 #####

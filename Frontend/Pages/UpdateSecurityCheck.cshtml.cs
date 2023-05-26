@@ -219,11 +219,6 @@ public class UpdateSecurityCheck : PageModel
         Initialize();
         try
         {
-            //Question question = _db.
-            //    .Where(x => x.QuestionText == SecurityCheckQuestionListPool[SelectedSecurityCheckQuestionPoolIndex])
-            //    .Where(x => x.CustomerSurveyId == null)
-            //    .Single();
-
             var question = _db.SurveyQuestions
             .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckList[SelectedSecurityCheckIndex])
             .Where(x => x.Question.QuestionText == SecurityCheckQuestionListPool[SelectedSecurityCheckQuestionPoolIndex])
@@ -274,6 +269,10 @@ public class UpdateSecurityCheck : PageModel
     public IActionResult OnPostAddNewCategory(string newCategory)
     {
         Initialize();
+        if(_db.Categories.Where(x => x.CategoryText == newCategory).ToList().Count() > 0)
+        {
+            return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Category exists" });
+        }
         try
         {
             _db.Categories.Add(new Category() { CategoryText = newCategory });
