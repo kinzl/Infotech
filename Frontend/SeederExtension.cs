@@ -8,15 +8,15 @@ public static class SeederExtension
     {
         AddUserNames(db);
     }
-    
+
     private static void AddUserNames(SecurityCheckContext db)
     {
         UserName admin = new UserName
         {
             IsAdmin = true,
             Username = "admin",
-            PasswordHash = "17A8DFE340516E6417415C2FE29B98E8A7D893DF61035CA26ADAF770EB752F1EB59402565CEC025D12799DDB05714DF0200AAD5B3B5EA9EA2FE5AFCD34209CE2",
-            PasswordSalt = "6256A12324AD33225BCA548F4A950B4531808A47CCAC870AB5BE49D624465AA31C9CFC1E02FDF459CB6BD8753A5EF1D1761CFBCC9B3FA46936F206FAF4BBAB36"
+            PasswordHash = "6MTgt6csLPfst+ON2fOVaEYbhfgYHe44M4ZBOS7qwCpcF0rUBR3EPfh0wsOHJHLFIcdsPkZaynDZc64uIy7awg==",
+            PasswordSalt = "ZlD9i+XCC97K/xNwLdLFcokqYNfa6NSqQ6kOTsxCtSVZA2INYaFjhAwfk3UQCe9UtFEHgAKJORpNeDCafr60iA=="
         };
         //pw = admin
         db.UserNames.Add(admin);
@@ -24,10 +24,10 @@ public static class SeederExtension
         {
             IsAdmin = false,
             Username = "kinzle",
-            PasswordHash = "0F9086BE49A72B9683E37809994056CA66CE56E9C7F17E3BDD4D38BF684B1A741D4080E1A8B40AFC2763C9408A71D1B2FD3DE110D47C603E7C8CD0AABF0F8B2A",
-            PasswordSalt = "A8A7304F32C2EAA6DF6169D05FF348822B1BEA162640C5F4DAEDC6162F642754325FC3E44099DDF348179C7C9010AADD348685AA07161E6F2B212AB18FCB645C"
+            PasswordHash = "fr0c/l2J0T0aEH97GleMLx9gofiYEmOUmGO7WJFreFLMy42Q1aBeRl7YN1LDQMo9S2pdThFfiZhfsjA1Pgalsg==",
+            PasswordSalt = "AeRU+Bh/KnQq/iX7+klYqPOD9OkvGyNgTFIUmVuWbYyJnx691TIcpH2bYWJ5YCIewuLEb5ygDZqqpWFDjo85Hw=="
         };
-        //pw = binProjektLeiter*3
+        //pw = emilk
         db.UserNames.Add(kinzle);
         UserName davk = new UserName
         {
@@ -36,18 +36,21 @@ public static class SeederExtension
             PasswordHash = "9316F2B4B3EE2AFE5D429C907B7A08C464AC9D5381CB9C794CD4D7448D989341A8D7A285BA21A8564115E5E9C4AC39047F982AE118E27970F6F8F45FACC1B851",
             PasswordSalt = "F6D1A4CF1CA463920D8D9534B414B9C19263B64019493A1CFE1E4E94780B9CD5ECE2A4815A8E87087F654368F4B6BE3041ABA48E5762CDE56D9BC05373EF17A9"
         };
+        //dav funktioniert incht
         //pw = IchbinDavK#1
         db.UserNames.Add(davk);
         UserName ich = new UserName
         {
             IsAdmin = false,
             Username = "ich",
-            PasswordHash = "60434C1A11F09A04994A2E8F6AE05E23444E6352BA49E7807A0CB9A35A0315AD0D82DF231B9645A9E51AACE2E8294CAB33580377C60B5AF11A9E06B717B0A735",
-            PasswordSalt = "0622302726E4D795429F71E962D15A95DC75D5F353E9F0ABC0D09CE32E0A5469D29F01D3EF50D9EA080917F87626BA5A278E05402C1FAC98C86DC5BB8B853A87"
+            PasswordHash = "+yl49EVwtEMhNMrfygFuJtnBRyhvu3vW6SNig2TXdT+R8i3t53C+9C8bwPUO6xZDYGbDxCVk/S6x7k7gyywo7A==",
+            PasswordSalt = "vskwmQEjyLR3NM8B9D4iEhi5j+rSFMPxDB0AKZg1G96D9PM8EwwJIR6HVS/K1u5e2DCEaZEgjF6LYN43ZhsUdw=="
         };
         //pw = ich
         db.UserNames.Add(ich);
-        Criticality cr1 = new Criticality()
+        db.SaveChanges();
+   
+    Criticality cr1 = new Criticality()
         {
             CriticalityText = "Hoch",
         };
