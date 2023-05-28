@@ -36,7 +36,8 @@ public class MainWindow : PageModel
 
     private void Initialize()
     {
-        SelectedSecurityCheckIndexMainWindow = int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0");
+        SelectedSecurityCheckIndexMainWindow =
+            int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0");
         SecurityChecks = _db.CustomerSurveys
             .Include(x => x.SurveyQuestion)
             .ThenInclude(x => x.Questionnaire)
@@ -49,77 +50,90 @@ public class MainWindow : PageModel
 
     public IActionResult OnPostNewSecurityCheck()
     {
-        var questionnaire = _db.Questionnaires.Select(x => x.QuestionnaireName).FirstOrDefault();
-        var survey = _db.SurveyQuestions
-            .Include(x => x.Question)
-            .Include(x => x.Questionnaire)
-            .Include(x => x.Question.Answers)
-            .Include(x => x.Question.Category)
-            .Where(x => x.Questionnaire.QuestionnaireName == questionnaire)
-            .Where(x => x.CustomerSurvey.CustomerSurveyId == null)
-            .Select(x => x)
-            .ToList();
-        if (questionnaire == null || survey == null)
-            return new RedirectToPageResult("MainWindow", new { ErrorText = "The first Security Check might have no questions or there is no security check" });
-
-        var questions = survey.Select(x => x.Question).ToList();
-
-        var customerSurvey = new CustomerSurvey()
+        try
         {
-            CreatedDate = DateTime.Now,
-        };
-        for (int i = 0; i < survey.Count; i++)
-        {
-            var answers = questions[i].Answers.ToList();
-            survey[i].SurveyQuestionId = 0;
-            survey[i].CustomerSurvey = customerSurvey;
-            var newQuestion = new Question()
+            var questionnaire = _db.Questionnaires.Select(x => x.QuestionnaireName).FirstOrDefault();
+            var survey = _db.SurveyQuestions
+                .Include(x => x.Question)
+                .Include(x => x.Questionnaire)
+                .Include(x => x.Question.Answers)
+                .Include(x => x.Question.Category)
+                .Where(x => x.Questionnaire.QuestionnaireName == questionnaire)
+                .Where(x => x.CustomerSurvey.CustomerSurveyId == null)
+                .Select(x => x)
+                .ToList();
+            if (questionnaire == null || survey == null)
+                return new RedirectToPageResult("MainWindow",
+                    new
+                    {
+                        ErrorText = "The first Security Check might have no questions or there is no security check"
+                    });
+
+            var questions = survey.Select(x => x.Question).ToList();
+
+            var customerSurvey = new CustomerSurvey()
             {
-                QuestionId = 0,
-                QuestionText = questions[i].QuestionText,
-                Category = questions[i].Category,
-                Answers = new List<Answer>() {
-                new()
-                {
-                        AnswerText = answers[0].AnswerText,
-                        IsChecked = answers[0].IsChecked,
-                        Points = answers[0].Points,
-
-                },
-                new()
-                {
-                    AnswerText = answers[1].AnswerText,
-                    IsChecked = answers[1].IsChecked,
-                    Points = answers[1].Points,
-                },
-                new()
-                {
-                    AnswerText = answers[2].AnswerText,
-                    IsChecked = answers[2].IsChecked,
-                    Points = answers[2].Points,
-                },
-                new()
-                {
-                    AnswerText = answers[3].AnswerText,
-                    IsChecked = answers[3].IsChecked,
-                    Points = answers[3].Points,
-                },
-                new()
-                {
-                    AnswerText = answers[4].AnswerText,
-                    IsChecked = answers[4].IsChecked,
-                    Points = answers[4].Points,
-                }
-                }
+                CreatedDate = DateTime.Now,
             };
-            _db.Questions.Add(newQuestion);
+            for (int i = 0; i < survey.Count; i++)
+            {
+                var answers = questions[i].Answers.ToList();
+                survey[i].SurveyQuestionId = 0;
+                survey[i].CustomerSurvey = customerSurvey;
+                var newQuestion = new Question()
+                {
+                    QuestionId = 0,
+                    QuestionText = questions[i].QuestionText,
+                    Category = questions[i].Category,
+                    Answers = new List<Answer>()
+                    {
+                        new()
+                        {
+                            AnswerText = answers[0].AnswerText,
+                            IsChecked = answers[0].IsChecked,
+                            Points = answers[0].Points,
+                        },
+                        new()
+                        {
+                            AnswerText = answers[1].AnswerText,
+                            IsChecked = answers[1].IsChecked,
+                            Points = answers[1].Points,
+                        },
+                        new()
+                        {
+                            AnswerText = answers[2].AnswerText,
+                            IsChecked = answers[2].IsChecked,
+                            Points = answers[2].Points,
+                        },
+                        new()
+                        {
+                            AnswerText = answers[3].AnswerText,
+                            IsChecked = answers[3].IsChecked,
+                            Points = answers[3].Points,
+                        },
+                        new()
+                        {
+                            AnswerText = answers[4].AnswerText,
+                            IsChecked = answers[4].IsChecked,
+                            Points = answers[4].Points,
+                        }
+                    }
+                };
+                _db.Questions.Add(newQuestion);
 
-            survey[i].Question = newQuestion;
+                survey[i].Question = newQuestion;
 
-            _db.SurveyQuestions.Add(survey[i]);
+                _db.SurveyQuestions.Add(survey[i]);
+            }
+
+            _db.SaveChanges();
+            return new RedirectToPageResult("AnswerQuestions");
         }
-        _db.SaveChanges();
-        return new RedirectToPageResult("AnswerQuestions");
+        catch (Exception e)
+        {
+            return new RedirectToPageResult("MainWindow",
+                new { ErrorText = "The same question might be in the question Pool" });
+        }
     }
 
     public async Task<IActionResult> OnPostLogout()
@@ -127,6 +141,7 @@ public class MainWindow : PageModel
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         return new RedirectToPageResult("Index");
     }
+
     public IActionResult OnPostSecurityCheckListChanged(string selectedItem)
     {
         Initialize();
@@ -138,8 +153,10 @@ public class MainWindow : PageModel
                 break;
             }
         }
+
         return new RedirectToPageResult("MainWindow");
     }
+
     public IActionResult OnPostOpenSelectedCheck()
     {
         return new RedirectToPageResult("AnswerQuestionsExtended");

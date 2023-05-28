@@ -14,6 +14,6 @@ public class CustomerSurvey
     public string ToDataString()
     {
         return
-            $"{CompanyName} | {CreatedDate.ToString("yy-MM-dd HH:mm:ss")} | ";
+            $"{CompanyName} | {CreatedDate.ToString("yy-MM-dd HH:mm:ss")} ";
     }
 }

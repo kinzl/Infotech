@@ -8,14 +8,11 @@
     <title>AnwerQuestionsExtended</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    @* <link href="files/anwerquestionsextended/styles.css" type="text/css" rel="stylesheet" /> *@
     <link href="files/answerquestions/styles.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>
     <div id="base" class="">
-        @* <script src="js/AnswerQuestionsExtendedGenerated.js" asp-append-version="true"></script> *@
-
         <script>
             window.onload = function () {
                 const baseUrl = "https://localhost:7000";
@@ -134,7 +131,8 @@
                     recommendation.className = "textAreaRecommendation";
                     recommendation.placeholder = "Recommendation";
                     recommendation.textContent = allquestionsandanswers[j].Recommendation;
-                    reason.onkeyup = function (event) {
+                    recommendation.onkeyup = function (event) {
+                        console.log(document.getElementById('recommendation' + j).value);
                         allquestionsandanswers[j].Recommendation = document.getElementById('recommendation' + j).value;
                     };
                     document.getElementById("radioButtonContainer" + j).appendChild(recommendation);

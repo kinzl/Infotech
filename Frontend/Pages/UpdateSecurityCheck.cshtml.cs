@@ -104,6 +104,7 @@ public class UpdateSecurityCheck : PageModel
                 .Include(x => x.CustomerSurvey)
                 .Include(x => x.Question)
                 .Include(x => x.Question.Answers)
+                .Include(x => x.Question.Category)
                 .Where(x => x.CustomerSurveyId == null)
                 .Where(x => x.Questionnaire.QuestionnaireId == null)
                 .Where(x => x.Question.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
@@ -117,6 +118,16 @@ public class UpdateSecurityCheck : PageModel
                 txtAnswerOne = question.Answers.SingleOrDefault(x => x.Points == 1)!.AnswerText ?? "";
                 txtAnswerTwo = question.Answers.SingleOrDefault(x => x.Points == 2)!.AnswerText ?? "";
                 txtAnswerThree = question.Answers.SingleOrDefault(x => x.Points == 3)!.AnswerText ?? "";
+
+                var selectedCategoryIndex = _db.Categories.Where(x => x.CategoryText == question.Category.CategoryText).Single();
+                for (int i = 0; i < CategoryList.Count; i++)
+                {
+                    if (CategoryList[i] == selectedCategoryIndex.CategoryText)
+                    {
+                        SelectedCategoryIndex = i;
+                        break;
+                    }
+                }
             }
         }
         catch (Exception e)
@@ -136,9 +147,9 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostNewSecurityCheck(string? securityCheckName)
     {
-        if(_db.Questionnaires.Where(x => x.QuestionnaireName == securityCheckName).Select(x => x.QuestionnaireName).ToList().Count() > 0)
+        if (_db.Questionnaires.Where(x => x.QuestionnaireName == securityCheckName).Select(x => x.QuestionnaireName).ToList().Count() > 0)
         {
-            return new RedirectToPageResult("UpdateSecurityCheck", new {ErrorText = "Security Check exists"});
+            return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Security Check exists" });
         }
         if (!securityCheckName.IsNullOrEmpty())
         {
@@ -148,7 +159,7 @@ public class UpdateSecurityCheck : PageModel
         }
         else
         {
-            return new RedirectToPageResult("UpdateSecurityCheck", new {ErrorText = "Enter a security check name"});
+            return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Enter a security check name" });
         }
 
     }
@@ -262,14 +273,28 @@ public class UpdateSecurityCheck : PageModel
     {
         Initialize();
 
-        HttpContext.Session.SetString("SelectedCategoryIndex", IndexOfItemInList(CategoryList, categoryItem));
+        var newCategoryIndex = IndexOfItemInList(CategoryList, categoryItem);
+        SelectedCategoryIndex = int.Parse(newCategoryIndex);
+        var newCategory = _db.Categories.Where(x => x.CategoryText == CategoryList[SelectedCategoryIndex]).Single();
+        var question = _db.SurveyQuestions
+            .Include(x => x.Question.Category)
+            .Where(x => x.Question.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
+            .Where(x => x.CustomerSurveyId == null)
+            .Select(x => x.Question)
+            .Single();
+
+        question.Category = newCategory;
+        _db.SaveChanges();
+        HttpContext.Session.SetString("SelectedCategoryIndex", newCategoryIndex);
+        
+
         return new RedirectToPageResult("UpdateSecurityCheck");
     }
 
     public IActionResult OnPostAddNewCategory(string newCategory)
     {
         Initialize();
-        if(_db.Categories.Where(x => x.CategoryText == newCategory).ToList().Count() > 0)
+        if (_db.Categories.Where(x => x.CategoryText == newCategory).ToList().Count() > 0)
         {
             return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Category exists" });
         }
@@ -332,14 +357,7 @@ public class UpdateSecurityCheck : PageModel
                 .Where(x => x.Questionnaire.QuestionnaireId == null)
                 .Where(x => x.CustomerSurveyId == null)
                 .Select(x => x)
-                .Single();
-            foreach (var item in removeQuestion.Question.Answers)
-            {
-                _db.Answers.Remove(item);
-                _db.SaveChanges();
-            }
-            _db.Questions.Remove(removeQuestion.Question);
-            _db.SaveChanges();
+                .First();
             _db.SurveyQuestions.Remove(removeQuestion);
             _db.SaveChanges();
             return new RedirectToPageResult("UpdateSecurityCheck");
@@ -423,13 +441,17 @@ public class UpdateSecurityCheck : PageModel
     {
         Initialize();
 
+        HttpContext.Session.SetString("SelectedQuestionPoolIndex","0");
         if (answerZero.IsNullOrEmpty() || answerOne.IsNullOrEmpty() || answerTwo.IsNullOrEmpty() ||
             answerThree.IsNullOrEmpty())
             return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Any Answer might be empty" });
 
-        var x = _db.Questions.Where(x => x.QuestionText == question).Select(x => x).ToList();
-        if (_db.Questions.Where(x => x.QuestionText == question).Select(x => x).ToList().Count > 1)
-            return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Question already exists" });
+        //if (_db.SurveyQuestions
+        //    .Where(x => x.CustomerSurveyId == null)
+        //    .Where(x => x.Questionnaire.QuestionnaireId == null)
+        //    .Where(x => x.Question.QuestionText == question)
+        //    .ToList().Count > 1)
+        //    return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Question already exists" });
 
         List<Answer> newAnsweres = new()
         {
