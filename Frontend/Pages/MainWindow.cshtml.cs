@@ -50,6 +50,7 @@ public class MainWindow : PageModel
 
     public IActionResult OnPostNewSecurityCheck()
     {
+        HttpContext.Session.SetString("SelectedSecurityCheck", "0");
         try
         {
             var questionnaire = _db.Questionnaires.Select(x => x.QuestionnaireName).FirstOrDefault();

@@ -69,7 +69,7 @@ public class AnswerQuestionsController
     public List<QuestionDto> UpdateCriticism(string jsonString)
     {
         List<QuestionDto> dataList = JsonSerializer.Deserialize<List<QuestionDto>>(jsonString) ?? new List<QuestionDto>();
-
+        
          var survey = _db.SurveyQuestions
             .Include(x => x.CustomerSurvey)
             .Include(x => x.Questionnaire)
@@ -82,6 +82,7 @@ public class AnswerQuestionsController
             .Where(x => x.CustomerSurveyId == dataList.Select(x => x.CustomerSurveyId).First())
             .Select(x => x)
             .ToList();
+        
 
         CriticismType criticismTypeRisk = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Risk").Select(x => x).Single();
         CriticismType criticismTypeRecommendation = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Recommendation").Select(x => x).Single();

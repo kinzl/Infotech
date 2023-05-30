@@ -236,7 +236,7 @@ public class UpdateSecurityCheck : PageModel
             .Where(x => x.Questionnaire.QuestionnaireId != null)
             .Where(x => x.CustomerSurveyId == null)
             .Select(x => x.Question)
-            .Single();
+            .First();
 
             var surveyObject = _db.SurveyQuestions.FirstOrDefault(x =>
                 x.Questionnaire != null && x.Question == question &&
@@ -279,6 +279,7 @@ public class UpdateSecurityCheck : PageModel
         var question = _db.SurveyQuestions
             .Include(x => x.Question.Category)
             .Where(x => x.Question.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
+            .Where(x => x.Questionnaire.QuestionnaireId == null)
             .Where(x => x.CustomerSurveyId == null)
             .Select(x => x.Question)
             .Single();

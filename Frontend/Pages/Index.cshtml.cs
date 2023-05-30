@@ -35,7 +35,7 @@ public class IndexModel : PageModel
 
     public async Task<IActionResult> OnPostLogin(LoginDto body)
     {
-        return new RedirectToPageResult("MainWindow");
+        //return new RedirectToPageResult("MainWindow");
         string uName;
         try
         {

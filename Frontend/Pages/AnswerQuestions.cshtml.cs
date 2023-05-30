@@ -1,3 +1,6 @@
+using SecurityCheckDbLib;
+using static iTextSharp.text.pdf.AcroFields;
+
 namespace Questionnaire_Frontend.Pages;
 
 public class AnswerQuestions : PageModel
@@ -130,31 +133,83 @@ public class AnswerQuestions : PageModel
         var newQuestionnaire = _db.Questionnaires
             .Where(x => x.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck]).First();
 
-        var newQuestions = _db.SurveyQuestions
-            .Include(x => x.CustomerSurvey)
-            .Include(x => x.Question)
-            .Include(x => x.Question.Answers)
-            .Include(x => x.Question.Category)
-            .Where(x => x.CustomerSurveyId == null)
-            .Where(x => x.Questionnaire.QuestionnaireId != null)
-            .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
-            .Select(x => x.Question)
-            .ToList();
-
         foreach (var item in oldSurvey)
         {
             _db.SurveyQuestions.Remove(item);
         }
 
-        foreach (var item in newQuestions)
+        //var newQuestions = _db.SurveyQuestions
+        //    .Include(x => x.CustomerSurvey)
+        //    .Include(x => x.Question)
+        //    .Include(x => x.Question.Answers)
+        //    .Include(x => x.Question.Category)
+        //    .Where(x => x.CustomerSurveyId == null)
+        //    .Where(x => x.Questionnaire.QuestionnaireId != null)
+        //    .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
+        //    .Select(x => x.Question)
+        //    .ToList();
+
+        var survey = _db.SurveyQuestions
+                .Include(x => x.Question)
+                .Include(x => x.Questionnaire)
+                .Include(x => x.Question.Answers)
+                .Include(x => x.Question.Category)
+                .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
+                .Where(x => x.CustomerSurvey.CustomerSurveyId == null)
+                .Select(x => x)
+                .ToList();
+
+        var questions = survey.Select(x => x.Question).ToList();
+
+
+        for (int i = 0; i < survey.Count; i++)
         {
-            _db.SurveyQuestions.Add(new SurveyQuestion()
+            var answers = questions[i].Answers.ToList();
+            survey[i].SurveyQuestionId = 0;
+            survey[i].CustomerSurvey = lastCustomerSurvey;
+            var newQuestion = new Question()
             {
-                Questionnaire = newQuestionnaire,
-                Question = item,
-                CustomerSurveyId = lastCustomerSurvey.CustomerSurveyId,
-                
-            });
+                QuestionId = 0,
+                QuestionText = questions[i].QuestionText,
+                Category = questions[i].Category,
+                Answers = new List<Answer>()
+                    {
+                        new()
+                        {
+                            AnswerText = answers[0].AnswerText,
+                            IsChecked = answers[0].IsChecked,
+                            Points = answers[0].Points,
+                        },
+                        new()
+                        {
+                            AnswerText = answers[1].AnswerText,
+                            IsChecked = answers[1].IsChecked,
+                            Points = answers[1].Points,
+                        },
+                        new()
+                        {
+                            AnswerText = answers[2].AnswerText,
+                            IsChecked = answers[2].IsChecked,
+                            Points = answers[2].Points,
+                        },
+                        new()
+                        {
+                            AnswerText = answers[3].AnswerText,
+                            IsChecked = answers[3].IsChecked,
+                            Points = answers[3].Points,
+                        },
+                        new()
+                        {
+                            AnswerText = answers[4].AnswerText,
+                            IsChecked = answers[4].IsChecked,
+                            Points = answers[4].Points,
+                        }
+                    }
+
+            };
+            _db.Questions.Add(newQuestion);
+            survey[i].Question = newQuestion;
+            _db.SurveyQuestions.Add(survey[i]);
         }
         _db.SaveChanges();
 
