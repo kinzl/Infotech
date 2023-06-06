@@ -10,7 +10,7 @@ namespace Questionnaire_Frontend.Pages;
 public class UpdateSecurityCheck : PageModel
 {
     public string? ErrorText;
-    private readonly ILogger<IndexModel> _logger;
+    private readonly ILogger<UpdateSecurityCheck> _logger;
     private SecurityCheckContext _db;
 
     public List<string> QuestionsListPool = new()
@@ -56,7 +56,7 @@ public class UpdateSecurityCheck : PageModel
     public string txtAnswerTwo;
     public string txtAnswerThree;
 
-    public UpdateSecurityCheck(ILogger<IndexModel> logger, SecurityCheckContext db)
+    public UpdateSecurityCheck(ILogger<UpdateSecurityCheck> logger, SecurityCheckContext db)
     {
         _logger = logger;
         _db = db;
@@ -64,6 +64,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnGet(string errorText)
     {
+        _logger.LogInformation("UpdateSecurityCheck OnGet");
         if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
         ErrorText = errorText;
         Initialize();
@@ -72,6 +73,7 @@ public class UpdateSecurityCheck : PageModel
 
     private IActionResult Initialize()
     {
+        _logger.Log(LogLevel.Information,"UpdateSecurityCheck Initialize");
         //Initzialie Indexes
         SelectedQuestionPoolIndex = int.Parse(HttpContext.Session.GetString("SelectedQuestionPoolIndex") ?? "0");
         SelectedCategoryIndex = int.Parse(HttpContext.Session.GetString("SelectedCategoryIndex") ?? "0");
@@ -140,6 +142,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnGetRedirectToMainWindow()
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnGetRedirectToMainWindow");
         return new RedirectToPageResult("MainWindow");
     }
 
@@ -183,6 +186,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostSecurityCheckQuestionListChanged(string selectedQuestion)
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostSecurityCheckQuestionListChanged");
         Initialize();
         HttpContext.Session.SetString("SelectedSecurityCheckQuestionPoolIndex",
             IndexOfItemInList(SecurityCheckQuestionListPool, selectedQuestion));
@@ -191,6 +195,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostAddQuestionToSecurityCheck()
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostAddQuestionToSecurityCheck");
         Initialize();
         try
         {
@@ -227,6 +232,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostDeleteQuestionFromSecurityCheck()
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostDeleteQuestionFromSecurityCheck");
         Initialize();
         try
         {
@@ -254,6 +260,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostQuestionListPoolChanged(string selectedQuestion)
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostQuestionListPoolChanged");
         Initialize();
         for (int i = 0; i < QuestionsListPool.Count; i++)
         {
@@ -271,6 +278,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostCategoryChanged(string categoryItem)
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostCategoryChanged");
         Initialize();
 
         var newCategoryIndex = IndexOfItemInList(CategoryList, categoryItem);
@@ -294,6 +302,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostAddNewCategory(string newCategory)
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostAddNewCategory");
         Initialize();
         if (_db.Categories.Where(x => x.CategoryText == newCategory).ToList().Count() > 0)
         {
@@ -314,6 +323,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostDeleteSelectedCategory(string categoryItem)
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostDeleteSelectedCategory");
         Initialize();
         try
         {
@@ -332,6 +342,7 @@ public class UpdateSecurityCheck : PageModel
 
     private string IndexOfItemInList(List<string> list, string searchString)
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck IndexOfItemInList");
         string index = "0";
 
         for (int i = 0; i < list.Count; i++)
@@ -348,6 +359,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostDeleteQuestion(string? question)
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostDeleteQuestion");
         //ToDo: Question cant be removed when seco check is created
         Initialize();
         try
@@ -372,6 +384,7 @@ public class UpdateSecurityCheck : PageModel
 
     public IActionResult OnPostAddNewQuestion()
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostAddNewQuestion");
         Initialize();
         if (_db.Questions.Where(x => x.QuestionText == "New Question").Select(x => x).ToList().Count > 0)
             return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Question already exists" });
@@ -440,13 +453,14 @@ public class UpdateSecurityCheck : PageModel
         string? answerTwo,
         string? answerThree)
     {
+        _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostUpdateQuestion");
         Initialize();
 
         HttpContext.Session.SetString("SelectedQuestionPoolIndex","0");
         if (answerZero.IsNullOrEmpty() || answerOne.IsNullOrEmpty() || answerTwo.IsNullOrEmpty() ||
             answerThree.IsNullOrEmpty())
             return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "Any Answer might be empty" });
-
+        
         //if (_db.SurveyQuestions
         //    .Where(x => x.CustomerSurveyId == null)
         //    .Where(x => x.Questionnaire.QuestionnaireId == null)
@@ -494,11 +508,8 @@ public class UpdateSecurityCheck : PageModel
             .Where(x => x.CustomerSurveyId == null)
             .Where(x => x.Questionnaire.QuestionnaireId == null)
             .Where(x => x.Question.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
-            .SingleOrDefault();
+            .FirstOrDefault();
 
-        // var selectedQuestion = _db.Questions
-        //     .Where(x => x.QuestionText == QuestionsListPool[SelectedQuestionPoolIndex])
-        //     .FirstOrDefault();
         selectedQuestion.Question.QuestionText = question;
         selectedQuestion.Question.Answers = newAnsweres;
         selectedQuestion.Question.Category = _db.Categories.Where(x => x.CategoryText == CategoryList[SelectedCategoryIndex])

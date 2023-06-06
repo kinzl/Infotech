@@ -5,7 +5,7 @@ namespace Questionnaire_Frontend.Pages;
 
 public class AnswerQuestions : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly ILogger<AnswerQuestions> _logger;
     private SecurityCheckContext _db;
 
 
@@ -17,8 +17,14 @@ public class AnswerQuestions : PageModel
 
     public int SelectedSecurityCheck;
     public string CompanyName = "";
+    public string TypeOfExecution = "";
+    public string Participants = "";
+    public string Scope = "";
+    public string Classification = "";
+    public string DocumentDistributor = "";
+    public string ManagementSummary = "";
 
-    public AnswerQuestions(ILogger<IndexModel> logger, SecurityCheckContext db)
+    public AnswerQuestions(ILogger<AnswerQuestions> logger, SecurityCheckContext db)
     {
         _logger = logger;
         _db = db;
@@ -43,10 +49,17 @@ public class AnswerQuestions : PageModel
 
     private void Initialize()
     {
+        _logger.LogInformation("AnswerQuestions Initialize");
         SecurityCheckType = _db.Questionnaires.Select(x => x.QuestionnaireName).ToList();
         SelectedSecurityCheck = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheck") ?? "0");
         CompanyName = HttpContext.Session.GetString("CompanyName") ?? "";
-
+        TypeOfExecution = HttpContext.Session.GetString("TypeOfSurvey") ?? "";
+        Participants = HttpContext.Session.GetString("Participant") ?? "";
+        Scope = HttpContext.Session.GetString("Scope") ?? "";
+        Classification = HttpContext.Session.GetString("Classification") ?? "";
+        DocumentDistributor = HttpContext.Session.GetString("DocumentDistributor") ?? "";
+        ManagementSummary = HttpContext.Session.GetString("ManagementSummaryText") ?? "";
+        
 
         var lastCustomerSurvey = _db.CustomerSurveys.Select(x => x).OrderBy(x => x.CustomerSurveyId).Last();
         AllQuestionsAndAnswers = _db.SurveyQuestions
@@ -107,6 +120,7 @@ public class AnswerQuestions : PageModel
 
     public IActionResult OnPostSecurityCheckTypeChanged(string securityCheck)
     {
+        _logger.LogInformation("AnswerQuestions OnPostSecurityCheckTypeChanged");
         Initialize();
         for (int i = 0; i < SecurityCheckType.Count; i++)
         {
@@ -137,17 +151,6 @@ public class AnswerQuestions : PageModel
         {
             _db.SurveyQuestions.Remove(item);
         }
-
-        //var newQuestions = _db.SurveyQuestions
-        //    .Include(x => x.CustomerSurvey)
-        //    .Include(x => x.Question)
-        //    .Include(x => x.Question.Answers)
-        //    .Include(x => x.Question.Category)
-        //    .Where(x => x.CustomerSurveyId == null)
-        //    .Where(x => x.Questionnaire.QuestionnaireId != null)
-        //    .Where(x => x.Questionnaire.QuestionnaireName == SecurityCheckType[SelectedSecurityCheck])
-        //    .Select(x => x.Question)
-        //    .ToList();
 
         var survey = _db.SurveyQuestions
                 .Include(x => x.Question)
@@ -218,23 +221,38 @@ public class AnswerQuestions : PageModel
 
     public IActionResult OnGetRedirectToAnswerQuestionsExtended()
     {
+        _logger.LogInformation("AnswerQuestions OnGetRedirectToAnswerQuestionsExtended");
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 
-    public IActionResult OnPostSubmitCompanyName(string companyName)
+    public IActionResult OnPostSubmitCompanyName(string companyName, string typeOfExecution, string participants, string classification, string documentDistributor, string managementSummary)
     {
+        _logger.LogInformation("AnswerQuestions OnPostSubmitCompanyName");
         var thisSurvey = _db.CustomerSurveys
             .Select(x => x)
             .OrderBy(x => x.CustomerSurveyId)
             .LastOrDefault();
         thisSurvey.CompanyName = companyName;
+        thisSurvey.TypeOfSurvey = typeOfExecution;
+        thisSurvey.Participant = participants;
+        thisSurvey.Classification = classification;
+        thisSurvey.DocumentDistributor = documentDistributor;
+        thisSurvey.ManagementSummaryText = managementSummary;
+        thisSurvey.DateOfExecution = DateTime.Now;
+
         _db.SaveChanges();
         HttpContext.Session.SetString("CompanyName", companyName);
+        HttpContext.Session.SetString("TypeOfSurvey", typeOfExecution);
+        HttpContext.Session.SetString("Participant", participants);
+        HttpContext.Session.SetString("Classification", classification);
+        HttpContext.Session.SetString("DocumentDistributor", companyName);
+        HttpContext.Session.SetString("ManagementSummaryText", managementSummary);
         return new RedirectToPageResult("AnswerQuestions");
     }
 
     public void OnGetSave()
     {
+        _logger.LogInformation("AnswerQuestions OnGetSave");
         Response.Redirect("AnswerQuestionsExtended");
     }
 }

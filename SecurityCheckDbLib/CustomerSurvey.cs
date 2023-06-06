@@ -11,6 +11,14 @@ public class CustomerSurvey
     public List<SurveyQuestion> SurveyQuestion { get; set; }
     public string? CompanyName { get; set; }
     public DateTime CreatedDate { get; set; }
+    public string? TypeOfSurvey { get; set; }
+    public DateTime? DateOfExecution { get; set; }
+    public string? Participant { get; set; }
+    public string? Scope { get; set; }
+    public string? Version { get; set; }
+    public string? Classification { get; set; }
+    public string? DocumentDistributor { get; set; }
+    public string? ManagementSummaryText { get; set; }
     public string ToDataString()
     {
         return

@@ -8,7 +8,7 @@ namespace Questionnaire_Frontend.Pages;
 
 public class MainWindow : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly ILogger<MainWindow> _logger;
     private SecurityCheckContext _db;
 
     public List<string> SecurityChecks = new();
@@ -16,7 +16,7 @@ public class MainWindow : PageModel
     public int SelectedSecurityCheckIndexMainWindow;
     public string ErrorText;
 
-    public MainWindow(ILogger<IndexModel> logger, SecurityCheckContext db)
+    public MainWindow(ILogger<MainWindow> logger, SecurityCheckContext db)
     {
         _logger = logger;
         _db = db;
@@ -24,10 +24,10 @@ public class MainWindow : PageModel
 
     public IActionResult OnGet(string errorText)
     {
+        _logger.LogInformation("MainWindow OnGet");
         if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
         //Username = HttpContext.User.Identities.Select(x => x.Name).ToList() //.First
-
-        Console.WriteLine("User " + HttpContext.User.Identities.ToList().First().Name + " Signed in");
+        _logger.LogInformation($"User {HttpContext.User.Identities.ToList().First().Name} Signed in");
 
         ErrorText = errorText;
         Initialize();
@@ -36,6 +36,7 @@ public class MainWindow : PageModel
 
     private void Initialize()
     {
+        _logger.LogInformation("MainWindow Initialize");
         SelectedSecurityCheckIndexMainWindow =
             int.Parse(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0");
         SecurityChecks = _db.CustomerSurveys
@@ -50,6 +51,7 @@ public class MainWindow : PageModel
 
     public IActionResult OnPostNewSecurityCheck()
     {
+        _logger.LogInformation("MainWindow OnPostNewSecurityCheck");
         HttpContext.Session.SetString("SelectedSecurityCheck", "0");
         try
         {
@@ -139,12 +141,14 @@ public class MainWindow : PageModel
 
     public async Task<IActionResult> OnPostLogout()
     {
+        _logger.LogInformation("MainWindow OnPostLogout");
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         return new RedirectToPageResult("Index");
     }
 
     public IActionResult OnPostSecurityCheckListChanged(string selectedItem)
     {
+        _logger.LogInformation("MainWindow OnPostSecurityCheckListChanged");
         Initialize();
         for (int i = 0; i < SecurityChecks.Count; i++)
         {
@@ -160,16 +164,19 @@ public class MainWindow : PageModel
 
     public IActionResult OnPostOpenSelectedCheck()
     {
+        _logger.LogInformation("MainWindow OnPostOpenSelectedCheck");
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 
     public IActionResult OnGetRedirectToUpdateSecurityCheck()
     {
+        _logger.LogInformation("MainWindow OnGetRedirectToUpdateSecurityCheck");
         return new RedirectToPageResult("UpdateSecurityCheck");
     }
 
     public IActionResult OnGetRedirectChangePassword()
     {
+        _logger.LogInformation("MainWindow OnGetRedirectChangePassword");
         return new RedirectToPageResult("ChangePassword");
     }
 }

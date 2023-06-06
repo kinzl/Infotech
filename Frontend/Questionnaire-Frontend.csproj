@@ -10,13 +10,9 @@
   <ItemGroup>
     <None Include="Pages\Shared\_Layout.cshtml" />
     <None Include="Pages\Shared\_ValidationScriptsPartial.cshtml" />
-    <None Include="wwwroot\files\answerquestions\data.js" />
     <None Include="wwwroot\files\answerquestions\styles.css" />
-    <None Include="wwwroot\files\anwerquestionsextended\data.js" />
     <None Include="wwwroot\files\anwerquestionsextended\styles.css" />
-    <None Include="wwwroot\files\mainwindow\data.js" />
     <None Include="wwwroot\files\mainwindow\styles.css" />
-    <None Include="wwwroot\files\updatesecuritycheck\data.js" />
     <None Include="wwwroot\files\updatesecuritycheck\styles.css" />
     <None Include="wwwroot\images\mainwindow\u4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -53,6 +49,10 @@
 
   <ItemGroup>
     <Folder Include="DownloadProjectReport\PDFs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
   </ItemGroup>
 
 </Project>

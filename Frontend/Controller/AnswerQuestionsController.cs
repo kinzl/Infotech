@@ -4,14 +4,17 @@ namespace Questionnaire_Frontend.Controller;
 public class AnswerQuestionsController
 {
     private SecurityCheckContext _db;
-    public AnswerQuestionsController(SecurityCheckContext db)
+    private ILogger<AnswerQuestionsController> _logger;
+    public AnswerQuestionsController(SecurityCheckContext db, ILogger<AnswerQuestionsController> logger)
     {
         _db = db;
+        _logger = logger;
     }
 
     [HttpPost("{jsonString}")]
     public List<QuestionDto> DeserializeJsonString(string jsonString)
     {
+        _logger.LogInformation("AnswerQuestionsController DeserializeJsonString");
         List<QuestionDto> dataList = JsonSerializer.Deserialize<List<QuestionDto>>(jsonString) ?? new List<QuestionDto>();
 
         var lastCustomerSurvey = _db.CustomerSurveys.Select(x => x).OrderBy(x => x.CustomerSurveyId).Last();
@@ -68,6 +71,7 @@ public class AnswerQuestionsController
     [HttpPost("{jsonString}")]
     public List<QuestionDto> UpdateCriticism(string jsonString)
     {
+        _logger.LogInformation("AnswerQuestionsController UpdateCriticism");
         List<QuestionDto> dataList = JsonSerializer.Deserialize<List<QuestionDto>>(jsonString) ?? new List<QuestionDto>();
         
          var survey = _db.SurveyQuestions

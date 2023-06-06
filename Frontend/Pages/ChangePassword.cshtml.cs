@@ -8,12 +8,12 @@ namespace Questionnaire_Frontend.Pages;
 
 public class ChangePassword : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly ILogger<ChangePassword> _logger;
     private SecurityCheckContext _db;
     private string BodyUsername;
     public string? ErrorText;
 
-    public ChangePassword(ILogger<IndexModel> logger, SecurityCheckContext db)
+    public ChangePassword(ILogger<ChangePassword> logger, SecurityCheckContext db)
     {
         _logger = logger;
         _db = db;
@@ -21,6 +21,7 @@ public class ChangePassword : PageModel
 
     public IActionResult OnGet(string? errorText)
     {
+        _logger.LogInformation("ChangePassword OnGet");
         if (HttpContext.User.Identities.ToList().First().Name == null) return new BadRequestResult();
         BodyUsername = HttpContext.User.Identities.ToList().First().Name;
         Console.WriteLine("Change Password Username: " + BodyUsername);
@@ -30,22 +31,22 @@ public class ChangePassword : PageModel
 
     public IActionResult OnGetRedirectMainWindow()
     {
+        _logger.LogInformation("ChangePassword OnGetRedirectMainWindow");
         return new RedirectToPageResult("MainWindow");
     }
 
     public IActionResult OnPostChangePassword(string? oldPassword, string? newPassword, string? newPasswordRepeated)
     {
+        _logger.LogInformation("ChangePassword OnPostChangePassword");
         OnGet("");
         if (oldPassword.IsNullOrEmpty() || newPassword.IsNullOrEmpty() || newPasswordRepeated.IsNullOrEmpty())
             return new RedirectToPageResult("ChangePassword", new { ErrorText = "Some fields were empty" });
 
         PasswordEncryption pe = new PasswordEncryption();
-        //Man muss auf Username zugreifen können um ihn danach zu vergleichen. 
         string oldhash = _db.UserNames.Where(x => x.Username == BodyUsername).Select(x => x.PasswordHash).First();
         Console.WriteLine("Hash von db= " + oldhash);
         string oldsalt = _db.UserNames.Where(x => x.Username == BodyUsername).Select(x => x.PasswordSalt).First();
-        //byte[] bytes = Encoding.UTF8.GetBytes(oldsalt);
-
+        
         if (pe.VerifyPassword(oldPassword, oldhash, oldsalt))
         {
             if (newPassword.Equals(newPasswordRepeated))

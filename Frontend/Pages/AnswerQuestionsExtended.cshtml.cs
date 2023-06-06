@@ -7,10 +7,10 @@ namespace Questionnaire_Frontend.Pages;
 
 public class AnswerQuestionsExtendedModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly ILogger<AnswerQuestionsExtendedModel> _logger;
     private SecurityCheckContext _db;
 
-    public AnswerQuestionsExtendedModel(ILogger<IndexModel> logger, SecurityCheckContext db)
+    public AnswerQuestionsExtendedModel(ILogger<AnswerQuestionsExtendedModel> logger, SecurityCheckContext db)
     {
         _logger = logger;
         _db = db;
@@ -37,6 +37,7 @@ public class AnswerQuestionsExtendedModel : PageModel
 
     private void Initialize()
     {
+        _logger.LogInformation("AnswerQuestionsExtendedModel Initialize");
         // SelectedSecurityCheckIndex + 1 = primaryKey
         int index = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0") + 1;
         var reasonType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Reason").Single();
@@ -115,13 +116,15 @@ public class AnswerQuestionsExtendedModel : PageModel
 
     public IActionResult OnPostDownloadSecurityCheck()
     {
-        PDFReport pdf = new PDFReport();
+        _logger.LogInformation("AnswerQuestionsExtendedModel OnPostDownloadSecurityCheck");
+        PDFReport pdf = new PDFReport(_db, AllQuestionsAndAnswers);
         pdf.CreatePDF();
         return new RedirectToPageResult("MainWindow");
     }
 
     public IActionResult OnPostRedirectMainWindow()
     {
+        _logger.LogInformation("AnswerQuestionsExtendedModel OnPostRedirectMainWindow");
         return new RedirectToPageResult("MainWindow");
     }
 }
