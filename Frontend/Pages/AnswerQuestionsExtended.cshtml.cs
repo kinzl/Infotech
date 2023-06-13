@@ -38,7 +38,7 @@ public class AnswerQuestionsExtendedModel : PageModel
     private void Initialize()
     {
         _logger.LogInformation("AnswerQuestionsExtendedModel Initialize");
-        // SelectedSecurityCheckIndex + 1 = primaryKey
+        // SelectedSecurityCheckIndexMainWindow + 1 = primaryKey
         int index = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0") + 1;
         var reasonType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Reason").Single();
         var recommendationType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Recommendation").Single();

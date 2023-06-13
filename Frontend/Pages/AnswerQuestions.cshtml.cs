@@ -249,10 +249,4 @@ public class AnswerQuestions : PageModel
         HttpContext.Session.SetString("ManagementSummaryText", managementSummary);
         return new RedirectToPageResult("AnswerQuestions");
     }
-
-    public void OnGetSave()
-    {
-        _logger.LogInformation("AnswerQuestions OnGetSave");
-        Response.Redirect("AnswerQuestionsExtended");
-    }
 }
