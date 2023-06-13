@@ -1,7 +1,8 @@
+using System.Net.Mime;
 using CreatePDFReport;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using SecurityCheckDbLib;
+using System.Drawing.Imaging;
+using iTextSharp.text;
+
 
 namespace Questionnaire_Frontend.Pages;
 
@@ -18,8 +19,12 @@ public class AnswerQuestionsExtendedModel : PageModel
 
     public List<QuestionDto> AllQuestionsAndAnswers = new();
 
-    public string? CompanyName { get; set; } 
-    public string? SecurityCheckType { get; set; } 
+    public string? CompanyName { get; set; }
+    public string? TypeOfExecution { get; set; }
+    public string? Participants { get; set; }
+    public string? Classification { get; set; }
+    public string? DocumentDistributor { get; set; }
+    public string? SecurityCheckType { get; set; }
 
     public IActionResult OnGet()
     {
@@ -38,7 +43,7 @@ public class AnswerQuestionsExtendedModel : PageModel
     private void Initialize()
     {
         _logger.LogInformation("AnswerQuestionsExtendedModel Initialize");
-        // SelectedSecurityCheckIndex + 1 = primaryKey
+        // SelectedSecurityCheckIndexMainWindow + 1 = primaryKey
         int index = Convert.ToInt32(HttpContext.Session.GetString("SelectedSecurityCheckIndexMainWindow") ?? "0") + 1;
         var reasonType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Reason").Single();
         var recommendationType = _db.CriticismTypes.Where(x => x.CriticismTypeText == "Recommendation").Single();
@@ -107,6 +112,26 @@ public class AnswerQuestionsExtendedModel : PageModel
             .Where(x => x.CustomerSurveyId == index)
             .Select(x => x.CustomerSurvey.CompanyName)
             .First() ?? "";
+        TypeOfExecution = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
+            .Where(x => x.CustomerSurveyId == index)
+            .Select(x => x.CustomerSurvey.TypeOfSurvey)
+            .First() ?? "";
+        Participants = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
+            .Where(x => x.CustomerSurveyId == index)
+            .Select(x => x.CustomerSurvey.Participant)
+            .First() ?? "";
+        Classification = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
+            .Where(x => x.CustomerSurveyId == index)
+            .Select(x => x.CustomerSurvey.Classification)
+            .First() ?? "";
+        DocumentDistributor = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
+            .Where(x => x.CustomerSurveyId == index)
+            .Select(x => x.CustomerSurvey.DocumentDistributor)
+            .First() ?? "";
         SecurityCheckType = _db.SurveyQuestions
             .Include(x => x.Questionnaire)
             .Where(x => x.CustomerSurveyId == index)
@@ -114,10 +139,10 @@ public class AnswerQuestionsExtendedModel : PageModel
             .First();
     }
 
-    public IActionResult OnPostDownloadSecurityCheck()
+    public IActionResult OnPostDownloadSecurityCheck(IFormFile img)
     {
         _logger.LogInformation("AnswerQuestionsExtendedModel OnPostDownloadSecurityCheck");
-        PDFReport pdf = new PDFReport(_db, AllQuestionsAndAnswers);
+        PDFReport pdf = new PDFReport(_db, AllQuestionsAndAnswers, img);
         pdf.CreatePDF();
         return new RedirectToPageResult("MainWindow");
     }
@@ -126,5 +151,11 @@ public class AnswerQuestionsExtendedModel : PageModel
     {
         _logger.LogInformation("AnswerQuestionsExtendedModel OnPostRedirectMainWindow");
         return new RedirectToPageResult("MainWindow");
+    }
+    public IActionResult OnPostImageUploaded(IFormFile img)
+    {
+        Initialize();
+        
+        return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 }

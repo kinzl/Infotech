@@ -3,6 +3,7 @@ using iTextSharp.text.pdf;
 using Rectangle = iTextSharp.text.Rectangle;
 
 namespace CreatePDFReport;
+
 public class PDFReport
 {
     private iTextSharp.text.Document document;
@@ -10,11 +11,15 @@ public class PDFReport
     private int maxPageCount = 0;
     private SecurityCheckContext _db;
     private List<QuestionDto> AllQuestionsAndAnswers;
-    public PDFReport(SecurityCheckContext db, List<QuestionDto> allQuestionsAndAnswers)
+    private IFormFile _chart;
+
+    public PDFReport(SecurityCheckContext db, List<QuestionDto> allQuestionsAndAnswers, IFormFile chart)
     {
         _db = db;
         AllQuestionsAndAnswers = allQuestionsAndAnswers;
+        _chart = chart;
     }
+
     public void CreatePDF()
     {
         FirstPage();
@@ -54,14 +59,20 @@ public class PDFReport
         string[] headers = { "Themenbereich", "Fragen", "Max. Punkte", "Erreichte Punkte", "Erreichte Punkte (%)" };
         foreach (string headerText in headers)
         {
-            PdfPCell headerCell = new PdfPCell(new Phrase(headerText, new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.RED)));
+            PdfPCell headerCell = new PdfPCell(new Phrase(headerText,
+                new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.RED)));
             headerCell.BackgroundColor = new BaseColor(210, 210, 210); // Hellgraue Farbe für den Hintergrund
             headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(headerCell);
         }
 
         // Befüllen des Body mit den Themenbereichen und Zufallswerten
-        string[] themenbereiche = { "Organisation", "Nutzungsrichtlinie", "Geheimhaltung und Datenschutz", "Asset- und Risikomanagement", "Notfallmanagement", "Awareness", "Systembetrieb", "Netzwerk und Kommunikation", "Zutritts- und Zugriffsberechtigung" };
+        string[] themenbereiche =
+        {
+            "Organisation", "Nutzungsrichtlinie", "Geheimhaltung und Datenschutz", "Asset- und Risikomanagement",
+            "Notfallmanagement", "Awareness", "Systembetrieb", "Netzwerk und Kommunikation",
+            "Zutritts- und Zugriffsberechtigung"
+        };
         Random random = new Random();
         foreach (string themenbereich in themenbereiche)
         {
@@ -86,18 +97,19 @@ public class PDFReport
         // Tabelle auf die gewünschte Position zeichnen
         //table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
         //document.Add(table);
-
     }
 
     private void AddTextAbouveTable()
     {
         Phrase general = new Phrase();
-        Chunk header = new Chunk("MANAGEMENT SUMMARY", new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD, BaseColor.RED));
+        Chunk header = new Chunk("MANAGEMENT SUMMARY",
+            new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD, BaseColor.RED));
 
         general.Add(header);
         ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 720, 0);
 
-        string managementSummaryText = @"Am 28.03.2023 wurde der Ist-Stand hinsichtlich Informationssicherheit und Datenschutz durch die Beantwortung von 98 Fragen erhoben. Die Erhebung der Informationen wurde im Zuge einer Befragung von Max Mustermann durch Hr. Martin Mallinger (Infotech) durchgeführt.";
+        string managementSummaryText =
+            @"Am 28.03.2023 wurde der Ist-Stand hinsichtlich Informationssicherheit und Datenschutz durch die Beantwortung von 98 Fragen erhoben. Die Erhebung der Informationen wurde im Zuge einer Befragung von Max Mustermann durch Hr. Martin Mallinger (Infotech) durchgeführt.";
 
         // Erstellen eines neuen Paragraphs mit dem Text
         Paragraph managementSummaryParagraph = new Paragraph(managementSummaryText);
@@ -129,7 +141,8 @@ public class PDFReport
         // Schließen des ColumnText
         columnText.Go();
 
-        string tableHeaderText = @"Im Zuge des IT Security Checks wurde der Ist-Stand zu folgenden Themenbereichen erhoben: ";
+        string tableHeaderText =
+            @"Im Zuge des IT Security Checks wurde der Ist-Stand zu folgenden Themenbereichen erhoben: ";
         Paragraph tableHeaderParagraph = new Paragraph(tableHeaderText);
 
         // Festlegen der gewünschten Position
@@ -192,7 +205,6 @@ public class PDFReport
         ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 420, 110, 0);
 
 
-
         //ColumnText columnText = new ColumnText(writer.DirectContent);
         //columnText.SetSimpleColumn(40, 80, 200, 60); // Koordinaten und Größe des Textbereichs anpassen
 
@@ -204,14 +216,16 @@ public class PDFReport
         //contentByte.Fill();
 
 
-
         // Text schreiben
         general = new Phrase();
 
         Chunk redLine = new Chunk("| ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.RED));
-        Chunk firstGrayLine = new Chunk("Haus des Internets ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-        Chunk secondGrayLine = new Chunk("Haus der Sicherheit ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-        Chunk thirdGrayLine = new Chunk("Haus der Digitalisierung ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk firstGrayLine = new Chunk("Haus des Internets ",
+            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk secondGrayLine = new Chunk("Haus der Sicherheit ",
+            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk thirdGrayLine = new Chunk("Haus der Digitalisierung ",
+            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
 
         general.Add(redLine);
         general.Add(firstGrayLine);
@@ -223,9 +237,12 @@ public class PDFReport
 
         general = new Phrase();
 
-        Chunk fourthGrayLine = new Chunk("Haus der Arbeitsplätze ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-        Chunk fithGrayLine = new Chunk("Haus der Daten ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-        Chunk sixthGrayLine = new Chunk("Haus der Netzwerke ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk fourthGrayLine = new Chunk("Haus der Arbeitsplätze ",
+            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk fithGrayLine = new Chunk("Haus der Daten ",
+            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk sixthGrayLine = new Chunk("Haus der Netzwerke ",
+            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
 
         general.Add(redLine);
         general.Add(fourthGrayLine);
@@ -237,7 +254,10 @@ public class PDFReport
 
         general = new Phrase();
 
-        Chunk seventhGrayLine = new Chunk("INFOTECH EDV-Systeme GmbH | Schärdinger Straße 35 | 4910 Ried i.I. | Tel +43 7752 81711 | E-Mail office@infotech.at | www.infotech.at", new Font(Font.FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.WHITE));
+        Chunk seventhGrayLine =
+            new Chunk(
+                "INFOTECH EDV-Systeme GmbH | Schärdinger Straße 35 | 4910 Ried i.I. | Tel +43 7752 81711 | E-Mail office@infotech.at | www.infotech.at",
+                new Font(Font.FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.WHITE));
         general.Add(seventhGrayLine);
         ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 40, 20, 0);
 
@@ -260,15 +280,20 @@ public class PDFReport
 
     private void AddSecondPageMiddleText()
     {
-        string firstText = @"Dieses Dokument enthält vertrauliche Informationen und ist lediglich für die Geschäftsführung sowie die IT-Abteilung der Firma 'Musterfirma' vorgesehen. Eine Weitergabe an Dritte ist nicht gestattet und kann schwerwiegende Schäden für Musterfirma zur Folge haben.";
+        string firstText =
+            @"Dieses Dokument enthält vertrauliche Informationen und ist lediglich für die Geschäftsführung sowie die IT-Abteilung der Firma 'Musterfirma' vorgesehen. Eine Weitergabe an Dritte ist nicht gestattet und kann schwerwiegende Schäden für Musterfirma zur Folge haben.";
 
-        string secondText = @"Der in diesem Dokument enthaltene Fragenkatalog wurde von Infotech - basierend auf branchenüblichen Standards - erstellt. Die Veröffentlichung, jede Art gewerblicher Nutzung sowie eine Weitergabe an Dritte ist nicht gestattet.";
+        string secondText =
+            @"Der in diesem Dokument enthaltene Fragenkatalog wurde von Infotech - basierend auf branchenüblichen Standards - erstellt. Die Veröffentlichung, jede Art gewerblicher Nutzung sowie eine Weitergabe an Dritte ist nicht gestattet.";
 
-        string thirdText = @"Die Fragen wurden im Zuge eines Interviews durch Musterfirma beantwortet. Die von Infotech empfohlenen Maßnahmen setzen die Richtigkeit und Vollständigkeit der Antworten voraus, da keine über ein Interview hinausgehenden Audits durchgeführt wurden.";
+        string thirdText =
+            @"Die Fragen wurden im Zuge eines Interviews durch Musterfirma beantwortet. Die von Infotech empfohlenen Maßnahmen setzen die Richtigkeit und Vollständigkeit der Antworten voraus, da keine über ein Interview hinausgehenden Audits durchgeführt wurden.";
 
-        string fourthText = @"Bei jeder Frage können 0 bis 3 Punkte erreicht werden, wobei 3 das Maximum ist. Wird eine Frage mit 0 Punkten beurteilt, bedeutet dies, dass das Thema im Unternehmen nicht behandelt wurde. Eine Beurteilung mit 1 Punkt bedeutet, dass bereits erste Maßnahmen umgesetzt bzw. die Anforderungen rudimentär erfüllt sind. Damit eine Frage mit 2 Punkten beurteilt wird, müssen die Anforderungen weitestgehend erfüllt sein, technische Maßnahmen weitestgehend dem Stand der Technik entsprechen und Prozesse grundlegend definiert und etabliert sein. Damit eine Frage mit 3 Punkten beurteilt wird, müssen technische Maßnahmen vollumfänglich umgesetzt und Prozesse definiert sein. Darüber hinaus muss die Wirksamkeit der technischen und organisatorischen Maßnahmen regelmäßig nachvollziehbar auditiert und verbessert werden.";
+        string fourthText =
+            @"Bei jeder Frage können 0 bis 3 Punkte erreicht werden, wobei 3 das Maximum ist. Wird eine Frage mit 0 Punkten beurteilt, bedeutet dies, dass das Thema im Unternehmen nicht behandelt wurde. Eine Beurteilung mit 1 Punkt bedeutet, dass bereits erste Maßnahmen umgesetzt bzw. die Anforderungen rudimentär erfüllt sind. Damit eine Frage mit 2 Punkten beurteilt wird, müssen die Anforderungen weitestgehend erfüllt sein, technische Maßnahmen weitestgehend dem Stand der Technik entsprechen und Prozesse grundlegend definiert und etabliert sein. Damit eine Frage mit 3 Punkten beurteilt wird, müssen technische Maßnahmen vollumfänglich umgesetzt und Prozesse definiert sein. Darüber hinaus muss die Wirksamkeit der technischen und organisatorischen Maßnahmen regelmäßig nachvollziehbar auditiert und verbessert werden.";
 
-        string fithText = @"Es liegt in der Verantwortung von Musterfirma zu entscheiden, welche Handlungsempfehlungen in welcher Form umgesetzt werden.";
+        string fithText =
+            @"Es liegt in der Verantwortung von Musterfirma zu entscheiden, welche Handlungsempfehlungen in welcher Form umgesetzt werden.";
 
         document.Add(new Paragraph("\n"));
         document.Add(new Paragraph("\n"));
@@ -352,7 +377,7 @@ public class PDFReport
         string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
 
         //PdfReader reader = new PdfReader(fullPath);
-        int count = 9;//reader.NumberOfPages;
+        int count = 9; //reader.NumberOfPages;
         return count;
     }
 
@@ -378,14 +403,17 @@ public class PDFReport
         //footerText.Add(Chunk.NEWLINE);
         footerText = new Phrase();
         // Zweite Zeile der Fußzeile
-        Chunk chunk3 = new Chunk("Schärdinger Straße 35 | 4910 Ried i. I. | ", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
+        Chunk chunk3 = new Chunk("Schärdinger Straße 35 | 4910 Ried i. I. | ",
+            new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
         Chunk chunk4 = new Chunk("Telefon", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD));
         Chunk chunk5 = new Chunk(" 07752 81711 0 | ", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
         Chunk chunk6 = new Chunk("E-Mail ", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
-        Chunk chunk7 = new Chunk("office@infotech.at", new Font(Font.FontFamily.HELVETICA, 10, Font.UNDERLINE, BaseColor.RED));
+        Chunk chunk7 = new Chunk("office@infotech.at",
+            new Font(Font.FontFamily.HELVETICA, 10, Font.UNDERLINE, BaseColor.RED));
         chunk7.SetAnchor("mailto:office@infotech.at");
         Chunk chunk8 = new Chunk(" | ", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
-        Chunk chunk9 = new Chunk("www.infotech.at", new Font(Font.FontFamily.HELVETICA, 10, Font.UNDERLINE, BaseColor.RED));
+        Chunk chunk9 = new Chunk("www.infotech.at",
+            new Font(Font.FontFamily.HELVETICA, 10, Font.UNDERLINE, BaseColor.RED));
         chunk9.SetAnchor("http://www.infotech.at");
         footerText.Add(chunk3);
         footerText.Add(chunk4);
@@ -417,7 +445,8 @@ public class PDFReport
         leftCell1.BackgroundColor = new BaseColor(200, 200, 200);
         leftCell1.HorizontalAlignment = Element.ALIGN_LEFT;
         leftCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
-        leftCell1.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER;
+        leftCell1.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER |
+                           Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell1);
 
         PdfPCell rightCell1 = new PdfPCell(new Phrase("Interview / Selbstauskunft", normalFont));
@@ -432,7 +461,8 @@ public class PDFReport
         leftCell3.BackgroundColor = new BaseColor(200, 200, 200);
         leftCell3.HorizontalAlignment = Element.ALIGN_LEFT;
         leftCell3.VerticalAlignment = Element.ALIGN_MIDDLE;
-        leftCell3.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER;
+        leftCell3.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER |
+                           Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell3);
         PdfPCell rightCell2 = new PdfPCell(new Phrase(DateTime.Now.ToString("dd.MM.yyyy"), normalFont));
         table.AddCell(rightCell2);
@@ -446,9 +476,11 @@ public class PDFReport
         leftCell5.BackgroundColor = new BaseColor(200, 200, 200);
         leftCell5.HorizontalAlignment = Element.ALIGN_LEFT;
         leftCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
-        leftCell5.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER;
+        leftCell5.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER |
+                           Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell5);
-        PdfPCell rightCell3 = new PdfPCell(new Phrase("Max Mayr (IT-Verantwortlicher) Martin Mallinger (Infotech, Auditor)", normalFont));
+        PdfPCell rightCell3 =
+            new PdfPCell(new Phrase("Max Mayr (IT-Verantwortlicher) Martin Mallinger (Infotech, Auditor)", normalFont));
         table.AddCell(rightCell3);
         //PdfPCell leftCell6 = new PdfPCell(new Phrase("Max Mayr(IT-Verantwortlicher) Martin Mallinger (Infotech, Auditor)", normalFont));
         //leftCell6.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -460,9 +492,13 @@ public class PDFReport
         leftCell7.BackgroundColor = new BaseColor(200, 200, 200);
         leftCell7.HorizontalAlignment = Element.ALIGN_LEFT;
         leftCell7.VerticalAlignment = Element.ALIGN_MIDDLE;
-        leftCell7.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER;
+        leftCell7.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER |
+                           Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell7);
-        PdfPCell rightCell4 = new PdfPCell(new Phrase("Betrachtet wird die Informationssicherheit der Unternehmensgruppe. Es gibt keine Außenstandorte. Ca. 500 Mitarbeiter, davon 450 IT-Arbeitsplätze und ca. 300 bis 350 IT-Nutzer.", normalFont));
+        PdfPCell rightCell4 =
+            new PdfPCell(new Phrase(
+                "Betrachtet wird die Informationssicherheit der Unternehmensgruppe. Es gibt keine Außenstandorte. Ca. 500 Mitarbeiter, davon 450 IT-Arbeitsplätze und ca. 300 bis 350 IT-Nutzer.",
+                normalFont));
         table.AddCell(rightCell4);
         //PdfPCell leftCell8 = new PdfPCell(new Phrase("Betrachtet wird die Informationssicherheit der Unternehmensgruppe. Es gibt keine Außenstandorte. Ca. 500 Mitarbeiter, davon 4505 IT-Arbeitsplätze und ca. 300 bis 350 IT-Nutzer.", normalFont));
         //leftCell8.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -474,7 +510,9 @@ public class PDFReport
         leftCell9.BackgroundColor = new BaseColor(200, 200, 200);
         leftCell9.HorizontalAlignment = Element.ALIGN_LEFT;
         leftCell9.VerticalAlignment = Element.ALIGN_MIDDLE;
-        leftCell9.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER; table.AddCell(leftCell9);
+        leftCell9.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER |
+                           Rectangle.BOTTOM_BORDER;
+        table.AddCell(leftCell9);
 
         PdfPCell rightCell5 = new PdfPCell(new Phrase("1.5", normalFont));
         table.AddCell(rightCell5);
@@ -483,7 +521,8 @@ public class PDFReport
         leftCell10.BackgroundColor = new BaseColor(200, 200, 200);
         leftCell10.HorizontalAlignment = Element.ALIGN_LEFT;
         leftCell10.VerticalAlignment = Element.ALIGN_MIDDLE;
-        leftCell10.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER;
+        leftCell10.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER |
+                            Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell10);
 
         PdfPCell rightCell6 = new PdfPCell(new Phrase("Vertraulich", normalFont));
@@ -493,10 +532,12 @@ public class PDFReport
         leftCell11.BackgroundColor = new BaseColor(200, 200, 200);
         leftCell11.HorizontalAlignment = Element.ALIGN_LEFT;
         leftCell11.VerticalAlignment = Element.ALIGN_MIDDLE;
-        leftCell11.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER | Rectangle.BOTTOM_BORDER;
+        leftCell11.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.TOP_BORDER |
+                            Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell11);
 
-        PdfPCell rightCell7 = new PdfPCell(new Phrase("Max Mayr (IT-Verantwortlicher) Martin Mallinger (Infotech, Auditor)", normalFont));
+        PdfPCell rightCell7 =
+            new PdfPCell(new Phrase("Max Mayr (IT-Verantwortlicher) Martin Mallinger (Infotech, Auditor)", normalFont));
         table.AddCell(rightCell7);
         // Rechte Spalte
         //PdfPCell rightCell1 = new PdfPCell(new Phrase("Interview / Selbstauskunft", normalFont));
@@ -673,7 +714,8 @@ public class PDFReport
         table.TotalWidth = 698.5f;
         table.LockedWidth = true;
         table.SetWidths(new float[] { 1, 1, 1 });
-        iTextSharp.text.Image img1 = iTextSharp.text.Image.GetInstance("C:\\Schule\\2022-23KoglerD190073\\SYP\\PDFReport\\CreatePDFReport\\CreatePDFReport\\Pictures\\infotech-logo-farbe.png");
+        iTextSharp.text.Image img1 = iTextSharp.text.Image.GetInstance(
+            "C:\\Schule\\2022-23KoglerD190073\\SYP\\PDFReport\\CreatePDFReport\\CreatePDFReport\\Pictures\\infotech-logo-farbe.png");
         img1.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
         img1.ScaleToFit(120f, 155.25f);
 

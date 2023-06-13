@@ -6,14 +6,14 @@
 <html>
 <head>
     <title>AnwerQuestionsExtended</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link href="files/answerquestions/styles.css" type="text/css" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="files/answerquestions/styles.css" type="text/css" rel="stylesheet"/>
 
 </head>
 <body>
-    <div id="base" class="">
-        <script>
+<div id="base" class="">
+    <script>
             window.onload = function () {
                 const baseUrl = "https://localhost:7000";
 
@@ -169,28 +169,48 @@
 
         </script>
 
-        <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
+    <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
 
-        <!-- Download Pdf Report -->
-        <div>
-            <form method="post" asp-page-handler="DownloadSecurityCheck">
-                <button id="downloadBtn" type="submit">Download</button>
-            </form>
-        </div>
-
-        <!-- Company Name -->
-        <label id="companyNameLbl" type="text">@Model.CompanyName</label>
-
-        <!-- Security Check Type label -->
-        <label id="securityCheckTypeLbl" type="text">@Model.SecurityCheckType</label>
-
-        <!-- MainWindow Btn -->
-        <div>
-            <form method="post" asp-page-handler="RedirectMainWindow">
-                <button id="saveBtn" type="submit">Main Window</button>
-            </form>
-        </div>
-
+    <!-- Download Pdf Report -->
+    <div>
+        <form method="post" asp-page-handler="DownloadSecurityCheck" enctype="multipart/form-data">
+            <label for="img">Select image:</label>
+            <input class="buttonSave" type="file" id="img" name="img" accept="image/*">
+            <br/>
+            <button id="downloadBtn" type="submit">Download</button>
+        </form>
     </div>
+
+    <!-- Company Name -->
+    <label for="companyNameLbl">Firmenname</label>
+    <label id="companyNameLbl" type="text">@Model.CompanyName</label>
+    <br>
+    <label id="TypeOfExecutionLbl" type="text">@Model.TypeOfExecution</label>
+    <br>
+    <label id="ParticipantsLbl" type="text">@Model.Participants</label>
+    <br>
+    <label id="ClassificationLbl" type="text">@Model.Classification</label>
+    <br>
+    <label id="DocumentDistributorLbl" type="text">@Model.DocumentDistributor</label>
+    <br>
+    <!-- Security Check Type label -->
+    <label id="securityCheckTypeLbl" type="text">@Model.SecurityCheckType</label>
+
+    <!-- MainWindow Btn -->
+    <div>
+        <form method="post" asp-page-handler="RedirectMainWindow">
+            <button id="saveBtn" type="submit">Main Window</button>
+        </form>
+    </div>
+
+    @* <div> *@
+    @*     <form method="post" asp-page-handler="ImageUploaded" enctype="multipart/form-data"> *@
+    @*         <label for="img">Select image:</label> *@
+    @*         <input class="buttonSave" type="file" id="img" name="img" accept="image/*"> *@
+    @*         <input class="buttonSave" type="submit"> *@
+    @*     </form> *@
+    @* </div> *@
+
+</div>
 </body>
 </html>
