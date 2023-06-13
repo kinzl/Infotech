@@ -21,8 +21,13 @@
   <ItemGroup>
     <PackageReference Include="GrueneisR.RestClientGenerator" Version="1.2.0" />
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+<<<<<<< HEAD
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.7">
+=======
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.5.23280.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+>>>>>>> 9afe6a12c7266cad0a52311da9a69bdf6e3e9f76
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
