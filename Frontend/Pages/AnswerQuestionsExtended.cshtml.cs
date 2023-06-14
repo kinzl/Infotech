@@ -22,9 +22,11 @@ public class AnswerQuestionsExtendedModel : PageModel
     public string? CompanyName { get; set; }
     public string? TypeOfExecution { get; set; }
     public string? Participants { get; set; }
+    public string? Scope { get; set; }
     public string? Classification { get; set; }
     public string? DocumentDistributor { get; set; }
     public string? SecurityCheckType { get; set; }
+    public string? ManagementSummary { get; set; }
 
     public IActionResult OnGet()
     {
@@ -122,6 +124,11 @@ public class AnswerQuestionsExtendedModel : PageModel
             .Where(x => x.CustomerSurveyId == index)
             .Select(x => x.CustomerSurvey.Participant)
             .First() ?? "";
+        Scope = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
+            .Where(x => x.CustomerSurveyId == index)
+            .Select(x => x.CustomerSurvey.Scope)
+            .First() ?? "";
         Classification = _db.SurveyQuestions
             .Include(x => x.CustomerSurvey)
             .Where(x => x.CustomerSurveyId == index)
@@ -132,6 +139,11 @@ public class AnswerQuestionsExtendedModel : PageModel
             .Where(x => x.CustomerSurveyId == index)
             .Select(x => x.CustomerSurvey.DocumentDistributor)
             .First() ?? "";
+        ManagementSummary = _db.SurveyQuestions
+            .Include(x => x.CustomerSurvey)
+            .Where(x => x.CustomerSurveyId == index)
+            .Select(x => x.CustomerSurvey.ManagementSummaryText)
+            .First() ?? "";
         SecurityCheckType = _db.SurveyQuestions
             .Include(x => x.Questionnaire)
             .Where(x => x.CustomerSurveyId == index)
@@ -141,8 +153,19 @@ public class AnswerQuestionsExtendedModel : PageModel
 
     public IActionResult OnPostDownloadSecurityCheck(IFormFile img)
     {
+        Initialize();
         _logger.LogInformation("AnswerQuestionsExtendedModel OnPostDownloadSecurityCheck");
-        PDFReport pdf = new PDFReport(_db, AllQuestionsAndAnswers, img);
+        PDFReport pdf = new PDFReport(_db, AllQuestionsAndAnswers, img, new PdfReportDto()
+        {
+            TypeOfExecution = TypeOfExecution,
+            Classification = Classification,
+            CompanyName = CompanyName,
+            DocumentDistributor = DocumentDistributor,
+            Participants = Participants,
+            SecurityCheckType = SecurityCheckType,
+            ManagementSummary = ManagementSummary,
+            Scope = Scope
+        });
         pdf.CreatePDF();
         return new RedirectToPageResult("MainWindow");
     }
@@ -155,7 +178,7 @@ public class AnswerQuestionsExtendedModel : PageModel
     public IActionResult OnPostImageUploaded(IFormFile img)
     {
         Initialize();
-        
+
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 }

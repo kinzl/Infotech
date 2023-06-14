@@ -6,14 +6,14 @@
 <html>
 <head>
     <title>AnwerQuestionsExtended</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="files/answerquestions/styles.css" type="text/css" rel="stylesheet"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href="files/answerquestions/styles.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>
-<div id="base" class="">
-    <script>
+    <div id="base" class="">
+        <script>
             window.onload = function () {
                 const baseUrl = "https://localhost:7000";
 
@@ -26,7 +26,7 @@
                 }
 
                 let lastDivTagValue = 0;
-                
+
 
                 for (let j = 0; j < numOfQuestions; j++) {
                     //DivContainer
@@ -45,14 +45,14 @@
                     document.getElementById("radioButtonContainer" + j).appendChild(criticality);
 
                     document.getElementById("radioButtonContainer" + j).append(document.createElement("p"));
-                    
+
                     //Question
                     let question = document.createElement("label");
                     question.id = "question" + j;
                     question.className = "question";
                     question.textContent = allquestionsandanswers[j].Question;
                     document.getElementById("radioButtonContainer" + j).appendChild(question);
-                    
+
                     document.getElementById("radioButtonContainer" + j).append(document.createElement("p"));
 
                     //Categorie
@@ -63,7 +63,7 @@
                     document.getElementById("radioButtonContainer" + j).appendChild(categorie);
 
                     document.getElementById("radioButtonContainer" + j).append(document.createElement("p"));
-                    
+
                     //Radio Buttons
                     for (let i = 0; i < Object.keys(allquestionsandanswers[j].Answer).length; i++) {
                         let radioButton1 = document.createElement("input");
@@ -93,10 +93,10 @@
                         let label1 = document.createElement("label");
                         label1.htmlFor = radioButton1.id;
                         label1.innerHTML = radioButton1.value;
-                        if (radioButton1.checked === true){
-                        label1.className = "selectedValue";
+                        if (radioButton1.checked === true) {
+                            label1.className = "selectedValue";
                         }
-                        
+
                         // document.getElementById("radioButtonContainer" + j).appendChild(radioButton1);
                         document.getElementById("radioButtonContainer" + j).appendChild(label1);
                         document.getElementById("radioButtonContainer" + j).appendChild(document.createElement("br"));
@@ -149,7 +149,7 @@
                     const url = baseUrl + "/AnswerQuestions/UpdateCriticism/" + JSON.stringify(allquestionsandanswers);
                     $.post(url, (data) => console.log(data));
                     location.href = "MainWindow";
-                     //ToDo: Save Recommendation and Risk in database
+                    //ToDo: Save Recommendation and Risk in database
 
                 }
 
@@ -169,48 +169,58 @@
 
         </script>
 
-    <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
+        <img id="infotechLogo" src="images/InfotechLogo.png" class="img-fluid" alt="Responsive image">
 
-    <!-- Download Pdf Report -->
-    <div>
-        <form method="post" asp-page-handler="DownloadSecurityCheck" enctype="multipart/form-data">
-            <label for="img">Select image:</label>
-            <input class="buttonSave" type="file" id="img" name="img" accept="image/*">
-            <br/>
-            <button id="downloadBtn" type="submit">Download</button>
-        </form>
+        <!-- Download Pdf Report -->
+        <div>
+            <form method="post" asp-page-handler="DownloadSecurityCheck" enctype="multipart/form-data">
+                <label for="img">Select image:</label>
+                <input class="buttonSave" type="file" id="img" name="img" accept="image/*">
+                <br />
+                <button id="downloadBtn" type="submit">Download</button>
+            </form>
+        </div>
+
+        <!-- Company Name -->
+        <label for="companyNameLbl">Firmenname: </label>
+        <label id="companyNameLbl" type="text">@Model.CompanyName</label>
+        <br>
+        <label for="TypeOfExecutionLbl">Art der Durchführung: </label>
+        <label id="TypeOfExecutionLbl" type="text">@Model.TypeOfExecution</label>
+        <br>
+        <label for="ParticipantsLbl">Teilnehmer: </label>
+        <label id="ParticipantsLbl" type="text">@Model.Participants</label>
+        <br>
+        <label for="ScopeLbl">Scope: </label>
+        <label id="ScopeLbl" type="text">@Model.Scope</label>
+        <br>
+        <label for="ClassificationLbl">Klassifizierung: </label>
+        <label id="ClassificationLbl" type="text">@Model.Classification</label>
+        <br>
+        <label for="ClassificationLbl">Dokumentenverteiler: </label>
+        <label id="DocumentDistributorLbl" type="text">@Model.DocumentDistributor</label>
+        <br>
+        <label for="ManagementSummaryLbl">Management Summary: </label>
+        <label id="ManagementSummaryLbl" type="text">@Model.ManagementSummary</label>
+        <br>
+        <!-- Security Check Type label -->
+        <label id="securityCheckTypeLbl" type="text">@Model.SecurityCheckType</label>
+
+        <!-- MainWindow Btn -->
+        <div>
+            <form method="post" asp-page-handler="RedirectMainWindow">
+                <button id="saveBtn" type="submit">Main Window</button>
+            </form>
+        </div>
+
+        @* <div> *@
+        @*     <form method="post" asp-page-handler="ImageUploaded" enctype="multipart/form-data"> *@
+        @*         <label for="img">Select image:</label> *@
+        @*         <input class="buttonSave" type="file" id="img" name="img" accept="image/*"> *@
+        @*         <input class="buttonSave" type="submit"> *@
+        @*     </form> *@
+        @* </div> *@
+
     </div>
-
-    <!-- Company Name -->
-    <label for="companyNameLbl">Firmenname</label>
-    <label id="companyNameLbl" type="text">@Model.CompanyName</label>
-    <br>
-    <label id="TypeOfExecutionLbl" type="text">@Model.TypeOfExecution</label>
-    <br>
-    <label id="ParticipantsLbl" type="text">@Model.Participants</label>
-    <br>
-    <label id="ClassificationLbl" type="text">@Model.Classification</label>
-    <br>
-    <label id="DocumentDistributorLbl" type="text">@Model.DocumentDistributor</label>
-    <br>
-    <!-- Security Check Type label -->
-    <label id="securityCheckTypeLbl" type="text">@Model.SecurityCheckType</label>
-
-    <!-- MainWindow Btn -->
-    <div>
-        <form method="post" asp-page-handler="RedirectMainWindow">
-            <button id="saveBtn" type="submit">Main Window</button>
-        </form>
-    </div>
-
-    @* <div> *@
-    @*     <form method="post" asp-page-handler="ImageUploaded" enctype="multipart/form-data"> *@
-    @*         <label for="img">Select image:</label> *@
-    @*         <input class="buttonSave" type="file" id="img" name="img" accept="image/*"> *@
-    @*         <input class="buttonSave" type="submit"> *@
-    @*     </form> *@
-    @* </div> *@
-
-</div>
 </body>
 </html>

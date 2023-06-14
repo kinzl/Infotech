@@ -225,7 +225,7 @@ public class AnswerQuestions : PageModel
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 
-    public IActionResult OnPostSubmitCompanyName(string companyName, string typeOfExecution, string participants, string classification, string documentDistributor, string managementSummary)
+    public IActionResult OnPostSubmitCompanyName(string companyName, string typeOfExecution, string participants, string scope, string classification, string documentDistributor, string managementSummary)
     {
         _logger.LogInformation("AnswerQuestions OnPostSubmitCompanyName");
         var thisSurvey = _db.CustomerSurveys
@@ -235,6 +235,7 @@ public class AnswerQuestions : PageModel
         thisSurvey.CompanyName = companyName;
         thisSurvey.TypeOfSurvey = typeOfExecution;
         thisSurvey.Participant = participants;
+        thisSurvey.Scope = scope;
         thisSurvey.Classification = classification;
         thisSurvey.DocumentDistributor = documentDistributor;
         thisSurvey.ManagementSummaryText = managementSummary;

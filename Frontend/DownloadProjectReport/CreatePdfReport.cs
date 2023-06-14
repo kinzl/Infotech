@@ -1,5 +1,6 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Questionnaire_Frontend.DownloadProjectReport;
 using Rectangle = iTextSharp.text.Rectangle;
 
 namespace CreatePDFReport;
@@ -10,14 +11,16 @@ public class PDFReport
     private PdfWriter writer;
     private int maxPageCount = 0;
     private SecurityCheckContext _db;
-    private List<QuestionDto> AllQuestionsAndAnswers;
+    private List<QuestionDto> _allQuestionsAndAnswers;
     private IFormFile _chart;
+    private PdfReportDto _pdfReportDto;
 
-    public PDFReport(SecurityCheckContext db, List<QuestionDto> allQuestionsAndAnswers, IFormFile chart)
+    public PDFReport(SecurityCheckContext db, List<QuestionDto> allQuestionsAndAnswers, IFormFile chart, PdfReportDto pdfReportDto)
     {
         _db = db;
-        AllQuestionsAndAnswers = allQuestionsAndAnswers;
+        _allQuestionsAndAnswers = allQuestionsAndAnswers;
         _chart = chart;
+        _pdfReportDto = pdfReportDto;
     }
 
     public void CreatePDF()
@@ -33,6 +36,14 @@ public class PDFReport
 
         ManagementSummaryPage();
 
+        AddNewEmptyPage();
+
+        DiagramPage();
+
+        AddNewEmptyPage();
+
+        DetailsPages();
+
         CloseDocument();
     }
 
@@ -47,129 +58,15 @@ public class PDFReport
         AddStandardFooter();
     }
 
-    private void AddMMSTable()
+    private int calculateReachedPointsForCategory(string category)
     {
-        PdfPTable table = new PdfPTable(5);
+        //int notAnswered = _allQuestionsAndAnswers.Where(x => x.Category == category).Select(x => x.Answer.NotAnswered.Selected).Count();
+        //int answerZero = _allQuestionsAndAnswers.Where(x => x.Category == category).Select(x => x.Answer.AnswerZero.Selected).Count();
+        int answerOne = (_allQuestionsAndAnswers.Where(x => x.Category == category).Where(x => x.Answer.AnswerOne.Selected).Count() * 1);
+        int answerTwo = (_allQuestionsAndAnswers.Where(x => x.Category == category).Where(x => x.Answer.AnswerTwo.Selected).Count() * 2);
+        int answerThree = (_allQuestionsAndAnswers.Where(x => x.Category == category).Where(x => x.Answer.AnswerThree.Selected).Count() * 3);
 
-        // Festlegen der Breitenverhältnisse der Spalten
-        float[] columnWidths = { 4f, 1f, 1f, 1f, 1f };
-        table.SetWidths(columnWidths);
-
-        // Hinzufügen des Headers
-        string[] headers = { "Themenbereich", "Fragen", "Max. Punkte", "Erreichte Punkte", "Erreichte Punkte (%)" };
-        foreach (string headerText in headers)
-        {
-            PdfPCell headerCell = new PdfPCell(new Phrase(headerText,
-                new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.RED)));
-            headerCell.BackgroundColor = new BaseColor(210, 210, 210); // Hellgraue Farbe für den Hintergrund
-            headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
-            table.AddCell(headerCell);
-        }
-
-        // Befüllen des Body mit den Themenbereichen und Zufallswerten
-        string[] themenbereiche =
-        {
-            "Organisation", "Nutzungsrichtlinie", "Geheimhaltung und Datenschutz", "Asset- und Risikomanagement",
-            "Notfallmanagement", "Awareness", "Systembetrieb", "Netzwerk und Kommunikation",
-            "Zutritts- und Zugriffsberechtigung"
-        };
-        Random random = new Random();
-        foreach (string themenbereich in themenbereiche)
-        {
-            table.AddCell(themenbereich);
-            table.AddCell(random.Next(1, 10).ToString()); // Fragen
-            table.AddCell(random.Next(50, 100).ToString()); // Max. Punkte
-            table.AddCell(random.Next(1, 50).ToString()); // Erreichte Punkte
-            table.AddCell(random.Next(1, 100).ToString() + "%"); // Erreichte Punkte (%)
-        }
-
-        // Festlegen der Trennungslinien
-        //table.DefaultCell.Border = Rectangle.NO_BORDER;
-        //table.DefaultCell.BorderColor = BaseColor.GRAY;
-        //table.DefaultCell.BorderWidthBottom = 0.5f;
-
-        // Hinzufügen der Tabelle zum Dokument
-        float xPosition = 50;
-        float yPosition = 580;
-
-        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
-        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
-        // Tabelle auf die gewünschte Position zeichnen
-        //table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
-        //document.Add(table);
-    }
-
-    private void AddTextAbouveTable()
-    {
-        Phrase general = new Phrase();
-        Chunk header = new Chunk("MANAGEMENT SUMMARY",
-            new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD, BaseColor.RED));
-
-        general.Add(header);
-        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 720, 0);
-
-        string managementSummaryText =
-            @"Am 28.03.2023 wurde der Ist-Stand hinsichtlich Informationssicherheit und Datenschutz durch die Beantwortung von 98 Fragen erhoben. Die Erhebung der Informationen wurde im Zuge einer Befragung von Max Mustermann durch Hr. Martin Mallinger (Infotech) durchgeführt.";
-
-        // Erstellen eines neuen Paragraphs mit dem Text
-        Paragraph managementSummaryParagraph = new Paragraph(managementSummaryText);
-
-        // Festlegen der gewünschten Position
-        float x = 50; // X-Koordinate
-        float y = 700; // Y-Koordinate
-
-        // Erstellen einer ColumnText-Instanz und Festlegen der Position
-        ColumnText columnText = new ColumnText(writer.DirectContent);
-        columnText.SetSimpleColumn(x, y, PageSize.A4.Width - 50, y - 200); // 200 ist die maximale Höhe für den Absatz
-
-        // Hinzufügen des Paragraphs zum ColumnText
-        columnText.AddElement(managementSummaryParagraph);
-
-        // Ausrichtung des Textes
-        columnText.Alignment = Element.ALIGN_LEFT;
-
-        // Schleife zum Hinzufügen von Absätzen bei Bedarf
-        while (ColumnText.HasMoreText(columnText.Go()))
-        {
-            // Erstellen eines neuen Absatzes
-            Paragraph newParagraph = new Paragraph();
-
-            // Hinzufügen des Absatzes zum ColumnText
-            columnText.AddElement(newParagraph);
-        }
-
-        // Schließen des ColumnText
-        columnText.Go();
-
-        string tableHeaderText =
-            @"Im Zuge des IT Security Checks wurde der Ist-Stand zu folgenden Themenbereichen erhoben: ";
-        Paragraph tableHeaderParagraph = new Paragraph(tableHeaderText);
-
-        // Festlegen der gewünschten Position
-        x = 50; // X-Koordinate
-        y = 620; // Y-Koordinate
-
-        columnText = new ColumnText(writer.DirectContent);
-        columnText.SetSimpleColumn(x, y, PageSize.A4.Width - 50, y - 200); // 200 ist die maximale Höhe für den Absatz
-
-        // Hinzufügen des Paragraphs zum ColumnText
-        columnText.AddElement(tableHeaderParagraph);
-
-        // Ausrichtung des Textes
-        columnText.Alignment = Element.ALIGN_LEFT;
-
-        // Schleife zum Hinzufügen von Absätzen bei Bedarf
-        while (ColumnText.HasMoreText(columnText.Go()))
-        {
-            // Erstellen eines neuen Absatzes
-            Paragraph newParagraph = new Paragraph();
-
-            // Hinzufügen des Absatzes zum ColumnText
-            columnText.AddElement(newParagraph);
-        }
-
-        // Schließen des ColumnText
-        columnText.Go();
+        return (answerOne + answerTwo + answerThree);
     }
 
     private void SecondPage()
@@ -181,119 +78,22 @@ public class PDFReport
         AddStandardFooter();
     }
 
-    private void AddStandardFooter()
-    {
-        // Rechteck hinzufügen
-        PdfContentByte canvas = writer.DirectContent;
-        Rectangle rect = new Rectangle(0, 0, PageSize.A4.Width, 100);
-        rect.BackgroundColor = new BaseColor(82, 82, 82); // Graue Farbe setzen
-        canvas.Rectangle(rect);
-
-        Phrase general = new Phrase();
-
-        Chunk checkCompanyDate = new Chunk("IT Security Check, Musterfirma, " + DateTime.Now.ToString("MMM yyyy"));
-        general.Add(checkCompanyDate);
-        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 110, 0);
-
-        general = new Phrase();
-
-        Chunk pageCount = new Chunk("Seite " + document.PageNumber + " / ");
-        Chunk maxPageCount = new Chunk(GetMaxPageCount() + "", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD));
-
-        general.Add(pageCount);
-        general.Add(maxPageCount);
-        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 420, 110, 0);
-
-
-        //ColumnText columnText = new ColumnText(writer.DirectContent);
-        //columnText.SetSimpleColumn(40, 80, 200, 60); // Koordinaten und Größe des Textbereichs anpassen
-
-        //BaseColor backgroundColor = new BaseColor(50, 50, 50); // Dunkelgraue Hintergrundfarbe
-
-        //// Rechteck für den Hintergrund zeichnen
-        //PdfContentByte contentByte = writer.DirectContent;
-        //contentByte.SetColorFill(backgroundColor);
-        //contentByte.Fill();
-
-
-        // Text schreiben
-        general = new Phrase();
-
-        Chunk redLine = new Chunk("| ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.RED));
-        Chunk firstGrayLine = new Chunk("Haus des Internets ",
-            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-        Chunk secondGrayLine = new Chunk("Haus der Sicherheit ",
-            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-        Chunk thirdGrayLine = new Chunk("Haus der Digitalisierung ",
-            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-
-        general.Add(redLine);
-        general.Add(firstGrayLine);
-        general.Add(redLine);
-        general.Add(secondGrayLine);
-        general.Add(redLine);
-        general.Add(thirdGrayLine);
-        ColumnText.ShowTextAligned(canvas, Element.ALIGN_LEFT, general, 40, 70, 0);
-
-        general = new Phrase();
-
-        Chunk fourthGrayLine = new Chunk("Haus der Arbeitsplätze ",
-            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-        Chunk fithGrayLine = new Chunk("Haus der Daten ",
-            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-        Chunk sixthGrayLine = new Chunk("Haus der Netzwerke ",
-            new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
-
-        general.Add(redLine);
-        general.Add(fourthGrayLine);
-        general.Add(redLine);
-        general.Add(fithGrayLine);
-        general.Add(redLine);
-        general.Add(sixthGrayLine);
-        ColumnText.ShowTextAligned(canvas, Element.ALIGN_LEFT, general, 40, 50, 0);
-
-        general = new Phrase();
-
-        Chunk seventhGrayLine =
-            new Chunk(
-                "INFOTECH EDV-Systeme GmbH | Schärdinger Straße 35 | 4910 Ried i.I. | Tel +43 7752 81711 | E-Mail office@infotech.at | www.infotech.at",
-                new Font(Font.FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.WHITE));
-        general.Add(seventhGrayLine);
-        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 40, 20, 0);
-
-        string relativePath = "Pictures/FooterRightBottom.png";
-        string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
-        iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(fullPath);
-        image.ScaleToFit(210, 90);
-        image.Alignment = iTextSharp.text.Image.ALIGN_RIGHT;
-        image.Border = 20;
-        image.BorderColor = BaseColor.WHITE;
-
-        float x = 500;
-        float y = 30;
-
-        canvas.AddImage(image, image.ScaledWidth, 0f, 0f, image.ScaledHeight, x, y);
-
-        //Das mit den Max Seitenanzahl geht nicht
-        //Infotech fragen, ob sie report schicken können!
-    }
-
     private void AddSecondPageMiddleText()
     {
         string firstText =
-            @"Dieses Dokument enthält vertrauliche Informationen und ist lediglich für die Geschäftsführung sowie die IT-Abteilung der Firma 'Musterfirma' vorgesehen. Eine Weitergabe an Dritte ist nicht gestattet und kann schwerwiegende Schäden für Musterfirma zur Folge haben.";
+            @"Dieses Dokument enthält vertrauliche Informationen und ist lediglich für die Geschäftsführung sowie die IT-Abteilung der Firma " + _pdfReportDto.CompanyName + " vorgesehen. Eine Weitergabe an Dritte ist nicht gestattet und kann schwerwiegende Schäden für " + _pdfReportDto.CompanyName + " zur Folge haben.";
 
         string secondText =
             @"Der in diesem Dokument enthaltene Fragenkatalog wurde von Infotech - basierend auf branchenüblichen Standards - erstellt. Die Veröffentlichung, jede Art gewerblicher Nutzung sowie eine Weitergabe an Dritte ist nicht gestattet.";
 
         string thirdText =
-            @"Die Fragen wurden im Zuge eines Interviews durch Musterfirma beantwortet. Die von Infotech empfohlenen Maßnahmen setzen die Richtigkeit und Vollständigkeit der Antworten voraus, da keine über ein Interview hinausgehenden Audits durchgeführt wurden.";
+            @"Die Fragen wurden im Zuge eines Interviews durch " + _pdfReportDto.CompanyName + " beantwortet. Die von Infotech empfohlenen Maßnahmen setzen die Richtigkeit und Vollständigkeit der Antworten voraus, da keine über ein Interview hinausgehenden Audits durchgeführt wurden.";
 
         string fourthText =
             @"Bei jeder Frage können 0 bis 3 Punkte erreicht werden, wobei 3 das Maximum ist. Wird eine Frage mit 0 Punkten beurteilt, bedeutet dies, dass das Thema im Unternehmen nicht behandelt wurde. Eine Beurteilung mit 1 Punkt bedeutet, dass bereits erste Maßnahmen umgesetzt bzw. die Anforderungen rudimentär erfüllt sind. Damit eine Frage mit 2 Punkten beurteilt wird, müssen die Anforderungen weitestgehend erfüllt sein, technische Maßnahmen weitestgehend dem Stand der Technik entsprechen und Prozesse grundlegend definiert und etabliert sein. Damit eine Frage mit 3 Punkten beurteilt wird, müssen technische Maßnahmen vollumfänglich umgesetzt und Prozesse definiert sein. Darüber hinaus muss die Wirksamkeit der technischen und organisatorischen Maßnahmen regelmäßig nachvollziehbar auditiert und verbessert werden.";
 
         string fithText =
-            @"Es liegt in der Verantwortung von Musterfirma zu entscheiden, welche Handlungsempfehlungen in welcher Form umgesetzt werden.";
+            @"Es liegt in der Verantwortung von " + _pdfReportDto.CompanyName + " zu entscheiden, welche Handlungsempfehlungen in welcher Form umgesetzt werden.";
 
         document.Add(new Paragraph("\n"));
         document.Add(new Paragraph("\n"));
@@ -449,7 +249,7 @@ public class PDFReport
                            Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell1);
 
-        PdfPCell rightCell1 = new PdfPCell(new Phrase("Interview / Selbstauskunft", normalFont));
+        PdfPCell rightCell1 = new PdfPCell(new Phrase(_pdfReportDto.TypeOfExecution, normalFont));
         table.AddCell(rightCell1);
         //PdfPCell leftCell2 = new PdfPCell(new Phrase("Interview / Selbstauskunft", normalFont));
         //leftCell2.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -480,7 +280,7 @@ public class PDFReport
                            Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell5);
         PdfPCell rightCell3 =
-            new PdfPCell(new Phrase("Max Mayr (IT-Verantwortlicher) Martin Mallinger (Infotech, Auditor)", normalFont));
+            new PdfPCell(new Phrase(_pdfReportDto.Participants, normalFont));
         table.AddCell(rightCell3);
         //PdfPCell leftCell6 = new PdfPCell(new Phrase("Max Mayr(IT-Verantwortlicher) Martin Mallinger (Infotech, Auditor)", normalFont));
         //leftCell6.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -497,8 +297,7 @@ public class PDFReport
         table.AddCell(leftCell7);
         PdfPCell rightCell4 =
             new PdfPCell(new Phrase(
-                "Betrachtet wird die Informationssicherheit der Unternehmensgruppe. Es gibt keine Außenstandorte. Ca. 500 Mitarbeiter, davon 450 IT-Arbeitsplätze und ca. 300 bis 350 IT-Nutzer.",
-                normalFont));
+                _pdfReportDto.Scope, normalFont));
         table.AddCell(rightCell4);
         //PdfPCell leftCell8 = new PdfPCell(new Phrase("Betrachtet wird die Informationssicherheit der Unternehmensgruppe. Es gibt keine Außenstandorte. Ca. 500 Mitarbeiter, davon 4505 IT-Arbeitsplätze und ca. 300 bis 350 IT-Nutzer.", normalFont));
         //leftCell8.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -525,7 +324,7 @@ public class PDFReport
                             Rectangle.BOTTOM_BORDER;
         table.AddCell(leftCell10);
 
-        PdfPCell rightCell6 = new PdfPCell(new Phrase("Vertraulich", normalFont));
+        PdfPCell rightCell6 = new PdfPCell(new Phrase(_pdfReportDto.Classification, normalFont));
         table.AddCell(rightCell6);
 
         PdfPCell leftCell11 = new PdfPCell(new Phrase("Dokumentenverteiler", normalFont));
@@ -537,7 +336,7 @@ public class PDFReport
         table.AddCell(leftCell11);
 
         PdfPCell rightCell7 =
-            new PdfPCell(new Phrase("Max Mayr (IT-Verantwortlicher) Martin Mallinger (Infotech, Auditor)", normalFont));
+            new PdfPCell(new Phrase(_pdfReportDto.DocumentDistributor, normalFont));
         table.AddCell(rightCell7);
         // Rechte Spalte
         //PdfPCell rightCell1 = new PdfPCell(new Phrase("Interview / Selbstauskunft", normalFont));
@@ -638,7 +437,7 @@ public class PDFReport
     private void AddCompAddLoc()
     {
         Font boldFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
-        Chunk chunk1 = new Chunk("Firma", boldFont);
+        Chunk chunk1 = new Chunk(_pdfReportDto.CompanyName, boldFont);
         Chunk chunk2 = new Chunk("Anschrift", boldFont);
         Chunk chunk3 = new Chunk("Ort", boldFont);
 
@@ -739,4 +538,890 @@ public class PDFReport
         //image.SpacingAfter = 120f;
         document.Add(image);
     }
+
+    private void AddTextAbouveTable()
+    {
+        Phrase general = new Phrase();
+        Chunk header = new Chunk("MANAGEMENT SUMMARY", new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD, BaseColor.RED));
+
+        general.Add(header);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 720, 0);
+
+        //string managementSummaryText = @"Am 28.03.2023 wurde der Ist-Stand hinsichtlich Informationssicherheit und Datenschutz durch die Beantwortung von 98 Fragen erhoben. Die Erhebung der Informationen wurde im Zuge einer Befragung von Max Mustermann durch Hr. Martin Mallinger (Infotech) durchgeführt.";
+
+        string managementSummaryText = _pdfReportDto.ManagementSummary;
+        // Erstellen eines neuen Paragraphs mit dem Text
+        Paragraph managementSummaryParagraph = new Paragraph(managementSummaryText);
+
+        // Festlegen der gewünschten Position
+        float x = 50; // X-Koordinate
+        float y = 700; // Y-Koordinate
+
+        // Erstellen einer ColumnText-Instanz und Festlegen der Position
+        ColumnText columnText = new ColumnText(writer.DirectContent);
+        columnText.SetSimpleColumn(x, y, PageSize.A4.Width - 50, y - 200); // 200 ist die maximale Höhe für den Absatz
+
+        // Hinzufügen des Paragraphs zum ColumnText
+        columnText.AddElement(managementSummaryParagraph);
+
+        // Ausrichtung des Textes
+        columnText.Alignment = Element.ALIGN_LEFT;
+
+        // Schleife zum Hinzufügen von Absätzen bei Bedarf
+        while (ColumnText.HasMoreText(columnText.Go()))
+        {
+            // Erstellen eines neuen Absatzes
+            Paragraph newParagraph = new Paragraph();
+
+            // Hinzufügen des Absatzes zum ColumnText
+            columnText.AddElement(newParagraph);
+        }
+
+        // Schließen des ColumnText
+        columnText.Go();
+
+        string tableHeaderText = @"Im Zuge des IT Security Checks wurde der Ist-Stand zu folgenden Themenbereichen erhoben: ";
+        Paragraph tableHeaderParagraph = new Paragraph(tableHeaderText);
+
+        // Festlegen der gewünschten Position
+        x = 50; // X-Koordinate
+        y = 620; // Y-Koordinate
+
+        columnText = new ColumnText(writer.DirectContent);
+        columnText.SetSimpleColumn(x, y, PageSize.A4.Width - 50, y - 200); // 200 ist die maximale Höhe für den Absatz
+
+        // Hinzufügen des Paragraphs zum ColumnText
+        columnText.AddElement(tableHeaderParagraph);
+
+        // Ausrichtung des Textes
+        columnText.Alignment = Element.ALIGN_LEFT;
+
+        // Schleife zum Hinzufügen von Absätzen bei Bedarf
+        while (ColumnText.HasMoreText(columnText.Go()))
+        {
+            // Erstellen eines neuen Absatzes
+            Paragraph newParagraph = new Paragraph();
+
+            // Hinzufügen des Absatzes zum ColumnText
+            columnText.AddElement(newParagraph);
+        }
+
+        // Schließen des ColumnText
+        columnText.Go();
+    }
+
+    private void AddMMSTable()
+    {
+        PdfPTable table = new PdfPTable(5);
+
+        // Festlegen der Breitenverhältnisse der Spalten
+        float[] columnWidths = { 4f, 1f, 1f, 1f, 1f };
+        table.SetWidths(columnWidths);
+
+        // Hinzufügen des Headers
+        string[] headers = { "Themenbereich", "Fragen", "Max. Punkte", "Erreichte Punkte", "Erreichte Punkte (%)" };
+        foreach (string headerText in headers)
+        {
+            PdfPCell headerCell = new PdfPCell(new Phrase(headerText, new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.RED)));
+            headerCell.BackgroundColor = new BaseColor(210, 210, 210); // Hellgraue Farbe für den Hintergrund
+            headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(headerCell);
+        }
+
+        // Befüllen des Body mit den Themenbereichen und Zufallswerten
+        //string[] themenbereiche = { "Organisation", "Nutzungsrichtlinie", "Geheimhaltung und Datenschutz", "Asset- und Risikomanagement", "Notfallmanagement", "Awareness", "Systembetrieb", "Netzwerk und Kommunikation", "Zutritts- und Zugriffsberechtigung" };
+        List<string> themenbereiche = _allQuestionsAndAnswers.Select(x => x.Category).Distinct().ToList();
+        Random random = new Random();
+        foreach (string themenbereich in themenbereiche)
+        {
+            table.AddCell(themenbereich);
+            int nrQuestion = _allQuestionsAndAnswers.Where(x => x.Category == themenbereich).Select(x => x.Question).Count();
+            table.AddCell(nrQuestion.ToString());
+            //table.AddCell(random.Next(1, 10).ToString()); // Fragen
+            double maxPoints = nrQuestion * 4;
+            table.AddCell(maxPoints.ToString()); // Max. Punkte
+            double reachedPoints = calculateReachedPointsForCategory(themenbereich);
+            table.AddCell(reachedPoints.ToString()); // Erreichte Punkte
+            double percantage = 0;
+            try
+            {
+                percantage = ((reachedPoints / maxPoints) * 100);
+            }
+            catch
+            {
+                percantage = 0;
+            }
+            table.AddCell(percantage.ToString("#,###") + " %"); // Erreichte Punkte (%)
+        }
+
+        // Festlegen der Trennungslinien
+        //table.DefaultCell.Border = Rectangle.NO_BORDER;
+        //table.DefaultCell.BorderColor = BaseColor.GRAY;
+        //table.DefaultCell.BorderWidthBottom = 0.5f;
+
+        // Hinzufügen der Tabelle zum Dokument
+        float xPosition = 50;
+        float yPosition = 580;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+        // Tabelle auf die gewünschte Position zeichnen
+        //table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+        //document.Add(table);
+
+    }
+
+    private void AddThirdPageLastText()
+    {
+        string firstParagraph = @"Gesamt wurden 26 Abweichungen bzw. Punkte mit Verbesserungspotential identifiziert. Für diese Abweichungen werden 14 Handlungsempfehlungen mit der Kritikalität ´hoch` eingestuft. Weitere 10 Handlungsempfehlungen wurden mit der Kritikalität ´mittel` beurteilt. Den restlichen 2 Hand- lungsempfehlungen wurde die Kritikalität ´niedrig` zugewiesen.";
+
+        for (int i = 0; i < 19; i++)
+        {
+            document.Add(new Paragraph("\n"));
+        }
+
+        Paragraph firstP = new Paragraph(firstParagraph);
+        firstP.Alignment = Element.ALIGN_CENTER;
+        document.Add(firstP);
+        string secondParagraph = @"In den Bereichen der organisatorischen Informationssicherheit ´Organisation`, ´Nutzungsrichtlinie`, ´Geheimhaltung und Datenschutz`, ´Asset- und Risikomanagement`, ´Notfallmanagement` und ´Awareness` wurde folgende Hauptabweichungen identifiziert:";
+        document.Add(new Paragraph("\n"));
+        firstP = new Paragraph(secondParagraph);
+        firstP.Alignment = Element.ALIGN_CENTER;
+        document.Add(firstP);
+        string thirdParagraph = @"             • Es gibt keine Regelung für die korrekte Entsorgung von Medien";
+        firstP = new Paragraph(thirdParagraph);
+        document.Add(firstP);
+        //document.Add(new Paragraph("\n"));
+
+        string fourthParagraph = @"             • Es gibt keine Notfallpläne";
+        firstP = new Paragraph(fourthParagraph);
+        document.Add(firstP);
+        document.Add(new Paragraph("\n"));
+
+        string fithParagraph = @"Im Bereich der technischen Informationssicherheit, ´Systembetrieb`, ´Netzwerk und Kommunikation` und ´Zutritts- und Zugriffsberechtigungen` wurden folgende Hauptabweichungen festgestellt:";
+        firstP = new Paragraph(fithParagraph);
+        firstP.Alignment = Element.ALIGN_CENTER;
+        document.Add(firstP);
+        document.Add(new Paragraph("\n"));
+    }
+
+    private void AddStandardFooter()
+    {
+        // Rechteck hinzufügen
+        PdfContentByte canvas = writer.DirectContent;
+        Rectangle rect = new Rectangle(0, 0, PageSize.A4.Width, 100);
+        rect.BackgroundColor = new BaseColor(82, 82, 82); // Graue Farbe setzen
+        canvas.Rectangle(rect);
+
+        Phrase general = new Phrase();
+
+        Chunk checkCompanyDate = new Chunk("IT Security Check, Musterfirma, " + DateTime.Now.ToString("MMM yyyy"));
+        general.Add(checkCompanyDate);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 110, 0);
+
+        general = new Phrase();
+
+        Chunk pageCount = new Chunk("Seite " + document.PageNumber + " / ");
+        Chunk maxPageCount = new Chunk(GetMaxPageCount() + "", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD));
+
+        general.Add(pageCount);
+        general.Add(maxPageCount);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 420, 110, 0);
+
+
+
+        //ColumnText columnText = new ColumnText(writer.DirectContent);
+        //columnText.SetSimpleColumn(40, 80, 200, 60); // Koordinaten und Größe des Textbereichs anpassen
+
+        //BaseColor backgroundColor = new BaseColor(50, 50, 50); // Dunkelgraue Hintergrundfarbe
+
+        //// Rechteck für den Hintergrund zeichnen
+        //PdfContentByte contentByte = writer.DirectContent;
+        //contentByte.SetColorFill(backgroundColor);
+        //contentByte.Fill();
+
+
+
+        // Text schreiben
+        general = new Phrase();
+
+        Chunk redLine = new Chunk("| ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.RED));
+        Chunk firstGrayLine = new Chunk("Haus des Internets ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk secondGrayLine = new Chunk("Haus der Sicherheit ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk thirdGrayLine = new Chunk("Haus der Digitalisierung ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+
+        general.Add(redLine);
+        general.Add(firstGrayLine);
+        general.Add(redLine);
+        general.Add(secondGrayLine);
+        general.Add(redLine);
+        general.Add(thirdGrayLine);
+        ColumnText.ShowTextAligned(canvas, Element.ALIGN_LEFT, general, 40, 70, 0);
+
+        general = new Phrase();
+
+        Chunk fourthGrayLine = new Chunk("Haus der Arbeitsplätze ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk fithGrayLine = new Chunk("Haus der Daten ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+        Chunk sixthGrayLine = new Chunk("Haus der Netzwerke ", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE));
+
+        general.Add(redLine);
+        general.Add(fourthGrayLine);
+        general.Add(redLine);
+        general.Add(fithGrayLine);
+        general.Add(redLine);
+        general.Add(sixthGrayLine);
+        ColumnText.ShowTextAligned(canvas, Element.ALIGN_LEFT, general, 40, 50, 0);
+
+        general = new Phrase();
+
+        Chunk seventhGrayLine = new Chunk("INFOTECH EDV-Systeme GmbH | Schärdinger Straße 35 | 4910 Ried i.I. | Tel +43 7752 81711 | E-Mail office@infotech.at | www.infotech.at", new Font(Font.FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.WHITE));
+        general.Add(seventhGrayLine);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 40, 20, 0);
+
+        string relativePath = "Pictures/FooterRightBottom.png";
+        string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
+        Image image = Image.GetInstance(fullPath);
+        image.ScaleToFit(210, 90);
+        image.Alignment = iTextSharp.text.Image.ALIGN_RIGHT;
+        image.Border = 20;
+        image.BorderColor = BaseColor.WHITE;
+
+        float x = 500;
+        float y = 30;
+
+        canvas.AddImage(image, image.ScaledWidth, 0f, 0f, image.ScaledHeight, x, y);
+
+        //Das mit den Max Seitenanzahl geht nicht
+        //Infotech fragen, ob sie report schicken können!
+    }
+
+    private void AddPoints()
+    {
+        //Paragraph firstP = new Paragraph();
+        //document.Add(new Paragraph("\n"));
+        //string p = @"             • Mobile Datenträger werden nicht verschlüsselt";
+        //firstP = new Paragraph(p);
+        //document.Add(firstP);
+
+
+        //p = @"             • Kryptografische Schlüssel werden nicht zentral verwaltet";
+        //firstP = new Paragraph(p);
+        //document.Add(firstP);
+
+        //p = @"             • Es werden nicht mehrere Backupstände extern vorgehalten";
+        //firstP = new Paragraph(p);
+        //document.Add(firstP);
+
+        //p = @"             • Die Funktionalität der Datensicherung wird nicht regelmäßig geprüft";
+        //firstP = new Paragraph(p);
+        //document.Add(firstP);
+
+        //p = @"             • Extern erreichbare Zugänge werden nicht durch eine Multi-Faktor-Authentifizierung                  geschützt";
+        //firstP = new Paragraph(p);
+        //document.Add(firstP);
+
+        //p = @"             • Einige Benutzer arbeiten permanent mit privilegierten Konten";
+        //firstP = new Paragraph(p);
+        //document.Add(firstP);
+
+        //string firstParagraph = @"Unter Berücksichtigung aller Fragen ergibt sich ein durchschnittlicher Security Score von 0,9 von maximal 3 möglichen Punkten. Wird pro Kategorie ein Security Score von >= 2,0 Punkten erreicht, kann davon ausgegangen werden, dass die Anforderungen weitestgehend erfüllt sind und einem gutem Sicherheitsniveau entsprechen. Um einen Score von 3 Punkten zu erreichen, müssen alle Anforderungen gängiger Normen erfüllt sein. Dies erfordert einerseits umfangreiche technische Maßnahmen sowie definierte und gelebte Prozesse samt regelmäßigen Audits und Verbesserungen.";
+
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //document.Add(new Paragraph("\n"));
+        //firstP = new Paragraph(firstParagraph);
+        //document.Add(firstP);
+
+        string relativePath = "Pictures/ReportGraphic.png";
+        string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
+        iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(fullPath);
+        image.SetAbsolutePosition(50, 150);
+
+        image.ScaleToFit(475f, 420f);
+        document.Add(image);
+
+    }
+    private void AddDetails(string category)
+    {
+        Phrase general = new Phrase();
+        Chunk header = new Chunk("DETAILS", new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD, BaseColor.RED));
+
+        general.Add(header);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 720, 0);
+
+        general = new Phrase();
+        header = new Chunk(category, new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.RED));
+        general.Add(header);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 680, 0);
+
+    }
+
+    private void AddFirstDetailQuestion(QuestionDto question)
+    {
+        var general = new Phrase();
+        var header = new Chunk(question.Question, new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD, BaseColor.WHITE));
+        header.SetBackground(new BaseColor(64, 64, 64));
+        general.Add(header);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 655, 0);
+
+        // Erstellen einer Tabelle für die Checkboxen
+        //for (int i = 0; i < 6; i++)
+        //{
+        //    document.Add(new Paragraph("\n"));
+        //}
+
+
+        PdfPTable table = new PdfPTable(3);
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+
+        float[] columnWidths = { 0.5f, 3f, 16f };
+        table.SetWidths(columnWidths);
+
+
+
+        // Checkbox 0: Ausgefüllt
+
+        PdfPCell cell2 = new PdfPCell();
+        cell2.Border = Rectangle.NO_BORDER;
+        cell2.CellEvent = new CheckboxCellEvent(question.Answer.AnswerZero.Selected);
+        table.AddCell(cell2);
+
+        PdfPCell cell1 = new PdfPCell(new Phrase("Bewertung 0:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell1.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell1);
+
+        PdfPCell cell9 = new PdfPCell(new Phrase(question.Answer.AnswerZero.Answertext));
+        cell9.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell9);
+
+        // Checkbox 1: Nicht ausgefüllt
+        PdfPCell cell4 = new PdfPCell();
+        cell4.Border = Rectangle.NO_BORDER;
+        cell4.CellEvent = new CheckboxCellEvent(question.Answer.AnswerOne.Selected);
+        table.AddCell(cell4);
+
+        PdfPCell cell3 = new PdfPCell(new Phrase("Bewertung 1:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell3.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell3);
+
+        PdfPCell cell10 = new PdfPCell(new Phrase(question.Answer.AnswerOne.Answertext));
+        cell10.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell10);
+
+        // Checkbox 2: Nicht ausgefüllt
+        PdfPCell cell6 = new PdfPCell();
+        cell6.Border = Rectangle.NO_BORDER;
+        cell6.CellEvent = new CheckboxCellEvent(question.Answer.AnswerTwo.Selected);
+        table.AddCell(cell6);
+
+        PdfPCell cell5 = new PdfPCell(new Phrase("Bewertung 2:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell5.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell5);
+
+        PdfPCell cell11 = new PdfPCell(new Phrase(question.Answer.AnswerTwo.Answertext));
+        cell11.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell11);
+
+        // Checkbox 3: Nicht ausgefüllt
+        PdfPCell cell8 = new PdfPCell();
+        cell8.Border = Rectangle.NO_BORDER;
+        cell8.CellEvent = new CheckboxCellEvent(question.Answer.AnswerThree.Selected);
+        table.AddCell(cell8);
+
+        PdfPCell cell7 = new PdfPCell(new Phrase("Bewertung 3:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell7.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell7);
+
+        PdfPCell cell12 = new PdfPCell(new Phrase(question.Answer.AnswerThree.Answertext));
+        cell12.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell12);
+
+        float xPosition = 50;
+        float yPosition = 640;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+
+        //-------------------------- 2. Tabelle
+
+        table = new PdfPTable(2);
+        table.WidthPercentage = 100;
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+        float[] c = { 5f, 4f };
+        table.SetWidths(c);
+        // Erstellen des linken Headers
+        PdfPCell header1 = new PdfPCell(new Phrase("BEGRÜNDUNG/UMGESETZTE MASSNAHMEN:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
+        header1.BackgroundColor = new BaseColor(169, 169, 169); // Grauer Hintergrund
+        table.AddCell(header1);
+
+        // Erstellen des rechten Headers
+        PdfPCell header2 = new PdfPCell(new Phrase("RISIKO/EMPFEHLUNG:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
+        header2.BackgroundColor = new BaseColor(169, 169, 169); // Grauer Hintergrund
+        table.AddCell(header2);
+
+        // Einfügen des Textes in der linken Spalte
+        cell1 = new PdfPCell(new Phrase(question.Reason, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell1.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
+        table.AddCell(cell1);
+
+        // Einfügen des Textes in der rechten Spalte
+        cell2 = new PdfPCell(new Phrase(question.Recommendation, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell2.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
+
+
+        table.AddCell(cell2);
+
+        xPosition = 50;
+        yPosition = 520;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+    }
+
+    private void AddSecondDetailQuestion(QuestionDto question)
+    {
+        var general = new Phrase();
+        var header = new Chunk(question.Question, new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD, BaseColor.WHITE));
+        header.SetBackground(new BaseColor(64, 64, 64));
+        general.Add(header);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 400, 0);
+
+        // Erstellen einer Tabelle für die Checkboxen
+        //for (int i = 0; i < 6; i++)
+        //{
+        //    document.Add(new Paragraph("\n"));
+        //}
+
+
+        PdfPTable table = new PdfPTable(3);
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+
+        float[] columnWidths = { 0.5f, 3f, 16f };
+        table.SetWidths(columnWidths);
+
+
+
+        // Checkbox 0: Ausgefüllt
+
+        PdfPCell cell2 = new PdfPCell();
+        cell2.Border = Rectangle.NO_BORDER;
+        cell2.CellEvent = new CheckboxCellEvent(question.Answer.AnswerZero.Selected);
+        table.AddCell(cell2);
+
+        PdfPCell cell1 = new PdfPCell(new Phrase("Bewertung 0:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell1.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell1);
+
+        PdfPCell cell9 = new PdfPCell(new Phrase(question.Answer.AnswerZero.Answertext));
+        cell9.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell9);
+
+        // Checkbox 1: Nicht ausgefüllt
+        PdfPCell cell4 = new PdfPCell();
+        cell4.Border = Rectangle.NO_BORDER;
+        cell4.CellEvent = new CheckboxCellEvent(question.Answer.AnswerOne.Selected);
+        table.AddCell(cell4);
+
+        PdfPCell cell3 = new PdfPCell(new Phrase("Bewertung 1:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell3.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell3);
+
+        PdfPCell cell10 = new PdfPCell(new Phrase(question.Answer.AnswerOne.Answertext));
+        cell10.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell10);
+
+        // Checkbox 2: Nicht ausgefüllt
+        PdfPCell cell6 = new PdfPCell();
+        cell6.Border = Rectangle.NO_BORDER;
+        cell6.CellEvent = new CheckboxCellEvent(question.Answer.AnswerTwo.Selected);
+        table.AddCell(cell6);
+
+        PdfPCell cell5 = new PdfPCell(new Phrase("Bewertung 2:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell5.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell5);
+
+        PdfPCell cell11 = new PdfPCell(new Phrase(question.Answer.AnswerTwo.Answertext));
+        cell11.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell11);
+
+        // Checkbox 3: Nicht ausgefüllt
+        PdfPCell cell8 = new PdfPCell();
+        cell8.Border = Rectangle.NO_BORDER;
+        cell8.CellEvent = new CheckboxCellEvent(question.Answer.AnswerThree.Selected);
+        table.AddCell(cell8);
+
+        PdfPCell cell7 = new PdfPCell(new Phrase("Bewertung 3:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell7.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell7);
+
+        PdfPCell cell12 = new PdfPCell(new Phrase(question.Answer.AnswerThree.Answertext));
+        cell12.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell12);
+
+        float xPosition = 50;
+        float yPosition = 385;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+
+        //-------------------------- 2. Tabelle
+
+        table = new PdfPTable(2);
+        table.WidthPercentage = 100;
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+
+        // Erstellen des linken Headers
+        PdfPCell header1 = new PdfPCell(new Phrase("BEGRÜNDUNG/UMGESETZTE MASSNAHMEN:", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+        header1.BackgroundColor = new BaseColor(169, 169, 169); // Grauer Hintergrund
+        table.AddCell(header1);
+
+        // Erstellen des rechten Headers
+        PdfPCell header2 = new PdfPCell(new Phrase("RISIKO/EMPFEHLUNG:", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.WHITE)));
+        header2.BackgroundColor = new BaseColor(169, 169, 169); // Grauer Hintergrund
+        table.AddCell(header2);
+
+        // Einfügen des Textes in der linken Spalte
+        cell1 = new PdfPCell(new Phrase(question.Reason, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell1.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
+        table.AddCell(cell1);
+
+        // Einfügen des Textes in der rechten Spalte
+        cell2 = new PdfPCell(new Phrase(question.Recommendation, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell2.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
+
+
+        table.AddCell(cell2);
+
+        xPosition = 50;
+        yPosition = 270;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+
+        //--------------SECOND
+
+        //AddSecondDetailsTable();
+
+    }
+
+    private void DetailsPages()
+    {
+        //AddImgRightCorner();
+
+        //AddDetails();
+
+
+        //AddStandardFooter();
+        int nrCategories = _allQuestionsAndAnswers.Select(x => x.Category).Distinct().Count();
+        int nrQuestion = _allQuestionsAndAnswers.Select(x => x.Question).Count();
+        bool isEven = false;
+        if (nrQuestion % 2 == 1) isEven = true;
+
+
+        for (int i = 0; i < nrCategories; i++)
+        {
+            //AddNewEmptyPage();
+            var currentCategory = _allQuestionsAndAnswers.Select(x => x.Category).ToList()[i];
+            AddDetails(currentCategory);
+            AddImgRightCorner();
+            int nrQuestions = (_allQuestionsAndAnswers.Where(x => x.Category == currentCategory).Select(x => x.Question).Count());
+            for (int j = 0; j < nrQuestion; j++)
+            {
+                try
+                {
+                    AddFirstDetailQuestion(_allQuestionsAndAnswers.Where(x => x.Category == currentCategory).Select(x => x).ToList()[j]);
+                    AddSecondDetailQuestion(_allQuestionsAndAnswers.Where(x => x.Category == currentCategory).Select(x => x).ToList()[++j]);
+                    AddNewEmptyPage();
+                    //j++;
+                }
+                catch (Exception ex)
+                {
+                    break;
+                }
+            }
+        }
+
+        //for (int i = 0; i < 6; i++)
+        //{
+        //    AddNewEmptyPage();
+        //    AddImgRightCorner();
+        //    AddSecondDetailsTable();
+
+        //    AddStandardFooter();
+        //}
+
+    }
+
+    private void AddSecondDetailsTable()
+    {
+        var general = new Phrase();
+        var header = new Chunk("1. UNTERSTÜTZT DAS MANAGEMENT DAS THEMA INFORMATIONSSICHERHEIT?", new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD, BaseColor.WHITE));
+        header.SetBackground(new BaseColor(64, 64, 64));
+        general.Add(header);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 720, 0);
+
+        // Erstellen einer Tabelle für die Checkboxen
+        //for (int i = 0; i < 6; i++)
+        //{
+        //    document.Add(new Paragraph("\n"));
+        //}
+
+
+        PdfPTable table = new PdfPTable(3);
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+
+        float[] columnWidths = { 0.5f, 3f, 16f };
+        table.SetWidths(columnWidths);
+
+
+
+        // Checkbox 0: Ausgefüllt
+
+        PdfPCell cell2 = new PdfPCell();
+        cell2.Border = Rectangle.NO_BORDER;
+        cell2.CellEvent = new CheckboxCellEvent(true);
+        table.AddCell(cell2);
+
+        PdfPCell cell1 = new PdfPCell(new Phrase("Bewertung 0:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell1.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell1);
+
+        PdfPCell cell9 = new PdfPCell(new Phrase("Das Thema Informationssicherheit wird vom Management nicht getragen."));
+        cell9.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell9);
+
+        // Checkbox 1: Nicht ausgefüllt
+        PdfPCell cell4 = new PdfPCell();
+        cell4.Border = Rectangle.NO_BORDER;
+        cell4.CellEvent = new CheckboxCellEvent(false);
+        table.AddCell(cell4);
+
+        PdfPCell cell3 = new PdfPCell(new Phrase("Bewertung 1:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell3.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell3);
+
+        PdfPCell cell10 = new PdfPCell(new Phrase("Das Thema Informationssicherheit ist dem Management bekannt, wird aber nur eingeschränkt unterstützt."));
+        cell10.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell10);
+
+        // Checkbox 2: Nicht ausgefüllt
+        PdfPCell cell6 = new PdfPCell();
+        cell6.Border = Rectangle.NO_BORDER;
+        cell6.CellEvent = new CheckboxCellEvent(false);
+        table.AddCell(cell6);
+
+        PdfPCell cell5 = new PdfPCell(new Phrase("Bewertung 2:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell5.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell5);
+
+        PdfPCell cell11 = new PdfPCell(new Phrase("Die Wichtigkeit ist dem Management bewusst, Infromationssicherheit wird allerdings nicht aktiv eingefordert."));
+        cell11.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell11);
+
+        // Checkbox 3: Nicht ausgefüllt
+        PdfPCell cell8 = new PdfPCell();
+        cell8.Border = Rectangle.NO_BORDER;
+        cell8.CellEvent = new CheckboxCellEvent(false);
+        table.AddCell(cell8);
+
+        PdfPCell cell7 = new PdfPCell(new Phrase("Bewertung 3:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell7.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell7);
+
+        PdfPCell cell12 = new PdfPCell(new Phrase("Das Thema Informationssicherheit wird vom Management eingefordert und uneingeschränkt unterstützt."));
+        cell12.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell12);
+
+        float xPosition = 50;
+        float yPosition = 705;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+
+        //-------------------------- 2. Tabelle
+
+        table = new PdfPTable(2);
+        table.WidthPercentage = 100;
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+        float[] c = { 5f, 4f };
+        table.SetWidths(c);
+        // Erstellen des linken Headers
+        PdfPCell header1 = new PdfPCell(new Phrase("BEGRÜNDUNG/UMGESETZTE MASSNAHMEN:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
+        header1.BackgroundColor = new BaseColor(169, 169, 169); // Grauer Hintergrund
+        table.AddCell(header1);
+
+        // Erstellen des rechten Headers
+        PdfPCell header2 = new PdfPCell(new Phrase("RISIKO/EMPFEHLUNG:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
+        header2.BackgroundColor = new BaseColor(169, 169, 169); // Grauer Hintergrund
+        table.AddCell(header2);
+
+        // Einfügen des Textes in der linken Spalte
+        cell1 = new PdfPCell(new Phrase("Das Management fordert Informationssicherheit nicht aktiv ein. Wird ein Bedarf gemeldet, werden Ressourcen jedoch freigegeben (z. B. Anschaffung von Hardware).", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell1.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
+        table.AddCell(cell1);
+
+        // Einfügen des Textes in der rechten Spalte
+        cell2 = new PdfPCell(new Phrase("Informationssicherheit sollte vom Management in einer für alle Mitarbeiter verbindlichen Richtlinie eingefordert werden.\n" +
+            "Kritikalität: ", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell2.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
+
+
+        table.AddCell(cell2);
+
+        xPosition = 50;
+        yPosition = 585;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+
+        AddSecondSecondDetailsTable();
+    }
+
+    private void AddSecondSecondDetailsTable()
+    {
+        var general = new Phrase();
+        var header = new Chunk("1. UNTERSTÜTZT DAS MANAGEMENT DAS THEMA INFORMATIONSSICHERHEIT?", new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD, BaseColor.WHITE));
+        header.SetBackground(new BaseColor(64, 64, 64));
+        general.Add(header);
+        ColumnText.ShowTextAligned(writer.DirectContent, Element.ALIGN_LEFT, general, 50, 450, 0);
+
+        // Erstellen einer Tabelle für die Checkboxen
+        //for (int i = 0; i < 6; i++)
+        //{
+        //    document.Add(new Paragraph("\n"));
+        //}
+
+
+        PdfPTable table = new PdfPTable(3);
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+
+        float[] columnWidths = { 0.5f, 3f, 16f };
+        table.SetWidths(columnWidths);
+
+
+
+        // Checkbox 0: Ausgefüllt
+
+        PdfPCell cell2 = new PdfPCell();
+        cell2.Border = Rectangle.NO_BORDER;
+        cell2.CellEvent = new CheckboxCellEvent(true);
+        table.AddCell(cell2);
+
+        PdfPCell cell1 = new PdfPCell(new Phrase("Bewertung 0:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell1.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell1);
+
+        PdfPCell cell9 = new PdfPCell(new Phrase("Das Thema Informationssicherheit wird vom Management nicht getragen."));
+        cell9.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell9);
+
+        // Checkbox 1: Nicht ausgefüllt
+        PdfPCell cell4 = new PdfPCell();
+        cell4.Border = Rectangle.NO_BORDER;
+        cell4.CellEvent = new CheckboxCellEvent(false);
+        table.AddCell(cell4);
+
+        PdfPCell cell3 = new PdfPCell(new Phrase("Bewertung 1:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell3.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell3);
+
+        PdfPCell cell10 = new PdfPCell(new Phrase("Das Thema Informationssicherheit ist dem Management bekannt, wird aber nur eingeschränkt unterstützt."));
+        cell10.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell10);
+
+        // Checkbox 2: Nicht ausgefüllt
+        PdfPCell cell6 = new PdfPCell();
+        cell6.Border = Rectangle.NO_BORDER;
+        cell6.CellEvent = new CheckboxCellEvent(false);
+        table.AddCell(cell6);
+
+        PdfPCell cell5 = new PdfPCell(new Phrase("Bewertung 2:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell5.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell5);
+
+        PdfPCell cell11 = new PdfPCell(new Phrase("Die Wichtigkeit ist dem Management bewusst, Infromationssicherheit wird allerdings nicht aktiv eingefordert."));
+        cell11.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell11);
+
+        // Checkbox 3: Nicht ausgefüllt
+        PdfPCell cell8 = new PdfPCell();
+        cell8.Border = Rectangle.NO_BORDER;
+        cell8.CellEvent = new CheckboxCellEvent(false);
+        table.AddCell(cell8);
+
+        PdfPCell cell7 = new PdfPCell(new Phrase("Bewertung 3:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
+        cell7.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell7);
+
+        PdfPCell cell12 = new PdfPCell(new Phrase("Das Thema Informationssicherheit wird vom Management eingefordert und uneingeschränkt unterstützt."));
+        cell12.Border = Rectangle.NO_BORDER;
+        table.AddCell(cell12);
+
+        float xPosition = 50;
+        float yPosition = 435;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+
+        //-------------------------- 2. Tabelle
+
+        table = new PdfPTable(2);
+        table.WidthPercentage = 100;
+        table.DefaultCell.Border = Rectangle.NO_BORDER;
+        float[] c = { 5f, 4f };
+        table.SetWidths(c);
+
+        // Erstellen des linken Headers
+        PdfPCell header1 = new PdfPCell(new Phrase("BEGRÜNDUNG/UMGESETZTE MASSNAHMEN:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
+        header1.BackgroundColor = new BaseColor(169, 169, 169); // Grauer Hintergrund
+        table.AddCell(header1);
+
+        // Erstellen des rechten Headers
+        PdfPCell header2 = new PdfPCell(new Phrase("RISIKO/EMPFEHLUNG:", new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
+        header2.BackgroundColor = new BaseColor(169, 169, 169); // Grauer Hintergrund
+        table.AddCell(header2);
+
+        // Einfügen des Textes in der linken Spalte
+        cell1 = new PdfPCell(new Phrase("Das Management fordert Informationssicherheit nicht aktiv ein. Wird ein Bedarf gemeldet, werden Ressourcen jedoch freigegeben (z. B. Anschaffung von Hardware).", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell1.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
+        table.AddCell(cell1);
+
+        // Einfügen des Textes in der rechten Spalte
+        cell2 = new PdfPCell(new Phrase("Informationssicherheit sollte vom Management in einer für alle Mitarbeiter verbindlichen Richtlinie eingefordert werden.\n" +
+            "Kritikalität: ", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell2.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
+
+
+        table.AddCell(cell2);
+
+        xPosition = 50;
+        yPosition = 315;
+
+        table.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+        table.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
+
+    }
+
+    private void DiagramPage()
+    {
+        AddImgRightCorner();
+
+
+        AddPoints();
+
+
+
+        AddStandardFooter();
+    }
+
 }
