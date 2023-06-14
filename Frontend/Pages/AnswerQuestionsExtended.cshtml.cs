@@ -155,6 +155,7 @@ public class AnswerQuestionsExtendedModel : PageModel
     {
         Initialize();
         _logger.LogInformation("AnswerQuestionsExtendedModel OnPostDownloadSecurityCheck");
+        
         PDFReport pdf = new PDFReport(_db, AllQuestionsAndAnswers, img, new PdfReportDto()
         {
             TypeOfExecution = TypeOfExecution,

@@ -21,6 +21,18 @@ public class PDFReport
         _allQuestionsAndAnswers = allQuestionsAndAnswers;
         _chart = chart;
         _pdfReportDto = pdfReportDto;
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        string relativePath = "Pictures/NetDiagram.png";
+        string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
+
+        using (var stream = new FileStream(fullPath, FileMode.Create))
+        {
+            _chart.CopyTo(stream);
+        }
     }
 
     public void CreatePDF()
@@ -842,7 +854,7 @@ public class PDFReport
         //firstP = new Paragraph(firstParagraph);
         //document.Add(firstP);
 
-        string relativePath = "Pictures/ReportGraphic.png";
+        string relativePath = "Pictures/NetDiagram.png";
         string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
         iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(fullPath);
         image.SetAbsolutePosition(50, 150);
