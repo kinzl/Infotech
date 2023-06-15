@@ -12,6 +12,7 @@ public class ChangePassword : PageModel
     private SecurityCheckContext _db;
     private string BodyUsername;
     public string? ErrorText;
+    public static string? BaseUrl = "https://localhost:7000/";
 
     public ChangePassword(ILogger<ChangePassword> logger, SecurityCheckContext db)
     {
@@ -35,10 +36,11 @@ public class ChangePassword : PageModel
         return new RedirectToPageResult("MainWindow");
     }
 
-    public IActionResult OnPostChangePassword(string? oldPassword, string? newPassword, string? newPasswordRepeated)
+    public IActionResult OnPostChangePassword(string? oldPassword, string? newPassword, string? newPasswordRepeated, string? baseUrl)
     {
         _logger.LogInformation("ChangePassword OnPostChangePassword");
         OnGet("");
+        BaseUrl = baseUrl;
         if (oldPassword.IsNullOrEmpty() || newPassword.IsNullOrEmpty() || newPasswordRepeated.IsNullOrEmpty())
             return new RedirectToPageResult("ChangePassword", new { ErrorText = "Some fields were empty" });
 
@@ -46,7 +48,7 @@ public class ChangePassword : PageModel
         string oldhash = _db.UserNames.Where(x => x.Username == BodyUsername).Select(x => x.PasswordHash).First();
         Console.WriteLine("Hash von db= " + oldhash);
         string oldsalt = _db.UserNames.Where(x => x.Username == BodyUsername).Select(x => x.PasswordSalt).First();
-        
+
         if (pe.VerifyPassword(oldPassword, oldhash, oldsalt))
         {
             if (newPassword.Equals(newPasswordRepeated))

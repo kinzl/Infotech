@@ -28,10 +28,15 @@ public class PDFReport
     {
         string relativePath = "Pictures/NetDiagram.png";
         string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
-
-        using (var stream = new FileStream(fullPath, FileMode.Create))
+        try
         {
-            _chart.CopyTo(stream);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                _chart.CopyTo(stream);
+            }
+        }catch (Exception ex)
+        {
+            Console.WriteLine("No picture found");
         }
     }
 
@@ -987,7 +992,7 @@ public class PDFReport
         table.AddCell(cell1);
 
         // Einfügen des Textes in der rechten Spalte
-        cell2 = new PdfPCell(new Phrase(question.Recommendation, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell2 = new PdfPCell(new Phrase(question.Recommendation + "\n\nKritikalität: " + question.Criticality, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
         cell2.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
 
 
@@ -1108,7 +1113,7 @@ public class PDFReport
         table.AddCell(cell1);
 
         // Einfügen des Textes in der rechten Spalte
-        cell2 = new PdfPCell(new Phrase(question.Recommendation, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
+        cell2 = new PdfPCell(new Phrase(question.Recommendation + "\n\nKritikalität: " + question.Criticality, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.BLACK)));
         cell2.BackgroundColor = new BaseColor(220, 220, 220); // Hellgrauer Hintergrund
 
 
