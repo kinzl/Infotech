@@ -155,7 +155,7 @@ public class AnswerQuestionsExtendedModel : PageModel
     {
         Initialize();
         _logger.LogInformation("AnswerQuestionsExtendedModel OnPostDownloadSecurityCheck");
-        
+
         PDFReport pdf = new PDFReport(_db, AllQuestionsAndAnswers, img, new PdfReportDto()
         {
             TypeOfExecution = TypeOfExecution,
@@ -167,7 +167,14 @@ public class AnswerQuestionsExtendedModel : PageModel
             ManagementSummary = ManagementSummary,
             Scope = Scope
         });
-        pdf.CreatePDF();
+        try
+        {
+            pdf.CreatePDF();
+        }
+        catch (Exception e)
+        {
+            return new RedirectToPageResult("MainWindow", new { ErrorText = "No Image uploaded" });
+        }
         return new RedirectToPageResult("MainWindow");
     }
 

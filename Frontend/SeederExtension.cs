@@ -20,34 +20,22 @@ public static class SeederExtension
         };
         //pw = admin
         db.UserNames.Add(admin);
-        UserName kinzle = new UserName
-        {
-            IsAdmin = false,
-            Username = "kinzle",
-            PasswordHash = "fr0c/l2J0T0aEH97GleMLx9gofiYEmOUmGO7WJFreFLMy42Q1aBeRl7YN1LDQMo9S2pdThFfiZhfsjA1Pgalsg==",
-            PasswordSalt = "AeRU+Bh/KnQq/iX7+klYqPOD9OkvGyNgTFIUmVuWbYyJnx691TIcpH2bYWJ5YCIewuLEb5ygDZqqpWFDjo85Hw=="
-        };
-        //pw = emilk
-        db.UserNames.Add(kinzle);
-        UserName davk = new UserName
-        {
-            IsAdmin = false,
-            Username = "davk",
-            PasswordHash = "9316F2B4B3EE2AFE5D429C907B7A08C464AC9D5381CB9C794CD4D7448D989341A8D7A285BA21A8564115E5E9C4AC39047F982AE118E27970F6F8F45FACC1B851",
-            PasswordSalt = "F6D1A4CF1CA463920D8D9534B414B9C19263B64019493A1CFE1E4E94780B9CD5ECE2A4815A8E87087F654368F4B6BE3041ABA48E5762CDE56D9BC05373EF17A9"
-        };
-        //dav funktioniert incht
-        //pw = IchbinDavK#1
-        db.UserNames.Add(davk);
-        UserName ich = new UserName
-        {
-            IsAdmin = false,
-            Username = "ich",
-            PasswordHash = "+yl49EVwtEMhNMrfygFuJtnBRyhvu3vW6SNig2TXdT+R8i3t53C+9C8bwPUO6xZDYGbDxCVk/S6x7k7gyywo7A==",
-            PasswordSalt = "vskwmQEjyLR3NM8B9D4iEhi5j+rSFMPxDB0AKZg1G96D9PM8EwwJIR6HVS/K1u5e2DCEaZEgjF6LYN43ZhsUdw=="
-        };
-        //pw = ich
-        db.UserNames.Add(ich);
+        //UserName kinzle = new UserName
+        //{
+        //    IsAdmin = false,
+        //    Username = "kinzle",
+        //    PasswordHash = "fr0c/l2J0T0aEH97GleMLx9gofiYEmOUmGO7WJFreFLMy42Q1aBeRl7YN1LDQMo9S2pdThFfiZhfsjA1Pgalsg==",
+        //    PasswordSalt = "AeRU+Bh/KnQq/iX7+klYqPOD9OkvGyNgTFIUmVuWbYyJnx691TIcpH2bYWJ5YCIewuLEb5ygDZqqpWFDjo85Hw=="
+        //};
+        //UserName ich = new UserName
+        //{
+        //    IsAdmin = false,
+        //    Username = "ich",
+        //    PasswordHash = "+yl49EVwtEMhNMrfygFuJtnBRyhvu3vW6SNig2TXdT+R8i3t53C+9C8bwPUO6xZDYGbDxCVk/S6x7k7gyywo7A==",
+        //    PasswordSalt = "vskwmQEjyLR3NM8B9D4iEhi5j+rSFMPxDB0AKZg1G96D9PM8EwwJIR6HVS/K1u5e2DCEaZEgjF6LYN43ZhsUdw=="
+        //};
+        ////pw = ich
+        //db.UserNames.Add(ich);
         db.SaveChanges();
    
     Criticality cr1 = new Criticality()

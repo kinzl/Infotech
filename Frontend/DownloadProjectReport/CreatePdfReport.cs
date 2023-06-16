@@ -26,18 +26,15 @@ public class PDFReport
 
     public void Initialize()
     {
+        if (_chart == null) return;
         string relativePath = "Pictures/NetDiagram.png";
         string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
-        try
+
+        using (var stream = new FileStream(fullPath, FileMode.Create))
         {
-            using (var stream = new FileStream(fullPath, FileMode.Create))
-            {
-                _chart.CopyTo(stream);
-            }
-        }catch (Exception ex)
-        {
-            Console.WriteLine("No picture found");
+            _chart.CopyTo(stream);
         }
+
     }
 
     public void CreatePDF()

@@ -100,8 +100,7 @@ public class UpdateSecurityCheck : PageModel
                 .Where(x => x.CustomerSurveyId == null)
                 .Select(x => x.Question.QuestionText)
                 .ToList()!;
-        try
-        {
+        
             var question = _db.SurveyQuestions
                 .Include(x => x.CustomerSurvey)
                 .Include(x => x.Question)
@@ -131,13 +130,12 @@ public class UpdateSecurityCheck : PageModel
                     }
                 }
             }
-        }
-        catch (Exception e)
-        {
-            return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "New Question already exists" });
-        }
+        //}
+        //catch (Exception e)
+        //{
+        //    return new RedirectToPageResult("UpdateSecurityCheck", new { ErrorText = "New Question already exists" });
+        //}
         return null;
-        // ToDo: What if question is null
     }
 
     public IActionResult OnGetRedirectToMainWindow()
@@ -360,8 +358,8 @@ public class UpdateSecurityCheck : PageModel
     public IActionResult OnPostDeleteQuestion(string? question)
     {
         _logger.Log(LogLevel.Information, "UpdateSecurityCheck OnPostDeleteQuestion");
-        //ToDo: Question cant be removed when seco check is created
         Initialize();
+        HttpContext.Session.SetString("SelectedQuestionPoolIndex", "0");
         try
         {
             var removeQuestion = _db.SurveyQuestions

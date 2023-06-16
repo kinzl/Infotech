@@ -69,11 +69,8 @@ public class ChangePassword : PageModel
             }
             return new RedirectToPageResult("MainWindow", new { ErrorText = "Password Changed" });
         }
-        else
-        {
-            return new RedirectToPageResult("ChangePassword", new { ErrorText = "Old Password does not match" });
-        }
-        //ToDo: Convert password to salt and hash and compare them
+
+        return new RedirectToPageResult("ChangePassword", new { ErrorText = "Old Password does not match" });
 
         //return new RedirectToPageResult("ChangePassword", new { ErrorText = "Error" });
     }

@@ -1,3 +1,4 @@
+using Microsoft.IdentityModel.Tokens;
 using SecurityCheckDbLib;
 using static iTextSharp.text.pdf.AcroFields;
 
@@ -59,7 +60,7 @@ public class AnswerQuestions : PageModel
         Classification = HttpContext.Session.GetString("Classification") ?? "";
         DocumentDistributor = HttpContext.Session.GetString("DocumentDistributor") ?? "";
         ManagementSummary = HttpContext.Session.GetString("ManagementSummaryText") ?? "";
-        
+
 
         var lastCustomerSurvey = _db.CustomerSurveys.Select(x => x).OrderBy(x => x.CustomerSurveyId).Last();
         AllQuestionsAndAnswers = _db.SurveyQuestions
@@ -225,29 +226,33 @@ public class AnswerQuestions : PageModel
         return new RedirectToPageResult("AnswerQuestionsExtended");
     }
 
-    public IActionResult OnPostSubmitCompanyName(string companyName, string typeOfExecution, string participants, string scope, string classification, string documentDistributor, string managementSummary)
+    public IActionResult OnPostSubmitCompanyName(string? companyName, string? typeOfExecution, string? participants, string? scope, string? classification, string? documentDistributor, string? managementSummary)
     {
+        //if (companyName.IsNullOrEmpty() || typeOfExecution.IsNullOrEmpty() || participants.IsNullOrEmpty() || scope.IsNullOrEmpty() || classification.IsNullOrEmpty() || documentDistributor.IsNullOrEmpty() || managementSummary.IsNullOrEmpty())
+        //{
+        //    return new RedirectToPageResult("AnswerQuestions");
+        //}
         _logger.LogInformation("AnswerQuestions OnPostSubmitCompanyName");
         var thisSurvey = _db.CustomerSurveys
             .Select(x => x)
             .OrderBy(x => x.CustomerSurveyId)
             .LastOrDefault();
-        thisSurvey.CompanyName = companyName;
-        thisSurvey.TypeOfSurvey = typeOfExecution;
-        thisSurvey.Participant = participants;
-        thisSurvey.Scope = scope;
-        thisSurvey.Classification = classification;
-        thisSurvey.DocumentDistributor = documentDistributor;
-        thisSurvey.ManagementSummaryText = managementSummary;
+        thisSurvey.CompanyName = companyName ?? "";
+        thisSurvey.TypeOfSurvey = typeOfExecution ?? "";
+        thisSurvey.Participant = participants ?? "";
+        thisSurvey.Scope = scope ?? "";
+        thisSurvey.Classification = classification ?? "";
+        thisSurvey.DocumentDistributor = documentDistributor ?? "";
+        thisSurvey.ManagementSummaryText = managementSummary ?? "";
         thisSurvey.DateOfExecution = DateTime.Now;
 
         _db.SaveChanges();
-        HttpContext.Session.SetString("CompanyName", companyName);
-        HttpContext.Session.SetString("TypeOfSurvey", typeOfExecution);
-        HttpContext.Session.SetString("Participant", participants);
-        HttpContext.Session.SetString("Classification", classification);
-        HttpContext.Session.SetString("DocumentDistributor", companyName);
-        HttpContext.Session.SetString("ManagementSummaryText", managementSummary);
+        HttpContext.Session.SetString("CompanyName", companyName ?? "");
+        HttpContext.Session.SetString("TypeOfSurvey", typeOfExecution ?? "");
+        HttpContext.Session.SetString("Participant", participants ?? "");
+        HttpContext.Session.SetString("Classification", classification ?? "");
+        HttpContext.Session.SetString("DocumentDistributor", companyName ?? "");
+        HttpContext.Session.SetString("ManagementSummaryText", managementSummary ?? "");
         return new RedirectToPageResult("AnswerQuestions");
     }
 }
