@@ -1160,6 +1160,7 @@ public class PDFReport
                 }
                 catch (Exception ex)
                 {
+                    AddNewEmptyPage();
                     break;
                 }
             }
