@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DownloadProjectReport\PDFs\**" />
+    <Content Remove="DownloadProjectReport\PDFs\**" />
+    <EmbeddedResource Remove="DownloadProjectReport\PDFs\**" />
+    <None Remove="DownloadProjectReport\PDFs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Pages\Shared\_Layout.cshtml" />
     <None Include="Pages\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="wwwroot\files\answerquestions\styles.css" />
@@ -44,10 +51,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SecurityCheckDbLib\SecurityCheckDbLib.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DownloadProjectReport\PDFs\" />
   </ItemGroup>
 
   <ItemGroup>

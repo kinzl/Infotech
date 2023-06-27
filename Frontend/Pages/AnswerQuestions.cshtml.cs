@@ -251,8 +251,9 @@ public class AnswerQuestions : PageModel
         HttpContext.Session.SetString("TypeOfSurvey", typeOfExecution ?? "");
         HttpContext.Session.SetString("Participant", participants ?? "");
         HttpContext.Session.SetString("Classification", classification ?? "");
-        HttpContext.Session.SetString("DocumentDistributor", companyName ?? "");
+        HttpContext.Session.SetString("Scope", scope ?? "");
         HttpContext.Session.SetString("ManagementSummaryText", managementSummary ?? "");
+        HttpContext.Session.SetString("DocumentDistributor", documentDistributor ?? "");
         return new RedirectToPageResult("AnswerQuestions");
     }
 }

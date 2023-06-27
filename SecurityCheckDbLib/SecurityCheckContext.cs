@@ -34,19 +34,19 @@ public partial class SecurityCheckContext : DbContext
 
     public virtual DbSet<UserName> UserNames { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        //if (optionsBuilder.IsConfigured) return;
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    //if (optionsBuilder.IsConfigured) return;
 
-        //kinzle
-        string connectionString = "Server=(LocalDB)\\mssqllocaldb;attachdbfilename=C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\SecurityCheckDbLib\\SecurityCheckDb.mdf;database=SecurityCheckDb;integrated security=True;MultipleActiveResultSets=True";
-        //matti
-        //string connectionString = "Server=(LocalDB)\\mssqllocaldb;attachdbfilename=C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Version23_05\\Infotech\\SecurityCheckDbLib\\SecurityCheckDb.mdf;database=SecurityCheckDb;integrated security=True;MultipleActiveResultSets=True";
+    //    //kinzle
+    //    string connectionString = "Server=(LocalDB)\\mssqllocaldb;attachdbfilename=C:\\Users\\kinzl\\OneDrive\\HtlGrieskirchen\\SYP\\Git\\Infotech\\SecurityCheckDbLib\\SecurityCheckDb.mdf;database=SecurityCheckDb;integrated security=True;MultipleActiveResultSets=True";
+    //    //matti
+    //    //string connectionString = "Server=(LocalDB)\\mssqllocaldb;attachdbfilename=C:\\Users\\kogle\\Desktop\\HTL#\\2022-2023\\SYP\\Version23_05\\Infotech\\SecurityCheckDbLib\\SecurityCheckDb.mdf;database=SecurityCheckDb;integrated security=True;MultipleActiveResultSets=True";
 
 
-        Console.WriteLine("Connectionstring: " + connectionString);
-        optionsBuilder.UseSqlServer(connectionString);
-    }
+    //    Console.WriteLine("Connectionstring: " + connectionString);
+    //    optionsBuilder.UseSqlServer(connectionString);
+    //}
     //protected override void OnModelCreating(ModelBuilder modelBuilder)
     //{
     //    modelBuilder.Entity<Answer>(entity =>

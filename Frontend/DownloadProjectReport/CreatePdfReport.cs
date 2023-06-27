@@ -506,7 +506,8 @@ public class PDFReport
 
         document = new iTextSharp.text.Document(PageSize.A4, 50, 50, 25, 25);
 
-        string filePath = "C:\\Users\\kinzl\\Downloads\\pdfreport.pdf";
+        var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProf‌​‌​ile​);
+        string filePath = userFolder + "\\Downloads\\pdfreport.pdf";
 
         writer = PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
 

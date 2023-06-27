@@ -365,6 +365,7 @@ public class UpdateSecurityCheck : PageModel
             var removeQuestion = _db.SurveyQuestions
                 .Include(x => x.Question)
                 .Include(x => x.Question.Answers)
+                .Where(x => x.Question.QuestionText == question)
                 .Where(x => x.Questionnaire.QuestionnaireId == null)
                 .Where(x => x.CustomerSurveyId == null)
                 .Select(x => x)
